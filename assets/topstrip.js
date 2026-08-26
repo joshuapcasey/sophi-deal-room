@@ -49,7 +49,6 @@
     ['portfolio.html',     'Portfolio'],
     ['market.html',        'Markets Map'],
     ['methodology.html',   'Methodology'],
-    ['accounts.html',      'Accounts'],
     ['levers.html',        'Acquisition'],
     ['downloads.html',     'Data Room'],
   ];
