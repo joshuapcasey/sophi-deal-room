@@ -17,20 +17,20 @@
   const CSS = `
   .dr-topstrip {
     position: sticky; top: 0; z-index: 500;
-    background: #0e1013;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: #FFFFFF;
+    border-bottom: 1px solid #E7E5E0;
     padding: 10px 32px;
     display: flex; align-items: center; justify-content: space-between;
     font-family: 'Inter', sans-serif;
     font-size: 13px;
   }
-  .dr-topstrip .dr-brand { display: flex; align-items: center; gap: 10px; color: #e8e6e0; font-weight: 500; }
-  .dr-topstrip .dr-brand-mark { width: 22px; height: 22px; border-radius: 5px; background: linear-gradient(135deg,#d4a24c,#a67c3a); display: grid; place-items: center; color: #14171c; font-family: 'Fraunces', 'Georgia', serif; font-weight: 700; font-size: 13px; }
-  .dr-topstrip .dr-brand-sub { color: #6b6f78; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-left: 4px; }
+  .dr-topstrip .dr-brand { display: flex; align-items: center; gap: 10px; color: #1F1D1B; font-weight: 500; }
+  .dr-topstrip .dr-brand-mark { width: 22px; height: 22px; border-radius: 5px; background: #673AB7; display: grid; place-items: center; color: #FFFFFF; font-family: 'Fraunces', 'Georgia', serif; font-weight: 700; font-size: 13px; }
+  .dr-topstrip .dr-brand-sub { color: #8A857F; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-left: 4px; }
   .dr-topstrip nav { display: flex; align-items: center; gap: 4px; }
-  .dr-topstrip nav a { padding: 6px 12px; border-radius: 6px; color: #a0a4ad; text-decoration: none; transition: all 140ms ease; font-weight: 500; }
-  .dr-topstrip nav a:hover { color: #e8e6e0; background: rgba(255,255,255,0.05); }
-  .dr-topstrip nav a.active { color: #d4a24c; background: rgba(212,162,76,0.1); }
+  .dr-topstrip nav a { padding: 6px 12px; border-radius: 6px; color: #4A4744; text-decoration: none; transition: all 140ms ease; font-weight: 500; }
+  .dr-topstrip nav a:hover { color: #1F1D1B; background: #F4F4F2; }
+  .dr-topstrip nav a.active { color: #673AB7; background: #EDE7F6; }
   @media (max-width: 720px) {
     .dr-topstrip { padding: 8px 12px; font-size: 12px; }
     .dr-topstrip nav { gap: 0; overflow-x: auto; }
