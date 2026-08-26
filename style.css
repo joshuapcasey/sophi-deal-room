@@ -1895,3 +1895,246 @@ body.market-view {
     rgba(148,163,184,0.25), rgba(148,163,184,0.25) 4px,
     rgba(148,163,184,0.10) 4px, rgba(148,163,184,0.10) 8px);
 }
+
+/* =========================================================================
+   DEAL ROOM v2 — Toggle, quartiles, sign-years, icon-on-chip markers
+   ========================================================================= */
+
+/* Quartile / year color tokens */
+:root {
+  --q1: #4A148C;
+  --q2: #7C3AED;
+  --q3: #A78BFA;
+  --q4: #D6C7F1;
+
+  --y1: #B45309;
+  --y2: #D97706;
+  --y3: #059669;
+  --y4: #0891B2;
+  --y5: #6366F1;
+  --y0: #CBC7BF;
+}
+
+/* View toggle */
+.view-toggle {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 4px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 14px;
+}
+.vt-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-2);
+  padding: 10px 12px;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  transition: all 140ms ease;
+}
+.vt-btn.active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 0 0 1.5px var(--sophi-purple), 0 1px 4px rgba(103,58,183,0.15);
+}
+.vt-btn .vt-lbl {
+  font-family: 'Fraunces', 'Inter', serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+.vt-btn .vt-sub {
+  font-size: 9.5px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.vt-btn.active .vt-sub { color: var(--sophi-purple); }
+
+/* KPI mini accent */
+.summary-mini .smini-val.accent { color: var(--sophi-purple); }
+
+/* Header stat accent + wins/avg columns */
+.hstat-val.accent { color: var(--sophi-purple); }
+
+/* Quartile swatches */
+.quartile-swatch {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.quartile-swatch.q1 { background: var(--q1); }
+.quartile-swatch.q2 { background: var(--q2); }
+.quartile-swatch.q3 { background: var(--q3); }
+.quartile-swatch.q4 { background: var(--q4); border: 1px solid var(--border-strong); }
+
+/* Year swatches */
+.year-swatch {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.year-swatch.y1 { background: var(--y1); }
+.year-swatch.y2 { background: var(--y2); }
+.year-swatch.y3 { background: var(--y3); }
+.year-swatch.y4 { background: var(--y4); }
+.year-swatch.y5 { background: var(--y5); }
+.year-swatch.y0 { background: var(--y0); border: 1px solid var(--border-strong); }
+
+/* Filter band label (e.g. ">$500K") */
+.filter-band {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  color: var(--text-3);
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+/* Unacquired divider + suboption */
+.filter-item.filter-unacq {
+  padding-top: 8px;
+  border-top: 1px dashed var(--border);
+  margin-top: 6px;
+}
+.filter-item.filter-suboption {
+  padding-left: 22px;
+  font-size: 12px;
+  color: var(--text-2);
+}
+.filter-item.filter-suboption .filter-label { font-size: 12px; }
+
+/* Type filter icon swatch (portfolio view) */
+.type-icon-swatch {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  display: grid; place-items: center;
+  color: var(--sophi-purple);
+  flex-shrink: 0;
+}
+.type-icon-swatch svg { width: 12px; height: 12px; }
+
+/* Icon-on-chip map markers */
+.map-marker.chip-marker {
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  box-shadow: 0 0 0 2px var(--surface), 0 3px 10px rgba(20,15,30,0.18);
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+.map-marker.chip-marker:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 0 2px var(--surface), 0 4px 14px rgba(20,15,30,0.28);
+  z-index: 10;
+}
+.map-marker.chip-marker svg { display: block; }
+
+/* Quartile chip colors (Market view) */
+.map-marker.chip-q1 { background: var(--q1); }
+.map-marker.chip-q2 { background: var(--q2); }
+.map-marker.chip-q3 { background: var(--q3); }
+.map-marker.chip-q4 { background: var(--q4); color: var(--text-2); }
+
+/* Year chip colors (Portfolio view) */
+.map-marker.chip-y1 { background: var(--y1); }
+.map-marker.chip-y2 { background: var(--y2); }
+.map-marker.chip-y3 { background: var(--y3); }
+.map-marker.chip-y4 { background: var(--y4); }
+.map-marker.chip-y5 { background: var(--y5); }
+.map-marker.chip-y0 { background: var(--y0); color: var(--text-2); }
+
+.map-marker.chip-muted { opacity: 0.55; }
+.map-marker.chip-fallback {
+  background: transparent !important;
+  border: 1.5px dashed var(--text-3);
+  color: var(--text-3);
+}
+
+/* Icons-on-map legend */
+.legend-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0;
+  font-size: 12.5px;
+  color: var(--text-2);
+}
+.legend-marker {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--sophi-purple);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px var(--surface), 0 1px 3px rgba(20,15,30,0.15);
+}
+.legend-marker svg { width: 13px; height: 13px; }
+.legend-marker.dashed {
+  background: transparent;
+  border: 1.5px dashed var(--text-3);
+  color: var(--text-3);
+  box-shadow: 0 0 0 2px var(--surface);
+}
+.legend-hint {
+  font-size: 11px;
+  color: var(--text-3);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* Header — additional stats (Wins, Avg $/Acct) */
+.header-stats {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+.header-stat { display: flex; flex-direction: column; align-items: flex-end; }
+.header-stat .hstat-val {
+  font-family: 'Fraunces', 'Inter', serif;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.header-stat .hstat-lbl {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+  margin-top: 5px;
+}
+
+/* Popup — refined */
+.maplibregl-popup-content {
+  border-radius: 8px !important;
+  padding: 10px 12px !important;
+  box-shadow: var(--shadow-md) !important;
+  border: 1px solid var(--border-strong) !important;
+}
+.maplibregl-popup-content .popup-title {
+  font-family: 'Fraunces', 'Inter', serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.maplibregl-popup-content .popup-meta {
+  font-size: 11px;
+  color: var(--text-3);
+}
+

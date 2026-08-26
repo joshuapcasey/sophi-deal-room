@@ -31,6 +31,40 @@
   const accounts = market.accounts;
   const summary = market.summary;
 
+  // ---- Quartile assignment (absolute TAM bands, market-agnostic) ---------
+  // Quartile 1: >$500K · Q2: $250-500K · Q3: $100-250K · Q4: <$100K
+  function assignQuartile(tam) {
+    const t = Number(tam) || 0;
+    if (t > 500000) return 1;
+    if (t > 250000) return 2;
+    if (t > 100000) return 3;
+    return 4;
+  }
+  accounts.forEach(a => {
+    a._quartile = assignQuartile(a.tam);
+    a._signYear = a.acquisition_year || 0; // 0 = unacquired by Y5
+    // rank within quartile (for chip sizing) — 1..N by TAM desc
+  });
+  // Rank within each quartile for market view chip sizing
+  [1,2,3,4].forEach(q => {
+    const bucket = accounts.filter(a => a._quartile === q)
+                           .sort((a,b) => (b.tam||0) - (a.tam||0));
+    bucket.forEach((a, i) => { a._quartileRank = i / Math.max(bucket.length - 1, 1); });
+  });
+  // Rank within each sign year by revenue contribution (for portfolio chip sizing)
+  [1,2,3,4,5].forEach(y => {
+    const bucket = accounts.filter(a => a._signYear === y)
+                           .sort((a,b) => (b.y5||0) - (a.y5||0));
+    bucket.forEach((a, i) => { a._yearRank = i / Math.max(bucket.length - 1, 1); });
+  });
+  accounts.filter(a => a._signYear === 0).forEach(a => { a._yearRank = 1; });
+
+  // ---- Derived market KPIs ------------------------------------------------
+  const acquired = accounts.filter(a => a._signYear > 0);
+  const nWins = acquired.length;
+  const totalY5 = acquired.reduce((s,a) => s + (Number(a.y5)||0), 0);
+  const avgY5 = nWins > 0 ? totalY5 / nWins : 0;
+
   // ---- Header / summary ---------------------------------------------------
   document.title = `${market.name} — Sophi Mobility Market Map`;
   document.getElementById('page-title').textContent = `${market.name} — Sophi Mobility`;
@@ -45,10 +79,8 @@
   document.getElementById('h-y5').textContent = '$' + fmtM(summary.y5_som);
   document.getElementById('h-y5-ratio').textContent =
     `(${(summary.y5_tam_ratio * 100).toFixed(0)}% of TAM)`;
-
-  document.getElementById('m-accounts').textContent = summary.n_accounts;
-  document.getElementById('m-insam').textContent = summary.n_in_sam;
-  document.getElementById('m-y1som').textContent = '$' + fmtM(summary.y1_som);
+  document.getElementById('h-wins').textContent = nWins;
+  document.getElementById('h-avg').textContent = '$' + fmtM(avgY5);
 
   // v3: market cap badge
   const cap = market.cap;
@@ -84,7 +116,21 @@
                  .filter(Boolean).join(' ').toLowerCase();
   });
 
-  // ---- Populate account type filters dynamically -------------------------
+  // ---- Populate quartile counts ------------------------------------------
+  [1,2,3,4].forEach(q => {
+    const c = accounts.filter(a => a._quartile === q).length;
+    const el = document.getElementById('count-q' + q);
+    if (el) el.textContent = c;
+  });
+
+  // ---- Populate acquisition year counts (portfolio view) ----------------
+  [1,2,3,4,5,0].forEach(y => {
+    const c = accounts.filter(a => a._signYear === y).length;
+    const el = document.getElementById('count-y' + y);
+    if (el) el.textContent = c;
+  });
+
+  // ---- Populate account type filters (portfolio view) --------------------
   const typeCounts = {};
   accounts.forEach(a => {
     const t = a.type || 'Unknown';
@@ -95,20 +141,82 @@
   typeFilters.innerHTML = sortedTypes.map(t => `
     <label class="filter-item">
       <input type="checkbox" checked data-type="${escAttr(t)}">
+      <span class="type-icon-swatch type-${escAttr(t.toLowerCase())}">${iconSvgFor(t)}</span>
       <span class="filter-label">${escHtml(t)}</span>
       <span class="filter-count">${typeCounts[t]}</span>
     </label>
   `).join('');
 
-  // ---- Update pool filter counts ----------------------------------------
-  Object.keys(POOL_LABEL).forEach(pool => {
-    const c = accounts.filter(a => a.pool === pool).length;
-    const el = document.getElementById('count-pool-' + pool);
-    if (el) el.textContent = c;
-    // Hide filter row if count is zero in this market (keeps sidebar tight)
-    const cb = document.querySelector(`input[data-pool="${pool}"]`);
-    if (cb && c === 0) cb.closest('.filter-item').style.display = 'none';
+  // ---- View state (Market vs Portfolio, session-persistent) --------------
+  const VIEW_KEY = 'sophi_deal_room_map_view';
+  let currentView = sessionStorage.getItem(VIEW_KEY) || 'market';
+  if (currentView !== 'market' && currentView !== 'portfolio') currentView = 'market';
+
+  function renderKpiMiniRow() {
+    const el = document.getElementById('kpi-mini-row');
+    if (currentView === 'market') {
+      el.innerHTML = `
+        <div class="summary-mini"><span class="smini-val">${summary.n_accounts}</span><span class="smini-lbl">Accounts</span></div>
+        <div class="summary-mini"><span class="smini-val">${summary.n_in_sam}</span><span class="smini-lbl">In SAM</span></div>
+        <div class="summary-mini"><span class="smini-val accent">$${fmtM(summary.tam)}</span><span class="smini-lbl">TAM</span></div>
+      `;
+    } else {
+      el.innerHTML = `
+        <div class="summary-mini"><span class="smini-val">${nWins}</span><span class="smini-lbl">Wins</span></div>
+        <div class="summary-mini"><span class="smini-val accent">$${fmtM(summary.y5_som)}</span><span class="smini-lbl">Y5 Run</span></div>
+        <div class="summary-mini"><span class="smini-val">$${fmtM(totalY5 + (summary.y1_som||0)*0)}</span><span class="smini-lbl">5-yr Cum</span></div>
+      `;
+      // 5-yr cumulative = sum of y1..y5 across all acquired accounts
+      const cum = acquired.reduce((s,a) => s + (Number(a.y1)||0) + (Number(a.y2)||0) + (Number(a.y3)||0) + (Number(a.y4)||0) + (Number(a.y5)||0), 0);
+      el.querySelectorAll('.summary-mini')[2].innerHTML =
+        `<span class="smini-val">$${fmtM(cum)}</span><span class="smini-lbl">5-yr Cum</span>`;
+    }
+  }
+
+  function applyViewMode() {
+    document.body.setAttribute('data-view', currentView);
+    document.querySelectorAll('#view-toggle .vt-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.view === currentView);
+    });
+    document.querySelectorAll('.view-market-only').forEach(el => {
+      el.style.display = currentView === 'market' ? '' : 'none';
+    });
+    document.querySelectorAll('.view-portfolio-only').forEach(el => {
+      el.style.display = currentView === 'portfolio' ? '' : 'none';
+    });
+    // Legend hint
+    const hint = document.getElementById('legend-hint');
+    if (hint) {
+      hint.textContent = currentView === 'market'
+        ? 'Chip color = quartile · Chip size = rank within quartile'
+        : 'Chip color = sign year · Chip size = revenue contribution';
+    }
+    renderKpiMiniRow();
+  }
+  document.querySelectorAll('#view-toggle .vt-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentView = btn.dataset.view;
+      sessionStorage.setItem(VIEW_KEY, currentView);
+      applyViewMode();
+      updateAllMarkers();
+      applyFilters();
+    });
   });
+
+  // ---- Icon SVGs (used for both markers and legend) ---------------------
+  function iconSvgFor(type) {
+    const t = (type || '').toLowerCase();
+    if (t.includes('hotel') || t.includes('lodging') || t.includes('extended')) {
+      // Building/hotel glyph
+      return '<svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
+    }
+    if (t.includes('restaurant') || t.includes('food') || t.includes('dining')) {
+      // Fork + knife
+      return '<svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
+    }
+    // Fallback: generic dot glyph
+    return '<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>';
+  }
 
   // ---- Build map ---------------------------------------------------------
   const center = market.center || [-98, 39];
@@ -138,19 +246,55 @@
   });
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
 
-  // Build markers
+  // Build icon-on-chip markers
   const markers = [];
   let activePopup = null;
+
+  function chipSizeFor(a) {
+    // Chip size scales inversely with rank (top of bucket = large, bottom = small)
+    // Range 24-38px
+    const r = currentView === 'market' ? (a._quartileRank ?? 0.5) : (a._yearRank ?? 0.5);
+    return Math.round(38 - r * 14); // 38 -> 24
+  }
+  function iconSizeFor(size) { return Math.round(size * 0.5); }
+
+  function chipClassFor(a) {
+    if (currentView === 'market') {
+      return 'chip-q' + a._quartile;
+    } else {
+      return 'chip-y' + a._signYear;
+    }
+  }
+
+  function updateMarkerStyle(el, a) {
+    const size = chipSizeFor(a);
+    const iconSz = iconSizeFor(size);
+    el.style.width = size + 'px';
+    el.style.height = size + 'px';
+    const svg = el.querySelector('svg');
+    if (svg) {
+      svg.style.width = iconSz + 'px';
+      svg.style.height = iconSz + 'px';
+    }
+    // Reset chip classes
+    el.classList.remove('chip-q1','chip-q2','chip-q3','chip-q4','chip-y0','chip-y1','chip-y2','chip-y3','chip-y4','chip-y5');
+    el.classList.add(chipClassFor(a));
+    // Muted state for portfolio view unacquired
+    el.classList.toggle('chip-muted', currentView === 'portfolio' && a._signYear === 0);
+  }
+
+  function updateAllMarkers() {
+    markers.forEach(({ el, account }) => updateMarkerStyle(el, account));
+  }
 
   accounts.forEach((a, idx) => {
     if (!a.lng || !a.lat) return;
     const el = document.createElement('div');
-    const poolCls = 'pool-' + (a.pool || 'micro');
-    const samCls = a.in_sam ? 'in-sam' : 'out-sam';
-    const fbCls = a.geocoded === false ? ' fallback' : '';
-    const v7Cls = a.v7_layer ? ' has-v7' : '';
-    el.className = `map-marker ${poolCls} ${samCls}${fbCls}${v7Cls}`;
+    const fbCls = a.geocoded === false ? ' chip-fallback' : '';
+    el.className = `map-marker chip-marker${fbCls}`;
     el.dataset.idx = idx;
+    el.innerHTML = iconSvgFor(a.type);
+    updateMarkerStyle(el, a);
 
     const marker = new maplibregl.Marker({ element: el, anchor: 'center' })
       .setLngLat([a.lng, a.lat])
@@ -164,12 +308,14 @@
     el.addEventListener('mouseenter', () => {
       if (activePopup) activePopup.remove();
       const tamLine = (a.tam && a.tam > 0) ? `$${fmtM(a.tam)} TAM` : '';
-      const v7Line = a.v7_layer ? ` · ${V7_LABEL[a.v7_layer]?.label.replace('Indy v7 — ', 'v7: ') || 'v7'}` : '';
-      activePopup = new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 14 })
+      const quartileLine = ` · Quartile ${a._quartile}`;
+      const yearLine = a._signYear > 0 ? ` · Y${a._signYear}` : ' · Unacquired';
+      const contextLine = currentView === 'market' ? quartileLine : yearLine;
+      activePopup = new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 20 })
         .setLngLat([a.lng, a.lat])
         .setHTML(`
           <div class="popup-title">${escHtml(a.name)}</div>
-          <div class="popup-meta">${escHtml(POOL_LABEL[a.pool] || a.pool || '—')} · ${tamLine}${v7Line}</div>
+          <div class="popup-meta">${escHtml(a.type || 'Account')}${tamLine ? ' · ' + tamLine : ''}${contextLine}</div>
         `)
         .addTo(map);
     });
@@ -189,19 +335,38 @@
     });
     return set;
   }
+
   function applyFilters() {
-    const poolsIn  = getActiveFilterSet('#pool-filters-in',  'pool');
-    const poolsOut = getActiveFilterSet('#pool-filters-out', 'pool');
-    const types = getActiveFilterSet('#type-filters', 'type');
+    const hideUnacq = document.getElementById('hide-unacquired')?.checked;
     let visible = 0;
-    markers.forEach(({ el, account }) => {
-      const poolMatch = account.in_sam ? poolsIn.has(account.pool) : poolsOut.has(account.pool);
-      const typeMatch = types.has(account.type || 'Unknown');
-      const searchMatch = !currentSearch || account._search.includes(currentSearch);
-      const show = poolMatch && typeMatch && searchMatch;
-      el.style.display = show ? '' : 'none';
-      if (show) visible++;
-    });
+    if (currentView === 'market') {
+      const quartiles = new Set();
+      document.querySelectorAll('#quartile-filters input[type="checkbox"]').forEach(cb => {
+        if (cb.checked) quartiles.add(Number(cb.dataset.quartile));
+      });
+      markers.forEach(({ el, account }) => {
+        const qMatch = quartiles.has(account._quartile);
+        const searchMatch = !currentSearch || account._search.includes(currentSearch);
+        const show = qMatch && searchMatch;
+        el.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+    } else {
+      const years = new Set();
+      document.querySelectorAll('#year-filters input[type="checkbox"][data-year]').forEach(cb => {
+        if (cb.checked) years.add(Number(cb.dataset.year));
+      });
+      const types = getActiveFilterSet('#type-filters', 'type');
+      markers.forEach(({ el, account }) => {
+        const yMatch = years.has(account._signYear);
+        const unacqOk = !(hideUnacq && account._signYear === 0);
+        const tMatch = types.size === 0 || types.has(account.type || 'Unknown');
+        const searchMatch = !currentSearch || account._search.includes(currentSearch);
+        const show = yMatch && unacqOk && tMatch && searchMatch;
+        el.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+    }
     document.querySelector('#stat-visible .stat-num').textContent = visible;
   }
 
@@ -213,6 +378,8 @@
     applyFilters();
   });
 
+  // Initialize view mode + filters
+  applyViewMode();
   applyFilters();
 
   // ---- Modal -------------------------------------------------------------
