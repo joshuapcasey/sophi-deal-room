@@ -2,9 +2,10 @@
 (function () {
   const NAV = [
     { group: 'DEAL ROOM', items: [
-      { href: 'overview.html', label: 'Overview', icon: 'grid' },
+      { href: 'rollup.html', label: '6-Market Rollup', icon: 'grid' },
       { href: 'growth-engine.html', label: 'Growth Engine', icon: 'trending' },
-      { href: 'markets.html', label: 'Markets Map', icon: 'map' },
+      { href: 'market.html', label: 'Markets Map', icon: 'map' },
+      { href: 'portfolio.html', label: 'Portfolio Detail', icon: 'grid' },
     ]},
     { group: 'DILIGENCE', items: [
       { href: 'methodology.html', label: 'Methodology', icon: 'book' },
@@ -36,9 +37,9 @@
   function ensureAccess() {
     // Check gate; if not accepted, redirect to gate.
     try {
-      const ok = window.name === 'DEAL_ROOM_OK' ||
-                 window.sessionStorage?.getItem('deal_room_ok') === '1';
-      // sessionStorage is blocked in some sandboxes; use window.name as fallback
+      let ok = false;
+      try { ok = window.sessionStorage.getItem('deal_room_ok') === '1'; } catch (e) {}
+      if (!ok && window.name === 'DEAL_ROOM_OK') ok = true;
       if (!ok) {
         window.location.replace('./index.html');
         return false;
