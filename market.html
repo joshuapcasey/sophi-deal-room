@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Sophi Mobility — Market Map</title>
+
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./style.css">
+</head>
+<body class="market-view">
+
+<header id="header">
+  <div class="header-left">
+    <a href="./index.html" class="back-link" aria-label="All markets">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <div class="logo">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+        <rect width="32" height="32" rx="7" fill="#673AB7"/>
+        <path d="M8 10h5v12H8V10zm7 5h5v7h-5v-7z" fill="white"/>
+        <circle cx="25" cy="10" r="2.5" fill="#0F9D58"/>
+      </svg>
+    </div>
+    <div class="header-title">
+      <h1 id="market-name">—</h1>
+      <span class="header-subtitle" id="market-subtitle">Sophi Mobility · 2026 Market Analysis</span>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="header-stats" id="header-stats">
+      <div class="header-stat"><span class="hstat-val" id="h-tam">—</span><span class="hstat-lbl">TAM</span></div>
+      <div class="header-stat"><span class="hstat-val" id="h-sam">—</span><span class="hstat-lbl">SAM <span class="hstat-ratio" id="h-sam-ratio"></span></span></div>
+      <div class="header-stat"><span class="hstat-val" id="h-y5">—</span><span class="hstat-lbl">Y5 SOM <span class="hstat-ratio" id="h-y5-ratio"></span></span></div>
+    </div>
+    <div class="stat-pill" id="stat-visible">
+      <span class="stat-num">0</span>
+      <span class="stat-label">visible</span>
+    </div>
+    <select id="market-switcher" class="market-switcher" aria-label="Switch market">
+      <!-- populated by JS -->
+    </select>
+  </div>
+</header>
+
+<aside id="sidebar">
+
+  <div class="sidebar-section summary-section">
+    <div class="summary-row">
+      <div class="summary-mini"><span class="smini-val" id="m-accounts">—</span><span class="smini-lbl">Accounts</span></div>
+      <div class="summary-mini"><span class="smini-val" id="m-insam">—</span><span class="smini-lbl">In SAM</span></div>
+      <div class="summary-mini"><span class="smini-val" id="m-y1som">—</span><span class="smini-lbl">Y1 SOM</span></div>
+    </div>
+    <div class="state-badge" id="state-badge">—</div>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>In-SAM Pools</h3>
+    <div id="pool-filters-in">
+      <label class="filter-item">
+        <input type="checkbox" checked data-pool="anchor">
+        <span class="pool-dot pool-anchor-dot"></span>
+        <span class="filter-label">Anchors</span>
+        <span class="filter-count" id="count-pool-anchor">—</span>
+      </label>
+      <label class="filter-item">
+        <input type="checkbox" checked data-pool="cold_sam">
+        <span class="pool-dot pool-cold_sam-dot"></span>
+        <span class="filter-label">Cold SAM</span>
+        <span class="filter-count" id="count-pool-cold_sam">—</span>
+      </label>
+      <label class="filter-item">
+        <input type="checkbox" checked data-pool="ma_sam">
+        <span class="pool-dot pool-ma_sam-dot"></span>
+        <span class="filter-label">M&amp;A SAM</span>
+        <span class="filter-count" id="count-pool-ma_sam">—</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Out-of-SAM Pools</h3>
+    <div id="pool-filters-out">
+      <label class="filter-item">
+        <input type="checkbox" checked data-pool="partnership">
+        <span class="pool-dot pool-partnership-dot"></span>
+        <span class="filter-label">Partnership / PMC</span>
+        <span class="filter-count" id="count-pool-partnership">—</span>
+      </label>
+      <label class="filter-item">
+        <input type="checkbox" checked data-pool="enterprise">
+        <span class="pool-dot pool-enterprise-dot"></span>
+        <span class="filter-label">Enterprise operator</span>
+        <span class="filter-count" id="count-pool-enterprise">—</span>
+      </label>
+      <label class="filter-item">
+        <input type="checkbox" checked data-pool="extended_stay">
+        <span class="pool-dot pool-extended_stay-dot"></span>
+        <span class="filter-label">Extended-stay brand</span>
+        <span class="filter-count" id="count-pool-extended_stay">—</span>
+      </label>
+      <label class="filter-item">
+        <input type="checkbox" checked data-pool="micro">
+        <span class="pool-dot pool-micro-dot"></span>
+        <span class="filter-label">Micro (&lt;$150K TAM)</span>
+        <span class="filter-count" id="count-pool-micro">—</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Account Type</h3>
+    <div id="type-filters">
+      <!-- populated by JS -->
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Search</h3>
+    <input type="text" id="search-input" placeholder="Name, address, operator, GM...">
+  </div>
+
+  <div class="sidebar-section">
+    <div class="legend-note">
+      <div class="legend-row"><span class="legend-swatch in-sam-swatch"></span>In-SAM (vibrant)</div>
+      <div class="legend-row"><span class="legend-swatch out-sam-swatch"></span>Out-of-SAM (muted)</div>
+      <div class="legend-row"><span class="conf-dot f"></span>Geocode fallback (dashed)</div>
+    </div>
+  </div>
+
+</aside>
+
+<div id="map"></div>
+
+<div id="modal-overlay" class="modal-overlay hidden">
+  <div id="modal" class="modal">
+    <button id="modal-close" class="modal-close" aria-label="Close">&times;</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle filters">
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+</button>
+
+<script src="./data.js"></script>
+<script src="./market.js"></script>
+
+</body>
+</html>

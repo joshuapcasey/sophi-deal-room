@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overview — Sophi Deal Room</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500;9..144,500,1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/deal-room.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="side-nav" id="side-nav"></aside>
+  <main class="main">
+
+    <header class="page-header">
+      <div class="eyebrow">Executive Overview</div>
+      <h1 class="page-title">A bottoms-up, account-level view of Sophi's <em>2026</em> portfolio.</h1>
+      <p class="page-lede">
+        Every projected dollar traces to a named account, a revenue figure derived from Sophi's own book, and a win rate measured from Sophi's own history. The Growth Engine section shows the derivation — nothing here is a round-number guess.
+      </p>
+    </header>
+
+    <!-- Headline KPIs -->
+    <div class="kpi-grid" id="kpi-grid"></div>
+
+    <!-- Portfolio 5-year curve -->
+    <div class="section">
+      <h2 class="section-title"><span class="section-num">01</span>The five-year curve</h2>
+      <p class="section-caption">
+        6-market SOM by year — the direct output of the v3 penetration engine running against every scored account.
+      </p>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Portfolio SOM · v3 · locked model</div>
+          <div class="card-caption tabular" id="cum-caption"></div>
+        </div>
+        <div class="chart-container">
+          <canvas id="portfolio-curve" width="1000" height="380"></canvas>
+        </div>
+        <div class="legend">
+          <span><span class="legend-swatch" style="background:var(--primary);"></span>Annual SOM</span>
+          <span><span class="legend-swatch" style="background:var(--accent);"></span>5-year cumulative</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Per-market breakdown -->
+    <div class="section">
+      <h2 class="section-title"><span class="section-num">02</span>The six markets</h2>
+      <p class="section-caption">
+        Sophi enters each market with a specific state — Charlotte is warm (home market, existing wins), the others are cold or independent-heavy. State drives win rate, which drives every downstream number.
+      </p>
+      <div class="card" style="padding:0;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Market</th>
+              <th>State</th>
+              <th class="numeric">TAM</th>
+              <th class="numeric">SAM</th>
+              <th class="numeric">SAM / TAM</th>
+              <th class="numeric">Y5 SOM</th>
+              <th class="numeric">Y5 / SAM</th>
+              <th class="numeric">In-SAM</th>
+              <th class="numeric">Wins by Y5</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="market-table"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- What's in the deal room -->
+    <div class="section">
+      <h2 class="section-title"><span class="section-num">03</span>What's in this deal room</h2>
+      <div class="kpi-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+        <a class="card" href="./growth-engine.html" style="text-decoration:none;color:inherit;display:block;transition:border-color 140ms var(--ease);">
+          <div class="card-title" style="color:var(--accent);">Growth Engine →</div>
+          <h3 style="margin:12px 0 8px;font-family:var(--font-display);font-weight:500;font-size:20px;">The derivation</h3>
+          <p style="color:var(--text-muted);font-size:14px;margin:0;">Eight-step methodology from a named account list to a five-year revenue curve. Each step names its source and shows its arithmetic.</p>
+        </a>
+        <a class="card" href="./markets.html" style="text-decoration:none;color:inherit;display:block;">
+          <div class="card-title" style="color:var(--accent);">Markets Map →</div>
+          <h3 style="margin:12px 0 8px;font-family:var(--font-display);font-weight:500;font-size:20px;">Every account, geocoded</h3>
+          <p style="color:var(--text-muted);font-size:14px;margin:0;">Interactive map of all 203 accounts across the six markets — filter by pool, account type, or operator. Click any pin for the underlying model.</p>
+        </a>
+        <a class="card" href="./methodology.html" style="text-decoration:none;color:inherit;display:block;">
+          <div class="card-title" style="color:var(--accent);">Methodology →</div>
+          <h3 style="margin:12px 0 8px;font-family:var(--font-display);font-weight:500;font-size:20px;">Full methodology write-up</h3>
+          <p style="color:var(--text-muted);font-size:14px;margin:0;">The reasoning behind win rates, ceiling logic, ownership-group tiers, and every judgment call in the model.</p>
+        </a>
+        <a class="card" href="./accounts.html" style="text-decoration:none;color:inherit;display:block;">
+          <div class="card-title" style="color:var(--accent);">Accounts →</div>
+          <h3 style="margin:12px 0 8px;font-family:var(--font-display);font-weight:500;font-size:20px;">Account-level detail</h3>
+          <p style="color:var(--text-muted);font-size:14px;margin:0;">Every scored account with vertical, ownership group, operator status, TAM, and modeled win year. Sortable, per market.</p>
+        </a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="./data.js"></script>
+<script src="./assets/shell.js"></script>
+<script>
+  window.SOPHI_SHELL.mount('overview.html');
+
+  const D = window.SOPHI_DATA;
+  const P = D.portfolio;
+  const M = D.markets;
+
+  function fmtM(n) { return `$${(n/1e6).toFixed(2)}M`; }
+  function fmtK(n) { return n >= 1e6 ? `$${(n/1e6).toFixed(2)}M` : `$${Math.round(n/1e3)}K`; }
+  function fmtPct(n) { return `${(n*100).toFixed(0)}%`; }
+
+  // -------- KPI grid --------
+  const kpis = [
+    { label: 'Portfolio TAM', value: fmtM(P.tam), sub: `${P.n_accounts} accounts across 6 markets` },
+    { label: 'Portfolio SAM', value: fmtM(P.sam), sub: `${(P.sam/P.tam*100).toFixed(0)}% of TAM · ${P.n_in_sam} in-SAM accounts` },
+    { label: 'Y1 SOM', value: fmtM(P.som_by_year.y1), sub: `First-year committed base — signed accounts and near-term anchors` },
+    { label: 'Y5 SOM', value: fmtM(P.som_by_year.y5), sub: `${(P.som_by_year.y5/P.sam*100).toFixed(0)}% of SAM captured by year 5` },
+    { label: '5-Year Cumulative', value: fmtM(P.som_5yr_cumulative), sub: `Total modeled revenue 2026-2030` },
+    { label: 'Wins by Y5', value: `${P.n_acquired} / ${P.n_in_sam}`, sub: `Accounts acquired inside SAM by year five` },
+  ];
+  document.getElementById('kpi-grid').innerHTML = kpis.map(k => `
+    <div class="kpi-card">
+      <div class="kpi-label">${k.label}</div>
+      <div class="kpi-value">${k.value}</div>
+      <div class="kpi-sub">${k.sub}</div>
+    </div>
+  `).join('');
+
+  // -------- Portfolio curve --------
+  document.getElementById('cum-caption').textContent =
+    `5-year cumulative ${fmtM(P.som_5yr_cumulative)} · Y5 run-rate ${fmtM(P.som_by_year.y5)}`;
+
+  (function drawCurve() {
+    const canvas = document.getElementById('portfolio-curve');
+    const dpr = window.devicePixelRatio || 1;
+    const W = canvas.clientWidth || 1000, H = 380;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    canvas.style.height = H + 'px';
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, W, H);
+
+    const pad = { l: 60, r: 30, t: 30, b: 40 };
+    const years = ['y1','y2','y3','y4','y5'];
+    const annual = years.map(y => P.som_by_year[y]);
+    const cum = [];
+    annual.reduce((a, v, i) => { cum[i] = a + v; return a + v; }, 0);
+    const maxVal = Math.max(...cum) * 1.1;
+
+    const x = i => pad.l + (i / (years.length - 1)) * (W - pad.l - pad.r);
+    const y = v => H - pad.b - (v / maxVal) * (H - pad.t - pad.b);
+
+    // Grid
+    ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+    ctx.lineWidth = 1;
+    ctx.font = '11px Inter, sans-serif';
+    ctx.fillStyle = '#6b6f78';
+    const steps = 5;
+    for (let i = 0; i <= steps; i++) {
+      const yy = pad.t + (i / steps) * (H - pad.t - pad.b);
+      ctx.beginPath(); ctx.moveTo(pad.l, yy); ctx.lineTo(W - pad.r, yy); ctx.stroke();
+      const val = maxVal * (1 - i / steps);
+      ctx.textAlign = 'right';
+      ctx.fillText(`$${(val/1e6).toFixed(0)}M`, pad.l - 8, yy + 4);
+    }
+
+    // Cumulative area (accent)
+    ctx.beginPath();
+    ctx.moveTo(x(0), y(0));
+    cum.forEach((v, i) => ctx.lineTo(x(i), y(v)));
+    ctx.lineTo(x(years.length - 1), y(0));
+    ctx.closePath();
+    const grad = ctx.createLinearGradient(0, pad.t, 0, H - pad.b);
+    grad.addColorStop(0, 'rgba(212,162,76,0.25)');
+    grad.addColorStop(1, 'rgba(212,162,76,0.02)');
+    ctx.fillStyle = grad; ctx.fill();
+
+    // Cumulative line
+    ctx.beginPath();
+    cum.forEach((v, i) => i === 0 ? ctx.moveTo(x(i), y(v)) : ctx.lineTo(x(i), y(v)));
+    ctx.strokeStyle = '#d4a24c';
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+
+    // Annual bars
+    const barW = 22;
+    annual.forEach((v, i) => {
+      const bx = x(i) - barW/2;
+      const by = y(v);
+      const bh = H - pad.b - by;
+      ctx.fillStyle = 'rgba(79,152,163,0.9)';
+      ctx.fillRect(bx, by, barW, bh);
+    });
+
+    // Points + labels on cumulative
+    cum.forEach((v, i) => {
+      ctx.fillStyle = '#d4a24c';
+      ctx.beginPath(); ctx.arc(x(i), y(v), 4, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#e8e6e0';
+      ctx.textAlign = 'center';
+      ctx.font = '12px Inter, sans-serif';
+      ctx.fillText(`$${(v/1e6).toFixed(1)}M`, x(i), y(v) - 12);
+    });
+
+    // X-axis
+    ctx.fillStyle = '#a0a4ad';
+    ctx.font = '12px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    years.forEach((y, i) => {
+      ctx.fillText(2026 + i, x(i), H - pad.b + 22);
+    });
+  })();
+
+  // -------- Market table --------
+  const stateLabels = {
+    warm:        { label: 'Warm', color: '#d4a24c', desc: 'existing wins' },
+    cold:        { label: 'Cold', color: '#4a9eff', desc: 'no presence' },
+    independent: { label: 'Independent', color: '#6bb0bb', desc: 'independent-heavy' },
+  };
+
+  const rows = Object.entries(M).map(([key, m]) => {
+    const s = m.summary;
+    const st = stateLabels[s.state] || { label: s.state, color: '#a0a4ad', desc: '' };
+    const winsByY5 = (m.acquisition_year_counts?.[1] || 0)
+                   + (m.acquisition_year_counts?.[2] || 0)
+                   + (m.acquisition_year_counts?.[3] || 0)
+                   + (m.acquisition_year_counts?.[4] || 0)
+                   + (m.acquisition_year_counts?.[5] || 0);
+    return { key, m, s, st, winsByY5 };
+  }).sort((a, b) => b.s.y5_som - a.s.y5_som);
+
+  document.getElementById('market-table').innerHTML = rows.map(r => `
+    <tr>
+      <td style="font-weight:500;color:var(--text-strong);">${r.m.name}</td>
+      <td><span class="badge" style="background:${r.st.color}22;color:${r.st.color};border-color:${r.st.color}44;">${r.st.label}</span></td>
+      <td class="numeric">${fmtM(r.s.tam)}</td>
+      <td class="numeric">${fmtM(r.s.sam)}</td>
+      <td class="numeric" style="color:var(--text-muted);">${(r.s.sam/r.s.tam*100).toFixed(0)}%</td>
+      <td class="numeric" style="color:var(--accent);font-weight:500;">${fmtM(r.s.y5_som)}</td>
+      <td class="numeric" style="color:var(--text-muted);">${(r.s.y5_som/r.s.sam*100).toFixed(0)}%</td>
+      <td class="numeric">${r.s.n_in_sam} / ${r.s.n_accounts}</td>
+      <td class="numeric tabular">${r.winsByY5}</td>
+      <td><a href="./market.html?m=${r.key}" class="btn btn-ghost" style="padding:4px 10px;font-size:12px;">Open →</a></td>
+    </tr>
+  `).join('');
+</script>
+
+</body>
+</html>

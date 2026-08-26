@@ -1,0 +1,361 @@
+{
+  "accounts": [
+    {
+      "market": "charlotte",
+      "name": "The Capital Grille",
+      "type": "Restaurant",
+      "tam": 189843.75,
+      "rate": 11.0,
+      "cars_per_year": 17258.522727272728,
+      "acquisition_year": 1,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "charlotte",
+      "name": "STK Steakhouse",
+      "type": "Restaurant",
+      "tam": 208828.125,
+      "rate": 17.0,
+      "cars_per_year": 12284.007352941177,
+      "acquisition_year": 1,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "charlotte",
+      "name": "Chima Steakhouse",
+      "type": "Restaurant",
+      "tam": 167062.5,
+      "rate": 15.0,
+      "cars_per_year": 11137.5,
+      "acquisition_year": 1,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "charlotte",
+      "name": "Ruth's Chris",
+      "type": "Restaurant",
+      "tam": 189843.75,
+      "rate": 15.0,
+      "cars_per_year": 12656.25,
+      "acquisition_year": 1,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "charlotte",
+      "name": "JW Marriott Charlotte",
+      "type": "Hotel",
+      "tam": 1580083.2,
+      "rate": 48.0,
+      "cars_per_year": 32918.4,
+      "acquisition_year": 3,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "charlotte",
+      "name": "Charlotte Marriott City Center",
+      "type": "Hotel",
+      "tam": 1824768.0,
+      "rate": 48.0,
+      "cars_per_year": 38016.0,
+      "acquisition_year": 3,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "charlotte",
+      "name": "Sheraton Hotel",
+      "type": "Hotel",
+      "tam": 922320.0,
+      "rate": 35.0,
+      "cars_per_year": 26352.0,
+      "acquisition_year": 4,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "charlotte",
+      "name": "Omni Hotel",
+      "type": "Hotel",
+      "tam": 1289088.0,
+      "rate": 40.0,
+      "cars_per_year": 32227.2,
+      "acquisition_year": 4,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "charlotte",
+      "name": "Hyatt Place",
+      "type": "Hotel",
+      "tam": 352944.0,
+      "rate": 38.0,
+      "cars_per_year": 9288.0,
+      "acquisition_year": 5,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "charlotte",
+      "name": "Kimpton Tryon Park Hotel",
+      "type": "Hotel",
+      "tam": 562464.0,
+      "rate": 48.0,
+      "cars_per_year": 11718.0,
+      "acquisition_year": 5,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "charlotte",
+      "name": "Ruth's Chris #2",
+      "type": "Restaurant",
+      "tam": 189843.75,
+      "rate": 15.0,
+      "cars_per_year": 12656.25,
+      "acquisition_year": 3,
+      "rate_source": "imputed (median Restaurant charlotte valet rate, n=8)"
+    },
+    {
+      "market": "charlotte",
+      "name": "Hilton Charlotte Uptown",
+      "type": "Hotel",
+      "tam": 273564.0,
+      "rate": 34.0,
+      "cars_per_year": 8046.0,
+      "acquisition_year": 5,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "phoenix",
+      "name": "STK Steakhouse - Scottsdale",
+      "type": "Restaurant",
+      "tam": 250593.75,
+      "rate": 9.0,
+      "cars_per_year": 27843.75,
+      "acquisition_year": 2,
+      "rate_source": "imputed (median Restaurant phoenix valet rate, n=1)"
+    },
+    {
+      "market": "phoenix",
+      "name": "Grand Hyatt Scottsdale Resort",
+      "type": "Hotel",
+      "tam": 1607040.0,
+      "rate": 42.0,
+      "cars_per_year": 38262.857142857145,
+      "acquisition_year": 4,
+      "rate_source": "imputed (median Hotel phoenix valet rate, n=28)"
+    },
+    {
+      "market": "phoenix",
+      "name": "Scottsdale Marriott at McDowell Mountains",
+      "type": "Hotel",
+      "tam": 258552.0,
+      "rate": 30.0,
+      "cars_per_year": 8618.4,
+      "acquisition_year": 2,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "phoenix",
+      "name": "Omni Scottsdale Resort & Spa at Montelucia",
+      "type": "Hotel",
+      "tam": 1107540.0,
+      "rate": 35.0,
+      "cars_per_year": 31644.0,
+      "acquisition_year": 3,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "phoenix",
+      "name": "Andaz Scottsdale Resort & Bungalows",
+      "type": "Hotel",
+      "tam": 699300.0,
+      "rate": 35.0,
+      "cars_per_year": 19980.0,
+      "acquisition_year": 5,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "cleveland",
+      "name": "The Capital Grille",
+      "type": "Restaurant",
+      "tam": 189843.75,
+      "rate": 15.0,
+      "cars_per_year": 12656.25,
+      "acquisition_year": 3,
+      "rate_source": "imputed (median Restaurant cleveland valet rate, n=4)"
+    },
+    {
+      "market": "cleveland",
+      "name": "Morton's The Steakhouse",
+      "type": "Restaurant",
+      "tam": 151875.0,
+      "rate": 15.0,
+      "cars_per_year": 10125.0,
+      "acquisition_year": 5,
+      "rate_source": "imputed (median Restaurant cleveland valet rate, n=4)"
+    },
+    {
+      "market": "louisville",
+      "name": "The Brown Hotel",
+      "type": "Hotel",
+      "tam": 569591.9999999999,
+      "rate": 36.0,
+      "cars_per_year": 15821.999999999996,
+      "acquisition_year": 3,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "louisville",
+      "name": "Hotel Bourr\u00e9 Bonne (NEW \u2014 opened Apr 2025)",
+      "type": "Hotel",
+      "tam": 408240.0,
+      "rate": 45.0,
+      "cars_per_year": 9072.0,
+      "acquisition_year": 5,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "denver",
+      "name": "Grand Hyatt Denver",
+      "type": "Hotel",
+      "tam": 2853273.6,
+      "rate": 64.0,
+      "cars_per_year": 44582.4,
+      "acquisition_year": 2,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "denver",
+      "name": "Hyatt Regency Denver at Colorado Convention Center",
+      "type": "Hotel",
+      "tam": 6367680.0,
+      "rate": 67.0,
+      "cars_per_year": 95040.0,
+      "acquisition_year": 5,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "denver",
+      "name": "Four Seasons Hotel Denver",
+      "type": "Hotel",
+      "tam": 838890.0,
+      "rate": 65.0,
+      "cars_per_year": 12906.0,
+      "acquisition_year": 2,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "denver",
+      "name": "Ruth's Chris Steak House - Denver",
+      "type": "Restaurant",
+      "tam": 278437.5,
+      "rate": 15.0,
+      "cars_per_year": 18562.5,
+      "acquisition_year": 3,
+      "rate_source": "imputed (median Restaurant portfolio valet rate, n=23)"
+    },
+    {
+      "market": "denver",
+      "name": "Hampton Inn & Suites Denver Downtown-Convention Center",
+      "type": "Hotel",
+      "tam": 622080.0,
+      "rate": 60.0,
+      "cars_per_year": 10368.0,
+      "acquisition_year": 4,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "denver",
+      "name": "Halcyon, a hotel in Cherry Creek",
+      "type": "Hotel",
+      "tam": 299375.9999999999,
+      "rate": 60.0,
+      "cars_per_year": 4989.599999999998,
+      "acquisition_year": 4,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "indianapolis",
+      "name": "Omni Severin Hotel",
+      "type": "Hotel",
+      "tam": 2225664.0,
+      "rate": 56.0,
+      "cars_per_year": 39744.0,
+      "acquisition_year": 1,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "indianapolis",
+      "name": "Conrad Indianapolis",
+      "type": "Hotel",
+      "tam": 845910.0,
+      "rate": 65.0,
+      "cars_per_year": 13014.0,
+      "acquisition_year": 1,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "indianapolis",
+      "name": "The Capital Grille",
+      "type": "Restaurant",
+      "tam": 189843.75,
+      "rate": 10.0,
+      "cars_per_year": 18984.375,
+      "acquisition_year": 1,
+      "rate_source": "valet_rate"
+    },
+    {
+      "market": "indianapolis",
+      "name": "St. Elmo Steak House",
+      "type": "Restaurant",
+      "tam": 265781.25,
+      "rate": 20.0,
+      "cars_per_year": 13289.0625,
+      "acquisition_year": 2,
+      "rate_source": "imputed (median Restaurant indianapolis valet rate, n=4)"
+    },
+    {
+      "market": "indianapolis",
+      "name": "Harry & Izzy's (Downtown)",
+      "type": "Restaurant",
+      "tam": 170859.375,
+      "rate": 20.0,
+      "cars_per_year": 8542.96875,
+      "acquisition_year": 2,
+      "rate_source": "imputed (median Restaurant indianapolis valet rate, n=4)"
+    },
+    {
+      "market": "indianapolis",
+      "name": "Ruth's Chris Steak House",
+      "type": "Restaurant",
+      "tam": 189843.75,
+      "rate": 20.0,
+      "cars_per_year": 9492.1875,
+      "acquisition_year": 2,
+      "rate_source": "imputed (median Restaurant indianapolis valet rate, n=4)"
+    },
+    {
+      "market": "indianapolis",
+      "name": "Prime 47",
+      "type": "Restaurant",
+      "tam": 151875.0,
+      "rate": 45.0,
+      "cars_per_year": 3375.0,
+      "acquisition_year": 2,
+      "rate_source": "valet_rate"
+    }
+  ],
+  "y5_total_annual_cars": 691472.4809730711,
+  "by_market_y5": {
+    "charlotte": 224558.13008021392,
+    "phoenix": 126349.00714285714,
+    "cleveland": 22781.25,
+    "louisville": 24893.999999999996,
+    "denver": 186448.5,
+    "indianapolis": 106441.59375
+  },
+  "year_totals_annual": {
+    "1": 125078.65508021391,
+    "2": 253728.4238302139,
+    "3": 416003.8238302139,
+    "4": 528203.4809730711,
+    "5": 691472.4809730711
+  },
+  "cumulative_5yr_cars": 2014486.8646867839
+}
