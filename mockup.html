@@ -3,372 +3,283 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mockup — Dark Investor Map</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500;9..144,500,1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Mockup v2 — Light theme + quartile tiers + icon markers</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0e1013;
-    --bg-elev: #14171c;
-    --bg-elev-2: #191d23;
-    --bg-elev-3: #1f242c;
-    --border: rgba(255,255,255,0.08);
-    --border-strong: rgba(255,255,255,0.14);
-    --text: #e8e6e0;
-    --text-strong: #ffffff;
-    --text-muted: #a0a4ad;
-    --text-faint: #6b6f78;
-    --accent: #d4a24c;
-    --accent-hover: #e9b662;
-    --primary: #4f98a3;
-    /* Pools */
-    --pool-anchor: #a78bfa;
-    --pool-cold_sam: #22b8cf;
-    --pool-ma_sam: #d4a24c;
-    --pool-partnership: #94a3b8;
-    --pool-enterprise: #f97316;
-    --pool-extended_stay: #64748b;
-    --pool-micro: #475569;
-    /* Types */
-    --type-hotel: #60a5fa;
-    --type-restaurant: #fb923c;
-    --type-hospital: #34d399;
-    --type-venue: #d4a24c;
-    --type-residential: #ec4899;
-    /* Years */
-    --y1: #d4a24c;
-    --y2: #e9b662;
-    --y3: #4f98a3;
-    --y4: #6bb0bb;
-    --y5: #8ec8d0;
-    --unacquired: #4a4d54;
+    /* Sophi light palette from original repo */
+    --sophi-purple: #673AB7;
+    --sophi-purple-dark: #512DA8;
+    --sophi-purple-soft: #EDE7F6;
+    --sophi-green: #0F9D58;
+    --sophi-amber: #F59E0B;
+    --sophi-red: #EF4444;
+    --bg: #FAFAF9;
+    --bg-2: #F4F4F2;
+    --surface: #FFFFFF;
+    --surface-2: #F9F9F7;
+    --border: #E7E5E0;
+    --border-strong: #D6D3CC;
+    --text: #1F1D1B;
+    --text-2: #4A4744;
+    --text-3: #8A857F;
+    --text-4: #B0ABA4;
+
+    /* Quartile tier colors (purple gradient — brand-native) */
+    --q1: #4A148C; /* darkest purple - top quartile */
+    --q2: #7C3AED;
+    --q3: #A78BFA;
+    --q4: #D6C7F1; /* palest - bottom quartile */
+
+    /* Acquisition year (warm-to-cool gold-to-teal) */
+    --y1: #B45309; /* deep amber */
+    --y2: #D97706;
+    --y3: #059669; /* mid green */
+    --y4: #0891B2;
+    --y5: #6366F1; /* indigo close */
+    --unacquired: #CBC7BF;
+
+    --shadow-sm: 0 1px 2px rgba(20,15,30,0.04), 0 1px 3px rgba(20,15,30,0.06);
+    --shadow-md: 0 2px 6px rgba(20,15,30,0.06), 0 8px 24px rgba(20,15,30,0.08);
   }
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-size: 14px; -webkit-font-smoothing: antialiased; }
+  html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; font-size:14px; -webkit-font-smoothing:antialiased; }
 
-  /* Top strip (deal room chrome) */
+  /* Deal-room top strip (light) */
   .topstrip {
-    height: 42px; padding: 0 24px;
-    background: #0a0c0f;
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-    font-size: 13px;
+    height:44px; padding:0 24px;
+    background:var(--surface);
+    border-bottom:1px solid var(--border);
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:13px;
   }
-  .topstrip .brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 500; }
-  .brand-mark { width: 22px; height: 22px; border-radius: 5px; background: linear-gradient(135deg,#d4a24c,#a67c3a); display: grid; place-items: center; color: #14171c; font-family: 'Fraunces', serif; font-weight: 700; font-size: 13px; }
-  .brand-sub { color: var(--text-faint); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-left: 4px; }
-  .topstrip nav { display: flex; gap: 4px; }
-  .topstrip nav a { padding: 6px 12px; border-radius: 6px; color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 13px; }
-  .topstrip nav a.active { color: var(--accent); background: rgba(212,162,76,0.1); }
+  .brand { display:flex; align-items:center; gap:10px; color:var(--text); font-weight:500; }
+  .brand-mark { width:26px; height:26px; border-radius:6px; background:var(--sophi-purple); display:grid; place-items:center; color:#fff; font-weight:700; font-size:14px; font-family:'Fraunces',serif; }
+  .brand-sub { color:var(--text-3); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; margin-left:6px; }
+  .topstrip nav { display:flex; gap:2px; }
+  .topstrip nav a { padding:6px 12px; border-radius:6px; color:var(--text-2); text-decoration:none; font-weight:500; font-size:13px; }
+  .topstrip nav a.active { color:var(--sophi-purple); background:var(--sophi-purple-soft); }
 
-  /* Header */
+  /* Market header (light) */
   .header {
-    height: 62px;
-    padding: 0 24px;
-    background: var(--bg-elev);
-    border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: space-between;
-    position: relative; z-index: 10;
+    height:70px; padding:0 24px;
+    background:var(--surface);
+    border-bottom:1px solid var(--border);
+    display:flex; align-items:center; justify-content:space-between;
+    box-shadow:var(--shadow-sm);
+    position:relative; z-index:10;
   }
-  .header-left { display: flex; align-items: center; gap: 16px; }
-  .back-link { color: var(--text-muted); text-decoration: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 6px; border: 1px solid var(--border); }
-  .back-link:hover { color: var(--text-strong); border-color: var(--border-strong); }
-  .header-title h1 {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    color: var(--text-strong);
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    margin: 0;
-    line-height: 1.15;
-  }
-  .header-title .sub { font-size: 11px; color: var(--text-faint); letter-spacing: 0.06em; text-transform: uppercase; }
+  .header-left { display:flex; align-items:center; gap:14px; }
+  .back-link { color:var(--text-2); text-decoration:none; display:grid; place-items:center; width:34px; height:34px; border-radius:8px; border:1px solid var(--border); background:var(--surface); }
+  .back-link:hover { border-color:var(--border-strong); }
+  .header-title h1 { font-family:'Fraunces',serif; font-size:22px; color:var(--text); font-weight:500; letter-spacing:-0.01em; margin:0; line-height:1.15; }
+  .header-title .sub { font-size:11px; color:var(--text-3); letter-spacing:0.08em; text-transform:uppercase; margin-top:2px; }
 
-  .header-right { display: flex; align-items: center; gap: 20px; }
-  .hstat { display: flex; flex-direction: column; align-items: flex-end; }
-  .hstat-val { font-family: 'Fraunces', serif; font-size: 20px; color: var(--text-strong); font-weight: 500; letter-spacing: -0.01em; line-height: 1; font-variant-numeric: tabular-nums; }
-  .hstat-val.accent { color: var(--accent); }
-  .hstat-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint); margin-top: 4px; display: flex; gap: 6px; align-items: center; }
-  .hstat-ratio { color: var(--text-muted); font-size: 10px; }
+  .header-right { display:flex; align-items:center; gap:22px; }
+  .hstat { display:flex; flex-direction:column; align-items:flex-end; }
+  .hstat-val { font-family:'Fraunces',serif; font-size:19px; color:var(--text); font-weight:500; line-height:1; font-variant-numeric:tabular-nums; letter-spacing:-0.01em; }
+  .hstat-val.accent { color:var(--sophi-purple); }
+  .hstat-lbl { font-size:10px; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-3); margin-top:5px; display:flex; gap:5px; align-items:baseline; }
+  .hstat-ratio { color:var(--text-4); font-size:10px; }
 
   .visible-pill {
-    background: var(--bg-elev-3);
-    border: 1px solid var(--border-strong);
-    padding: 5px 12px;
-    border-radius: 999px;
-    font-size: 11px;
-    color: var(--text);
-    display: flex; align-items: center; gap: 6px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    background:var(--sophi-purple-soft);
+    border:1px solid rgba(103,58,183,0.2);
+    padding:5px 12px; border-radius:999px; font-size:11px; color:var(--sophi-purple-dark);
+    display:flex; align-items:center; gap:6px; letter-spacing:0.06em; text-transform:uppercase; font-weight:500;
   }
-  .visible-pill strong { color: var(--text-strong); font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+  .visible-pill strong { color:var(--sophi-purple); font-family:'JetBrains Mono',monospace; font-weight:600; }
 
   .market-switcher {
-    background: var(--bg-elev-2);
-    border: 1px solid var(--border-strong);
-    color: var(--text);
-    padding: 7px 14px;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 13px;
-    display: flex; align-items: center; gap: 8px;
+    background:var(--surface); border:1px solid var(--border-strong); color:var(--text);
+    padding:7px 14px; border-radius:8px; font-family:inherit; font-size:13px;
+    display:flex; align-items:center; gap:8px;
   }
 
-  /* Main layout */
-  .layout {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    height: calc(100vh - 42px - 62px);
-  }
+  /* Layout */
+  .layout { display:grid; grid-template-columns:320px 1fr; height:calc(100vh - 44px - 70px); }
 
-  /* Sidebar */
-  .sidebar {
-    background: var(--bg-elev);
-    border-right: 1px solid var(--border);
-    overflow-y: auto;
-    padding: 0;
-  }
-  .sidebar-section {
-    padding: 18px 20px;
-    border-bottom: 1px solid var(--border);
-  }
+  .sidebar { background:var(--surface); border-right:1px solid var(--border); overflow-y:auto; }
+  .sidebar-section { padding:18px 20px; border-bottom:1px solid var(--border); }
   .sidebar-section h3 {
-    font-size: 10.5px;
-    font-weight: 600;
-    color: var(--text-faint);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    margin: 0 0 12px;
+    font-size:10.5px; font-weight:600; color:var(--text-3);
+    letter-spacing:0.14em; text-transform:uppercase; margin:0 0 12px;
   }
 
-  /* THE TOGGLE — replaces the old KPI cards */
+  /* Toggle — the star */
   .view-toggle {
-    background: var(--bg-elev-2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 4px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    margin-bottom: 14px;
+    background:var(--bg-2); border:1px solid var(--border);
+    border-radius:10px; padding:4px;
+    display:grid; grid-template-columns:1fr 1fr; gap:2px;
+    margin-bottom:14px;
   }
   .view-toggle button {
-    background: transparent;
-    border: none;
-    color: var(--text-muted);
-    padding: 10px 12px;
-    border-radius: 7px;
-    font-family: inherit;
-    font-size: 12.5px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px;
-    transition: all 140ms ease;
+    background:transparent; border:none; color:var(--text-2);
+    padding:10px 12px; border-radius:7px;
+    font-family:inherit; font-size:12.5px; font-weight:500;
+    cursor:pointer;
+    display:flex; flex-direction:column; align-items:center; gap:3px;
+    transition:all 140ms ease;
   }
   .view-toggle button.active {
-    background: var(--bg-elev-3);
-    color: var(--text-strong);
-    box-shadow: 0 0 0 1px var(--accent), 0 1px 3px rgba(0,0,0,0.3);
+    background:var(--surface); color:var(--text);
+    box-shadow:0 0 0 1.5px var(--sophi-purple), 0 1px 4px rgba(103,58,183,0.15);
   }
-  .view-toggle button .lbl { font-family: 'Fraunces', serif; font-size: 14px; font-weight: 500; }
-  .view-toggle button .sub { font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.08em; }
-  .view-toggle button.active .sub { color: var(--accent); }
+  .view-toggle button .lbl { font-family:'Fraunces',serif; font-size:14px; font-weight:500; }
+  .view-toggle button .sub { font-size:9.5px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.08em; }
+  .view-toggle button.active .sub { color:var(--sophi-purple); }
 
-  .kpi-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 8px;
-  }
+  /* KPI mini row */
+  .kpi-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; }
   .kpi-mini {
-    background: var(--bg-elev-2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 8px;
-    text-align: center;
+    background:var(--surface-2); border:1px solid var(--border);
+    border-radius:8px; padding:10px 8px; text-align:center;
   }
-  .kpi-mini-val {
-    font-family: 'Fraunces', serif;
-    font-size: 18px;
-    color: var(--text-strong);
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    font-variant-numeric: tabular-nums;
-    line-height: 1.1;
-  }
-  .kpi-mini-val.accent { color: var(--accent); }
-  .kpi-mini-lbl {
-    font-size: 9.5px;
-    color: var(--text-faint);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-top: 4px;
-    line-height: 1.2;
-  }
+  .kpi-mini-val { font-family:'Fraunces',serif; font-size:17px; color:var(--text); font-weight:500; font-variant-numeric:tabular-nums; letter-spacing:-0.01em; line-height:1.1; }
+  .kpi-mini-val.accent { color:var(--sophi-purple); }
+  .kpi-mini-lbl { font-size:9.5px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.08em; margin-top:5px; line-height:1.2; }
 
   .state-badge {
-    background: rgba(212,162,76,0.08);
-    border: 1px solid rgba(212,162,76,0.25);
-    color: var(--accent);
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-top: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.25);
+    color:#92400E; padding:8px 12px; border-radius:6px;
+    font-size:11px; letter-spacing:0.06em; text-transform:uppercase; font-weight:500;
+    margin-top:12px; display:flex; align-items:center; gap:8px;
   }
-  .state-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+  .state-badge .dot { width:6px; height:6px; border-radius:50%; background:var(--sophi-amber); }
 
   /* Filter items */
-  .filter-item {
-    display: flex; align-items: center; gap: 10px;
-    padding: 7px 0;
-    cursor: pointer;
-    font-size: 13.5px;
-  }
-  .filter-item input { accent-color: var(--accent); }
-  .filter-item .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-  .filter-item .lbl { color: var(--text); flex: 1; }
-  .filter-item .count { font-family: 'JetBrains Mono', monospace; color: var(--text-faint); font-size: 11.5px; font-weight: 500; }
+  .filter-item { display:flex; align-items:center; gap:10px; padding:7px 0; cursor:pointer; font-size:13.5px; }
+  .filter-item input { accent-color:var(--sophi-purple); }
+  .filter-item .swatch { width:14px; height:14px; border-radius:50%; flex-shrink:0; }
+  .filter-item .lbl { color:var(--text); flex:1; }
+  .filter-item .count { font-family:'JetBrains Mono',monospace; color:var(--text-3); font-size:11.5px; font-weight:500; }
+  .filter-item .tier-label { font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--text-3); margin-left:auto; margin-right:8px; }
 
   .search-input {
-    width: 100%;
-    background: var(--bg-elev-2);
-    border: 1px solid var(--border-strong);
-    color: var(--text);
-    padding: 9px 12px;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 13px;
+    width:100%; background:var(--surface); border:1px solid var(--border-strong);
+    color:var(--text); padding:9px 12px; border-radius:6px;
+    font-family:inherit; font-size:13px;
   }
-  .search-input::placeholder { color: var(--text-faint); }
+  .search-input::placeholder { color:var(--text-4); }
 
-  .legend-row { display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: 12px; color: var(--text-muted); }
-  .legend-swatch { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
-  .legend-swatch.dot { border-radius: 50%; }
-  .legend-swatch.dashed { border: 1.5px dashed var(--text-faint); background: transparent; }
+  /* Legend */
+  .legend-row { display:flex; align-items:center; gap:8px; padding:5px 0; font-size:12px; color:var(--text-2); }
+  .legend-swatch { width:14px; height:14px; border-radius:50%; flex-shrink:0; }
+  .legend-swatch.dashed { border:1.5px dashed var(--text-3); background:transparent; }
+  .legend-icon-explain { display:flex; align-items:center; gap:6px; padding:4px 0; font-size:11.5px; color:var(--text-2); }
 
-  /* Map placeholder */
+  /* MAP */
   .map-canvas {
     background:
-      radial-gradient(ellipse at 60% 45%, rgba(212,162,76,0.06) 0%, transparent 50%),
-      radial-gradient(ellipse at 30% 70%, rgba(79,152,163,0.04) 0%, transparent 40%),
-      #0b0d10;
-    position: relative;
-    overflow: hidden;
+      radial-gradient(ellipse at 60% 45%, rgba(103,58,183,0.04) 0%, transparent 50%),
+      #F1F0EC;
+    position:relative; overflow:hidden;
   }
   .map-canvas::before {
-    content: "";
-    position: absolute; inset: 0;
+    content:""; position:absolute; inset:0;
     background-image:
-      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size: 60px 60px, 60px 60px;
-    opacity: 0.5;
+      linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size:60px 60px, 60px 60px;
+    opacity:0.7;
   }
   .map-city {
-    position: absolute;
-    top: 40%; left: 55%;
-    transform: translate(-50%, -50%);
-    font-family: 'Fraunces', serif;
-    font-size: 96px;
-    font-weight: 400;
-    color: rgba(255,255,255,0.03);
-    letter-spacing: -0.04em;
-    pointer-events: none;
-    user-select: none;
+    position:absolute; top:38%; left:56%;
+    transform:translate(-50%,-50%);
+    font-family:'Fraunces',serif; font-size:110px; font-weight:400;
+    color:rgba(0,0,0,0.05); letter-spacing:-0.04em;
+    pointer-events:none; user-select:none;
   }
-  .map-pin {
-    position: absolute;
-    width: 14px; height: 14px;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 0 2px rgba(11,13,16,0.9), 0 2px 8px rgba(0,0,0,0.5);
-    transition: all 200ms ease;
+  /* Icon-on-chip marker */
+  .marker {
+    position:absolute;
+    width:32px; height:32px; border-radius:50%;
+    display:grid; place-items:center;
+    color:#fff;
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 0 2px var(--surface), 0 3px 10px rgba(20,15,30,0.18);
+    cursor:pointer;
+    transition:transform 140ms ease;
   }
-  .map-pin.large { width: 20px; height: 20px; box-shadow: 0 0 0 3px rgba(11,13,16,0.9), 0 0 20px currentColor; }
-  .map-pin.dashed { border: 1.5px dashed currentColor; background: transparent !important; box-shadow: 0 0 0 2px rgba(11,13,16,0.9); }
+  .marker svg { width:16px; height:16px; }
+  .marker.small { width:24px; height:24px; }
+  .marker.small svg { width:12px; height:12px; }
+  .marker.large { width:38px; height:38px; }
+  .marker.large svg { width:19px; height:19px; }
+  .marker.muted { opacity:0.5; box-shadow:0 0 0 2px var(--surface), 0 1px 4px rgba(20,15,30,0.1); }
+  .marker.dashed { background:transparent !important; border:1.5px dashed currentColor; box-shadow:0 0 0 2px var(--surface); }
+  .marker.dashed svg { color:var(--text-3); }
 
-  .map-attribution {
-    position: absolute; bottom: 10px; right: 12px;
-    font-size: 10px; color: var(--text-faint);
-    background: rgba(11,13,16,0.6);
-    padding: 3px 6px;
-    border-radius: 3px;
-  }
+  .map-attribution { position:absolute; bottom:10px; right:12px; font-size:10px; color:var(--text-3); background:rgba(250,250,249,0.85); padding:3px 6px; border-radius:3px; }
 
-  /* Two mockups side by side */
-  .mockup-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    padding: 32px;
+  /* Popup preview (identical in both views) */
+  .popup {
+    position:absolute; top:22%; left:38%;
+    width:280px; background:var(--surface); border:1px solid var(--border-strong);
+    border-radius:10px; padding:14px; box-shadow:var(--shadow-md);
+    z-index:5;
   }
+  .popup-name { font-family:'Fraunces',serif; font-size:15px; font-weight:500; color:var(--text); margin-bottom:2px; }
+  .popup-sub { font-size:11px; color:var(--text-3); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:10px; }
+  .popup-row { display:flex; justify-content:space-between; padding:4px 0; font-size:12.5px; }
+  .popup-row .k { color:var(--text-3); }
+  .popup-row .v { color:var(--text); font-variant-numeric:tabular-nums; }
+  .popup-badge { display:inline-block; background:var(--sophi-purple-soft); color:var(--sophi-purple-dark); font-size:10px; padding:2px 8px; border-radius:4px; letter-spacing:0.06em; text-transform:uppercase; font-weight:500; }
+  .popup-caret { position:absolute; bottom:-8px; left:32px; width:14px; height:14px; background:var(--surface); border-right:1px solid var(--border-strong); border-bottom:1px solid var(--border-strong); transform:rotate(45deg); }
+
+  /* Mockup framing */
+  .mockup-wrap { display:flex; flex-direction:column; gap:44px; padding:32px; max-width:1600px; margin:0 auto; }
   .mockup-frame {
-    background: var(--bg);
-    border: 1px solid var(--border-strong);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-    height: 900px;
-    display: flex;
-    flex-direction: column;
+    background:var(--surface); border:1px solid var(--border-strong);
+    border-radius:14px; overflow:hidden;
+    box-shadow:0 20px 60px rgba(20,15,30,0.08);
+    height:920px; display:flex; flex-direction:column;
   }
-  .mockup-caption {
-    font-family: 'Fraunces', serif;
-    font-size: 24px;
-    color: var(--text-strong);
-    font-weight: 500;
-    margin-bottom: 8px;
-    letter-spacing: -0.01em;
+  .mockup-caption { font-family:'Fraunces',serif; font-size:24px; color:var(--text); font-weight:500; margin-bottom:6px; letter-spacing:-0.01em; }
+  .mockup-caption .eyebrow { display:block; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--sophi-purple); letter-spacing:0.14em; text-transform:uppercase; font-weight:400; margin-bottom:6px; }
+  .mockup-sub { color:var(--text-2); font-size:14px; max-width:76ch; margin-bottom:18px; line-height:1.6; }
+  .mockup-sub strong { color:var(--text); font-weight:600; }
+
+  /* Growth Engine preview strip */
+  .ge-preview {
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:12px; padding:32px 40px;
+    box-shadow:var(--shadow-sm);
   }
-  .mockup-caption .eyebrow {
-    display: block;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 400;
-    margin-bottom: 6px;
-  }
-  .mockup-sub {
-    color: var(--text-muted);
-    font-size: 14px;
-    max-width: 70ch;
-    margin-bottom: 20px;
-    line-height: 1.55;
-  }
+  .ge-preview .eyebrow { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--sophi-purple); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px; }
+  .ge-preview h2 { font-family:'Fraunces',serif; font-size:36px; color:var(--text); font-weight:500; letter-spacing:-0.015em; margin:0 0 12px; line-height:1.1; }
+  .ge-preview p { color:var(--text-2); font-size:16px; line-height:1.65; max-width:65ch; margin:0; }
+  .ge-preview .kpi-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:28px; padding-top:24px; border-top:1px solid var(--border); }
+  .ge-preview .kpi-strip .k-val { font-family:'Fraunces',serif; font-size:32px; color:var(--sophi-purple); font-weight:500; letter-spacing:-0.01em; }
+  .ge-preview .kpi-strip .k-lbl { font-size:11px; color:var(--text-3); letter-spacing:0.1em; text-transform:uppercase; margin-top:6px; }
 </style>
 </head>
 <body>
 
 <div class="mockup-wrap">
 
-  <!-- ================ MOCKUP 1: MARKET VIEW ================ -->
+  <div>
+    <div class="mockup-caption">
+      <span class="eyebrow">V2 · Approvals summary</span>
+      Light theme, quartile tiers, icon-on-chip markers, KPI strip with Y5 avg $/account
+    </div>
+    <div class="mockup-sub">
+      Same map, same accounts, same modal in both views. Toggle in top-left swaps the visual encoding + filters + KPI mini-row. All chrome uses the original Sophi light palette (purple #673AB7, cream #FAFAF9). This mockup will be applied across Growth Engine and all stub pages too — a preview strip at the bottom shows the Growth Engine header re-themed to match.
+    </div>
+  </div>
+
+  <!-- ===== MOCKUP 1: MARKET VIEW (light, quartile tiers, icon markers) ===== -->
   <div>
     <div class="mockup-caption">
       <span class="eyebrow">Mockup 1 of 2 · Market View</span>
-      Charlotte, NC — dark investor theme with the toggle in Market mode.
+      Charlotte — colored by revenue quartile, account type shown as icon.
     </div>
     <div class="mockup-sub">
-      Same Charlotte data as today. Toggle sits at the top of the left rail (replacing the old KPI cards). In this view, markers color by <strong style="color:var(--text-strong)">account type</strong>, filter section is pool-based (existing structure), and KPI strip emphasizes present-day revenue picture. KPI mini-cards below the toggle stay — they update to reflect the active view.
+      Markers are <strong>icon-on-chip</strong> — building glyph for hotels, fork+knife for restaurants — with the chip color set by the account's <strong>TAM quartile</strong> (Q1 darkest purple → Q4 palest). Icon size grows with tier (Q1 largest, Q4 smallest). Sidebar filters are the four quartiles only, plus search. KPI mini-row emphasizes Wins × Avg-$ × Y5-SOM.
     </div>
     <div class="mockup-frame">
-      <!-- Top strip -->
       <div class="topstrip">
-        <div class="brand">
-          <div class="brand-mark">S</div>
-          <span>Sophi Investor Deal Room</span>
-          <span class="brand-sub">2026 · v3</span>
-        </div>
+        <div class="brand"><div class="brand-mark">S</div><span>Sophi Investor Deal Room</span><span class="brand-sub">2026 · v3</span></div>
         <nav>
           <a href="#">Rollup</a>
           <a href="#">Growth Engine</a>
@@ -380,95 +291,47 @@
         </nav>
       </div>
 
-      <!-- Header -->
       <div class="header">
         <div class="header-left">
           <a href="#" class="back-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <div class="brand-mark" style="width:32px;height:32px;font-size:18px;">S</div>
+          <div class="brand-mark" style="width:36px;height:36px;font-size:17px;">S</div>
           <div class="header-title">
             <h1>Charlotte, NC</h1>
             <div class="sub">Sophi Mobility · 2026 Market Analysis</div>
           </div>
         </div>
         <div class="header-right">
-          <div class="hstat">
-            <div class="hstat-val">$18.20M</div>
-            <div class="hstat-lbl">TAM</div>
-          </div>
-          <div class="hstat">
-            <div class="hstat-val">$9.10M</div>
-            <div class="hstat-lbl">SAM <span class="hstat-ratio">50%</span></div>
-          </div>
-          <div class="hstat">
-            <div class="hstat-val accent">$7.75M</div>
-            <div class="hstat-lbl">Y5 SOM <span class="hstat-ratio">85% of SAM</span></div>
-          </div>
-          <div class="hstat">
-            <div class="hstat-val">17</div>
-            <div class="hstat-lbl">Wins by Y5</div>
-          </div>
+          <div class="hstat"><div class="hstat-val">$18.20M</div><div class="hstat-lbl">TAM</div></div>
+          <div class="hstat"><div class="hstat-val">$9.10M</div><div class="hstat-lbl">SAM <span class="hstat-ratio">50%</span></div></div>
+          <div class="hstat"><div class="hstat-val accent">$7.75M</div><div class="hstat-lbl">Y5 SOM <span class="hstat-ratio">85%</span></div></div>
+          <div class="hstat"><div class="hstat-val">17</div><div class="hstat-lbl">Wins by Y5</div></div>
+          <div class="hstat"><div class="hstat-val">$456K</div><div class="hstat-lbl">Avg $/Acct Y5</div></div>
           <div class="visible-pill"><strong>39</strong> visible</div>
           <div class="market-switcher">Charlotte, NC ⌄</div>
         </div>
       </div>
 
       <div class="layout">
-        <!-- Sidebar -->
         <aside class="sidebar">
-
           <div class="sidebar-section">
-            <!-- The toggle -->
             <div class="view-toggle">
-              <button class="active">
-                <span class="lbl">Market</span>
-                <span class="sub">By type · TAM</span>
-              </button>
-              <button>
-                <span class="lbl">Portfolio</span>
-                <span class="sub">By year · SOM</span>
-              </button>
+              <button class="active"><span class="lbl">Market</span><span class="sub">By tier · TAM</span></button>
+              <button><span class="lbl">Portfolio</span><span class="sub">By year · SOM</span></button>
             </div>
-
-            <!-- KPI row (context for current view) -->
             <div class="kpi-row">
-              <div class="kpi-mini">
-                <div class="kpi-mini-val">39</div>
-                <div class="kpi-mini-lbl">Accounts</div>
-              </div>
-              <div class="kpi-mini">
-                <div class="kpi-mini-val">24</div>
-                <div class="kpi-mini-lbl">In SAM</div>
-              </div>
-              <div class="kpi-mini">
-                <div class="kpi-mini-val accent">$18M</div>
-                <div class="kpi-mini-lbl">TAM</div>
-              </div>
+              <div class="kpi-mini"><div class="kpi-mini-val">39</div><div class="kpi-mini-lbl">Accounts</div></div>
+              <div class="kpi-mini"><div class="kpi-mini-val">24</div><div class="kpi-mini-lbl">In SAM</div></div>
+              <div class="kpi-mini"><div class="kpi-mini-val accent">$18M</div><div class="kpi-mini-lbl">TAM</div></div>
             </div>
-
-            <div class="state-badge">
-              <span class="dot"></span>
-              Warm · 4 Charlotte anchors · 50% Y5 cap
-            </div>
+            <div class="state-badge"><span class="dot"></span>Warm · 4 Charlotte anchors · 50% Y5 cap</div>
           </div>
 
           <div class="sidebar-section">
-            <h3>In-SAM Pools</h3>
-            <label class="filter-item"><input type="checkbox" checked><span class="dot" style="background:var(--pool-anchor)"></span><span class="lbl">Anchors</span><span class="count">4</span></label>
-            <label class="filter-item"><input type="checkbox" checked><span class="dot" style="background:var(--pool-cold_sam)"></span><span class="lbl">Cold SAM</span><span class="count">20</span></label>
-          </div>
-
-          <div class="sidebar-section">
-            <h3>Out-of-SAM Pools</h3>
-            <label class="filter-item"><input type="checkbox" checked><span class="dot" style="background:var(--pool-partnership)"></span><span class="lbl">Partnership / PMC</span><span class="count">6</span></label>
-            <label class="filter-item"><input type="checkbox" checked><span class="dot" style="background:var(--pool-enterprise)"></span><span class="lbl">Enterprise operator</span><span class="count">1</span></label>
-            <label class="filter-item"><input type="checkbox" checked><span class="dot" style="background:var(--pool-extended_stay)"></span><span class="lbl">Extended-stay</span><span class="count">4</span></label>
-            <label class="filter-item"><input type="checkbox" checked><span class="dot" style="background:var(--pool-micro)"></span><span class="lbl">Micro (&lt;$150K)</span><span class="count">4</span></label>
-          </div>
-
-          <div class="sidebar-section">
-            <h3>Account Type</h3>
-            <label class="filter-item"><input type="checkbox" checked><span class="dot" style="background:var(--type-hotel)"></span><span class="lbl">Hotel</span><span class="count">21</span></label>
-            <label class="filter-item"><input type="checkbox" checked><span class="dot" style="background:var(--type-restaurant)"></span><span class="lbl">Restaurant</span><span class="count">18</span></label>
+            <h3>Revenue Tier (TAM)</h3>
+            <label class="filter-item"><input type="checkbox" checked><span class="swatch" style="background:var(--q1)"></span><span class="lbl">Q1</span><span class="tier-label">&gt;$500K</span><span class="count">10</span></label>
+            <label class="filter-item"><input type="checkbox" checked><span class="swatch" style="background:var(--q2)"></span><span class="lbl">Q2</span><span class="tier-label">$250-500K</span><span class="count">10</span></label>
+            <label class="filter-item"><input type="checkbox" checked><span class="swatch" style="background:var(--q3)"></span><span class="lbl">Q3</span><span class="tier-label">$100-250K</span><span class="count">9</span></label>
+            <label class="filter-item"><input type="checkbox" checked><span class="swatch" style="background:var(--q4)"></span><span class="lbl">Q4</span><span class="tier-label">&lt;$100K</span><span class="count">10</span></label>
           </div>
 
           <div class="sidebar-section">
@@ -477,68 +340,80 @@
           </div>
 
           <div class="sidebar-section">
-            <h3>Legend — Market view</h3>
-            <div class="legend-row"><span class="legend-swatch dot" style="background:var(--type-hotel)"></span>Hotel — colored by type</div>
-            <div class="legend-row"><span class="legend-swatch dot" style="background:var(--type-restaurant)"></span>Restaurant</div>
-            <div class="legend-row"><span class="legend-swatch dot" style="opacity:0.35;background:var(--type-hotel)"></span>Out-of-SAM (muted)</div>
-            <div class="legend-row"><span class="legend-swatch dashed" style="border-radius:50%"></span>Geocode fallback</div>
+            <h3>Icons on map</h3>
+            <div class="legend-icon-explain">
+              <span class="marker small" style="position:relative;top:auto;left:auto;transform:none;background:var(--q2);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+              Hotel
+            </div>
+            <div class="legend-icon-explain">
+              <span class="marker small" style="position:relative;top:auto;left:auto;transform:none;background:var(--q3);"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+              Restaurant
+            </div>
+            <div class="legend-icon-explain">
+              <span class="marker small dashed" style="position:relative;top:auto;left:auto;transform:none;color:var(--text-3);"><svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M4 12h16" stroke="currentColor" stroke-width="1.6"/></svg></span>
+              Geocode fallback (dashed)
+            </div>
+            <div class="legend-icon-explain" style="color:var(--text-3);font-size:11px;margin-top:6px;">Chip color = tier · Chip size = rank within tier</div>
           </div>
-
         </aside>
 
-        <!-- Map -->
         <div class="map-canvas">
           <div class="map-city">CHARLOTTE</div>
-          <!-- In-SAM pins colored by TYPE (hotel blue, restaurant orange) -->
-          <!-- Anchors get larger dots -->
-          <div class="map-pin large" style="top:44%;left:52%;background:var(--type-hotel);color:var(--type-hotel);"></div>
-          <div class="map-pin large" style="top:47%;left:56%;background:var(--type-restaurant);color:var(--type-restaurant);"></div>
-          <div class="map-pin large" style="top:52%;left:53%;background:var(--type-restaurant);color:var(--type-restaurant);"></div>
-          <div class="map-pin large" style="top:49%;left:59%;background:var(--type-restaurant);color:var(--type-restaurant);"></div>
 
-          <div class="map-pin" style="top:41%;left:55%;background:var(--type-hotel)"></div>
-          <div class="map-pin" style="top:43%;left:58%;background:var(--type-hotel)"></div>
-          <div class="map-pin" style="top:46%;left:50%;background:var(--type-hotel)"></div>
-          <div class="map-pin" style="top:50%;left:57%;background:var(--type-hotel)"></div>
-          <div class="map-pin" style="top:54%;left:56%;background:var(--type-hotel)"></div>
-          <div class="map-pin" style="top:38%;left:57%;background:var(--type-hotel)"></div>
-          <div class="map-pin" style="top:57%;left:52%;background:var(--type-hotel)"></div>
-          <div class="map-pin" style="top:60%;left:54%;background:var(--type-restaurant)"></div>
-          <div class="map-pin" style="top:63%;left:58%;background:var(--type-restaurant)"></div>
-          <div class="map-pin" style="top:45%;left:63%;background:var(--type-restaurant)"></div>
-          <div class="map-pin" style="top:51%;left:62%;background:var(--type-restaurant)"></div>
-          <div class="map-pin" style="top:55%;left:60%;background:var(--type-restaurant)"></div>
-          <!-- Out-of-SAM (muted) -->
-          <div class="map-pin" style="top:33%;left:60%;background:var(--type-hotel);opacity:0.28"></div>
-          <div class="map-pin" style="top:36%;left:66%;background:var(--type-hotel);opacity:0.28"></div>
-          <div class="map-pin" style="top:66%;left:60%;background:var(--type-restaurant);opacity:0.28"></div>
-          <div class="map-pin" style="top:70%;left:62%;background:var(--type-hotel);opacity:0.28"></div>
-          <!-- Geocode fallback -->
-          <div class="map-pin dashed" style="top:75%;left:54%;color:var(--type-hotel);opacity:0.5"></div>
+          <!-- Q1 (top quartile — darkest, largest) -->
+          <div class="marker large" style="top:44%;left:52%;background:var(--q1);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker large" style="top:47%;left:56%;background:var(--q1);"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker large" style="top:52%;left:53%;background:var(--q1);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
 
-          <div class="map-attribution">© OpenStreetMap · CartoDB Dark Matter</div>
+          <!-- Q2 -->
+          <div class="marker" style="top:49%;left:59%;background:var(--q2);"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker" style="top:41%;left:55%;background:var(--q2);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker" style="top:43%;left:58%;background:var(--q2);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker" style="top:46%;left:50%;background:var(--q2);"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+
+          <!-- Q3 -->
+          <div class="marker small" style="top:50%;left:57%;background:var(--q3);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small" style="top:54%;left:56%;background:var(--q3);"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small" style="top:57%;left:52%;background:var(--q3);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small" style="top:60%;left:54%;background:var(--q3);"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+
+          <!-- Q4 -->
+          <div class="marker small" style="top:38%;left:57%;background:var(--q4);color:var(--text-2);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small" style="top:33%;left:60%;background:var(--q4);color:var(--text-2);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small" style="top:36%;left:66%;background:var(--q4);color:var(--text-2);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small" style="top:63%;left:58%;background:var(--q4);color:var(--text-2);"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small" style="top:66%;left:60%;background:var(--q4);color:var(--text-2);"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small" style="top:70%;left:62%;background:var(--q4);color:var(--text-2);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+
+          <!-- Popup preview -->
+          <div class="popup">
+            <div class="popup-name">Hyatt House Charlotte Center City</div>
+            <div class="popup-sub">Hotel · 163 keys · Uptown Charlotte</div>
+            <div class="popup-row"><span class="k">Est. TAM</span><span class="v">$594K</span></div>
+            <div class="popup-row"><span class="k">Tier</span><span class="v"><span class="popup-badge" style="background:#ede7f6;color:#4a148c;">Q1 · $500K+</span></span></div>
+            <div class="popup-row"><span class="k">SAM status</span><span class="v" style="color:var(--sophi-green);">In-SAM · Anchor</span></div>
+            <div class="popup-row"><span class="k">Modeled sign-year</span><span class="v">Y1 · 2026</span></div>
+            <div class="popup-caret"></div>
+          </div>
+
+          <div class="map-attribution">© OpenStreetMap · CartoDB Positron</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ================ MOCKUP 2: PORTFOLIO VIEW ================ -->
+  <!-- ===== MOCKUP 2: PORTFOLIO VIEW (same map, year encoding + icons) ===== -->
   <div>
     <div class="mockup-caption">
       <span class="eyebrow">Mockup 2 of 2 · Portfolio View</span>
-      Same Charlotte — toggle flipped, colors and filters shift to the acquisition-year lens.
+      Same Charlotte — colored by acquisition year, same icons, same modal.
     </div>
     <div class="mockup-sub">
-      Same accounts, same click behavior, same modal — but now markers color by <strong style="color:var(--text-strong)">sign-year</strong> (Y1 → Y5 on a warm-to-cool gradient), unacquired accounts go muted gray, filters swap to acquisition-year + account-type combined, and KPI mini-cards emphasize the revenue-timing story. A "hide unacquired" toggle lives right in the sidebar.
+      Toggle flipped: chip color = <strong>sign-year</strong> (Y1 amber → Y5 indigo), chip size proportional to that year's revenue contribution. Unacquired accounts render in muted gray with a "hide unacquired" checkbox. Sidebar filters are acquisition year + account type. KPI mini-row emphasizes Wins × Y5 run-rate × 5-yr cumulative. Modal identical to Market view.
     </div>
     <div class="mockup-frame">
-      <!-- Top strip -->
       <div class="topstrip">
-        <div class="brand">
-          <div class="brand-mark">S</div>
-          <span>Sophi Investor Deal Room</span>
-          <span class="brand-sub">2026 · v3</span>
-        </div>
+        <div class="brand"><div class="brand-mark">S</div><span>Sophi Investor Deal Room</span><span class="brand-sub">2026 · v3</span></div>
         <nav>
           <a href="#">Rollup</a>
           <a href="#">Growth Engine</a>
@@ -550,33 +425,21 @@
         </nav>
       </div>
 
-      <!-- Header -->
       <div class="header">
         <div class="header-left">
           <a href="#" class="back-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <div class="brand-mark" style="width:32px;height:32px;font-size:18px;">S</div>
+          <div class="brand-mark" style="width:36px;height:36px;font-size:17px;">S</div>
           <div class="header-title">
             <h1>Charlotte, NC</h1>
             <div class="sub">Sophi Mobility · 2026 Market Analysis</div>
           </div>
         </div>
         <div class="header-right">
-          <div class="hstat">
-            <div class="hstat-val">$756K</div>
-            <div class="hstat-lbl">Y1 SOM</div>
-          </div>
-          <div class="hstat">
-            <div class="hstat-val accent">$7.75M</div>
-            <div class="hstat-lbl">Y5 SOM</div>
-          </div>
-          <div class="hstat">
-            <div class="hstat-val">$21.4M</div>
-            <div class="hstat-lbl">5-yr Cumulative</div>
-          </div>
-          <div class="hstat">
-            <div class="hstat-val">17</div>
-            <div class="hstat-lbl">Wins by Y5</div>
-          </div>
+          <div class="hstat"><div class="hstat-val">$756K</div><div class="hstat-lbl">Y1 SOM</div></div>
+          <div class="hstat"><div class="hstat-val accent">$7.75M</div><div class="hstat-lbl">Y5 SOM</div></div>
+          <div class="hstat"><div class="hstat-val">$21.4M</div><div class="hstat-lbl">5-yr Cum</div></div>
+          <div class="hstat"><div class="hstat-val">17</div><div class="hstat-lbl">Wins by Y5</div></div>
+          <div class="hstat"><div class="hstat-val">$456K</div><div class="hstat-lbl">Avg $/Acct Y5</div></div>
           <div class="visible-pill"><strong>17</strong> in view</div>
           <div class="market-switcher">Charlotte, NC ⌄</div>
         </div>
@@ -584,58 +447,28 @@
 
       <div class="layout">
         <aside class="sidebar">
-
           <div class="sidebar-section">
             <div class="view-toggle">
-              <button>
-                <span class="lbl">Market</span>
-                <span class="sub">By type · TAM</span>
-              </button>
-              <button class="active">
-                <span class="lbl">Portfolio</span>
-                <span class="sub">By year · SOM</span>
-              </button>
+              <button><span class="lbl">Market</span><span class="sub">By tier · TAM</span></button>
+              <button class="active"><span class="lbl">Portfolio</span><span class="sub">By year · SOM</span></button>
             </div>
-
-            <!-- KPI row (Portfolio-view metrics) -->
             <div class="kpi-row">
-              <div class="kpi-row" style="gap:8px;grid-template-columns:1fr 1fr 1fr;display:contents;">
-                <div class="kpi-mini">
-                  <div class="kpi-mini-val">17</div>
-                  <div class="kpi-mini-lbl">Wins Y1-Y5</div>
-                </div>
-                <div class="kpi-mini">
-                  <div class="kpi-mini-val accent">$7.7M</div>
-                  <div class="kpi-mini-lbl">Y5 Run-Rate</div>
-                </div>
-                <div class="kpi-mini">
-                  <div class="kpi-mini-val">$21M</div>
-                  <div class="kpi-mini-lbl">5-yr Cum</div>
-                </div>
-              </div>
+              <div class="kpi-mini"><div class="kpi-mini-val">17</div><div class="kpi-mini-lbl">Wins</div></div>
+              <div class="kpi-mini"><div class="kpi-mini-val accent">$7.7M</div><div class="kpi-mini-lbl">Y5 Run</div></div>
+              <div class="kpi-mini"><div class="kpi-mini-val">$21M</div><div class="kpi-mini-lbl">5-yr Cum</div></div>
             </div>
-
-            <div class="state-badge">
-              <span class="dot"></span>
-              4 signed · 13 modeled to sign · Y1-Y5
-            </div>
+            <div class="state-badge"><span class="dot"></span>4 signed · 13 modeled · Y1-Y5</div>
           </div>
 
           <div class="sidebar-section">
             <h3>Acquisition Year</h3>
-            <label class="filter-item"><input type="checkbox" checked><span class="dot" style="background:var(--y1)"></span><span class="lbl">Y1 · 2026</span><span class="count">4</span></label>
-            <label class="filter-item"><input type="checkbox" checked><span class="dot" style="background:var(--y2)"></span><span class="lbl">Y2 · 2027</span><span class="count">3</span></label>
-            <label class="filter-item"><input type="checkbox" checked><span class="dot" style="background:var(--y3)"></span><span class="lbl">Y3 · 2028</span><span class="count">4</span></label>
-            <label class="filter-item"><input type="checkbox" checked><span class="dot" style="background:var(--y4)"></span><span class="lbl">Y4 · 2029</span><span class="count">3</span></label>
-            <label class="filter-item"><input type="checkbox" checked><span class="dot" style="background:var(--y5)"></span><span class="lbl">Y5 · 2030</span><span class="count">3</span></label>
-            <label class="filter-item" style="padding-top:8px;border-top:1px dashed var(--border);margin-top:6px;"><input type="checkbox" checked><span class="dot" style="background:var(--unacquired)"></span><span class="lbl">Unacquired</span><span class="count">22</span></label>
-            <label class="filter-item" style="padding-left:22px;font-size:12px;color:var(--text-muted);"><input type="checkbox"><span class="lbl">Hide unacquired</span></label>
-          </div>
-
-          <div class="sidebar-section">
-            <h3>Account Type</h3>
-            <label class="filter-item"><input type="checkbox" checked><span class="dot" style="background:var(--type-hotel);border:1.5px solid var(--text);border-radius:3px;width:12px;height:12px;"></span><span class="lbl">Hotel</span><span class="count">21</span></label>
-            <label class="filter-item"><input type="checkbox" checked><span class="dot" style="background:var(--type-restaurant);border:1.5px solid var(--text);border-radius:3px;width:12px;height:12px;"></span><span class="lbl">Restaurant</span><span class="count">18</span></label>
+            <label class="filter-item"><input type="checkbox" checked><span class="swatch" style="background:var(--y1)"></span><span class="lbl">Y1 · 2026</span><span class="count">4</span></label>
+            <label class="filter-item"><input type="checkbox" checked><span class="swatch" style="background:var(--y2)"></span><span class="lbl">Y2 · 2027</span><span class="count">3</span></label>
+            <label class="filter-item"><input type="checkbox" checked><span class="swatch" style="background:var(--y3)"></span><span class="lbl">Y3 · 2028</span><span class="count">4</span></label>
+            <label class="filter-item"><input type="checkbox" checked><span class="swatch" style="background:var(--y4)"></span><span class="lbl">Y4 · 2029</span><span class="count">3</span></label>
+            <label class="filter-item"><input type="checkbox" checked><span class="swatch" style="background:var(--y5)"></span><span class="lbl">Y5 · 2030</span><span class="count">3</span></label>
+            <label class="filter-item" style="padding-top:8px;border-top:1px dashed var(--border);margin-top:6px;"><input type="checkbox" checked><span class="swatch" style="background:var(--unacquired)"></span><span class="lbl">Unacquired</span><span class="count">22</span></label>
+            <label class="filter-item" style="padding-left:22px;font-size:12px;color:var(--text-2);"><input type="checkbox"><span class="lbl">Hide unacquired</span></label>
           </div>
 
           <div class="sidebar-section">
@@ -644,49 +477,90 @@
           </div>
 
           <div class="sidebar-section">
-            <h3>Legend — Portfolio view</h3>
-            <div class="legend-row"><span class="legend-swatch dot" style="background:var(--y1)"></span>Y1 (2026) — earliest</div>
-            <div class="legend-row"><span class="legend-swatch dot" style="background:var(--y3)"></span>Y3 (2028) — mid</div>
-            <div class="legend-row"><span class="legend-swatch dot" style="background:var(--y5)"></span>Y5 (2030) — latest</div>
-            <div class="legend-row"><span class="legend-swatch dot" style="background:var(--unacquired)"></span>Unacquired (muted)</div>
-            <div class="legend-row" style="font-size:11px;color:var(--text-faint);margin-top:6px;">Dot size = revenue contribution</div>
+            <h3>Icons on map</h3>
+            <div class="legend-icon-explain">
+              <span class="marker small" style="position:relative;top:auto;left:auto;transform:none;background:var(--y1);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+              Hotel
+            </div>
+            <div class="legend-icon-explain">
+              <span class="marker small" style="position:relative;top:auto;left:auto;transform:none;background:var(--y3);"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+              Restaurant
+            </div>
+            <div class="legend-icon-explain" style="color:var(--text-3);font-size:11px;margin-top:6px;">Chip color = sign year · Chip size = revenue contribution</div>
           </div>
-
         </aside>
 
-        <!-- Map -->
         <div class="map-canvas">
           <div class="map-city">CHARLOTTE</div>
-          <!-- Y1 (4 anchors - largest, gold) -->
-          <div class="map-pin large" style="top:44%;left:52%;background:var(--y1);color:var(--y1);"></div>
-          <div class="map-pin large" style="top:47%;left:56%;background:var(--y1);color:var(--y1);"></div>
-          <div class="map-pin large" style="top:52%;left:53%;background:var(--y1);color:var(--y1);"></div>
-          <div class="map-pin large" style="top:49%;left:59%;background:var(--y1);color:var(--y1);"></div>
-          <!-- Y2 (3) -->
-          <div class="map-pin" style="top:41%;left:55%;background:var(--y2);width:16px;height:16px;"></div>
-          <div class="map-pin" style="top:46%;left:50%;background:var(--y2);width:16px;height:16px;"></div>
-          <div class="map-pin" style="top:54%;left:56%;background:var(--y2);width:16px;height:16px;"></div>
-          <!-- Y3 (4) -->
-          <div class="map-pin" style="top:43%;left:58%;background:var(--y3);width:14px;height:14px;"></div>
-          <div class="map-pin" style="top:50%;left:57%;background:var(--y3);width:14px;height:14px;"></div>
-          <div class="map-pin" style="top:38%;left:57%;background:var(--y3);width:14px;height:14px;"></div>
-          <div class="map-pin" style="top:57%;left:52%;background:var(--y3);width:14px;height:14px;"></div>
-          <!-- Y4 (3) -->
-          <div class="map-pin" style="top:60%;left:54%;background:var(--y4);width:12px;height:12px;"></div>
-          <div class="map-pin" style="top:63%;left:58%;background:var(--y4);width:12px;height:12px;"></div>
-          <div class="map-pin" style="top:45%;left:63%;background:var(--y4);width:12px;height:12px;"></div>
-          <!-- Y5 (3) -->
-          <div class="map-pin" style="top:51%;left:62%;background:var(--y5);width:11px;height:11px;"></div>
-          <div class="map-pin" style="top:55%;left:60%;background:var(--y5);width:11px;height:11px;"></div>
-          <div class="map-pin" style="top:60%;left:65%;background:var(--y5);width:11px;height:11px;"></div>
-          <!-- Unacquired (muted gray, smaller) -->
-          <div class="map-pin" style="top:33%;left:60%;background:var(--unacquired);width:9px;height:9px;opacity:0.5;"></div>
-          <div class="map-pin" style="top:36%;left:66%;background:var(--unacquired);width:9px;height:9px;opacity:0.5;"></div>
-          <div class="map-pin" style="top:66%;left:60%;background:var(--unacquired);width:9px;height:9px;opacity:0.5;"></div>
-          <div class="map-pin" style="top:70%;left:62%;background:var(--unacquired);width:9px;height:9px;opacity:0.5;"></div>
 
-          <div class="map-attribution">© OpenStreetMap · CartoDB Dark Matter</div>
+          <!-- Y1 (4 anchors — largest, amber) -->
+          <div class="marker large" style="top:44%;left:52%;background:var(--y1);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker large" style="top:47%;left:56%;background:var(--y1);"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker large" style="top:52%;left:53%;background:var(--y1);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker large" style="top:49%;left:59%;background:var(--y1);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+
+          <!-- Y2 -->
+          <div class="marker" style="top:41%;left:55%;background:var(--y2);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker" style="top:46%;left:50%;background:var(--y2);"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker" style="top:54%;left:56%;background:var(--y2);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+
+          <!-- Y3 -->
+          <div class="marker small" style="top:43%;left:58%;background:var(--y3);"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small" style="top:50%;left:57%;background:var(--y3);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small" style="top:38%;left:57%;background:var(--y3);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small" style="top:57%;left:52%;background:var(--y3);"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+
+          <!-- Y4 -->
+          <div class="marker small" style="top:60%;left:54%;background:var(--y4);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small" style="top:63%;left:58%;background:var(--y4);"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small" style="top:45%;left:63%;background:var(--y4);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+
+          <!-- Y5 -->
+          <div class="marker small" style="top:51%;left:62%;background:var(--y5);"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small" style="top:55%;left:60%;background:var(--y5);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small" style="top:60%;left:65%;background:var(--y5);"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+
+          <!-- Unacquired (muted gray) -->
+          <div class="marker small muted" style="top:33%;left:60%;background:var(--unacquired);color:var(--text-2);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small muted" style="top:36%;left:66%;background:var(--unacquired);color:var(--text-2);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small muted" style="top:66%;left:60%;background:var(--unacquired);color:var(--text-2);"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3v9a2 2 0 0 1-2 2v7M8 3a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2M16 3v18M16 3a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="marker small muted" style="top:70%;left:62%;background:var(--unacquired);color:var(--text-2);"><svg viewBox="0 0 24 24" fill="none"><path d="M4 22V4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18M4 22h16M8 7h2M8 11h2M8 15h2M14 7h2M14 11h2M14 15h2M10 22v-4h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+
+          <!-- Same popup, same content (proves modal is view-agnostic) -->
+          <div class="popup">
+            <div class="popup-name">Hyatt House Charlotte Center City</div>
+            <div class="popup-sub">Hotel · 163 keys · Uptown Charlotte</div>
+            <div class="popup-row"><span class="k">Est. TAM</span><span class="v">$594K</span></div>
+            <div class="popup-row"><span class="k">Tier</span><span class="v"><span class="popup-badge" style="background:#ede7f6;color:#4a148c;">Q1 · $500K+</span></span></div>
+            <div class="popup-row"><span class="k">SAM status</span><span class="v" style="color:var(--sophi-green);">In-SAM · Anchor</span></div>
+            <div class="popup-row"><span class="k">Modeled sign-year</span><span class="v" style="color:var(--y1);font-weight:600;">Y1 · 2026</span></div>
+            <div class="popup-caret"></div>
+          </div>
+
+          <div class="map-attribution">© OpenStreetMap · CartoDB Positron</div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Growth Engine preview (re-themed to light) ===== -->
+  <div>
+    <div class="mockup-caption">
+      <span class="eyebrow">Consistency preview</span>
+      Growth Engine section header in the light theme
+    </div>
+    <div class="mockup-sub">
+      To keep the deal room consistent, I'll re-theme Growth Engine (and the stub pages) from the current dark-gold look to this light-purple system. Below is a quick preview of the top of that page in the new theme — same content, restyled.
+    </div>
+    <div class="ge-preview">
+      <div class="eyebrow">Chapter 02 · Growth Engine</div>
+      <h2>From judgment to measurement — how six markets compound.</h2>
+      <p>Sophi's SOM isn't a top-down guess. Each of the six locked markets was scored on the same rubric, then translated through a bottom-up account model with anchor-based caps. What emerges is a $28.3M Y5 run-rate built from 34 named wins — not a growth percentage assumed on a spreadsheet.</p>
+      <div class="kpi-strip">
+        <div><div class="k-val">$150.3M</div><div class="k-lbl">Portfolio TAM</div></div>
+        <div><div class="k-val">$57.3M</div><div class="k-lbl">SAM</div></div>
+        <div><div class="k-val">$28.3M</div><div class="k-lbl">Y5 SOM</div></div>
+        <div><div class="k-val">34</div><div class="k-lbl">Wins by Y5</div></div>
       </div>
     </div>
   </div>
