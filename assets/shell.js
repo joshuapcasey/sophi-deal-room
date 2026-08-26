@@ -9,7 +9,6 @@
     ]},
     { group: 'DILIGENCE', items: [
       { href: 'methodology.html', label: 'Methodology', icon: 'book' },
-      { href: 'levers.html', label: 'Acquisition Levers', icon: 'target' },
     ]},
     { group: 'DOWNLOADS', items: [
       { href: 'downloads.html', label: 'Data Room', icon: 'download' },
