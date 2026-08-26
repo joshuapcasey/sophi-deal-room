@@ -39,8 +39,8 @@
   /* Market view has fixed header — push topstrip above it */
   body.market-view .dr-topstrip { position: sticky; top: 0; }
   body.market-view #header { top: 45px; }
-  body.market-view #sidebar { top: 45px; height: calc(100vh - 45px); }
-  body.market-view #map { top: 45px; height: calc(100vh - 45px); }
+  body.market-view #sidebar { top: calc(45px + 64px); height: calc(100vh - 45px - 64px); }
+  body.market-view #map { top: calc(45px + 64px); height: calc(100vh - 45px - 64px); }
   `;
 
   const NAV = [
