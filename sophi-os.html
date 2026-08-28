@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/deal-room.css?v=20260828d">
+<link rel="stylesheet" href="./assets/deal-room.css?v=20260828e">
 <style>
   /* Pillars (used inside SOPHI Hub tab) */
   .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: var(--space-6); }
@@ -739,6 +739,251 @@
           <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Ad revenue range = annual SMS interactions × conversion rate × avg offer value, using low/mid/high account-type benchmarks. Medical accounts excluded from the ad model by design.</p>
         </div>
 
+        <!-- ═══ v3 GROWTH MODEL OVERLAY ═══ -->
+        <div class="section-eyebrow">v3 growth model overlay — layered on the six-market SOM curve</div>
+
+        <div class="callout" style="margin-bottom: var(--space-6);">
+          <div class="cl-title">How this maps onto the acquisition growth model</div>
+          <p class="cl-body">Layered directly on the v3 penetration engine. For every account acquired, annual SMS interactions are computed from real inputs already in the model — hotel rooms × occupancy × valet conversion, restaurant seats × turnover × valet conversion. Two-stage activation: <strong>portfolio-wide gate at 15K/mo</strong>, then linear compounding across every market from the activation year forward. Base case uses the low-end of every account-type conversion band × the low-end avg offer value — matches the $324K figure in the threshold row above. Referral revenue is deliberately excluded; held as valuation optionality alongside SpotHero, franchise royalties, and OS licensing.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <div class="rc-head" style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:10px; margin-bottom:14px;">
+            <div class="rc-title" style="font: 700 10.5px/1.4 var(--font-body); letter-spacing:0.14em; text-transform:uppercase; color:var(--text-muted);">Portfolio Y1–Y5 · parking SOM + SMS ad layer</div>
+            <div class="rc-sub" style="font-size:11.5px; color:var(--text-faint); font-family:var(--font-mono);">Base case · low-end benchmarks · six-market portfolio</div>
+          </div>
+          <svg viewBox="0 0 880 320" style="width:100%; height:auto; display:block;" aria-label="v3 parking SOM plus SMS ad revenue Y1 to Y5" role="img">
+            <!-- axes -->
+            <line x1="60" y1="270" x2="820" y2="270" stroke="#E7E5E0" stroke-width="1"/>
+            <line x1="60" y1="20" x2="60" y2="270" stroke="#E7E5E0" stroke-width="1"/>
+            <g font-family="JetBrains Mono, monospace" font-size="10.5" fill="#8A857F">
+              <line x1="60" y1="30" x2="820" y2="30" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="34" text-anchor="end">$35M</text>
+              <line x1="60" y1="90" x2="820" y2="90" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="94" text-anchor="end">$25M</text>
+              <line x1="60" y1="150" x2="820" y2="150" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="154" text-anchor="end">$15M</text>
+              <line x1="60" y1="210" x2="820" y2="210" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="214" text-anchor="end">$5M</text>
+            </g>
+            <!-- bar geometry: 5 groups, width 88, gap 60. x = 130 + i*152 -->
+            <!-- scale: $35M = 250px range (30→280), so $/px = 0.14. y = 270 - value/35 * 240 -->
+            <!-- Y1: parking 4.02, ad 0 -->
+            <g>
+              <rect x="110" y="242.4" width="88" height="27.6" fill="#0B5394"/>
+              <text x="154" y="258" text-anchor="middle" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">$4.0M</text>
+              <text x="154" y="236" text-anchor="middle" fill="#28251D" font-family="Inter, sans-serif" font-size="12" font-weight="700">$4.0M</text>
+            </g>
+            <!-- Y2: parking 9.00, ad 0.76 -->
+            <g>
+              <rect x="262" y="208.3" width="88" height="61.7" fill="#0B5394"/>
+              <rect x="262" y="203.1" width="88" height="5.2" fill="#E8AF34"/>
+              <text x="306" y="244" text-anchor="middle" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">$9.0M</text>
+              <text x="306" y="197" text-anchor="middle" fill="#28251D" font-family="Inter, sans-serif" font-size="12" font-weight="700">$9.8M</text>
+            </g>
+            <!-- Y3: parking 14.74, ad 1.42 -->
+            <g>
+              <rect x="414" y="168.9" width="88" height="101.1" fill="#0B5394"/>
+              <rect x="414" y="159.2" width="88" height="9.7" fill="#E8AF34"/>
+              <text x="458" y="224" text-anchor="middle" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">$14.7M</text>
+              <text x="458" y="166" text-anchor="middle" fill="#B25E2E" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600">+$1.4M</text>
+              <text x="458" y="153" text-anchor="middle" fill="#28251D" font-family="Inter, sans-serif" font-size="12" font-weight="700">$16.2M</text>
+            </g>
+            <!-- Y4: parking 19.48, ad 2.09 -->
+            <g>
+              <rect x="566" y="136.4" width="88" height="133.6" fill="#0B5394"/>
+              <rect x="566" y="122.1" width="88" height="14.3" fill="#E8AF34"/>
+              <text x="610" y="208" text-anchor="middle" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">$19.5M</text>
+              <text x="610" y="131" text-anchor="middle" fill="#B25E2E" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600">+$2.1M</text>
+              <text x="610" y="116" text-anchor="middle" fill="#28251D" font-family="Inter, sans-serif" font-size="12" font-weight="700">$21.6M</text>
+            </g>
+            <!-- Y5: parking 28.29, ad 2.91 -->
+            <g>
+              <rect x="718" y="75.9" width="88" height="194.1" fill="#0B5394"/>
+              <rect x="718" y="55.9" width="88" height="20" fill="#E8AF34"/>
+              <text x="762" y="175" text-anchor="middle" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">$28.3M</text>
+              <text x="762" y="69" text-anchor="middle" fill="#B25E2E" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600">+$2.9M</text>
+              <text x="762" y="50" text-anchor="middle" fill="#28251D" font-family="Inter, sans-serif" font-size="13" font-weight="700">$31.2M</text>
+            </g>
+            <!-- Activation gate marker between Y1 and Y2 -->
+            <line x1="230" y1="20" x2="230" y2="270" stroke="#8A857F" stroke-width="1" stroke-dasharray="3 4" opacity="0.7"/>
+            <text x="236" y="38" font-family="Inter, sans-serif" font-size="10" fill="#8A857F" font-style="italic">Activation gate</text>
+            <text x="236" y="52" font-family="Inter, sans-serif" font-size="10" fill="#8A857F" font-style="italic">15K/mo portfolio SMS</text>
+            <!-- x-axis labels -->
+            <g font-family="Inter, sans-serif" font-size="11" fill="#28251D">
+              <text x="154" y="292" text-anchor="middle" font-weight="600">Y1</text><text x="154" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">2027</text>
+              <text x="306" y="292" text-anchor="middle" font-weight="600">Y2</text><text x="306" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">2028</text>
+              <text x="458" y="292" text-anchor="middle" font-weight="600">Y3</text><text x="458" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">2029</text>
+              <text x="610" y="292" text-anchor="middle" font-weight="600">Y4</text><text x="610" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">2030</text>
+              <text x="762" y="292" text-anchor="middle" font-weight="600">Y5</text><text x="762" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">2031</text>
+            </g>
+          </svg>
+          <div style="display:flex; gap:20px; margin-top:14px; padding-top:14px; border-top:1px solid var(--border); font-size:12px; color:var(--text-muted); flex-wrap:wrap;">
+            <span><span style="width:14px; height:12px; background:#0B5394; display:inline-block; vertical-align:middle; margin-right:6px; border-radius:2px;"></span>Parking SOM · v3 penetration engine</span>
+            <span><span style="width:14px; height:12px; background:#E8AF34; display:inline-block; vertical-align:middle; margin-right:6px; border-radius:2px;"></span>SMS ad revenue · low-end benchmarks</span>
+          </div>
+          <p style="font-size:12.5px; line-height:1.65; color:var(--text-faint); margin: 14px 0 0;">Portfolio annual SMS interactions cross the 15K/mo threshold in Y2 (25,417/mo). From Y2 forward, every acquired account contributes its full ad economics. Y1 SMS = 11,557/mo — just below the gate, so ad revenue = $0.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th class="num-col">Monthly SMS</th>
+                <th class="num-col">Annual SMS</th>
+                <th class="num-col">Parking SOM</th>
+                <th class="num-col">SMS ad revenue</th>
+                <th class="num-col">Total revenue</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Y1</strong> <span class="td-note">2027</span></td>
+                <td class="num-col">11,557</td>
+                <td class="num-col">138,686</td>
+                <td class="num-col">$4.02M</td>
+                <td class="num-col" style="color:var(--text-faint);">$0 <span class="td-note">pre-gate</span></td>
+                <td class="num-col">$4.02M</td>
+              </tr>
+              <tr class="highlight">
+                <td><strong>Y2</strong> <span class="td-note">2028 · activation</span></td>
+                <td class="num-col">25,417</td>
+                <td class="num-col">305,002</td>
+                <td class="num-col">$9.00M</td>
+                <td class="num-col">$0.76M</td>
+                <td class="num-col">$9.75M</td>
+              </tr>
+              <tr>
+                <td><strong>Y3</strong> <span class="td-note">2029</span></td>
+                <td class="num-col">46,527</td>
+                <td class="num-col">558,322</td>
+                <td class="num-col">$14.74M</td>
+                <td class="num-col">$1.42M</td>
+                <td class="num-col">$16.16M</td>
+              </tr>
+              <tr>
+                <td><strong>Y4</strong> <span class="td-note">2030</span></td>
+                <td class="num-col">67,265</td>
+                <td class="num-col">807,177</td>
+                <td class="num-col">$19.48M</td>
+                <td class="num-col">$2.09M</td>
+                <td class="num-col">$21.57M</td>
+              </tr>
+              <tr>
+                <td><strong>Y5</strong> <span class="td-note">2031 · run-rate</span></td>
+                <td class="num-col">92,651</td>
+                <td class="num-col">1,111,811</td>
+                <td class="num-col"><strong>$28.29M</strong></td>
+                <td class="num-col"><strong>$2.91M</strong></td>
+                <td class="num-col"><strong>$31.20M</strong></td>
+              </tr>
+              <tr style="border-top: 2px solid var(--border);">
+                <td><strong>5-yr cumulative</strong></td>
+                <td class="num-col">—</td>
+                <td class="num-col">2,920,998</td>
+                <td class="num-col"><strong>$75.52M</strong></td>
+                <td class="num-col"><strong>$7.18M</strong></td>
+                <td class="num-col"><strong>$82.70M</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Parking SOM curve is unchanged from v3 (see <a href="./v3-valuation.html" style="color:var(--blue-ink); font-weight:600;">Growth Valuation</a>). Ad revenue layers additively — 9.5% of parking cumulatively, 10.3% of Y5 run-rate.</p>
+        </div>
+
+        <div class="section-eyebrow">Per-market Y5 breakdown</div>
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Market</th>
+                <th class="num-col">Monthly SMS · Y5</th>
+                <th class="num-col">Parking Y5</th>
+                <th class="num-col">SMS ad Y5</th>
+                <th class="num-col">Total Y5</th>
+                <th class="num-col">Ad %</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Denver</strong></td>
+                <td class="num-col">27,963</td>
+                <td class="num-col">$11.26M</td>
+                <td class="num-col">$0.90M</td>
+                <td class="num-col">$12.16M</td>
+                <td class="num-col">8.0%</td>
+              </tr>
+              <tr>
+                <td><strong>Charlotte</strong></td>
+                <td class="num-col">28,766</td>
+                <td class="num-col">$7.75M</td>
+                <td class="num-col">$0.90M</td>
+                <td class="num-col">$8.65M</td>
+                <td class="num-col">11.6%</td>
+              </tr>
+              <tr>
+                <td><strong>Indianapolis</strong></td>
+                <td class="num-col">11,629</td>
+                <td class="num-col">$4.04M</td>
+                <td class="num-col">$0.34M</td>
+                <td class="num-col">$4.38M</td>
+                <td class="num-col">8.5%</td>
+              </tr>
+              <tr class="highlight">
+                <td><strong>Phoenix</strong></td>
+                <td class="num-col">19,168</td>
+                <td class="num-col">$3.92M</td>
+                <td class="num-col">$0.61M</td>
+                <td class="num-col">$4.54M</td>
+                <td class="num-col"><strong>15.6%</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Louisville</strong></td>
+                <td class="num-col">4,049</td>
+                <td class="num-col">$0.98M</td>
+                <td class="num-col">$0.13M</td>
+                <td class="num-col">$1.11M</td>
+                <td class="num-col">13.4%</td>
+              </tr>
+              <tr>
+                <td><strong>Cleveland</strong></td>
+                <td class="num-col">1,076</td>
+                <td class="num-col">$0.34M</td>
+                <td class="num-col">$0.02M</td>
+                <td class="num-col">$0.36M</td>
+                <td class="num-col">6.8%</td>
+              </tr>
+              <tr style="border-top: 2px solid var(--border);">
+                <td><strong>Portfolio</strong></td>
+                <td class="num-col"><strong>92,651</strong></td>
+                <td class="num-col"><strong>$28.29M</strong></td>
+                <td class="num-col"><strong>$2.91M</strong></td>
+                <td class="num-col"><strong>$31.20M</strong></td>
+                <td class="num-col"><strong>10.3%</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Phoenix has the highest ad-attach ratio because its Y5 portfolio skews hotel-heavy (55% capture × 3.5 multi-touch). Cleveland is minimal — only 2 accounts unlock under v3 operator gates. Every additional hotel win beyond v3 assumptions moves the ad layer disproportionately.</p>
+        </div>
+
+        <div class="section-eyebrow">Valuation impact — 7× Y5 run-rate</div>
+        <div class="card">
+          <div class="kpi-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="kpi-tile">
+              <div class="kpi-val" style="color: var(--text-muted);">$198M</div>
+              <div class="kpi-label">Parking-only @ 7× Y5</div>
+              <div class="kpi-sub">v3 headline · $28.29M × 7</div>
+            </div>
+            <div class="kpi-tile" style="background:#FFF8E7; border-color:#F4E4B0;">
+              <div class="kpi-val" style="color: #B25E2E;">+$20.4M</div>
+              <div class="kpi-label">SMS ad layer uplift</div>
+              <div class="kpi-sub">$2.91M × 7 · +10.3%</div>
+            </div>
+            <div class="kpi-tile" style="background: rgba(56, 182, 255, 0.08); border-color: rgba(11, 83, 148, 0.25);">
+              <div class="kpi-val" style="color: var(--blue-ink);">$218M</div>
+              <div class="kpi-label">Total @ 7× Y5</div>
+              <div class="kpi-sub">Parking + SMS ad · base case</div>
+            </div>
+          </div>
+          <p style="font-size:13px; line-height:1.65; color:var(--text-muted); margin: 18px 0 0;">Base case is deliberately the conservative low-end. Midpoint benchmarks (from the threshold row above: $324K low → $1.73M mid) imply <strong>~5.3× that ad revenue</strong> at any given portfolio size — putting Y5 ad revenue at ~$15M and 7× valuation uplift at ~$105M. That's the pricing case, not the diligence case. Full model in <a href="./v3-valuation.html#organic-v-v3" style="color:var(--blue-ink); font-weight:600;">Growth Valuation → Organic vs. v3</a>.</p>
+        </div>
+
       </div>
 
     </section>
@@ -746,7 +991,7 @@
   </main>
 </div>
 
-<script src="./assets/shell.js?v=20260828d"></script>
+<script src="./assets/shell.js?v=20260828e"></script>
 <script>window.SOPHI_SHELL.mount('sophi-os.html');</script>
 
 <script>
