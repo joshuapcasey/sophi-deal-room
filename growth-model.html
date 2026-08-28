@@ -10,116 +10,93 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./assets/deal-room.css">
 <style>
-  .method-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: var(--space-6); }
-  @media (max-width: 900px) { .method-grid { grid-template-columns: 1fr; } }
-  .method-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 20px 22px; }
-  .method-card .m-num { font-family: var(--font-mono); font-size: 24px; font-weight: 700; color: var(--accent); margin-bottom: 8px; letter-spacing: -0.02em; }
-  .method-card h3 { font-size: 15.5px; font-weight: 600; margin: 0 0 8px; color: var(--text-strong); }
-  .method-card p { font-size: 13.5px; line-height: 1.65; color: var(--text-muted); margin: 0; }
-  .method-card p strong { color: var(--text-strong); font-weight: 600; }
-
-  /* Rollup table */
-  .rollup-table { width: 100%; border-collapse: collapse; font-family: var(--font-body); }
-  .rollup-table thead th {
-    text-align: right; font: 700 10.5px/1.4 var(--font-body); letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--text-muted); padding: 12px 14px; border-bottom: 1px solid var(--border);
-    background: var(--bg-elev);
+  /* ============ Market cards grid ============ */
+  .mkt-grid {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;
+    margin-top: var(--space-6);
   }
-  .rollup-table thead th:first-child, .rollup-table tbody td:first-child { text-align: left; }
-  .rollup-table tbody tr { border-bottom: 1px solid var(--border); cursor: pointer; transition: background 120ms var(--ease); }
-  .rollup-table tbody tr:hover { background: var(--accent-soft); }
-  .rollup-table tbody tr.active { background: var(--accent-soft); }
-  .rollup-table tbody td {
-    padding: 14px; font-size: 13.5px; color: var(--text-strong); text-align: right;
-    font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; font-weight: 500;
+  @media (max-width: 1180px) { .mkt-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 720px)  { .mkt-grid { grid-template-columns: 1fr; } }
+
+  .mkt-card {
+    background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-l);
+    padding: 22px 22px 18px; cursor: pointer;
+    transition: transform 180ms var(--ease), box-shadow 180ms var(--ease), border-color 180ms var(--ease);
+    display: flex; flex-direction: column; gap: 14px;
   }
-  .rollup-table tbody td:first-child { font-family: var(--font-body); font-weight: 600; }
-  .rollup-table tbody tr.total { background: #F1EDE4; border-top: 2px solid var(--text-strong); }
-  .rollup-table tbody tr.total td { color: var(--text-strong); font-weight: 700; }
-  .rollup-table tbody tr.total:hover { background: #EBE5D8; }
-  .rollup-table td.blue-num { color: var(--blue-ink); font-weight: 600; }
-
-  .mkt-state {
-    display: inline-block; font: 700 9.5px/1 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase;
-    padding: 4px 8px; border-radius: 4px; margin-right: 10px; vertical-align: middle;
+  .mkt-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: 0 6px 20px -8px rgba(11, 83, 148, 0.18);
   }
-  .mkt-state.WARM { background: #FFE9D6; color: #B25E2E; }
-  .mkt-state.COLD { background: #E1EAFF; color: #1F4F7A; }
-  .mkt-state.HOT  { background: #FFD6DA; color: #8A2C3E; }
 
-  /* Portfolio drill-through */
-  .drill-shell { margin-top: 18px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 22px 24px; }
-  .drill-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; }
-  .drill-head h3 { font-size: 18px; font-weight: 700; color: var(--text-strong); margin: 0 0 4px; }
-  .drill-head .dh-sub { font-size: 13px; color: var(--text-muted); }
-  .drill-head .dh-kpis { display: flex; gap: 20px; flex-wrap: wrap; }
-  .drill-head .dh-kpi { text-align: right; }
-  .drill-head .dh-kpi .k-val { font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; font-size: 18px; font-weight: 700; color: var(--blue-ink); line-height: 1; }
-  .drill-head .dh-kpi .k-lbl { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-top: 4px; }
-
-  .acct-table { width: 100%; border-collapse: collapse; font-family: var(--font-body); }
-  .acct-table thead th {
-    text-align: left; font: 700 10.5px/1.4 var(--font-body); letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--text-muted); padding: 10px 12px; border-bottom: 1px solid var(--border);
-    cursor: pointer; user-select: none; white-space: nowrap;
+  .mkt-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .mkt-head-l { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .mkt-name { font-family: var(--font-body); font-size: 20px; font-weight: 700; color: var(--text-strong); line-height: 1.2; letter-spacing: -0.01em; }
+  .mkt-meta { font-size: 12.5px; color: var(--text-muted); font-family: var(--font-body); }
+  .mkt-state-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    font: 700 9.5px/1 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 6px 10px; border-radius: 999px; white-space: nowrap;
   }
-  .acct-table thead th.sortable:hover { color: var(--blue-ink); }
-  .acct-table thead th.sortable.sort-asc::after { content: ' ↑'; color: var(--accent); }
-  .acct-table thead th.sortable.sort-desc::after { content: ' ↓'; color: var(--accent); }
-  .acct-table thead th.num, .acct-table tbody td.num { text-align: right; }
-  .acct-table tbody tr { border-bottom: 1px solid var(--border); }
-  .acct-table tbody tr:hover { background: var(--accent-soft); }
-  .acct-table tbody td { padding: 10px 12px; font-size: 13px; color: var(--text-strong); vertical-align: middle; }
-  .acct-table tbody td.num { font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; color: var(--text-strong); }
-  .acct-name { font-weight: 600; }
-  .acct-sub { font-size: 11.5px; color: var(--text-faint); margin-top: 2px; }
+  .mkt-state-chip.WARM { background: #FFE9D6; color: #B25E2E; }
+  .mkt-state-chip.COLD { background: #E1EAFF; color: #1F4F7A; }
+  .mkt-state-chip.HOT  { background: #FFD6DA; color: #8A2C3E; }
 
+  /* Composition bar — one strip made of segments proportional to pool TAM */
+  .comp-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--border); }
+  .comp-bar span { display: block; height: 100%; }
+  .comp-bar span.anchor       { background: #7C3AED; }
+  .comp-bar span.cold_sam     { background: #20808D; }
+  .comp-bar span.ma_sam       { background: #4A148C; }
+  .comp-bar span.partnership  { background: #94A3B8; }
+  .comp-bar span.enterprise   { background: #A84B2F; }
+  .comp-bar span.extended_stay{ background: #CBD5E1; }
+  .comp-bar span.micro        { background: #E5E1D4; }
+  .comp-bar span.other        { background: #C7C4BB; }
+
+  /* KPI row inside card */
+  .mkt-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .mkt-kpi { display: flex; flex-direction: column; gap: 3px; }
+  .mkt-kpi .k-val {
+    font-family: var(--font-mono); font-feature-settings: 'tnum','lnum';
+    font-size: 22px; font-weight: 700; color: var(--text-strong); line-height: 1; letter-spacing: -0.01em;
+  }
+  .mkt-kpi .k-lbl {
+    font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-muted); font-weight: 700; line-height: 1.3;
+  }
+
+  /* Pool chips */
+  .pool-chips { display: flex; flex-wrap: wrap; gap: 6px; }
   .pool-chip {
-    display: inline-block; font: 700 9.5px/1 var(--font-body); letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 4px 8px; border-radius: 4px;
+    display: inline-flex; align-items: center; gap: 6px;
+    font: 500 12px/1 var(--font-body);
+    padding: 6px 10px; border-radius: 999px;
+    background: var(--bg-elev-alt, #F4F1E9); color: var(--text-strong);
+    border: 1px solid var(--border);
   }
-  .pool-chip.anchor  { background: #C7EAD6; color: #1F5A2E; }
-  .pool-chip.core    { background: #E8F4FF; color: #0B5394; }
-  .pool-chip.growth  { background: #FFF1D6; color: #7A5920; }
-  .pool-chip.reach   { background: #EFE7F5; color: #52357B; }
-  .pool-chip.gated   { background: #F0EDE8; color: #7A7974; }
-
-  .yr-chip {
-    display: inline-block; font: 700 10.5px/1 var(--font-mono); font-feature-settings: 'tnum','lnum';
-    width: 28px; text-align: center; padding: 4px 0; border-radius: 4px;
-    background: var(--accent-soft); color: var(--blue-ink);
+  .pool-chip::before {
+    content: ''; width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: 0.85;
   }
-  .yr-chip.unacq { background: transparent; color: var(--text-faint); border: 1px dashed var(--border-strong); }
+  .pool-chip.anchor        { color: #7C3AED; background: #F3EBFF; border-color: #E4D4FF; }
+  .pool-chip.cold_sam      { color: #20808D; background: #DCF1F4; border-color: #B7E0E5; }
+  .pool-chip.ma_sam        { color: #4A148C; background: #EDE0F5; border-color: #D9C4E8; }
+  .pool-chip.partnership   { color: #475569; background: #EEF2F6; border-color: #D8DFE7; }
+  .pool-chip.enterprise    { color: #A84B2F; background: #FCE8DE; border-color: #F3D2BF; }
+  .pool-chip.extended_stay { color: #52627A; background: #EEF2F6; border-color: #D8DFE7; }
+  .pool-chip.micro         { color: #7A7974; background: #F0EDE4; border-color: #DCD7CB; }
 
-  .q-badge {
-    display: inline-block; font: 700 10.5px/1 var(--font-mono); font-feature-settings: 'tnum','lnum';
-    padding: 4px 8px; border-radius: 4px; background: var(--bg-elev-alt, #F4F1E9);
-    color: var(--text-strong); border: 1px solid var(--border);
+  /* Explore-map link at the bottom */
+  .mkt-explore {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: var(--font-body); font-size: 13.5px; font-weight: 600; color: var(--blue-ink);
   }
-  .q-badge.q1 { background: #0B5394; color: #FFFFFF; border-color: #0B5394; }
-  .q-badge.q2 { background: #38B6FF; color: #FFFFFF; border-color: #38B6FF; }
-  .q-badge.q3 { background: #A5D8F3; color: #0B3960; border-color: #A5D8F3; }
-  .q-badge.q4 { background: #E1F0FA; color: #0B3960; border-color: #A5D8F3; }
-
-  /* Filter bar */
-  .filter-bar { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; margin: 8px 0 16px; padding: 12px 16px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); }
-  .filter-bar .fb-group { display: flex; align-items: center; gap: 8px; }
-  .filter-bar label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 700; }
-  .filter-bar select, .filter-bar input {
-    padding: 7px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); font-size: 13px;
-    color: var(--text-strong); font-family: var(--font-body); min-width: 130px;
-  }
-  .filter-bar input { min-width: 220px; }
-  .filter-bar select:focus, .filter-bar input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
-  .filter-count { font-size: 12px; color: var(--text-muted); margin-left: auto; }
-
-  /* Map card — iframe kept minimal */
-  .map-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; }
-  .map-card .mc-head { padding: 14px 22px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-  .map-card .mc-title { font: 700 10.5px/1.4 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
-  .map-card .mc-open { font-size: 12.5px; color: var(--blue-ink); text-decoration: none; font-weight: 600; }
-  .map-card .mc-open:hover { text-decoration: underline; }
-  .map-card iframe { width: 100%; height: 720px; border: none; background: var(--bg-elev); display: block; }
+  .mkt-explore svg { transition: transform 180ms var(--ease); }
+  .mkt-card:hover .mkt-explore svg { transform: translateX(4px); }
 </style>
 </head>
 <body>
@@ -134,146 +111,14 @@
       </div>
       <div class="ph-body">
         <div class="ph-eyebrow">The opportunity</div>
-        <h1 class="ph-title">The growth model. Built account by account,<br>capped by discipline.</h1>
+        <h1 class="ph-title">The growth model. Six markets,<br>203 named accounts.</h1>
         <p class="ph-lede">
-          v3 penetration engine — 203 named accounts across six markets, priced by the SOPHI account book, gated by operator credibility, lifted by relationship multipliers, and capped at 50% (Charlotte, Indianapolis) or 30% (Denver, Cleveland, Louisville, Phoenix) of SAM by Y5.
+          Every market is a v3 penetration model — priced by the SOPHI account book, gated by operator credibility, lifted by relationship multipliers, and capped at 50% (Charlotte, Indianapolis) or 30% (Denver, Cleveland, Louisville, Phoenix) of SAM by Y5. Click a market to open the account map.
         </p>
       </div>
     </header>
 
-    <div class="subtabs" role="tablist">
-      <button class="subtab active" data-tab="overview">Overview</button>
-      <button class="subtab" data-tab="rollup">6-market rollup</button>
-      <button class="subtab" data-tab="map">Markets map</button>
-      <button class="subtab" data-tab="portfolio">Portfolio detail</button>
-    </div>
-
-    <section class="subtab-panel active" data-panel="overview">
-      <div class="kpi-grid">
-        <div class="kpi-tile"><div class="kpi-val">$150.3M</div><div class="kpi-label">Portfolio TAM</div><div class="kpi-sub">203 accounts · 6 markets</div></div>
-        <div class="kpi-tile"><div class="kpi-val">$57.3M</div><div class="kpi-label">Addressable SAM</div><div class="kpi-sub">93 gate-clear accounts</div></div>
-        <div class="kpi-tile"><div class="kpi-val">34</div><div class="kpi-label">Accounts won by Y5</div><div class="kpi-sub">Under S-curve trajectory</div></div>
-        <div class="kpi-tile"><div class="kpi-val">$28.3M</div><div class="kpi-label">Y5 run-rate SOM</div><div class="kpi-sub">49% of SAM · under cap</div></div>
-      </div>
-
-      <div class="section-eyebrow">The four rules that produce the curve</div>
-      <div class="method-grid">
-        <div class="method-card">
-          <div class="m-num">01</div>
-          <h3>Binary acquisition</h3>
-          <p>Each in-SAM account has a single <strong>acquisition year</strong> (Y1–Y5) or stays unacquired. Before that year, $0. From that year forward, full annual TAM. No fractional ramp — a steakhouse generates the same revenue in month 13 as in month 60.</p>
-        </div>
-        <div class="method-card">
-          <div class="m-num">02</div>
-          <h3>Operator credibility gates</h3>
-          <p>SOPHI can't displace national operators (Towne Park, LAZ, SP+, ABM, Ace, Reef, Metropolis) without a floor: <strong>min accounts already won × min verticals proven</strong>. A Towne-operated hotel doesn't unlock until SOPHI has 8 wins across 3 verticals. In-house, independent, and SOPHI-already accounts have no gate.</p>
-        </div>
-        <div class="method-card">
-          <div class="m-num">03</div>
-          <h3>Relationship multiplier</h3>
-          <p>Sister-property wins compound — Darden, Hilton-family, Marriott-family, Omni. Once SOPHI lands one property in an ownership group: <strong>1 prior win → 1.5×, 2 → 2×, 3+ → 3×</strong> WAS lift. Charlotte's 4 Darden anchors seed the multiplier on every Darden property in the six-market portfolio.</p>
-        </div>
-        <div class="method-card">
-          <div class="m-num">04</div>
-          <h3>Conservative per-market caps</h3>
-          <p>Y5 penetration ceiling: <strong>50% of SAM</strong> for Charlotte and Indianapolis (operational data supports it), <strong>30%</strong> for Phoenix, Denver, Cleveland, Louisville. S-curve trajectory (10/30/50/70/85) scales each year to the cap. Material upside sits above the cap: occupancy lift, valet conversion, brand-flag network effects, post-Y5 penetration.</p>
-        </div>
-      </div>
-
-      <div class="callout">
-        <div class="cl-title">Not in the curve — deliberate omissions</div>
-        <p class="cl-body">The v3 engine models parking-services revenue only. It does not model hospitals as a full vertical, airports, SpotHero online-valet arbitrage, SOPHI ad-sales and SMS revenue, cross-property referral services, or franchise royalties. These are catalogued in the valuation callout and priced against the deal, not against the operating plan.</p>
-      </div>
-    </section>
-
-    <section class="subtab-panel" data-panel="rollup">
-      <div class="section-eyebrow">Six-market rollup · click a row to open the account book</div>
-      <div class="card" style="padding:0; overflow:hidden;">
-        <table class="rollup-table" id="rollup-table">
-          <thead>
-            <tr>
-              <th>Market</th>
-              <th>Accounts</th>
-              <th>In SAM</th>
-              <th>Wins Y5</th>
-              <th>TAM</th>
-              <th>SAM</th>
-              <th>Y5 SOM</th>
-              <th>Cap</th>
-              <th>% of SAM</th>
-            </tr>
-          </thead>
-          <tbody id="rollup-tbody"></tbody>
-        </table>
-      </div>
-      <div id="rollup-drill"></div>
-    </section>
-
-    <section class="subtab-panel" data-panel="map">
-      <div class="map-card">
-        <div class="mc-head">
-          <div class="mc-title">Markets map · six-city footprint</div>
-          <a class="mc-open" href="./market.html" target="_blank" rel="noopener">Open full map ↗</a>
-        </div>
-        <iframe src="./market.html?embed=1" title="Markets map"></iframe>
-      </div>
-    </section>
-
-    <section class="subtab-panel" data-panel="portfolio">
-      <div class="section-eyebrow">Portfolio detail · all 203 accounts</div>
-      <div class="filter-bar">
-        <div class="fb-group">
-          <label>Market</label>
-          <select id="pf-market"><option value="all">All 6</option></select>
-        </div>
-        <div class="fb-group">
-          <label>Pool</label>
-          <select id="pf-pool">
-            <option value="all">All pools</option>
-            <option value="anchor">Anchor</option>
-            <option value="core">Core</option>
-            <option value="growth">Growth</option>
-            <option value="reach">Reach</option>
-            <option value="gated">Gated</option>
-          </select>
-        </div>
-        <div class="fb-group">
-          <label>Acquisition</label>
-          <select id="pf-acq">
-            <option value="all">All accounts</option>
-            <option value="won">Won by Y5</option>
-            <option value="y1">Won in Y1</option>
-            <option value="y2">Won in Y2</option>
-            <option value="y3">Won in Y3</option>
-            <option value="y4">Won in Y4</option>
-            <option value="y5">Won in Y5</option>
-            <option value="unacq">Unacquired</option>
-          </select>
-        </div>
-        <div class="fb-group">
-          <label>Search</label>
-          <input id="pf-search" type="text" placeholder="Name, address, operator…">
-        </div>
-        <div class="filter-count" id="pf-count">— accounts</div>
-      </div>
-      <div class="card" style="padding:0; overflow:hidden;">
-        <table class="acct-table" id="pf-table">
-          <thead>
-            <tr>
-              <th class="sortable" data-key="name">Account</th>
-              <th class="sortable" data-key="market">Market</th>
-              <th class="sortable" data-key="type">Type</th>
-              <th class="sortable" data-key="pool">Pool</th>
-              <th class="sortable num" data-key="tam">TAM</th>
-              <th class="sortable num" data-key="quartile">Quartile</th>
-              <th class="sortable num" data-key="acquisition_year">Acq. Yr</th>
-              <th class="sortable num" data-key="y5">Y5 SOM</th>
-            </tr>
-          </thead>
-          <tbody id="pf-tbody"></tbody>
-        </table>
-      </div>
-    </section>
+    <div class="mkt-grid" id="mkt-grid"></div>
 
   </main>
 </div>
@@ -283,279 +128,100 @@
 <script>
   window.SOPHI_SHELL.mount('growth-model.html');
 
-  // ============ Data helpers ============
   const D = window.SOPHI_DATA || {markets: {}};
-  const MARKET_KEYS = ['charlotte','indianapolis','denver','phoenix','cleveland','louisville'];
-  const fmtM = v => (v >= 1e6 ? '$' + (v/1e6).toFixed(2) + 'M' : '$' + Math.round(v/1000) + 'K');
-  const fmtInt = v => v.toLocaleString('en-US');
-  const capPct = k => (D.markets[k] && D.markets[k].cap) ? Math.round(D.markets[k].cap * 100) + '%' : '—';
+  const MARKET_KEYS = ['charlotte','phoenix','denver','indianapolis','cleveland','louisville'];
+  const POOL_LABEL = {
+    anchor: 'Anchors',
+    cold_sam: 'Cold SAM',
+    ma_sam: 'M&A',
+    partnership: 'Partnership',
+    enterprise: 'Enterprise',
+    extended_stay: 'Extended',
+    micro: 'Micro',
+    other: 'Other',
+  };
+  const POOL_ORDER = ['anchor','cold_sam','ma_sam','partnership','enterprise','extended_stay','micro','other'];
 
-  function marketTotals(k) {
-    const m = D.markets[k]; if (!m) return null;
+  const fmtM = v => (v >= 1e6 ? '$' + (v/1e6).toFixed(1) + 'M' : '$' + Math.round(v/1000) + 'K');
+
+  function poolKey(raw) {
+    const s = (raw || 'other').toString().toLowerCase();
+    if (POOL_LABEL[s]) return s;
+    return 'other';
+  }
+
+  function stateChipText(state, mktKey, anchorCount) {
+    if (state === 'WARM' && anchorCount > 0) return 'WARM · ' + anchorCount + ' anchors';
+    if (mktKey === 'indianapolis') return 'COLD · V7 hometown';
+    return 'COLD start';
+  }
+
+  function cardHTML(mktKey) {
+    const m = D.markets[mktKey]; if (!m) return '';
     const accts = m.accounts || [];
-    const tam = accts.reduce((a,x) => a + (x.tam || 0), 0);
-    const sam = accts.reduce((a,x) => a + (x.sam_contrib || 0), 0);
-    const y5  = accts.reduce((a,x) => a + (x.y5 || 0), 0);
-    const inSam = accts.filter(x => x.in_sam).length;
-    const wins  = accts.filter(x => x.acquisition_year > 0).length;
-    return {name: m.name, state: m.state, cap: m.cap, accts: accts.length, inSam, wins, tam, sam, y5};
-  }
-
-  // ============ Rollup tab ============
-  function renderRollup() {
-    const tbody = document.getElementById('rollup-tbody');
-    let tot = {accts:0, inSam:0, wins:0, tam:0, sam:0, y5:0};
-    tbody.innerHTML = MARKET_KEYS.map(k => {
-      const t = marketTotals(k); if (!t) return '';
-      tot.accts += t.accts; tot.inSam += t.inSam; tot.wins += t.wins; tot.tam += t.tam; tot.sam += t.sam; tot.y5 += t.y5;
-      const pctSam = t.sam ? Math.round((t.y5 / t.sam) * 100) + '%' : '—';
-      return `<tr data-mkt="${k}">
-        <td><span class="mkt-state ${t.state}">${t.state}</span>${t.name}</td>
-        <td>${fmtInt(t.accts)}</td>
-        <td>${fmtInt(t.inSam)}</td>
-        <td>${fmtInt(t.wins)}</td>
-        <td>${fmtM(t.tam)}</td>
-        <td>${fmtM(t.sam)}</td>
-        <td class="blue-num">${fmtM(t.y5)}</td>
-        <td>${capPct(k)}</td>
-        <td>${pctSam}</td>
-      </tr>`;
-    }).join('') + `<tr class="total">
-      <td>Portfolio total · 6 markets</td>
-      <td>${fmtInt(tot.accts)}</td>
-      <td>${fmtInt(tot.inSam)}</td>
-      <td>${fmtInt(tot.wins)}</td>
-      <td>${fmtM(tot.tam)}</td>
-      <td>${fmtM(tot.sam)}</td>
-      <td class="blue-num">${fmtM(tot.y5)}</td>
-      <td>—</td>
-      <td>${tot.sam ? Math.round((tot.y5/tot.sam)*100) + '%' : '—'}</td>
-    </tr>`;
-    tbody.querySelectorAll('tr[data-mkt]').forEach(row => {
-      row.addEventListener('click', () => {
-        tbody.querySelectorAll('tr').forEach(r => r.classList.remove('active'));
-        row.classList.add('active');
-        renderDrill(row.getAttribute('data-mkt'));
-      });
+    // Aggregate pool counts + TAM per pool
+    const poolCounts = {}, poolTam = {};
+    accts.forEach(a => {
+      const p = poolKey(a.pool);
+      poolCounts[p] = (poolCounts[p] || 0) + 1;
+      poolTam[p]   = (poolTam[p]   || 0) + (a.tam || 0);
     });
-  }
+    // Totals
+    const inSam = accts.filter(a => a.in_sam).length;
+    const wins  = accts.filter(a => a.acquisition_year > 0).length;
+    const tam = accts.reduce((s,a) => s + (a.tam || 0), 0);
+    const y5  = accts.reduce((s,a) => s + (a.y5  || 0), 0);
+    const capPct = Math.round((m.cap || 0) * 100);
+    // Composition bar: segments in POOL_ORDER, width by poolTam
+    const totalTam = Object.values(poolTam).reduce((s,x) => s + x, 0) || 1;
+    const comp = POOL_ORDER
+      .filter(p => poolTam[p])
+      .map(p => `<span class="${p}" style="width:${(poolTam[p]/totalTam*100).toFixed(2)}%" title="${POOL_LABEL[p]}"></span>`)
+      .join('');
+    // Pool chips: in POOL_ORDER, only where count > 0
+    const chips = POOL_ORDER
+      .filter(p => poolCounts[p])
+      .map(p => `<span class="pool-chip ${p}">${POOL_LABEL[p]} · ${poolCounts[p]}</span>`)
+      .join('');
 
-  function quartileOf(tam) {
-    if (tam >= 500000) return 1;
-    if (tam >= 250000) return 2;
-    if (tam >= 100000) return 3;
-    return 4;
-  }
-  function poolClass(p) {
-    const s = (p||'').toString().toLowerCase();
-    if (s.includes('anchor')) return 'anchor';
-    if (s.includes('core'))   return 'core';
-    if (s.includes('growth')) return 'growth';
-    if (s.includes('reach'))  return 'reach';
-    if (s.includes('gate'))   return 'gated';
-    return 'core';
-  }
-  function poolLabel(p) { return (p||'—').toString(); }
+    const anchorCount = poolCounts.anchor || 0;
+    const state = m.state || 'COLD';
+    const stateText = stateChipText(state, mktKey, anchorCount);
 
-  function renderDrill(k) {
-    const m = D.markets[k]; if (!m) return;
-    const t = marketTotals(k);
-    const el = document.getElementById('rollup-drill');
-    let accts = (m.accounts || []).slice();
-    // Sort by acquisition_year asc (won first), then TAM desc
-    accts.sort((a,b) => {
-      const ay = a.acquisition_year || 99, by = b.acquisition_year || 99;
-      if (ay !== by) return ay - by;
-      return (b.tam || 0) - (a.tam || 0);
-    });
-    el.innerHTML = `
-      <div class="drill-shell">
-        <div class="drill-head">
-          <div>
-            <h3>${t.name}</h3>
-            <div class="dh-sub">${t.accts} accounts · ${t.inSam} in SAM · ${t.wins} won by Y5 · S-curve capped at ${capPct(k)}</div>
-          </div>
-          <div class="dh-kpis">
-            <div class="dh-kpi"><div class="k-val">${fmtM(t.tam)}</div><div class="k-lbl">TAM</div></div>
-            <div class="dh-kpi"><div class="k-val">${fmtM(t.sam)}</div><div class="k-lbl">SAM</div></div>
-            <div class="dh-kpi"><div class="k-val" style="color:var(--accent);">${fmtM(t.y5)}</div><div class="k-lbl">Y5 SOM</div></div>
-          </div>
+    return `<article class="mkt-card" data-mkt="${mktKey}" tabindex="0" role="link" aria-label="Open ${m.name} map">
+      <div class="mkt-head">
+        <div class="mkt-head-l">
+          <div class="mkt-name">${m.name}</div>
+          <div class="mkt-meta">${accts.length} accounts · ${inSam} in SAM</div>
         </div>
-        <div class="filter-bar" style="margin-top:0;">
-          <div class="fb-group">
-            <label>Sort</label>
-            <select id="dr-sort">
-              <option value="acq">Acquisition year</option>
-              <option value="tam">TAM (high → low)</option>
-              <option value="quartile">Revenue quartile</option>
-              <option value="pool">Pool</option>
-              <option value="y5">Y5 SOM (high → low)</option>
-            </select>
-          </div>
-          <div class="fb-group">
-            <label>Show</label>
-            <select id="dr-filter">
-              <option value="all">All ${accts.length}</option>
-              <option value="in_sam">In SAM only (${t.inSam})</option>
-              <option value="won">Won by Y5 (${t.wins})</option>
-              <option value="unacq">Unacquired</option>
-            </select>
-          </div>
-        </div>
-        <div style="overflow-x:auto;">
-          <table class="acct-table" id="dr-table">
-            <thead><tr>
-              <th>Account</th>
-              <th>Type</th>
-              <th>Pool</th>
-              <th class="num">TAM</th>
-              <th class="num">Quartile</th>
-              <th class="num">Acq. Yr</th>
-              <th class="num">Y5 SOM</th>
-            </tr></thead>
-            <tbody id="dr-tbody"></tbody>
-          </table>
-        </div>
-      </div>`;
-    const draw = () => {
-      const sort = document.getElementById('dr-sort').value;
-      const filt = document.getElementById('dr-filter').value;
-      let rows = accts.slice();
-      if (filt === 'in_sam') rows = rows.filter(a => a.in_sam);
-      else if (filt === 'won') rows = rows.filter(a => a.acquisition_year > 0);
-      else if (filt === 'unacq') rows = rows.filter(a => !(a.acquisition_year > 0));
-      if (sort === 'acq') rows.sort((a,b) => (a.acquisition_year||99) - (b.acquisition_year||99) || (b.tam||0)-(a.tam||0));
-      else if (sort === 'tam') rows.sort((a,b) => (b.tam||0) - (a.tam||0));
-      else if (sort === 'quartile') rows.sort((a,b) => quartileOf(a.tam||0) - quartileOf(b.tam||0) || (b.tam||0)-(a.tam||0));
-      else if (sort === 'pool') rows.sort((a,b) => poolClass(a.pool).localeCompare(poolClass(b.pool)) || (b.tam||0)-(a.tam||0));
-      else if (sort === 'y5') rows.sort((a,b) => (b.y5||0) - (a.y5||0));
-      document.getElementById('dr-tbody').innerHTML = rows.map(a => {
-        const q = quartileOf(a.tam || 0);
-        const acqYr = a.acquisition_year > 0
-          ? `<span class="yr-chip">Y${a.acquisition_year}</span>`
-          : `<span class="yr-chip unacq">—</span>`;
-        return `<tr>
-          <td>
-            <div class="acct-name">${a.name || '—'}</div>
-            <div class="acct-sub">${a.address || ''}</div>
-          </td>
-          <td>${a.type || '—'}</td>
-          <td><span class="pool-chip ${poolClass(a.pool)}">${poolLabel(a.pool)}</span></td>
-          <td class="num">${fmtM(a.tam || 0)}</td>
-          <td class="num"><span class="q-badge q${q}">Q${q}</span></td>
-          <td class="num">${acqYr}</td>
-          <td class="num">${a.y5 ? fmtM(a.y5) : '—'}</td>
-        </tr>`;
-      }).join('');
-    };
-    document.getElementById('dr-sort').addEventListener('change', draw);
-    document.getElementById('dr-filter').addEventListener('change', draw);
-    draw();
-    // Scroll to the drill panel for feedback on click
-    document.getElementById('rollup-drill').scrollIntoView({behavior:'smooth', block:'start'});
+        <div class="mkt-state-chip ${state}">${stateText}</div>
+      </div>
+      <div class="comp-bar">${comp}</div>
+      <div class="mkt-kpis">
+        <div class="mkt-kpi"><div class="k-val">${fmtM(tam)}</div><div class="k-lbl">TAM</div></div>
+        <div class="mkt-kpi"><div class="k-val">${fmtM(y5)}</div><div class="k-lbl">Y5 SOM · ${capPct}% cap</div></div>
+        <div class="mkt-kpi"><div class="k-val">${wins}</div><div class="k-lbl">Won by Y5</div></div>
+      </div>
+      <div class="pool-chips">${chips}</div>
+      <div class="mkt-explore">
+        <span>Explore map</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </div>
+    </article>`;
   }
 
-  // ============ Portfolio tab (global sortable) ============
-  function buildPortfolio() {
-    const marketSel = document.getElementById('pf-market');
-    MARKET_KEYS.forEach(k => {
-      const m = D.markets[k]; if (!m) return;
-      const opt = document.createElement('option'); opt.value = k; opt.textContent = m.name; marketSel.appendChild(opt);
-    });
+  const grid = document.getElementById('mkt-grid');
+  grid.innerHTML = MARKET_KEYS.map(cardHTML).join('');
 
-    // Flatten
-    const all = [];
-    MARKET_KEYS.forEach(k => {
-      const m = D.markets[k]; if (!m) return;
-      (m.accounts || []).forEach(a => {
-        all.push(Object.assign({}, a, {market: m.name, marketKey: k, quartile: quartileOf(a.tam || 0)}));
-      });
-    });
-
-    let sortKey = 'tam', sortDir = -1;
-    function draw() {
-      const mSel = document.getElementById('pf-market').value;
-      const pSel = document.getElementById('pf-pool').value;
-      const aSel = document.getElementById('pf-acq').value;
-      const q = (document.getElementById('pf-search').value || '').trim().toLowerCase();
-      let rows = all.slice();
-      if (mSel !== 'all') rows = rows.filter(x => x.marketKey === mSel);
-      if (pSel !== 'all') rows = rows.filter(x => poolClass(x.pool) === pSel);
-      if (aSel !== 'all') {
-        if (aSel === 'won') rows = rows.filter(x => x.acquisition_year > 0);
-        else if (aSel === 'unacq') rows = rows.filter(x => !(x.acquisition_year > 0));
-        else rows = rows.filter(x => 'y' + x.acquisition_year === aSel);
-      }
-      if (q) {
-        rows = rows.filter(x => {
-          const hay = ((x.name||'') + ' ' + (x.address||'') + ' ' + (x.garage_operator||'') + ' ' + (x.valet_operator||'') + ' ' + (x.management||'') + ' ' + (x.gm||'')).toLowerCase();
-          return hay.indexOf(q) !== -1;
-        });
-      }
-      // Sort
-      rows.sort((a,b) => {
-        let va = a[sortKey], vb = b[sortKey];
-        if (sortKey === 'pool') { va = poolClass(a.pool); vb = poolClass(b.pool); }
-        if (sortKey === 'acquisition_year') { va = a.acquisition_year || 99; vb = b.acquisition_year || 99; }
-        if (typeof va === 'string' && typeof vb === 'string') return va.localeCompare(vb) * sortDir;
-        return ((va||0) - (vb||0)) * sortDir;
-      });
-      document.getElementById('pf-count').textContent = rows.length + ' of ' + all.length + ' accounts';
-      document.getElementById('pf-tbody').innerHTML = rows.map(a => {
-        const acqYr = a.acquisition_year > 0
-          ? `<span class="yr-chip">Y${a.acquisition_year}</span>`
-          : `<span class="yr-chip unacq">—</span>`;
-        return `<tr>
-          <td>
-            <div class="acct-name">${a.name || '—'}</div>
-            <div class="acct-sub">${a.address || ''}</div>
-          </td>
-          <td>${a.market}</td>
-          <td>${a.type || '—'}</td>
-          <td><span class="pool-chip ${poolClass(a.pool)}">${poolLabel(a.pool)}</span></td>
-          <td class="num">${fmtM(a.tam || 0)}</td>
-          <td class="num"><span class="q-badge q${a.quartile}">Q${a.quartile}</span></td>
-          <td class="num">${acqYr}</td>
-          <td class="num">${a.y5 ? fmtM(a.y5) : '—'}</td>
-        </tr>`;
-      }).join('');
-      // header sort indicators
-      document.querySelectorAll('#pf-table thead th.sortable').forEach(th => {
-        th.classList.remove('sort-asc','sort-desc');
-        if (th.getAttribute('data-key') === sortKey) th.classList.add(sortDir === 1 ? 'sort-asc' : 'sort-desc');
-      });
-    }
-    document.querySelectorAll('#pf-table thead th.sortable').forEach(th => {
-      th.addEventListener('click', () => {
-        const k = th.getAttribute('data-key');
-        if (k === sortKey) sortDir = -sortDir;
-        else { sortKey = k; sortDir = (k === 'name' || k === 'market' || k === 'type' || k === 'pool') ? 1 : -1; }
-        draw();
-      });
-    });
-    ['pf-market','pf-pool','pf-acq'].forEach(id => document.getElementById(id).addEventListener('change', draw));
-    document.getElementById('pf-search').addEventListener('input', draw);
-    draw();
+  // Click / keyboard → open market map embedded (stays in deal-room shell)
+  function openMarket(k) {
+    location.href = './market.html?m=' + encodeURIComponent(k) + '&embed=1';
   }
-
-  // Initial render
-  renderRollup();
-  buildPortfolio();
-
-  // ============ Sub-tabs ============
-  document.querySelectorAll('.subtab').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.getAttribute('data-tab');
-      document.querySelectorAll('.subtab').forEach(b => b.classList.toggle('active', b === btn));
-      document.querySelectorAll('.subtab-panel').forEach(p => p.classList.toggle('active', p.getAttribute('data-panel') === target));
-      history.replaceState(null, '', '#' + target);
-    });
+  grid.querySelectorAll('.mkt-card').forEach(card => {
+    const mk = card.getAttribute('data-mkt');
+    card.addEventListener('click', () => openMarket(mk));
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openMarket(mk); } });
   });
-  const hash = (location.hash || '').replace('#', '');
-  if (hash) {
-    const btn = document.querySelector('.subtab[data-tab="' + hash + '"]');
-    if (btn) btn.click();
-  }
 </script>
 </body>
 </html>

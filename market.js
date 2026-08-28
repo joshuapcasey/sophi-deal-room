@@ -105,7 +105,8 @@
     return `<option value="${k}" ${k === mKey ? 'selected' : ''}>${nm}</option>`;
   }).join('');
   sw.addEventListener('change', e => {
-    location.href = `./market.html?m=${e.target.value}`;
+    const isEmbed = new URLSearchParams(location.search).get('embed') === '1';
+    location.href = `./market.html?m=${e.target.value}` + (isEmbed ? '&embed=1' : '');
   });
 
   // ---- Derive search text for every account -----------------------------

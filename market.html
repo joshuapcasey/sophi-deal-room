@@ -15,12 +15,57 @@
 
 <meta name="robots" content="noindex,nofollow">
 <link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./assets/deal-room.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  /* Embed mode: strip the outer chrome so the map blends into the deal-room shell */
-  body.embed-mode #header { display: none !important; }
-  body.embed-mode #sidebar { top: 0 !important; height: 100vh !important; }
-  body.embed-mode #map { top: 0 !important; height: 100vh !important; }
+  /* ============ Embed mode: nest the market view inside the deal-room shell ============ */
+  body.embed-mode { --dr-nav-w: 260px; }
   body.embed-mode .dr-topstrip { display: none !important; }
+
+  /* Deal-room sidebar rides fixed on the left */
+  body.embed-mode #dr-sidebar {
+    position: fixed; top: 0; left: 0; bottom: 0;
+    width: var(--dr-nav-w);
+    background: #FBFAF6;
+    border-right: 1px solid #E7E5E0;
+    overflow-y: auto;
+    z-index: 30;
+    padding: 20px 16px;
+  }
+  body.embed-mode #dr-sidebar .side-nav {
+    position: static; height: auto; border-right: none; padding: 0;
+    background: transparent;
+  }
+
+  /* Slim header: keep only back-link + market name + switcher */
+  body.embed-mode #header {
+    left: var(--dr-nav-w);
+    padding: 0 20px;
+    background: #FFFFFF;
+    z-index: 20;
+  }
+  body.embed-mode #header .logo,
+  body.embed-mode #header .header-subtitle,
+  body.embed-mode #header .header-stats,
+  body.embed-mode #header #stat-visible { display: none !important; }
+  body.embed-mode #header .back-link { color: #0B5394; }
+  body.embed-mode #header .header-title h1 { font-size: 18px; }
+
+  /* Market's own left panel and map get shifted right by nav width */
+  body.embed-mode #sidebar { left: var(--dr-nav-w); z-index: 10; }
+  body.embed-mode #map { left: calc(var(--dr-nav-w) + var(--sidebar-w, 320px)); }
+
+  /* Watermark passes through */
+  body.embed-mode .watermark {
+    position: fixed; inset: 0; pointer-events: none; z-index: 5;
+    opacity: 0.045; overflow: hidden; user-select: none;
+    background-image: var(--wm-bg);
+  }
+
+  @media (max-width: 900px) {
+    body.embed-mode #dr-sidebar { display: none; }
+    body.embed-mode #header, body.embed-mode #sidebar, body.embed-mode #map { left: 0 !important; }
+  }
 </style>
 <script>
   (function(){ try { if (new URLSearchParams(location.search).get('embed') === '1') { document.documentElement.dataset.embed = '1'; } } catch(e){} })();
@@ -30,12 +75,16 @@
 <script>
   (function(){ try { if (document.documentElement.dataset.embed === '1') document.body.classList.add('embed-mode'); } catch(e){} })();
 </script>
+<div class="watermark" data-mark="CONFIDENTIAL · partner@fund.com    CONFIDENTIAL · partner@fund.com"></div>
+<aside id="dr-sidebar" style="display:none;">
+  <div class="side-nav" id="side-nav"></div>
+</aside>
 
 <script src="./assets/topstrip.js"></script>
 
 <header id="header">
   <div class="header-left">
-    <a href="./rollup.html" class="back-link" aria-label="All markets">
+    <a href="./growth-model.html" class="back-link" id="back-link" aria-label="Back to Growth Model">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
     <div class="logo">
@@ -229,6 +278,20 @@
 
 <script src="./data.js"></script>
 <script src="./market.js"></script>
+<script src="./assets/shell.js"></script>
+<script>
+  (function(){
+    try {
+      if (document.body.classList.contains('embed-mode')) {
+        document.getElementById('dr-sidebar').style.display = 'block';
+        // Mount deal-room sidebar with Growth Model highlighted
+        if (window.SOPHI_SHELL && window.SOPHI_SHELL.mount) {
+          window.SOPHI_SHELL.mount('growth-model.html');
+        }
+      }
+    } catch (e) {}
+  })();
+</script>
 
 </body>
 </html>
