@@ -6,6 +6,10 @@
     let ok = false;
     try { ok = window.sessionStorage.getItem('deal_room_ok') === '1'; } catch (e) {}
     if (!ok && window.name === 'DEAL_ROOM_OK') ok = true;
+    // If we're embedded in an iframe (deal-room native pages), skip gate and skip rendering the top strip entirely.
+    let inFrame = false;
+    try { inFrame = window.self !== window.top; } catch (e) { inFrame = true; }
+    if (inFrame) return;
     if (!ok) {
       window.location.replace('./index.html');
       return;

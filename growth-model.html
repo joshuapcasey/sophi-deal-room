@@ -17,12 +17,109 @@
   .method-card h3 { font-size: 15.5px; font-weight: 600; margin: 0 0 8px; color: var(--text-strong); }
   .method-card p { font-size: 13.5px; line-height: 1.65; color: var(--text-muted); margin: 0; }
   .method-card p strong { color: var(--text-strong); font-weight: 600; }
-  .frame-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; }
-  .frame-card .fc-head { padding: 14px 22px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-  .frame-card .fc-title { font: 700 10.5px/1.4 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
-  .frame-card .fc-open { font-size: 12.5px; color: var(--blue-ink); text-decoration: none; font-weight: 600; }
-  .frame-card .fc-open:hover { text-decoration: underline; }
-  .frame-card iframe { width: 100%; height: 900px; border: none; background: var(--bg-elev); display: block; }
+
+  /* Rollup table */
+  .rollup-table { width: 100%; border-collapse: collapse; font-family: var(--font-body); }
+  .rollup-table thead th {
+    text-align: right; font: 700 10.5px/1.4 var(--font-body); letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--text-muted); padding: 12px 14px; border-bottom: 1px solid var(--border);
+    background: var(--bg-elev);
+  }
+  .rollup-table thead th:first-child, .rollup-table tbody td:first-child { text-align: left; }
+  .rollup-table tbody tr { border-bottom: 1px solid var(--border); cursor: pointer; transition: background 120ms var(--ease); }
+  .rollup-table tbody tr:hover { background: var(--accent-soft); }
+  .rollup-table tbody tr.active { background: var(--accent-soft); }
+  .rollup-table tbody td {
+    padding: 14px; font-size: 13.5px; color: var(--text-strong); text-align: right;
+    font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; font-weight: 500;
+  }
+  .rollup-table tbody td:first-child { font-family: var(--font-body); font-weight: 600; }
+  .rollup-table tbody tr.total { background: #F1EDE4; border-top: 2px solid var(--text-strong); }
+  .rollup-table tbody tr.total td { color: var(--text-strong); font-weight: 700; }
+  .rollup-table tbody tr.total:hover { background: #EBE5D8; }
+  .rollup-table td.blue-num { color: var(--blue-ink); font-weight: 600; }
+
+  .mkt-state {
+    display: inline-block; font: 700 9.5px/1 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 4px 8px; border-radius: 4px; margin-right: 10px; vertical-align: middle;
+  }
+  .mkt-state.WARM { background: #FFE9D6; color: #B25E2E; }
+  .mkt-state.COLD { background: #E1EAFF; color: #1F4F7A; }
+  .mkt-state.HOT  { background: #FFD6DA; color: #8A2C3E; }
+
+  /* Portfolio drill-through */
+  .drill-shell { margin-top: 18px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 22px 24px; }
+  .drill-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; }
+  .drill-head h3 { font-size: 18px; font-weight: 700; color: var(--text-strong); margin: 0 0 4px; }
+  .drill-head .dh-sub { font-size: 13px; color: var(--text-muted); }
+  .drill-head .dh-kpis { display: flex; gap: 20px; flex-wrap: wrap; }
+  .drill-head .dh-kpi { text-align: right; }
+  .drill-head .dh-kpi .k-val { font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; font-size: 18px; font-weight: 700; color: var(--blue-ink); line-height: 1; }
+  .drill-head .dh-kpi .k-lbl { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); font-weight: 700; margin-top: 4px; }
+
+  .acct-table { width: 100%; border-collapse: collapse; font-family: var(--font-body); }
+  .acct-table thead th {
+    text-align: left; font: 700 10.5px/1.4 var(--font-body); letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text-muted); padding: 10px 12px; border-bottom: 1px solid var(--border);
+    cursor: pointer; user-select: none; white-space: nowrap;
+  }
+  .acct-table thead th.sortable:hover { color: var(--blue-ink); }
+  .acct-table thead th.sortable.sort-asc::after { content: ' ↑'; color: var(--accent); }
+  .acct-table thead th.sortable.sort-desc::after { content: ' ↓'; color: var(--accent); }
+  .acct-table thead th.num, .acct-table tbody td.num { text-align: right; }
+  .acct-table tbody tr { border-bottom: 1px solid var(--border); }
+  .acct-table tbody tr:hover { background: var(--accent-soft); }
+  .acct-table tbody td { padding: 10px 12px; font-size: 13px; color: var(--text-strong); vertical-align: middle; }
+  .acct-table tbody td.num { font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; color: var(--text-strong); }
+  .acct-name { font-weight: 600; }
+  .acct-sub { font-size: 11.5px; color: var(--text-faint); margin-top: 2px; }
+
+  .pool-chip {
+    display: inline-block; font: 700 9.5px/1 var(--font-body); letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 8px; border-radius: 4px;
+  }
+  .pool-chip.anchor  { background: #C7EAD6; color: #1F5A2E; }
+  .pool-chip.core    { background: #E8F4FF; color: #0B5394; }
+  .pool-chip.growth  { background: #FFF1D6; color: #7A5920; }
+  .pool-chip.reach   { background: #EFE7F5; color: #52357B; }
+  .pool-chip.gated   { background: #F0EDE8; color: #7A7974; }
+
+  .yr-chip {
+    display: inline-block; font: 700 10.5px/1 var(--font-mono); font-feature-settings: 'tnum','lnum';
+    width: 28px; text-align: center; padding: 4px 0; border-radius: 4px;
+    background: var(--accent-soft); color: var(--blue-ink);
+  }
+  .yr-chip.unacq { background: transparent; color: var(--text-faint); border: 1px dashed var(--border-strong); }
+
+  .q-badge {
+    display: inline-block; font: 700 10.5px/1 var(--font-mono); font-feature-settings: 'tnum','lnum';
+    padding: 4px 8px; border-radius: 4px; background: var(--bg-elev-alt, #F4F1E9);
+    color: var(--text-strong); border: 1px solid var(--border);
+  }
+  .q-badge.q1 { background: #0B5394; color: #FFFFFF; border-color: #0B5394; }
+  .q-badge.q2 { background: #38B6FF; color: #FFFFFF; border-color: #38B6FF; }
+  .q-badge.q3 { background: #A5D8F3; color: #0B3960; border-color: #A5D8F3; }
+  .q-badge.q4 { background: #E1F0FA; color: #0B3960; border-color: #A5D8F3; }
+
+  /* Filter bar */
+  .filter-bar { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; margin: 8px 0 16px; padding: 12px 16px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); }
+  .filter-bar .fb-group { display: flex; align-items: center; gap: 8px; }
+  .filter-bar label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 700; }
+  .filter-bar select, .filter-bar input {
+    padding: 7px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); font-size: 13px;
+    color: var(--text-strong); font-family: var(--font-body); min-width: 130px;
+  }
+  .filter-bar input { min-width: 220px; }
+  .filter-bar select:focus, .filter-bar input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .filter-count { font-size: 12px; color: var(--text-muted); margin-left: auto; }
+
+  /* Map card — iframe kept minimal */
+  .map-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; }
+  .map-card .mc-head { padding: 14px 22px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .map-card .mc-title { font: 700 10.5px/1.4 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
+  .map-card .mc-open { font-size: 12.5px; color: var(--blue-ink); text-decoration: none; font-weight: 600; }
+  .map-card .mc-open:hover { text-decoration: underline; }
+  .map-card iframe { width: 100%; height: 720px; border: none; background: var(--bg-elev); display: block; }
 </style>
 </head>
 <body>
@@ -90,40 +187,362 @@
     </section>
 
     <section class="subtab-panel" data-panel="rollup">
-      <div class="frame-card">
-        <div class="fc-head">
-          <div class="fc-title">6-market rollup · v3 penetration engine</div>
-          <a class="fc-open" href="./rollup.html" target="_blank" rel="noopener">Open in new tab ↗</a>
-        </div>
-        <iframe src="./rollup.html" title="6-market rollup"></iframe>
+      <div class="section-eyebrow">Six-market rollup · click a row to open the account book</div>
+      <div class="card" style="padding:0; overflow:hidden;">
+        <table class="rollup-table" id="rollup-table">
+          <thead>
+            <tr>
+              <th>Market</th>
+              <th>Accounts</th>
+              <th>In SAM</th>
+              <th>Wins Y5</th>
+              <th>TAM</th>
+              <th>SAM</th>
+              <th>Y5 SOM</th>
+              <th>Cap</th>
+              <th>% of SAM</th>
+            </tr>
+          </thead>
+          <tbody id="rollup-tbody"></tbody>
+        </table>
       </div>
+      <div id="rollup-drill"></div>
     </section>
 
     <section class="subtab-panel" data-panel="map">
-      <div class="frame-card">
-        <div class="fc-head">
-          <div class="fc-title">Markets map · six-city footprint</div>
-          <a class="fc-open" href="./market.html" target="_blank" rel="noopener">Open in new tab ↗</a>
+      <div class="map-card">
+        <div class="mc-head">
+          <div class="mc-title">Markets map · six-city footprint</div>
+          <a class="mc-open" href="./market.html" target="_blank" rel="noopener">Open full map ↗</a>
         </div>
-        <iframe src="./market.html" title="Markets map"></iframe>
+        <iframe src="./market.html?embed=1" title="Markets map"></iframe>
       </div>
     </section>
 
     <section class="subtab-panel" data-panel="portfolio">
-      <div class="frame-card">
-        <div class="fc-head">
-          <div class="fc-title">Portfolio detail · account-level view</div>
-          <a class="fc-open" href="./portfolio.html" target="_blank" rel="noopener">Open in new tab ↗</a>
+      <div class="section-eyebrow">Portfolio detail · all 203 accounts</div>
+      <div class="filter-bar">
+        <div class="fb-group">
+          <label>Market</label>
+          <select id="pf-market"><option value="all">All 6</option></select>
         </div>
-        <iframe src="./portfolio.html" title="Portfolio detail"></iframe>
+        <div class="fb-group">
+          <label>Pool</label>
+          <select id="pf-pool">
+            <option value="all">All pools</option>
+            <option value="anchor">Anchor</option>
+            <option value="core">Core</option>
+            <option value="growth">Growth</option>
+            <option value="reach">Reach</option>
+            <option value="gated">Gated</option>
+          </select>
+        </div>
+        <div class="fb-group">
+          <label>Acquisition</label>
+          <select id="pf-acq">
+            <option value="all">All accounts</option>
+            <option value="won">Won by Y5</option>
+            <option value="y1">Won in Y1</option>
+            <option value="y2">Won in Y2</option>
+            <option value="y3">Won in Y3</option>
+            <option value="y4">Won in Y4</option>
+            <option value="y5">Won in Y5</option>
+            <option value="unacq">Unacquired</option>
+          </select>
+        </div>
+        <div class="fb-group">
+          <label>Search</label>
+          <input id="pf-search" type="text" placeholder="Name, address, operator…">
+        </div>
+        <div class="filter-count" id="pf-count">— accounts</div>
+      </div>
+      <div class="card" style="padding:0; overflow:hidden;">
+        <table class="acct-table" id="pf-table">
+          <thead>
+            <tr>
+              <th class="sortable" data-key="name">Account</th>
+              <th class="sortable" data-key="market">Market</th>
+              <th class="sortable" data-key="type">Type</th>
+              <th class="sortable" data-key="pool">Pool</th>
+              <th class="sortable num" data-key="tam">TAM</th>
+              <th class="sortable num" data-key="quartile">Quartile</th>
+              <th class="sortable num" data-key="acquisition_year">Acq. Yr</th>
+              <th class="sortable num" data-key="y5">Y5 SOM</th>
+            </tr>
+          </thead>
+          <tbody id="pf-tbody"></tbody>
+        </table>
       </div>
     </section>
 
   </main>
 </div>
+
+<script src="./data.js"></script>
 <script src="./assets/shell.js"></script>
 <script>
   window.SOPHI_SHELL.mount('growth-model.html');
+
+  // ============ Data helpers ============
+  const D = window.SOPHI_DATA || {markets: {}};
+  const MARKET_KEYS = ['charlotte','indianapolis','denver','phoenix','cleveland','louisville'];
+  const fmtM = v => (v >= 1e6 ? '$' + (v/1e6).toFixed(2) + 'M' : '$' + Math.round(v/1000) + 'K');
+  const fmtInt = v => v.toLocaleString('en-US');
+  const capPct = k => (D.markets[k] && D.markets[k].cap) ? Math.round(D.markets[k].cap * 100) + '%' : '—';
+
+  function marketTotals(k) {
+    const m = D.markets[k]; if (!m) return null;
+    const accts = m.accounts || [];
+    const tam = accts.reduce((a,x) => a + (x.tam || 0), 0);
+    const sam = accts.reduce((a,x) => a + (x.sam_contrib || 0), 0);
+    const y5  = accts.reduce((a,x) => a + (x.y5 || 0), 0);
+    const inSam = accts.filter(x => x.in_sam).length;
+    const wins  = accts.filter(x => x.acquisition_year > 0).length;
+    return {name: m.name, state: m.state, cap: m.cap, accts: accts.length, inSam, wins, tam, sam, y5};
+  }
+
+  // ============ Rollup tab ============
+  function renderRollup() {
+    const tbody = document.getElementById('rollup-tbody');
+    let tot = {accts:0, inSam:0, wins:0, tam:0, sam:0, y5:0};
+    tbody.innerHTML = MARKET_KEYS.map(k => {
+      const t = marketTotals(k); if (!t) return '';
+      tot.accts += t.accts; tot.inSam += t.inSam; tot.wins += t.wins; tot.tam += t.tam; tot.sam += t.sam; tot.y5 += t.y5;
+      const pctSam = t.sam ? Math.round((t.y5 / t.sam) * 100) + '%' : '—';
+      return `<tr data-mkt="${k}">
+        <td><span class="mkt-state ${t.state}">${t.state}</span>${t.name}</td>
+        <td>${fmtInt(t.accts)}</td>
+        <td>${fmtInt(t.inSam)}</td>
+        <td>${fmtInt(t.wins)}</td>
+        <td>${fmtM(t.tam)}</td>
+        <td>${fmtM(t.sam)}</td>
+        <td class="blue-num">${fmtM(t.y5)}</td>
+        <td>${capPct(k)}</td>
+        <td>${pctSam}</td>
+      </tr>`;
+    }).join('') + `<tr class="total">
+      <td>Portfolio total · 6 markets</td>
+      <td>${fmtInt(tot.accts)}</td>
+      <td>${fmtInt(tot.inSam)}</td>
+      <td>${fmtInt(tot.wins)}</td>
+      <td>${fmtM(tot.tam)}</td>
+      <td>${fmtM(tot.sam)}</td>
+      <td class="blue-num">${fmtM(tot.y5)}</td>
+      <td>—</td>
+      <td>${tot.sam ? Math.round((tot.y5/tot.sam)*100) + '%' : '—'}</td>
+    </tr>`;
+    tbody.querySelectorAll('tr[data-mkt]').forEach(row => {
+      row.addEventListener('click', () => {
+        tbody.querySelectorAll('tr').forEach(r => r.classList.remove('active'));
+        row.classList.add('active');
+        renderDrill(row.getAttribute('data-mkt'));
+      });
+    });
+  }
+
+  function quartileOf(tam) {
+    if (tam >= 500000) return 1;
+    if (tam >= 250000) return 2;
+    if (tam >= 100000) return 3;
+    return 4;
+  }
+  function poolClass(p) {
+    const s = (p||'').toString().toLowerCase();
+    if (s.includes('anchor')) return 'anchor';
+    if (s.includes('core'))   return 'core';
+    if (s.includes('growth')) return 'growth';
+    if (s.includes('reach'))  return 'reach';
+    if (s.includes('gate'))   return 'gated';
+    return 'core';
+  }
+  function poolLabel(p) { return (p||'—').toString(); }
+
+  function renderDrill(k) {
+    const m = D.markets[k]; if (!m) return;
+    const t = marketTotals(k);
+    const el = document.getElementById('rollup-drill');
+    let accts = (m.accounts || []).slice();
+    // Sort by acquisition_year asc (won first), then TAM desc
+    accts.sort((a,b) => {
+      const ay = a.acquisition_year || 99, by = b.acquisition_year || 99;
+      if (ay !== by) return ay - by;
+      return (b.tam || 0) - (a.tam || 0);
+    });
+    el.innerHTML = `
+      <div class="drill-shell">
+        <div class="drill-head">
+          <div>
+            <h3>${t.name}</h3>
+            <div class="dh-sub">${t.accts} accounts · ${t.inSam} in SAM · ${t.wins} won by Y5 · S-curve capped at ${capPct(k)}</div>
+          </div>
+          <div class="dh-kpis">
+            <div class="dh-kpi"><div class="k-val">${fmtM(t.tam)}</div><div class="k-lbl">TAM</div></div>
+            <div class="dh-kpi"><div class="k-val">${fmtM(t.sam)}</div><div class="k-lbl">SAM</div></div>
+            <div class="dh-kpi"><div class="k-val" style="color:var(--accent);">${fmtM(t.y5)}</div><div class="k-lbl">Y5 SOM</div></div>
+          </div>
+        </div>
+        <div class="filter-bar" style="margin-top:0;">
+          <div class="fb-group">
+            <label>Sort</label>
+            <select id="dr-sort">
+              <option value="acq">Acquisition year</option>
+              <option value="tam">TAM (high → low)</option>
+              <option value="quartile">Revenue quartile</option>
+              <option value="pool">Pool</option>
+              <option value="y5">Y5 SOM (high → low)</option>
+            </select>
+          </div>
+          <div class="fb-group">
+            <label>Show</label>
+            <select id="dr-filter">
+              <option value="all">All ${accts.length}</option>
+              <option value="in_sam">In SAM only (${t.inSam})</option>
+              <option value="won">Won by Y5 (${t.wins})</option>
+              <option value="unacq">Unacquired</option>
+            </select>
+          </div>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="acct-table" id="dr-table">
+            <thead><tr>
+              <th>Account</th>
+              <th>Type</th>
+              <th>Pool</th>
+              <th class="num">TAM</th>
+              <th class="num">Quartile</th>
+              <th class="num">Acq. Yr</th>
+              <th class="num">Y5 SOM</th>
+            </tr></thead>
+            <tbody id="dr-tbody"></tbody>
+          </table>
+        </div>
+      </div>`;
+    const draw = () => {
+      const sort = document.getElementById('dr-sort').value;
+      const filt = document.getElementById('dr-filter').value;
+      let rows = accts.slice();
+      if (filt === 'in_sam') rows = rows.filter(a => a.in_sam);
+      else if (filt === 'won') rows = rows.filter(a => a.acquisition_year > 0);
+      else if (filt === 'unacq') rows = rows.filter(a => !(a.acquisition_year > 0));
+      if (sort === 'acq') rows.sort((a,b) => (a.acquisition_year||99) - (b.acquisition_year||99) || (b.tam||0)-(a.tam||0));
+      else if (sort === 'tam') rows.sort((a,b) => (b.tam||0) - (a.tam||0));
+      else if (sort === 'quartile') rows.sort((a,b) => quartileOf(a.tam||0) - quartileOf(b.tam||0) || (b.tam||0)-(a.tam||0));
+      else if (sort === 'pool') rows.sort((a,b) => poolClass(a.pool).localeCompare(poolClass(b.pool)) || (b.tam||0)-(a.tam||0));
+      else if (sort === 'y5') rows.sort((a,b) => (b.y5||0) - (a.y5||0));
+      document.getElementById('dr-tbody').innerHTML = rows.map(a => {
+        const q = quartileOf(a.tam || 0);
+        const acqYr = a.acquisition_year > 0
+          ? `<span class="yr-chip">Y${a.acquisition_year}</span>`
+          : `<span class="yr-chip unacq">—</span>`;
+        return `<tr>
+          <td>
+            <div class="acct-name">${a.name || '—'}</div>
+            <div class="acct-sub">${a.address || ''}</div>
+          </td>
+          <td>${a.type || '—'}</td>
+          <td><span class="pool-chip ${poolClass(a.pool)}">${poolLabel(a.pool)}</span></td>
+          <td class="num">${fmtM(a.tam || 0)}</td>
+          <td class="num"><span class="q-badge q${q}">Q${q}</span></td>
+          <td class="num">${acqYr}</td>
+          <td class="num">${a.y5 ? fmtM(a.y5) : '—'}</td>
+        </tr>`;
+      }).join('');
+    };
+    document.getElementById('dr-sort').addEventListener('change', draw);
+    document.getElementById('dr-filter').addEventListener('change', draw);
+    draw();
+    // Scroll to the drill panel for feedback on click
+    document.getElementById('rollup-drill').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  // ============ Portfolio tab (global sortable) ============
+  function buildPortfolio() {
+    const marketSel = document.getElementById('pf-market');
+    MARKET_KEYS.forEach(k => {
+      const m = D.markets[k]; if (!m) return;
+      const opt = document.createElement('option'); opt.value = k; opt.textContent = m.name; marketSel.appendChild(opt);
+    });
+
+    // Flatten
+    const all = [];
+    MARKET_KEYS.forEach(k => {
+      const m = D.markets[k]; if (!m) return;
+      (m.accounts || []).forEach(a => {
+        all.push(Object.assign({}, a, {market: m.name, marketKey: k, quartile: quartileOf(a.tam || 0)}));
+      });
+    });
+
+    let sortKey = 'tam', sortDir = -1;
+    function draw() {
+      const mSel = document.getElementById('pf-market').value;
+      const pSel = document.getElementById('pf-pool').value;
+      const aSel = document.getElementById('pf-acq').value;
+      const q = (document.getElementById('pf-search').value || '').trim().toLowerCase();
+      let rows = all.slice();
+      if (mSel !== 'all') rows = rows.filter(x => x.marketKey === mSel);
+      if (pSel !== 'all') rows = rows.filter(x => poolClass(x.pool) === pSel);
+      if (aSel !== 'all') {
+        if (aSel === 'won') rows = rows.filter(x => x.acquisition_year > 0);
+        else if (aSel === 'unacq') rows = rows.filter(x => !(x.acquisition_year > 0));
+        else rows = rows.filter(x => 'y' + x.acquisition_year === aSel);
+      }
+      if (q) {
+        rows = rows.filter(x => {
+          const hay = ((x.name||'') + ' ' + (x.address||'') + ' ' + (x.garage_operator||'') + ' ' + (x.valet_operator||'') + ' ' + (x.management||'') + ' ' + (x.gm||'')).toLowerCase();
+          return hay.indexOf(q) !== -1;
+        });
+      }
+      // Sort
+      rows.sort((a,b) => {
+        let va = a[sortKey], vb = b[sortKey];
+        if (sortKey === 'pool') { va = poolClass(a.pool); vb = poolClass(b.pool); }
+        if (sortKey === 'acquisition_year') { va = a.acquisition_year || 99; vb = b.acquisition_year || 99; }
+        if (typeof va === 'string' && typeof vb === 'string') return va.localeCompare(vb) * sortDir;
+        return ((va||0) - (vb||0)) * sortDir;
+      });
+      document.getElementById('pf-count').textContent = rows.length + ' of ' + all.length + ' accounts';
+      document.getElementById('pf-tbody').innerHTML = rows.map(a => {
+        const acqYr = a.acquisition_year > 0
+          ? `<span class="yr-chip">Y${a.acquisition_year}</span>`
+          : `<span class="yr-chip unacq">—</span>`;
+        return `<tr>
+          <td>
+            <div class="acct-name">${a.name || '—'}</div>
+            <div class="acct-sub">${a.address || ''}</div>
+          </td>
+          <td>${a.market}</td>
+          <td>${a.type || '—'}</td>
+          <td><span class="pool-chip ${poolClass(a.pool)}">${poolLabel(a.pool)}</span></td>
+          <td class="num">${fmtM(a.tam || 0)}</td>
+          <td class="num"><span class="q-badge q${a.quartile}">Q${a.quartile}</span></td>
+          <td class="num">${acqYr}</td>
+          <td class="num">${a.y5 ? fmtM(a.y5) : '—'}</td>
+        </tr>`;
+      }).join('');
+      // header sort indicators
+      document.querySelectorAll('#pf-table thead th.sortable').forEach(th => {
+        th.classList.remove('sort-asc','sort-desc');
+        if (th.getAttribute('data-key') === sortKey) th.classList.add(sortDir === 1 ? 'sort-asc' : 'sort-desc');
+      });
+    }
+    document.querySelectorAll('#pf-table thead th.sortable').forEach(th => {
+      th.addEventListener('click', () => {
+        const k = th.getAttribute('data-key');
+        if (k === sortKey) sortDir = -sortDir;
+        else { sortKey = k; sortDir = (k === 'name' || k === 'market' || k === 'type' || k === 'pool') ? 1 : -1; }
+        draw();
+      });
+    });
+    ['pf-market','pf-pool','pf-acq'].forEach(id => document.getElementById(id).addEventListener('change', draw));
+    document.getElementById('pf-search').addEventListener('input', draw);
+    draw();
+  }
+
+  // Initial render
+  renderRollup();
+  buildPortfolio();
+
+  // ============ Sub-tabs ============
   document.querySelectorAll('.subtab').forEach(btn => {
     btn.addEventListener('click', () => {
       const target = btn.getAttribute('data-tab');
@@ -132,7 +551,6 @@
       history.replaceState(null, '', '#' + target);
     });
   });
-  // Deep-link support
   const hash = (location.hash || '').replace('#', '');
   if (hash) {
     const btn = document.querySelector('.subtab[data-tab="' + hash + '"]');

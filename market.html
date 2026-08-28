@@ -15,8 +15,21 @@
 
 <meta name="robots" content="noindex,nofollow">
 <link rel="stylesheet" href="./style.css">
+<style>
+  /* Embed mode: strip the outer chrome so the map blends into the deal-room shell */
+  body.embed-mode #header { display: none !important; }
+  body.embed-mode #sidebar { top: 0 !important; height: 100vh !important; }
+  body.embed-mode #map { top: 0 !important; height: 100vh !important; }
+  body.embed-mode .dr-topstrip { display: none !important; }
+</style>
+<script>
+  (function(){ try { if (new URLSearchParams(location.search).get('embed') === '1') { document.documentElement.dataset.embed = '1'; } } catch(e){} })();
+</script>
 </head>
 <body class="market-view">
+<script>
+  (function(){ try { if (document.documentElement.dataset.embed === '1') document.body.classList.add('embed-mode'); } catch(e){} })();
+</script>
 
 <script src="./assets/topstrip.js"></script>
 
