@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/deal-room.css?v=20260828b">
+<link rel="stylesheet" href="./assets/deal-room.css?v=20260828c">
 <style>
   /* Pillars (used inside SOPHI Hub tab) */
   .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: var(--space-6); }
@@ -30,6 +30,54 @@
   @media (max-width: 900px) { .arch-strip .as-grid { grid-template-columns: 1fr 1fr; } }
   .arch-strip .as-item h4 { font-size: 14px; font-weight: 600; margin: 0 0 6px; color: #F5F2EC; }
   .arch-strip .as-item p { font-size: 12.5px; line-height: 1.6; color: rgba(245,242,236,0.7); margin: 0; }
+
+  /* ─── Revenue Model — nested section switcher ─── */
+  .rev-switch { display: inline-flex; gap: 2px; background: var(--bg-elev-3); border: 1px solid var(--border); border-radius: 999px; padding: 4px; margin-bottom: var(--space-6); }
+  .rev-btn { appearance: none; background: transparent; border: 0; padding: 8px 18px; border-radius: 999px; font: 500 13px/1 var(--font-body); color: var(--text-muted); cursor: pointer; transition: background 0.15s var(--ease), color 0.15s var(--ease); }
+  .rev-btn:hover { color: var(--text-strong); }
+  .rev-btn.active { background: var(--bg-elev); color: var(--blue-ink); box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+  .rev-section[hidden] { display: none; }
+
+  /* Stream cards */
+  .stream-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 1080px) { .stream-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .stream-grid { grid-template-columns: 1fr; } }
+  .stream-card { background: var(--bg-elev-2); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; }
+  .stream-head { display: flex; align-items: center; gap: 10px; }
+  .stream-head h3 { margin: 0; font-size: 16px; font-weight: 600; color: var(--text-strong); }
+  .stream-desc { margin: 0; font-size: 13px; line-height: 1.55; color: var(--text-muted); flex: 1; }
+  .stream-bar { position: relative; height: 8px; background: var(--bg-elev-3); border-radius: 999px; overflow: hidden; }
+  .stream-bar-fill { position: absolute; inset: 0 auto 0 0; border-radius: 999px; }
+  .stream-bar-fill.floor { background: var(--accent); }
+  .stream-bar-fill.upside { background: repeating-linear-gradient(45deg, var(--accent) 0 6px, var(--accent-soft) 6px 12px); }
+  .stream-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 8px; border-top: 1px dashed var(--border); }
+  .stream-metrics > div { display: flex; flex-direction: column; gap: 2px; }
+  .sm-label { font: 600 10px/1 var(--font-body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); }
+  .sm-val { font: 600 15px/1.2 var(--font-body); color: var(--text-strong); font-variant-numeric: tabular-nums; }
+  .stream-cta { margin: 4px 0 0; font-size: 12.5px; color: var(--text-muted); }
+  .stream-link { appearance: none; background: transparent; border: 0; padding: 0; font: 500 12.5px/1 var(--font-body); color: var(--blue-ink); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+  .stream-link:hover { color: var(--blue-ink-hover); }
+
+  /* SMS hero + stats */
+  .sms-hero-title { margin: 0 0 12px; font: 600 20px/1.35 var(--font-display); color: var(--text-strong); }
+  .sms-hero-body { margin: 0 0 20px; font-size: 14px; line-height: 1.7; color: var(--text); }
+  .sms-hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding-top: 16px; border-top: 1px solid var(--border); }
+  @media (max-width: 720px) { .sms-hero-stats { grid-template-columns: 1fr; } }
+  .sms-stat { display: flex; flex-direction: column; gap: 4px; }
+  .sms-stat-val { font: 600 22px/1.1 var(--font-body); color: var(--blue-ink); font-variant-numeric: tabular-nums; }
+  .sms-stat-lbl { font-size: 12px; line-height: 1.4; color: var(--text-muted); }
+
+  /* Portfolio summary tiles */
+  .sms-portfolio-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 900px) { .sms-portfolio-summary { grid-template-columns: 1fr 1fr; } }
+  .spm { background: var(--bg-elev-3); border: 1px solid var(--border); border-radius: var(--radius-s); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+  .spm-val { font: 700 22px/1.1 var(--font-body); color: var(--text-strong); font-variant-numeric: tabular-nums; }
+  .spm-lbl { font-size: 11.5px; line-height: 1.4; color: var(--text-muted); }
+
+  /* Table row micro-notes + firewall row */
+  .td-note { display: block; font-size: 11.5px; color: var(--text-faint); margin-top: 2px; font-weight: 400; }
+  .data-table tbody tr.row-firewall td { background: #FBF3EE; color: var(--text); }
+  .data-table tbody tr.row-firewall td strong { color: #B25E2E; }
 
   /* Placeholder callout for tabs pending SOPHI-specific input */
   .placeholder-callout {
@@ -174,54 +222,271 @@
 
     </section>
 
-    <!-- Panel: Revenue Model (placeholder) -->
+    <!-- Panel: Revenue Model -->
     <section class="subtab-panel" data-panel="revenue" hidden>
 
-      <div class="placeholder-callout">
-        <div class="pc-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
-        </div>
-        <div class="pc-body">
-          <p class="pc-title">SOPHI-specific revenue content coming</p>
-          <p class="pc-note">This tab will detail the pricing engine — per-vertical formula, attach-rate benchmarks, sister-property multiplier, and the walk from top-line to property EBITDA. Placeholder scaffolding below.</p>
-        </div>
+      <!-- Nested section switcher -->
+      <div class="rev-switch" role="tablist" aria-label="Revenue Model sections">
+        <button class="rev-btn active" data-rev="streams" aria-selected="true">Revenue Streams</button>
+        <button class="rev-btn" data-rev="sms" aria-selected="false">SMS Retrieval Ad Model</button>
       </div>
 
-      <div class="section-eyebrow">Pricing engine — per-vertical formula</div>
-      <div class="card" style="margin-bottom: var(--space-6);">
-        <table class="data-table">
-          <thead>
-            <tr><th>Vertical</th><th>Pricing formula</th><th>Attach benchmark</th><th class="num-col">Y1 range</th><th class="num-col">Y5 mature</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Restaurant</strong></td><td>Seats × turns × attach</td><td>TBD %</td><td class="num-col">$70K–$180K</td><td class="num-col">TBD</td></tr>
-            <tr><td><strong>Hotel</strong></td><td>Rooms × ADR × attach</td><td>TBD %</td><td class="num-col">$140K–$420K</td><td class="num-col">TBD</td></tr>
-            <tr><td><strong>Hospital</strong></td><td>Beds × visitor volume × fee</td><td>TBD %</td><td class="num-col">$260K–$780K</td><td class="num-col">TBD</td></tr>
-            <tr><td><strong>Venue</strong></td><td>Event capacity × cadence × fee</td><td>TBD %</td><td class="num-col">$110K–$340K</td><td class="num-col">TBD</td></tr>
-            <tr><td><strong>Residential</strong></td><td>Units × amenity fee × utilization</td><td>TBD %</td><td class="num-col">$60K–$220K</td><td class="num-col">TBD</td></tr>
-          </tbody>
-        </table>
-        <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">The Y1 range mirrors the SOPHI Hub tab; attach benchmarks and Y5 mature values to be filled in with SOPHI-specific data.</p>
+      <!-- ─── SECTION: REVENUE STREAMS ─── -->
+      <div class="rev-section active" data-rev-section="streams">
+
+        <div class="section-eyebrow">Five streams — floor vs upside</div>
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <p style="font-size:13.5px; line-height:1.65; color:var(--text); margin:0 0 18px;">
+            SOPHI's revenue is anchored by valet operations today, with four additional streams that light up as SOPHI OS matures and the portfolio scales. Each stream is modeled as a <strong>floor</strong> (share of revenue we can count on now) and an <strong>upside</strong> (share we expect at scale, gated on defined activation conditions).
+          </p>
+          <div class="stream-grid">
+            <div class="stream-card">
+              <div class="stream-head">
+                <span class="chip chip-blue">Anchor</span>
+                <h3>Valet Operations</h3>
+              </div>
+              <p class="stream-desc">Service contracts with hotels, restaurants, hospitals, venues, and residential properties. Priced per vertical; live today across two markets.</p>
+              <div class="stream-bar" aria-hidden="true">
+                <div class="stream-bar-fill floor" style="width:97.5%"></div>
+              </div>
+              <div class="stream-metrics">
+                <div><span class="sm-label">Floor</span><span class="sm-val">95–100%</span></div>
+                <div><span class="sm-label">Upside</span><span class="sm-val">40–55%</span></div>
+              </div>
+            </div>
+
+            <div class="stream-card">
+              <div class="stream-head">
+                <span class="chip chip-sky">SaaS</span>
+                <h3>OS Licensing</h3>
+              </div>
+              <p class="stream-desc">SOPHI OS licensed to non-competing operators. $800–2,500/site/month. Highest-multiple stream in the mix — $8–12× EV/ARR vs $4–6× for services.</p>
+              <div class="stream-bar" aria-hidden="true">
+                <div class="stream-bar-fill upside" style="width:30%"></div>
+              </div>
+              <div class="stream-metrics">
+                <div><span class="sm-label">Floor</span><span class="sm-val">0%</span></div>
+                <div><span class="sm-label">Upside</span><span class="sm-val">25–35%</span></div>
+              </div>
+            </div>
+
+            <div class="stream-card">
+              <div class="stream-head">
+                <span class="chip chip-mint">Network</span>
+                <h3>Referral Services</h3>
+              </div>
+              <p class="stream-desc">Guest Experience OS routes captured guests to partner venues. SOPHI is the attribution layer. CPL paid by the receiving partner.</p>
+              <div class="stream-bar" aria-hidden="true">
+                <div class="stream-bar-fill upside" style="width:10%"></div>
+              </div>
+              <div class="stream-metrics">
+                <div><span class="sm-label">Floor</span><span class="sm-val">0%</span></div>
+                <div><span class="sm-label">Upside</span><span class="sm-val">8–12%</span></div>
+              </div>
+            </div>
+
+            <div class="stream-card">
+              <div class="stream-head">
+                <span class="chip chip-peach">Ads</span>
+                <h3>Geo-Targeted Advertising</h3>
+              </div>
+              <p class="stream-desc">Retrieval SMS advertising at the moment of highest guest intent. Requires ~20+ sites for network viability. Brand-dilution risk actively managed via account-type firewalls.</p>
+              <div class="stream-bar" aria-hidden="true">
+                <div class="stream-bar-fill upside" style="width:6.5%"></div>
+              </div>
+              <div class="stream-metrics">
+                <div><span class="sm-label">Floor</span><span class="sm-val">0%</span></div>
+                <div><span class="sm-label">Upside</span><span class="sm-val">5–8%</span></div>
+              </div>
+              <p class="stream-cta">Detail in <button type="button" class="stream-link" data-rev-jump="sms">SMS Retrieval Ad Model →</button></p>
+            </div>
+
+            <div class="stream-card">
+              <div class="stream-head">
+                <span class="chip chip-sand">Year 4–5</span>
+                <h3>Franchise Royalties</h3>
+              </div>
+              <p class="stream-desc">Franchise the SOPHI operating model. Gated on two $5M ARR proof-of-model markets. Long-horizon stream — not modeled in Y1–Y3 base case.</p>
+              <div class="stream-bar" aria-hidden="true">
+                <div class="stream-bar-fill upside" style="width:5%"></div>
+              </div>
+              <div class="stream-metrics">
+                <div><span class="sm-label">Floor</span><span class="sm-val">0%</span></div>
+                <div><span class="sm-label">Upside</span><span class="sm-val">0–10%</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-eyebrow">Multiple mix — why the OS matters</div>
+        <div class="card">
+          <p style="font-size:13.5px; line-height:1.65; color:var(--text); margin:0 0 14px;">
+            Services businesses trade at 4–6× EV/ARR. Software businesses trade at 8–12×. The OS Licensing stream — even at 25–35% of revenue at scale — is what pulls SOPHI's blended multiple up. Every point of ARR that moves from services into OS Licensing compounds the exit valuation.
+          </p>
+          <table class="data-table">
+            <thead>
+              <tr><th>Stream</th><th>Model</th><th class="num-col">EV / ARR range</th><th>Activation</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Valet Operations</strong></td><td>Service contract</td><td class="num-col">4–6×</td><td>Live today</td></tr>
+              <tr class="highlight"><td><strong>OS Licensing (SaaS)</strong></td><td>Per-site subscription</td><td class="num-col">8–12×</td><td>Phase 2 — non-competing operators first</td></tr>
+              <tr><td><strong>Referral Services</strong></td><td>CPL to partner venues</td><td class="num-col">5–7×</td><td>Guest Experience OS + captured guest scale</td></tr>
+              <tr><td><strong>Geo-Targeted Advertising</strong></td><td>CPL / CPM on retrieval SMS</td><td class="num-col">6–8×</td><td>15,000 monthly SMS interactions (see next section)</td></tr>
+              <tr><td><strong>Franchise Royalties</strong></td><td>Recurring royalty on franchisee ARR</td><td class="num-col">6–9×</td><td>Two $5M ARR proof markets</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Multiples are directional ranges informed by comparable service and SaaS transactions; actual exit multiple depends on stream mix, growth rate, and retention at the time of transaction.</p>
+        </div>
+
       </div>
 
-      <div class="section-eyebrow">Top-line → property EBITDA walk</div>
-      <div class="card">
-        <p style="font-size:13.5px; line-height:1.65; color:var(--text); margin:0 0 14px;">
-          Placeholder margin walk. SOPHI-specific COGS, labor share, marketing spend, and property-EBITDA target to replace the TBD rows below.
-        </p>
-        <table class="data-table">
-          <thead>
-            <tr><th>Line</th><th class="num-col">% of revenue</th><th class="num-col">Notes</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Gross revenue</td><td class="num-col">100.0%</td><td class="num-col">Formula output</td></tr>
-            <tr><td>&nbsp;&nbsp;less: Property share / rev-share</td><td class="num-col">TBD</td><td class="num-col">If applicable per contract</td></tr>
-            <tr><td>&nbsp;&nbsp;less: Direct labor (attendants + shift lead)</td><td class="num-col">TBD</td><td class="num-col">Fully-loaded</td></tr>
-            <tr><td>&nbsp;&nbsp;less: Ops overhead (uniforms, supplies, tech)</td><td class="num-col">TBD</td><td class="num-col">Per-property</td></tr>
-            <tr><td>&nbsp;&nbsp;less: Marketing / customer acquisition</td><td class="num-col">TBD</td><td class="num-col">Vertical-dependent</td></tr>
-            <tr class="highlight"><td><strong>Property EBITDA</strong></td><td class="num-col"><strong>TBD</strong></td><td class="num-col"><strong>Target margin</strong></td></tr>
-          </tbody>
-        </table>
+      <!-- ─── SECTION: SMS RETRIEVAL AD MODEL ─── -->
+      <div class="rev-section" data-rev-section="sms" hidden>
+
+        <div class="section-eyebrow">The insight</div>
+        <div class="card sms-hero" style="margin-bottom: var(--space-6);">
+          <p class="sms-hero-title">The retrieval SMS is not advertising. It's a conversation.</p>
+          <p class="sms-hero-body">
+            Standard SMS marketing benchmarks are built on cold or warm outbound sends. The retrieval SMS is categorically different — the guest initiated the interaction. They texted SOPHI to request their car. They are now holding their phone, actively waiting for a reply, with anticipation. Every message sent in that window has near-100% open rate by definition. This is not a marketing channel. It is a captive, high-intent moment of direct human attention at the precise instant of peak engagement.
+          </p>
+          <div class="sms-hero-stats">
+            <div class="sms-stat"><span class="sms-stat-val">25–45%</span><span class="sms-stat-lbl">Transactional SMS conversion (2024–26 benchmark)</span></div>
+            <div class="sms-stat"><span class="sms-stat-val">20–30%+</span><span class="sms-stat-lbl">Hospitality-specific SMS conversion</span></div>
+            <div class="sms-stat"><span class="sms-stat-val">+19%</span><span class="sms-stat-lbl">Repeat-purchase lift from upsell-in-transactional</span></div>
+          </div>
+        </div>
+
+        <div class="section-eyebrow">Account-type benchmarks</div>
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Account type</th>
+                <th>Workflow</th>
+                <th class="num-col">Capture rate</th>
+                <th class="num-col">SMS conversion</th>
+                <th class="num-col">Avg offer value</th>
+                <th>Revenue model</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Hotel</strong><br><span class="td-note">Business + leisure</span></td>
+                <td>Multi-touch (3.5 interactions/stay)</td>
+                <td class="num-col">55%</td>
+                <td class="num-col">18–32%</td>
+                <td class="num-col">$15–$45</td>
+                <td>CPL — restaurant, experience, partner</td>
+              </tr>
+              <tr>
+                <td><strong>Fine Dining</strong><br><span class="td-note">Local high-income</span></td>
+                <td>Single-touch transient</td>
+                <td class="num-col">45%</td>
+                <td class="num-col">15–30%</td>
+                <td class="num-col">$12–$35</td>
+                <td>CPL — hyper-local network</td>
+              </tr>
+              <tr>
+                <td><strong>Event / Venue</strong><br><span class="td-note">Weddings, concerts</span></td>
+                <td>Burst single-touch (post-event peak)</td>
+                <td class="num-col">35%</td>
+                <td class="num-col">20–38%</td>
+                <td class="num-col">$15–$50</td>
+                <td>CPL — after-event, experience</td>
+              </tr>
+              <tr>
+                <td><strong>Corporate</strong><br><span class="td-note">Weekday professional</span></td>
+                <td>Moderate repeat (1.5/visit)</td>
+                <td class="num-col">40%</td>
+                <td class="num-col">14–28%</td>
+                <td class="num-col">$10–$30</td>
+                <td>CPL — lunch, professional services</td>
+              </tr>
+              <tr class="row-firewall">
+                <td><strong>Medical / Healthcare</strong><br><span class="td-note">Patients, caregivers, staff</span></td>
+                <td>Repeat operational</td>
+                <td class="num-col">15%</td>
+                <td class="num-col">—</td>
+                <td class="num-col">—</td>
+                <td><strong>Firewalled from ad model</strong> — operational SMS only</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Medical accounts are excluded from all advertising functions by design. Any marketing inference from a medical visit context is an existential legal and reputational risk regardless of HIPAA applicability — hard-suppressed at the data pipeline level.</p>
+        </div>
+
+        <div class="section-eyebrow">Current portfolio — real Domo data</div>
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <div class="sms-portfolio-summary">
+            <div class="spm"><span class="spm-val">59,945</span><span class="spm-lbl">Annual vehicles (5 accounts)</span></div>
+            <div class="spm"><span class="spm-val">54%</span><span class="spm-lbl">SMS rate — 13-month avg</span></div>
+            <div class="spm"><span class="spm-val">32,370</span><span class="spm-lbl">Annual SMS interactions today</span></div>
+            <div class="spm"><span class="spm-val">2,698</span><span class="spm-lbl">Monthly SMS interactions</span></div>
+          </div>
+          <table class="data-table" style="margin-top: var(--space-5);">
+            <thead>
+              <tr><th>Account</th><th>Type</th><th class="num-col">Annual vehicles</th><th class="num-col">Avg monthly</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Courtyard South Bend Marriott</td><td>Hotel</td><td class="num-col">19,312</td><td class="num-col">1,609</td></tr>
+              <tr><td>Chima Restaurant</td><td>Fine Dining</td><td class="num-col">15,740</td><td class="num-col">1,312</td></tr>
+              <tr><td>The Capital Grille</td><td>Fine Dining</td><td class="num-col">9,861</td><td class="num-col">822</td></tr>
+              <tr><td>STK Restaurant</td><td>Fine Dining</td><td class="num-col">8,771</td><td class="num-col">731</td></tr>
+              <tr><td>Ruth's Chris Steak House</td><td>Fine Dining</td><td class="num-col">6,261</td><td class="num-col">522</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Vehicle counts sourced from SOPHI Domo dashboard, confirmed May 2026. SMS rate is a 13-month observed average (range 47%–60%; May 2026 current: 52%). Guests are already self-selecting into the SMS retrieval channel organically — this is the real addressable population before any consent flow or marketing incentive exists.</p>
+        </div>
+
+        <div class="section-eyebrow">Activation threshold — when the ad line lights up</div>
+        <div class="card">
+          <p style="font-size:13.5px; line-height:1.65; color:var(--text); margin:0 0 18px;">
+            The retrieval SMS ad revenue stream activates at <strong>15,000 monthly SMS interactions</strong> — the scale at which the consent-gated customer persona database becomes structurally valuable and the pricing moat becomes executable.
+          </p>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Scenario</th>
+                <th>Portfolio</th>
+                <th class="num-col">Monthly SMS</th>
+                <th class="num-col">Annual ad revenue</th>
+                <th>Recommendation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Today</strong><br><span class="td-note">Real</span></td>
+                <td>1 hotel + 4 dining</td>
+                <td class="num-col">2,698</td>
+                <td class="num-col">$58K–$310K</td>
+                <td>Build Phase 2 consent infrastructure now — 5.6× to threshold</td>
+              </tr>
+              <tr>
+                <td><strong>6–12 months</strong><br><span class="td-note">Modeled</span></td>
+                <td>+1 hotel, +4 dining, +2 event</td>
+                <td class="num-col">6,750</td>
+                <td class="num-col">$146K–$778K</td>
+                <td>Consent flow design in parallel — ~2.2× to threshold</td>
+              </tr>
+              <tr class="highlight">
+                <td><strong>12–18 months</strong><br><span class="td-note">Threshold</span></td>
+                <td>~23 accounts (multi-type)</td>
+                <td class="num-col">15,000</td>
+                <td class="num-col">$324K–$1.73M</td>
+                <td><strong>Activate Phase 3</strong> — launch customer persona database</td>
+              </tr>
+              <tr>
+                <td><strong>3–5 years</strong><br><span class="td-note">Full OS scale</span></td>
+                <td>Full multi-market portfolio</td>
+                <td class="num-col">54,000</td>
+                <td class="num-col">$1.17M–$6.22M</td>
+                <td>Full pricing moat — ad revenue offsets 20–50% of OpEx</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Ad revenue range = annual SMS interactions × conversion rate × avg offer value, using low/mid/high account-type benchmarks. Medical accounts excluded from the ad model by design.</p>
+        </div>
+
       </div>
 
     </section>
@@ -229,7 +494,7 @@
   </main>
 </div>
 
-<script src="./assets/shell.js?v=20260828b"></script>
+<script src="./assets/shell.js?v=20260828c"></script>
 <script>window.SOPHI_SHELL.mount('sophi-os.html');</script>
 
 <script>
@@ -261,6 +526,33 @@
     if (hash && document.querySelector(`.subtab[data-tab="${hash}"]`)) {
       activate(hash);
     }
+  })();
+
+  // Nested Revenue Model section switcher (Revenue Streams / SMS Retrieval Ad Model)
+  (function () {
+    const btns = document.querySelectorAll('.rev-btn');
+    const sections = document.querySelectorAll('.rev-section');
+    function show(id) {
+      btns.forEach(b => {
+        const on = b.dataset.rev === id;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      sections.forEach(s => {
+        const on = s.dataset.revSection === id;
+        s.classList.toggle('active', on);
+        if (on) s.removeAttribute('hidden'); else s.setAttribute('hidden', '');
+      });
+    }
+    btns.forEach(b => b.addEventListener('click', () => show(b.dataset.rev)));
+    // In-page jump link from Advertising stream card to SMS section
+    document.querySelectorAll('[data-rev-jump]').forEach(el => {
+      el.addEventListener('click', () => {
+        show(el.dataset.revJump);
+        const panel = document.querySelector('[data-panel="revenue"]');
+        if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
   })();
 </script>
 </body>
