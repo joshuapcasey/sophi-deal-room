@@ -9,13 +9,11 @@
       { href: 'sophi-hub.html', label: 'SOPHI Hub', icon: 'layers' },
       { href: 'growth-model.html', label: 'Growth Model', icon: 'trending' },
     ]},
-    { group: 'NUMBERS', items: [
-      { href: 'financial-performance.html', label: 'Financial Performance', icon: 'chart' },
-      { href: 'risk-milestones.html', label: 'Risk Mitigating Milestones', icon: 'shield' },
-    ]},
     { group: 'THE DEAL', items: [
+      { href: 'financial-performance.html', label: 'Financial Performance', icon: 'chart' },
       { href: 'organic-valuation.html', label: 'Organic Valuation', icon: 'file' },
-      { href: 'v3-valuation.html', label: 'V3 Acquisition Valuation', icon: 'file' },
+      { href: 'v3-valuation.html', label: 'Acquisition Valuation (V3)', icon: 'file' },
+      { href: 'risk-milestones.html', label: 'Risk Mitigating Milestones', icon: 'shield' },
     ]},
     { group: 'DILIGENCE', items: [
       { href: 'downloads.html', label: 'Documents', icon: 'folder', badge: 13 },
