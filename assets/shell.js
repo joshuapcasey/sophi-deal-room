@@ -38,7 +38,7 @@
     key: '<circle cx="7.5" cy="14.5" r="3.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 12l9-9M15.5 5.5l2 2M13 8l2 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
     book: '<path d="M4 4h6a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H4V4zM20 4h-6a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h7V4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>',
     seedling: '<path d="M12 20v-6M12 14c0-3 2-6 6-6-.5 3-2.5 6-6 6zM12 14c0-3-2-6-6-6 .5 3 2.5 6 6 6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>',
-    rocket: '<path d="M13.5 3c-3 2-6 5-7.5 9L4 13.5l3 3 1.5-2c4-1.5 7-4.5 9-7.5L15 3h-1.5zM15.5 8.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM7 17l-2 4 4-2M5 15l-1 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>',
+    rocket: '<path d="M12 3c3 2 5 5.5 5 9v4l-2 2h-6l-2-2v-4c0-3.5 2-7 5-9zM9 20l-1 2M15 20l1 2M12 20v2M8 12H5l-1 5 4-2M16 12h3l1 5-4-2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/>',
     grid: '<path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z" fill="none" stroke="currentColor" stroke-width="1.6"/>',
   };
 

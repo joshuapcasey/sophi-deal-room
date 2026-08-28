@@ -135,13 +135,14 @@ h1, h2, h3, h4 {
   background: var(--bg-elev);
   border-right: 1px solid var(--border);
   padding: var(--space-5) var(--space-4);
+  padding-bottom: 0;
   position: sticky;
   top: 0;
   height: 100vh;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: 20px;
 }
 
 .side-nav .brand {
@@ -275,12 +276,17 @@ h1, h2, h3, h4 {
 .nav-footer {
   margin-top: auto;
   padding-top: var(--space-4);
+  padding-bottom: var(--space-5);
   border-top: 1px solid var(--border);
   font-size: 11px;
   color: var(--text-faint);
   display: flex;
   flex-direction: column;
   gap: 4px;
+  position: sticky;
+  bottom: 0;
+  background: var(--bg-elev);
+  z-index: 2;
 }
 
 /* Main content area */
