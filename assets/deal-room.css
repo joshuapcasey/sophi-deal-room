@@ -938,17 +938,17 @@ hr.section-rule {
 .watermark::before, .watermark::after {
   content: attr(data-mark);
   position: absolute;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 70px;
-  color: rgba(56,182,255,0.09);
-  letter-spacing: 0.06em;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 48px;
+  color: rgba(11,83,148,0.05);
+  letter-spacing: 0.04em;
   white-space: nowrap;
-  transform: rotate(-24deg);
-  top: 32%;
-  left: -10%;
+  transform: rotate(-22deg);
+  top: 30%;
+  left: -20%;
 }
-.watermark::after { top: 72%; left: 8%; }
+.watermark::after { top: 70%; left: 0%; }
 
 /* --- Thread UI (Questions) --- */
 .thread-grid { display: grid; grid-template-columns: minmax(280px, 380px) 1fr; gap: 20px; }

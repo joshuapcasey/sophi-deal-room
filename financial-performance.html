@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Performance — SOPHI Investor Deal Room</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/deal-room.css">
+<style>
+  .pnl-wrap { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; margin-bottom: var(--space-6); }
+  .pnl-wrap .pw-head { padding: 16px 24px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .pnl-wrap .pw-title { font: 700 10.5px/1.4 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
+  .pnl-wrap .pw-sub { font-size: 12px; color: var(--text-faint); font-family: var(--font-mono); }
+  .pnl-wrap table { width: 100%; border-collapse: collapse; }
+  .pnl-wrap th, .pnl-wrap td { padding: 10px 16px; font-size: 13px; text-align: right; }
+  .pnl-wrap th:first-child, .pnl-wrap td:first-child { text-align: left; }
+  .pnl-wrap thead th { font: 700 10.5px/1.4 var(--font-body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: 1px solid var(--border); background: var(--bg); }
+  .pnl-wrap tbody td { border-bottom: 1px solid var(--border); font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; color: var(--text-strong); }
+  .pnl-wrap tbody td:first-child { font-family: var(--font-body); color: var(--text-strong); font-weight: 500; }
+  .pnl-wrap tbody tr.section td:first-child { font-weight: 700; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint); background: var(--bg); padding: 12px 16px 8px; }
+  .pnl-wrap tbody tr.section td:not(:first-child) { background: var(--bg); }
+  .pnl-wrap tbody tr.total td { font-weight: 700; background: var(--accent-soft); color: var(--blue-ink); }
+  .pnl-wrap tbody tr.indent td:first-child { padding-left: 30px; color: var(--text-muted); font-weight: 400; }
+  .pnl-wrap tbody tr.pct td:not(:first-child) { color: var(--text-faint); font-size: 12px; }
+  .commentary { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: var(--space-6); }
+  @media (max-width: 900px) { .commentary { grid-template-columns: 1fr; } }
+  .comm-card { background: var(--bg-elev); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius-s); padding: 16px 18px; }
+  .comm-card .cc-eyebrow { font: 700 10px/1.4 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-ink); margin-bottom: 8px; }
+  .comm-card h4 { font-size: 14px; font-weight: 600; margin: 0 0 6px; color: var(--text-strong); }
+  .comm-card p { font-size: 12.5px; line-height: 1.6; color: var(--text-muted); margin: 0; }
+</style>
+</head>
+<body>
+<div class="watermark" data-mark="CONFIDENTIAL · partner@fund.com    CONFIDENTIAL · partner@fund.com"></div>
+<div class="app-shell">
+  <aside class="side-nav" id="side-nav"></aside>
+  <main class="main" style="position:relative; z-index:2;">
+
+    <header class="page-header">
+      <div class="ph-icon" style="background:#E8F4FF; color:#0B5394;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="6" width="4" height="15"/><rect x="17" y="9" width="4" height="12"/></svg>
+      </div>
+      <div class="ph-body">
+        <div class="ph-eyebrow">Numbers</div>
+        <h1 class="ph-title">Blend Wealth 5-year P&amp;L.<br>Organic, unblended.</h1>
+        <p class="ph-lede">
+          The organic plan carried through SOPHI's Blend Wealth financial model — pre-acquisition, pre-hospital, pre-airport. What SOPHI can build with the current playbook, current geographies, and no new revenue streams.
+        </p>
+      </div>
+    </header>
+
+    <div class="kpi-grid">
+      <div class="kpi-tile"><div class="kpi-val">$11.00M</div><div class="kpi-label">2031 revenue</div><div class="kpi-sub">Y5 organic run-rate</div></div>
+      <div class="kpi-tile"><div class="kpi-val">51.4%</div><div class="kpi-label">Revenue CAGR</div><div class="kpi-sub">2026A → 2031</div></div>
+      <div class="kpi-tile"><div class="kpi-val">25%</div><div class="kpi-label">Y5 EBIT margin</div><div class="kpi-sub">Up from 18.5% in 2026</div></div>
+      <div class="kpi-tile"><div class="kpi-val">15</div><div class="kpi-label">Markets by 2031</div><div class="kpi-sub">Charlotte, Indy anchor + 13 expansion</div></div>
+    </div>
+
+    <div class="pnl-wrap">
+      <div class="pw-head">
+        <div class="pw-title">Blend Wealth 5-year P&amp;L · organic plan</div>
+        <div class="pw-sub">$ in thousands · fiscal years · unaudited management projections</div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Line</th><th>2026A</th><th>2027</th><th>2028</th><th>2029</th><th>2030</th><th>2031</th></tr>
+        </thead>
+        <tbody>
+          <tr class="section"><td>Revenue</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td>Gross revenue</td><td>1,380</td><td>1,720</td><td>2,100</td><td>3,700</td><td>6,500</td><td>11,000</td></tr>
+          <tr class="pct"><td>YoY growth</td><td>—</td><td>+24.6%</td><td>+22.1%</td><td>+76.2%</td><td>+75.7%</td><td>+69.2%</td></tr>
+
+          <tr class="section"><td>Gross profit</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr class="indent"><td>Direct labor + ops</td><td>(690)</td><td>(852)</td><td>(1,029)</td><td>(1,776)</td><td>(3,120)</td><td>(5,280)</td></tr>
+          <tr><td>Gross margin</td><td>690</td><td>868</td><td>1,071</td><td>1,924</td><td>3,380</td><td>5,720</td></tr>
+          <tr class="pct"><td>GM %</td><td>50.0%</td><td>50.5%</td><td>51.0%</td><td>52.0%</td><td>52.0%</td><td>52.0%</td></tr>
+
+          <tr class="section"><td>Operating expense</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr class="indent"><td>G&amp;A, sales, marketing</td><td>(435)</td><td>(524)</td><td>(630)</td><td>(1,036)</td><td>(1,755)</td><td>(2,970)</td></tr>
+
+          <tr class="total"><td>EBIT</td><td>255</td><td>344</td><td>441</td><td>888</td><td>1,625</td><td>2,750</td></tr>
+          <tr class="pct"><td>EBIT margin</td><td>18.5%</td><td>20.0%</td><td>21.0%</td><td>24.0%</td><td>25.0%</td><td>25.0%</td></tr>
+
+          <tr class="section"><td>Below the line</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr class="indent"><td>D&amp;A</td><td>(45)</td><td>(58)</td><td>(72)</td><td>(120)</td><td>(200)</td><td>(340)</td></tr>
+          <tr class="indent"><td>Interest, net</td><td>(12)</td><td>(20)</td><td>(28)</td><td>(45)</td><td>(70)</td><td>(110)</td></tr>
+          <tr class="indent"><td>Taxes (25%)</td><td>(50)</td><td>(67)</td><td>(85)</td><td>(181)</td><td>(339)</td><td>(575)</td></tr>
+
+          <tr class="total"><td>Net income</td><td>148</td><td>199</td><td>256</td><td>542</td><td>1,016</td><td>1,725</td></tr>
+          <tr class="pct"><td>Net margin</td><td>10.7%</td><td>11.6%</td><td>12.2%</td><td>14.6%</td><td>15.6%</td><td>15.7%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="commentary">
+      <div class="comm-card"><div class="cc-eyebrow">2026 anchor</div><h4>$1.38M gross · projected from booked</h4><p>$593,740 booked Jan–Aug against the 62.3% seasonal earnings share extrapolates to $953K. The remaining $427K comes from the four late-2026 Charlotte anchors (Savu, Cascade, G&amp;G, Fogo) plus Q4 seasonal lift.</p></div>
+      <div class="comm-card"><div class="cc-eyebrow">Y3 step-up</div><h4>$2.10M → $3.70M in 2029</h4><p>The 76% step is where Denver, Indianapolis, and Louisville each cross the operator-credibility gate that unlocks the LAZ and Towne-Park hotel books. Charlotte holds; the step is expansion revenue.</p></div>
+      <div class="comm-card"><div class="cc-eyebrow">Y5 ceiling</div><h4>25% EBIT · sustained, not peaked</h4><p>Margin ceiling is the SOPHI operating record, not an aggressive projection. The JSK turnaround (28% → 72% net) shows the top of the range. 25% EBIT at 15-market scale is the middle of the observed operating band.</p></div>
+    </div>
+
+    <div class="callout">
+      <div class="cl-title">Not in this P&amp;L</div>
+      <p class="cl-body">Blend Wealth is the organic plan. Acquisitions of adjacent operator portfolios, hospitals as a full vertical, airport concessions, SpotHero online-valet arbitrage, SOPHI ad-sales and SMS revenue, cross-property referral fees, and franchise royalties are all outside the model — carried instead against the valuation, where they're priced as upside optionality.</p>
+    </div>
+
+  </main>
+</div>
+<script src="./assets/shell.js"></script>
+<script>window.SOPHI_SHELL.mount('financial-performance.html');</script>
+</body>
+</html>

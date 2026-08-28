@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOPHI Hub — Investor Deal Room</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/deal-room.css">
+<style>
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: var(--space-6); }
+  @media (max-width: 1080px) { .pillars { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
+  .pillar { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 20px 22px; display: flex; flex-direction: column; gap: 12px; }
+  .pillar .p-icon { width: 38px; height: 38px; border-radius: 8px; background: var(--accent-soft); color: var(--blue-ink); display: grid; place-items: center; }
+  .pillar .p-icon svg { width: 20px; height: 20px; }
+  .pillar h3 { font-size: 16px; font-weight: 600; color: var(--text-strong); margin: 0; }
+  .pillar p { font-size: 13.5px; line-height: 1.6; color: var(--text-muted); margin: 0; }
+  .pillar .p-features { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }
+  .pillar .p-features li { font-size: 12.5px; color: var(--text); padding-left: 16px; position: relative; line-height: 1.5; }
+  .pillar .p-features li::before { content: ""; position: absolute; left: 0; top: 7px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+  .pillar .chip { align-self: flex-start; }
+
+  .arch-strip { background: #0E0D0B; color: #F5F2EC; border-radius: var(--radius-m); padding: 22px 26px; margin-bottom: var(--space-6); }
+  .arch-strip .as-eyebrow { font: 700 10.5px/1.4 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  .arch-strip .as-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  @media (max-width: 900px) { .arch-strip .as-grid { grid-template-columns: 1fr 1fr; } }
+  .arch-strip .as-item h4 { font-size: 14px; font-weight: 600; margin: 0 0 6px; color: #F5F2EC; }
+  .arch-strip .as-item p { font-size: 12.5px; line-height: 1.6; color: rgba(245,242,236,0.7); margin: 0; }
+</style>
+</head>
+<body>
+<div class="watermark" data-mark="CONFIDENTIAL · partner@fund.com    CONFIDENTIAL · partner@fund.com"></div>
+<div class="app-shell">
+  <aside class="side-nav" id="side-nav"></aside>
+  <main class="main" style="position:relative; z-index:2;">
+
+    <header class="page-header">
+      <div class="ph-icon" style="background:#E8F4FF; color:#0B5394;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+      </div>
+      <div class="ph-body">
+        <div class="ph-eyebrow">The opportunity</div>
+        <h1 class="ph-title">The SOPHI Hub.<br>Six pillars, one operating system.</h1>
+        <p class="ph-lede">
+          The hub is not a valet app. It is the config-driven operating layer that turns every property SOPHI operates into the same predictable P&amp;L unit — a shift, a report, a review, a rehire — priced to what the property already sells.
+        </p>
+      </div>
+    </header>
+
+    <div class="pillars">
+      <div class="pillar"><div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div><span class="chip chip-peach">Operations</span><h3>Incidents &amp; write-ups</h3><p>Every service-recovery event, damage claim, or friction point captured in the same schema across every property.</p><ul class="p-features"><li>Photo, timestamp, GPS on every entry</li><li>Auto-routing by severity and vertical</li><li>Insurance-grade paper trail</li></ul></div>
+
+      <div class="pillar"><div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="chip chip-peach">Operations</span><h3>Shift daily reports</h3><p>The single artifact GMs open every morning: last night's covers, revenue, tips, incidents, and staffing gaps, per property, in one view.</p><ul class="p-features"><li>Auto-generated at 03:00 local time</li><li>Owner-configurable KPI set</li><li>Text-first, mobile-first</li></ul></div>
+
+      <div class="pillar"><div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></div><span class="chip chip-mint">Growth</span><h3>Sales</h3><p>The account book: which prospect, in which vertical, under which operator, at what credibility gate — the pipeline the six-market model runs on.</p><ul class="p-features"><li>203 accounts under active tracking</li><li>Operator-gate awareness built in</li><li>Relationship-multiplier tagging</li></ul></div>
+
+      <div class="pillar"><div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="chip chip-mint">Growth</span><h3>Marketing &amp; reviews</h3><p>Every guest interaction routed to a review at the right moment. Property-level review sentiment fed back into the shift report.</p><ul class="p-features"><li>3× to 5× review-volume lift</li><li>Negative-review interception path</li><li>Owner-visible sentiment index</li></ul></div>
+
+      <div class="pillar"><div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="6" width="4" height="15"/><rect x="17" y="9" width="4" height="12"/></svg></div><span class="chip chip-sky">Insight</span><h3>Reporting</h3><p>Owner dashboards fed by the same schema powering operations. No manual roll-up. No spreadsheet drift.</p><ul class="p-features"><li>Live per-property P&amp;L</li><li>Portfolio and multi-brand roll-ups</li><li>Export-ready for lender / investor</li></ul></div>
+
+      <div class="pillar"><div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><span class="chip chip-lavender">People</span><h3>Academy</h3><p>Onboarding, upskilling, and cross-property mobility. The mechanism behind &lt;5% churn and 82% no-wait service in a category that averages 1%.</p><ul class="p-features"><li>Role-based curriculum</li><li>Property-transfer certification</li><li>GM promotion path</li></ul></div>
+    </div>
+
+    <div class="arch-strip">
+      <div class="as-eyebrow">Architecture posture</div>
+      <div class="as-grid">
+        <div class="as-item"><h4>Config-driven accounts</h4><p>Every property is a config object. New verticals ship as configuration, not code.</p></div>
+        <div class="as-item"><h4>Zero-trust by role and tag</h4><p>Reads gated by property, role, and tag. Cross-tenant access requires explicit provisioning.</p></div>
+        <div class="as-item"><h4>Kill-switched outbound</h4><p>Every outbound integration (SMS, review platform, POS) behind a per-property switch.</p></div>
+        <div class="as-item"><h4>Vendor-neutral AI</h4><p>Model layer swappable. No dependency on a single model provider for the operating loop.</p></div>
+      </div>
+    </div>
+
+    <div class="section-eyebrow">How an account is priced</div>
+    <div class="card">
+      <table class="data-table">
+        <thead>
+          <tr><th>Vertical</th><th>Pricing formula</th><th>Primary driver</th><th class="num-col">Y1 typical revenue</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Restaurant</strong></td><td>Seats × turns × attach rate</td><td>Reservations &amp; covers</td><td class="num-col">$70K–$180K</td></tr>
+          <tr><td><strong>Hotel</strong></td><td>Rooms × ADR × attach</td><td>Occupancy &amp; ADR</td><td class="num-col">$140K–$420K</td></tr>
+          <tr><td><strong>Hospital</strong></td><td>Beds × visitor volume</td><td>Visitor traffic profile</td><td class="num-col">$260K–$780K</td></tr>
+          <tr><td><strong>Venue</strong></td><td>Event capacity × cadence</td><td>Booked event calendar</td><td class="num-col">$110K–$340K</td></tr>
+          <tr><td><strong>Residential</strong></td><td>Units × amenity fee</td><td>Amenity mix &amp; lease terms</td><td class="num-col">$60K–$220K</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Every account in the six-market book carries its own formula and driver. The Y5 curve is the sum of those cells, not a top-down TAM assumption.</p>
+    </div>
+
+  </main>
+</div>
+<script src="./assets/shell.js"></script>
+<script>window.SOPHI_SHELL.mount('sophi-hub.html');</script>
+</body>
+</html>

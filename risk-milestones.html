@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risk Mitigating Milestones — SOPHI Investor Deal Room</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/deal-room.css">
+</head>
+<body>
+<div class="watermark" data-mark="CONFIDENTIAL · partner@fund.com    CONFIDENTIAL · partner@fund.com"></div>
+<div class="app-shell">
+  <aside class="side-nav" id="side-nav"></aside>
+  <main class="main" style="position:relative; z-index:2;">
+
+    <header class="page-header">
+      <div class="ph-icon" style="background:#E8F4FF; color:#0B5394;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="ph-body">
+        <div class="ph-eyebrow">Numbers</div>
+        <h1 class="ph-title">Ten risks. Ten countable milestones.<br>Priced in, not papered over.</h1>
+        <p class="ph-lede">
+          The ten risks that most threaten the SOPHI thesis, in operator-honest language, each paired with a countable milestone that retires it. If a milestone hasn't fired, the risk is still live.
+        </p>
+      </div>
+    </header>
+
+    <div class="risk-shell">
+      <nav class="risk-rail" id="risk-rail" role="tablist"></nav>
+      <div class="risk-detail" id="risk-detail"></div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  window.SOPHI_RISKS = [
+    {rank:1,cat:"Operational fragility",title:"Single-site dependency breaks at scale",window:"Months 0–18",threat:"High",prob:72,color:"peach",
+      summary:"SOPHI's quality standard is founder-proximate. Joshua's presence, relationships, and judgment are load-bearing. At 3+ sites without hardened playbooks and a capable mid-layer, one bad night cascades into client churn, team attrition, and brand damage simultaneously.",
+      honest:"This is the most immediate existential risk. Not competition. Not tech. You. The business is a talented team organized around a founder's instincts — that's artisanal, not scalable. Hub is necessary but insufficient. The real question is whether the playbooks are written, tested, and lived by someone who isn't you.",
+      ifWrong:"Client contract non-renewals at 2–3 sites simultaneously. A key manager departure after a high-pressure event. One bad Yelp/Google cycle undercuts the premium brand positioning SOPHI's pricing depends on. Cascade risk: losing a flagship property triggers investor concern at exactly the wrong moment.",
+      milestone:"Site Independence Certification",
+      milestoneDetail:"Each active site runs 30 days — including a high-volume event and a staffing gap — without founder intervention, hitting all KPIs.",
+      metrics:[
+        {label:"NPS per site",target:"≥ 65 without founder escalation",honest:"NPS is lagging. A site can look clean 60 days before cracks surface under pressure."},
+        {label:"Incident escalation rate",target:"< 5% require founder-level resolution",honest:"Only meaningful if Hub logging is comprehensive. Partial logging is almost worse than none."},
+        {label:"Hub daily active use",target:"≥ 85% of shifts logged",honest:"Usage ≠ quality. A manager can log everything and still make bad calls."},
+        {label:"Staff retention",target:"< 20% annualized turnover",honest:"Industry baseline is 70–80%. 20% is aggressive for Year 1."}
+      ],
+      sophiOS:"Hub creates the operational paper trail. Dispatch intelligence reduces manager firefighting. The Axiom creates the retention environment. But none of it works without written, enforced playbooks.",
+      sophiOSCritique:"The OS is still being built. 'We have Hub' and 'sites run themselves' are separated by documented processes, trained managers, and survived edge cases — not a software deployment."},
+
+    {rank:2,cat:"Talent architecture",title:"The triumvirate breaks under pressure",window:"Months 6–24",threat:"High",prob:60,color:"peach",
+      summary:"The Orchestrator / Comptroller / Cultivator model is elegant in theory and untested across multiple markets simultaneously. One miscast seat collapses the triangle — and the whole market unit with it.",
+      honest:"You don't have three markets running triumvirates. That means the model is still a hypothesis. Recruiting, training, and retaining all three seats while pre-Series A is a genuine challenge that capital alone won't solve.",
+      ifWrong:"A market launches with two of three seats filled. Within 90 days, the unfilled seat's responsibilities have defaulted back to Joshua. The market's financials look fine while culture quietly deteriorates. By month 6, the Cultivator quits and the remaining two revert to task-managers instead of leaders.",
+      milestone:"First full triumvirate, 90-day performance verified",
+      milestoneDetail:"All three seats filled before market launch — no founder coverage — running 90 days hitting financial, people, and guest KPIs simultaneously.",
+      metrics:[
+        {label:"Seat fill rate",target:"All 3 before launch, not after",honest:"Temptation to launch short and backfill. That's how the model breaks."},
+        {label:"Cross-seat conflict rate",target:"< 2 escalations to founder/month",honest:"Role clarity must precede launch. Ambiguity at adjacent role edges is inevitable without documentation."},
+        {label:"Market P&L vs. plan",target:"Within 10% of projected EBITDA at 90 days",honest:"Underperformance is usually a symptom of a broken triumvirate, not the cause."},
+        {label:"Axiom culture score",target:"≥ 80% can articulate the Axiom unprompted",honest:"Culture either takes root in the first 90 days or it becomes a break room poster."}
+      ],
+      sophiOS:"The Cultivator role is most OS-dependent — people analytics, shift performance, compensation modeling. Hub gives the Cultivator an instrument panel instead of gut feel.",
+      sophiOSCritique:"The OS doesn't solve for miscast seats. If the Orchestrator is a poor communicator or the Comptroller is compliance-obsessed at culture's expense, no software fixes that."},
+
+    {rank:3,cat:"Technology execution",title:"Hub MVP ships late or ships broken",window:"Months 0–6",threat:"Critical",prob:55,color:"rose",
+      summary:"May 1 is the deadline. Hub is the wedge for the entire OS licensing strategy. A delayed or buggy launch erodes investor confidence, delays GTM, and signals SOPHI promises > SOPHI delivers.",
+      honest:"Software deadlines slip. That's base rate, not pessimism. The question is whether MVP scope is locked or still expanding. Scope creep is the most common deadline killer in founder-led tech builds.",
+      ifWrong:"Investor follow-up arrives with no live product to show. Licensing pipeline stalls — prospects don't buy roadmaps. Bryce depressurizes post-miss. The May 1 date becomes a symbol of execution gap rather than momentum.",
+      milestone:"Hub live on 2 sites, 30-day stability, first prospect demo",
+      milestoneDetail:"Hub deployed on 2 operational SOPHI sites, zero P0/P1 bugs at day 30, ≥ 80% shift adoption, at least one licensing prospect has seen a live demo.",
+      metrics:[
+        {label:"Bug severity at launch",target:"Zero P0/P1 bugs at day 30",honest:"Define P0/P1/P2 explicitly with Bryce before launch. Not after."},
+        {label:"Manager onboarding time",target:"< 2 hrs to full proficiency",honest:"If longer, adoption is forced not earned — and forced adoption generates bad data."},
+        {label:"Licensing demo pipeline",target:"≥ 3 qualified prospects demo'd within 60 days",honest:"This is a sales milestone, not a product milestone. Requires separate effort in parallel."},
+        {label:"Bryce v2 engagement",target:"CTO on v2 roadmap within 30 days of launch",honest:"Founder-CTOs sometimes depressurize after a major delivery. Have this conversation before v1 ships."}
+      ],
+      sophiOS:"Hub IS the OS entry point. Every other pillar depends on it working. This is the single highest-leverage technical action in the next 90 days.",
+      sophiOSCritique:"The risk isn't technical failure — it's shipping a feature set instead of a system. Managers can use it without relying on it. That distinction determines whether SOPHI has a product or a tool."},
+
+    {rank:4,cat:"Market & revenue",title:"Licensing GTM fails to convert",window:"Months 6–24",threat:"High",prob:65,color:"peach",
+      summary:"SaaS sales to hospitality operators is a different motion than running valet sites. Operators are skeptical of tech, slow to decide, and referral-driven. A great product that can't close is not a business.",
+      honest:"SOPHI has zero SaaS sales history. ICP is not fully defined. Sales cycle length, decision-maker, and objection pattern are all unknown. This is a market hypothesis, not a validated GTM.",
+      ifWrong:"Free pilots persist indefinitely because no one closes them. MRR sits at zero at month 12 post-launch. The capital bridge shortens faster than projected. Investor confidence erodes — not in the product, but in the go-to-market capability.",
+      milestone:"3 paying contracts at $1K+/site/month, ≥ 90-day retention",
+      milestoneDetail:"Three non-SOPHI-operated sites paying monthly fees for Hub access with 90 days of active usage and no churn.",
+      metrics:[
+        {label:"Pilot-to-paid conversion",target:"≥ 40% within 60 days of pilot start",honest:"Define the pilot end date before it starts. Open-ended pilots rarely convert."},
+        {label:"Sales cycle length",target:"Benchmark then improve quarterly",honest:"You won't know the number until 5+ deals are run."},
+        {label:"License MRR",target:"$10K MRR within 12 months of launch",honest:"Modest by design. Proving repeatability at $10K is worth more than projecting $100K."},
+        {label:"Net Revenue Retention",target:"≥ 110% at 12 months",honest:"NRR > 100% proves stickiness. Below 100% means you're on a treadmill."}
+      ],
+      sophiOS:"The natural upsell path — Hub → Dispatch → Yield Logic → Full OS — creates expansion revenue mechanics that make NRR > 100% achievable if the product works.",
+      sophiOSCritique:"The OS assumes operators want more software over time. Many hospitality operators are tech-allergic beyond initial commitment. Expansion requires active customer success, not passive upsell triggers."},
+
+    {rank:5,cat:"Legal & liability",title:"Vehicle damage or liability event at scale",window:"Ongoing",threat:"Medium-High",prob:45,color:"sand",
+      summary:"Valet operations carry real liability. One high-profile uninsured event can trigger litigation that consumes management bandwidth and cash simultaneously. Aggregate exposure grows with every site added.",
+      honest:"This risk doesn't shrink as you scale — it compounds. The OS can reduce incident frequency, but it cannot eliminate the underlying liability of operating in physical space.",
+      ifWrong:"A vehicle is significantly damaged at a flagship property. The incident isn't logged in Hub within the required window. The property uses it as grounds to exit the contract. Litigation takes 14 months and $80K in legal fees — with a favorable outcome.",
+      milestone:"Insurance & incident protocol fully operationalized across all sites",
+      milestoneDetail:"Every active site has current coverage appropriate for its volume, a documented incident protocol tested via drill, and 6+ months of Hub-logged incident data.",
+      metrics:[
+        {label:"Incident documentation rate",target:"100% logged in Hub within 1 hour",honest:"Incomplete logging in litigation is sometimes worse than no logging."},
+        {label:"Insurance premium trend",target:"Flat or declining as volume grows",honest:"This proves OS-driven documentation is working. Insurers will price it if you show them the data."},
+        {label:"Days to incident resolution",target:"< 30 days for minor claims",honest:"Resolution speed depends as much on your insurer as your internal process."},
+        {label:"Repeat incident rate",target:"< 10% of staff in 2+ incidents annually",honest:"The Axiom says invest in people. That requires coaching infrastructure, not just tracking."}
+      ],
+      sophiOS:"Digital incident logging is one of Hub's highest-value legal features. A timestamped, geotagged record changes the liability conversation completely — when the data is accurate.",
+      sophiOSCritique:"Hub only protects SOPHI if data is accurate and contemporaneous. A manager who backdates to protect a team member creates the opposite of legal protection. Culture determines data integrity."},
+
+    {rank:6,cat:"Capital & runway",title:"Bridge between valet revenue and OS ARR runs dry",window:"Months 12–30",threat:"High",prob:50,color:"peach",
+      summary:"SOPHI is self-funding the OS build on valet operations revenue. The gap between 'valet cash flow supports the build' and 'OS ARR is meaningful' is a capital valley. If valet margins compress or Hub launch delays, the bridge shortens fast.",
+      honest:"This is the tightest risk in the portfolio. You're building a tech company on hospitality margins. That requires extreme capital efficiency or outside capital before the valley gets too deep. The investor conversation is directly relevant.",
+      ifWrong:"Valet has a slow Q3. Hub launched 6 weeks late. Licensing pipeline is 60 days from first close. Runway drops below 6 months. Joshua is now fundraising from urgency rather than momentum — and investors can smell the difference.",
+      milestone:"OS ARR covers ≥ 50% of monthly tech & product costs",
+      milestoneDetail:"Licensing revenue from non-SOPHI sites covers at least half of monthly burn attributable to product, engineering, and customer success.",
+      metrics:[
+        {label:"Monthly OS ARR coverage ratio",target:"50% of tech costs by month 18",honest:"If not trending toward 50% by month 12, the capital conversation must happen before month 18."},
+        {label:"Valet EBITDA margin",target:"≥ 18% maintained while building OS",honest:"Below 15% and the bridge gets uncomfortable fast."},
+        {label:"Months of runway",target:"≥ 9 months at all times",honest:"From 6 months it's desperate. Never let it go below 9."},
+        {label:"Investor follow-on signal",target:"Term sheet or diligence request within 90 days of follow-up meeting",honest:"Not fully controllable. But the indicators are clear: did they ask for materials unprompted?"}
+      ],
+      sophiOS:"Every site running SOPHI OS produces operational data that becomes the investment case. The OS is simultaneously the product being sold and the proof that justifies raising capital to build more.",
+      sophiOSCritique:"The OS doesn't generate ARR by existing — it generates ARR by being sold. A great product with no sales motion is a cost center. Licensing GTM must run in parallel with the build."},
+
+    {rank:7,cat:"Brand & reputation",title:"Premium brand diluted by inconsistent quality",window:"Months 12–36",threat:"Medium",prob:48,color:"sky",
+      summary:"SOPHI's pricing power depends on being visibly different from commodity operators. That differentiation lives in guest experience. Brand risk is highest at licensed sites where SOPHI controls the product but not the operator's culture.",
+      honest:"Brand damage compounds asymmetrically. 18 months to build premium positioning. 18 hours to damage it.",
+      ifWrong:"A licensed operator runs a high-profile event. A VP-level guest has a bad experience and posts about it, tagging SOPHI by name. The thread gains traction. SOPHI's sales pipeline freezes for 30 days while Joshua does damage control. Two close prospects go quiet.",
+      milestone:"Brand standard certification before third licensed site goes live",
+      milestoneDetail:"A formal Brand Certification program — with pass/fail criteria, mystery guest audit, and consequence ladder — operational before site three.",
+      metrics:[
+        {label:"Google/Yelp rating",target:"≥ 4.4 stars across all affiliated properties",honest:"Review platforms are gamed. Use NPS as primary signal, reviews as secondary."},
+        {label:"Brand audit pass rate",target:"≥ 90% of licensed sites pass quarterly audit",honest:"Too easy = doesn't protect the brand. Too hard = operators churn."},
+        {label:"Licensed vs. operated NPS gap",target:"< 10 points between site types",honest:"A large gap is the earliest warning that licensing is diluting the brand."},
+        {label:"Property renewal rate",target:"≥ 85% renew annual contracts",honest:"Renewal rate is the market's verdict on whether SOPHI delivered what it promised."}
+      ],
+      sophiOS:"The Guest Experience OS pillar standardizes the human touchpoints that create premium perception — arrival notifications, preference capture, recovery workflows.",
+      sophiOSCritique:"Guest Experience OS works where SOPHI controls training. At licensed sites, you're selling software to operators whose staff culture you don't own. The OS surfaces behavior data after the fact — it can't install values."},
+
+    {rank:8,cat:"Competitive moat",title:"Larger player copies the model before moat solidifies",window:"Months 18–48",threat:"Medium",prob:35,color:"sky",
+      summary:"SOPHI's competitive thesis requires the playbook-and-data moat becomes real before a well-capitalized player enters hospitality ops tech. A PE-backed valet roll-up or existing parking tech company with existing distribution could move fast.",
+      honest:"This risk is real but often overstated by founders. Execution is harder to replicate than product. The danger isn't that someone copies the software — it's that SOPHI hasn't gone deep enough with enough clients to make switching cost painful before competition arrives.",
+      ifWrong:"SpotHero or a PE-backed competitor launches an 'ops layer' at a national hospitality conference. They have 200 existing client relationships. SOPHI has 8 licensed sites. The prospect conversation shifts from 'what is this' to 'why not the incumbent?' — and SOPHI doesn't have an answer yet.",
+      milestone:"10 sites on SOPHI OS with ≥ 12 months of operational data each",
+      milestoneDetail:"Ten operated or licensed sites on the full OS stack with 12 continuous months of data — a dataset a new entrant cannot replicate without years of runway.",
+      metrics:[
+        {label:"Data depth per site",target:"≥ 10,000 shift records per site at 12 months",honest:"Data moats require data density. 10K records is the floor for dispatch intelligence to outperform human intuition."},
+        {label:"Playbook completeness",target:"≥ 25 documented SOPs per role",honest:"If playbooks live in Joshua's head, there's no moat — there's institutional knowledge held by one person."},
+        {label:"Client integration depth",target:"≥ 70% of licensed clients have Hub integrated into existing workflow tools",honest:"API integrations are the strongest switching cost. Without them, Hub is always replaceable."},
+        {label:"Competitive win rate",target:"Track from first competitive deal forward",honest:"You don't have competitive data yet. The milestone is building the tracking mechanism."}
+      ],
+      sophiOS:"The Axiom's Transparency of Obsolescence is itself a moat element. The philosophical coherence of the SOPHI system isn't copyable by deploying software — you'd have to copy the culture, which means the people.",
+      sophiOSCritique:"Philosophical moats are real but slow to become material. Near-term defensibility is execution-based — you have to move fast enough that competitors are always catching up."},
+
+    {rank:9,cat:"Regulatory & labor",title:"Labor classification or wage law exposure",window:"Ongoing — accelerates at Series A",threat:"Medium",prob:38,color:"sky",
+      summary:"Valet operations are frequently scrutinized on tip pooling, worker classification, predictive scheduling, and minimum wage by jurisdiction. As SOPHI enters new markets, legal surface area compounds. Series A diligence will surface this.",
+      honest:"Most hospitality operators don't think about this until they're served a demand letter. Labor class actions are common, often class-certified, and expensive even when you win.",
+      ifWrong:"SOPHI launches in a new state without jurisdiction-specific wage counsel. An employee files a tip pooling complaint. The state labor board opens an investigation. Series A diligence is 60 days away. Outside counsel says you can't give a clean legal representation yet.",
+      milestone:"Labor compliance framework verified by outside counsel in each market",
+      milestoneDetail:"Before any new market launch, a jurisdiction-specific labor review — classification, tip pooling, scheduling laws, minimum wage — is signed off by local employment counsel.",
+      metrics:[
+        {label:"Compliance review completion",target:"100% of new markets reviewed before first shift",honest:"This is binary. There's no 80% compliant."},
+        {label:"Wage complaint rate",target:"Zero formal wage claims against SOPHI entities",honest:"Zero complaints ≠ zero risk. Proactive audits are more reliable than complaint tracking."},
+        {label:"Retainer coverage",target:"Standing labor counsel in each active state",honest:"One-time reviews go stale as laws change."},
+        {label:"Series A diligence readiness",target:"Clean labor rep producible in 24 hours",honest:"Investors will ask. Having it ready signals operational maturity."}
+      ],
+      sophiOS:"Hub's scheduling and dispatch intelligence creates an audit trail for scheduling practices — break law adherence, overtime tracking. Defensive legal value most operators don't realize they're generating.",
+      sophiOSCritique:"Hub creates records, not compliance. If scheduling decisions being logged are non-compliant, Hub is documenting the violation, not preventing it. Records are a liability if practices aren't already sound."},
+
+    {rank:10,cat:"Founder resilience",title:"Founder bandwidth collapses across three domains",window:"Months 0–24",threat:"High",prob:70,color:"peach",
+      summary:"Joshua is simultaneously a quota-carrying CoStar professional, the founder/CEO of a scaling company, and a present parent. This is not sustainable at current intensity beyond 18–24 months without a structural change to one domain. The one that always gives is SOPHI.",
+      honest:"This is the most personal risk and the hardest to measure. Founder burnout doesn't announce itself — it shows up as slower decisions, missed follow-ups, reduced creativity. SOPHI's vision requires a fully invested founder. Right now that's structurally impossible.",
+      ifWrong:"SOPHI misses two consecutive strategic windows because decisions waited on Joshua. A key hire who was excited goes cold during a 3-week response lag. Bryce makes an architectural decision he shouldn't have had to make alone. The company drifts from the Axiom because the person who carries it is spread too thin to reinforce it.",
+      milestone:"SOPHI has a full-time leader not dependent on divided founder attention",
+      milestoneDetail:"Either Joshua transitions out of CoStar with SOPHI revenue covering the gap, OR SOPHI has a COO/GM running day-to-day ops — before month 24.",
+      metrics:[
+        {label:"SOPHI revenue coverage of personal income",target:"≥ 80% replacement before CoStar exit",honest:"Don't leave at 60% coverage hoping the rest materializes. Financial stress becomes a founder performance issue."},
+        {label:"Hours/week on SOPHI",target:"Track honestly now; target 30+ by month 18",honest:"The current number is probably 15–20 across evenings and weekends. That's not enough."},
+        {label:"Decision backlog",target:"< 5 open decisions awaiting founder input",honest:"Decision backlog is the earliest quantifiable signal of bandwidth collapse."},
+        {label:"Grace calendar protection rate",target:"100% — always",honest:"Not a business metric. A life metric. A present parent makes better long-term decisions."}
+      ],
+      sophiOS:"Every process systematized, every manager empowered by Hub, every playbook written — reduces the surface area where Joshua is the only answer. The OS is also a founder leverage tool.",
+      sophiOSCritique:"The OS can't be built fast enough to solve the bandwidth problem it's supposed to solve. That's the paradox. Something has to give — and honestly it's probably CoStar, sooner than feels comfortable."}
+  ];
+
+  const threatChip = {
+    "Critical": "chip-rose",
+    "High": "chip-peach",
+    "Medium-High": "chip-sand",
+    "Medium": "chip-sky"
+  };
+  const threatColor = {
+    "Critical": "#8A2C3E",
+    "High": "#B25E2E",
+    "Medium-High": "#6B5A2E",
+    "Medium": "#1F4F7A"
+  };
+
+  function renderRail() {
+    const rail = document.getElementById('risk-rail');
+    rail.innerHTML = window.SOPHI_RISKS.map((r, i) => `
+      <button class="risk-rail-item${i===0?' active':''}" data-idx="${i}" role="tab">
+        <span class="rri-num">${String(r.rank).padStart(2,'0')}</span>
+        <span>
+          <div class="rri-cat">${r.cat}</div>
+          <div class="rri-title">${r.title}</div>
+          <div class="rri-meta">
+            <span class="chip ${threatChip[r.threat]}" style="padding:1px 7px; font-size:10.5px;">${r.threat}</span>
+            <span class="rri-prob">${r.prob}% risk</span>
+          </div>
+        </span>
+      </button>`).join('');
+    rail.querySelectorAll('.risk-rail-item').forEach(el => {
+      el.addEventListener('click', () => {
+        rail.querySelectorAll('.risk-rail-item').forEach(x => x.classList.remove('active'));
+        el.classList.add('active');
+        renderDetail(parseInt(el.dataset.idx, 10));
+      });
+    });
+  }
+
+  function renderDetail(idx) {
+    const r = window.SOPHI_RISKS[idx];
+    const tc = threatColor[r.threat];
+    const detail = document.getElementById('risk-detail');
+    detail.innerHTML = `
+      <div class="risk-header" style="border-left: 3px solid ${tc};">
+        <div class="rh-eyebrow" style="color:${tc};">Risk #${String(r.rank).padStart(2,'0')} · ${r.cat}</div>
+        <h2 class="rh-title">${r.title}</h2>
+        <div class="rh-window">Window · ${r.window} <span style="margin:0 10px; color:var(--border);">|</span> <span class="chip ${threatChip[r.threat]}">${r.threat}</span></div>
+        <div class="rh-prob">
+          <span class="rh-prob-lbl">Probability if unaddressed</span>
+          <span class="rh-prob-val" style="color:${tc};">${r.prob}%</span>
+        </div>
+        <div class="rh-bar"><div class="rh-bar-fill" style="width:${r.prob}%; background:${tc};"></div></div>
+      </div>
+
+      <div class="subtabs" role="tablist">
+        <button class="subtab active" data-detail="the-risk">The risk</button>
+        <button class="subtab" data-detail="if-wrong">If we're wrong</button>
+        <button class="subtab" data-detail="milestone">Milestone</button>
+        <button class="subtab" data-detail="os">OS assessment</button>
+      </div>
+
+      <section class="subtab-panel active" data-dpanel="the-risk">
+        <div class="risk-block"><div class="rb-eyebrow">Summary</div><p>${r.summary}</p></div>
+        <div class="risk-block accent"><div class="rb-eyebrow" style="color:var(--blue-ink);">Honest take</div><p>${r.honest}</p></div>
+      </section>
+
+      <section class="subtab-panel" data-dpanel="if-wrong">
+        <div class="risk-block rose"><div class="rb-eyebrow">If we're wrong</div><p>${r.ifWrong}</p></div>
+      </section>
+
+      <section class="subtab-panel" data-dpanel="milestone">
+        <div class="risk-block mint">
+          <div class="rb-eyebrow">Retiring milestone</div>
+          <div style="font-size:15px; font-weight:600; color:var(--text-strong); margin-bottom:8px;">${r.milestone}</div>
+          <p>${r.milestoneDetail}</p>
+        </div>
+        <div class="section-eyebrow" style="margin-top:20px;">Countable metrics · with honest caveats</div>
+        ${r.metrics.map(m => `
+          <div class="metric-row">
+            <div class="mr-head">
+              <div class="mr-label">${m.label}</div>
+              <div class="mr-target">${m.target}</div>
+            </div>
+            <div class="mr-honest">${m.honest}</div>
+          </div>
+        `).join('')}
+      </section>
+
+      <section class="subtab-panel" data-dpanel="os">
+        <div class="risk-block accent"><div class="rb-eyebrow" style="color:var(--blue-ink);">Where the OS helps</div><p>${r.sophiOS}</p></div>
+        <div class="risk-block rose"><div class="rb-eyebrow">Where it doesn't</div><p>${r.sophiOSCritique}</p></div>
+      </section>
+    `;
+    detail.querySelectorAll('.subtab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        detail.querySelectorAll('.subtab').forEach(b => b.classList.toggle('active', b === btn));
+        const t = btn.getAttribute('data-detail');
+        detail.querySelectorAll('.subtab-panel').forEach(p => p.classList.toggle('active', p.getAttribute('data-dpanel') === t));
+      });
+    });
+  }
+
+  renderRail();
+  renderDetail(0);
+</script>
+<script src="./assets/shell.js"></script>
+<script>window.SOPHI_SHELL.mount('risk-milestones.html');</script>
+</body>
+</html>

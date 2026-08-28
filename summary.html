@@ -66,16 +66,16 @@
         <div class="rc-title">Organic plan vs. penetration model</div>
         <div class="rc-sub">Blend Wealth 5-year P&amp;L · v3 penetration engine</div>
       </div>
-      <svg viewBox="0 0 780 320" style="width:100%; height:auto; display:block;" aria-label="Organic vs v3 penetration chart">
+      <svg viewBox="0 0 880 320" style="width:100%; height:auto; display:block;" aria-label="Organic vs v3 penetration chart">
         <!-- Axes -->
-        <line x1="60" y1="270" x2="740" y2="270" stroke="#E7E5E0" stroke-width="1"/>
+        <line x1="60" y1="270" x2="720" y2="270" stroke="#E7E5E0" stroke-width="1"/>
         <line x1="60" y1="20" x2="60" y2="270" stroke="#E7E5E0" stroke-width="1"/>
         <!-- Y gridlines + labels -->
         <g font-family="JetBrains Mono, monospace" font-size="10" fill="#8A857F">
-          <line x1="60" y1="30" x2="740" y2="30" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="34" text-anchor="end">$30M</text>
-          <line x1="60" y1="90" x2="740" y2="90" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="94" text-anchor="end">$25M</text>
-          <line x1="60" y1="150" x2="740" y2="150" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="154" text-anchor="end">$15M</text>
-          <line x1="60" y1="210" x2="740" y2="210" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="214" text-anchor="end">$5M</text>
+          <line x1="60" y1="30" x2="720" y2="30" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="34" text-anchor="end">$30M</text>
+          <line x1="60" y1="90" x2="720" y2="90" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="94" text-anchor="end">$25M</text>
+          <line x1="60" y1="150" x2="720" y2="150" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="154" text-anchor="end">$15M</text>
+          <line x1="60" y1="210" x2="720" y2="210" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="214" text-anchor="end">$5M</text>
           <text x="52" y="274" text-anchor="end">$0</text>
         </g>
         <!-- Actual/Modeled divider at 2026 -->
@@ -85,47 +85,47 @@
         <!-- Organic line (blue) 2026A→2031: 1.38 1.72 2.10 3.70 6.50 11.00 -->
         <!-- x positions: 2026A 170, 2027 284, 2028 398, 2029 512, 2030 626, 2031 740 -->
         <!-- y from val: y = 270 - (val/30)*240; so 1.38→259, 1.72→256, 2.10→253, 3.70→240, 6.50→218, 11.00→182 -->
-        <polyline points="170,259 284,256 398,253 512,240 626,218 740,182" fill="none" stroke="#38B6FF" stroke-width="2.5" stroke-linejoin="round"/>
+        <polyline points="170,259 280,256 390,253 500,240 610,218 720,182" fill="none" stroke="#38B6FF" stroke-width="2.5" stroke-linejoin="round"/>
         <!-- Organic fill under line (subtle) -->
-        <polygon points="170,259 284,256 398,253 512,240 626,218 740,182 740,270 170,270" fill="rgba(56,182,255,0.06)"/>
+        <polygon points="170,259 280,256 390,253 500,240 610,218 720,182 720,270 170,270" fill="rgba(56,182,255,0.06)"/>
         <!-- v3 line (peach/orange) 2027→2031: 4.02 9.00 14.74 19.48 28.29 -->
         <!-- y: 4.02→238, 9.00→198, 14.74→152, 19.48→114, 28.29→44 -->
-        <polyline points="170,259 284,238 398,198 512,152 626,114 740,44" fill="none" stroke="#DA7101" stroke-width="2.5" stroke-linejoin="round"/>
-        <polygon points="170,259 284,238 398,198 512,152 626,114 740,44 740,270 170,270" fill="rgba(218,113,1,0.05)"/>
+        <polyline points="170,259 280,238 390,198 500,152 610,114 720,44" fill="none" stroke="#DA7101" stroke-width="2.5" stroke-linejoin="round"/>
+        <polygon points="170,259 280,238 390,198 500,152 610,114 720,44 720,270 170,270" fill="rgba(218,113,1,0.05)"/>
         <!-- Data points -->
         <g fill="#38B6FF">
-          <circle cx="170" cy="259" r="3.5"/><circle cx="284" cy="256" r="3.5"/><circle cx="398" cy="253" r="3.5"/><circle cx="512" cy="240" r="3.5"/><circle cx="626" cy="218" r="3.5"/><circle cx="740" cy="182" r="3.5"/>
+          <circle cx="170" cy="259" r="3.5"/><circle cx="280" cy="256" r="3.5"/><circle cx="390" cy="253" r="3.5"/><circle cx="500" cy="240" r="3.5"/><circle cx="610" cy="218" r="3.5"/><circle cx="720" cy="182" r="3.5"/>
         </g>
         <g fill="#DA7101">
-          <circle cx="284" cy="238" r="3.5"/><circle cx="398" cy="198" r="3.5"/><circle cx="512" cy="152" r="3.5"/><circle cx="626" cy="114" r="3.5"/><circle cx="740" cy="44" r="3.5"/>
+          <circle cx="280" cy="238" r="3.5"/><circle cx="390" cy="198" r="3.5"/><circle cx="500" cy="152" r="3.5"/><circle cx="610" cy="114" r="3.5"/><circle cx="720" cy="44" r="3.5"/>
         </g>
         <!-- Point labels -->
         <g font-family="JetBrains Mono, monospace" font-size="10.5" fill="#38B6FF" font-weight="500">
           <text x="170" y="275" text-anchor="middle">$1.38M</text>
-          <text x="284" y="252" text-anchor="middle">$1.72M</text>
-          <text x="398" y="249" text-anchor="middle">$2.10M</text>
-          <text x="512" y="236" text-anchor="middle">$3.70M</text>
-          <text x="626" y="214" text-anchor="middle">$6.50M</text>
+          <text x="280" y="252" text-anchor="middle">$1.72M</text>
+          <text x="390" y="249" text-anchor="middle">$2.10M</text>
+          <text x="500" y="236" text-anchor="middle">$3.70M</text>
+          <text x="610" y="214" text-anchor="middle">$6.50M</text>
         </g>
         <g font-family="JetBrains Mono, monospace" font-size="10.5" fill="#DA7101" font-weight="500">
-          <text x="284" y="230" text-anchor="middle">$4.02M</text>
-          <text x="398" y="190" text-anchor="middle">$9.00M</text>
-          <text x="512" y="144" text-anchor="middle">$14.74M</text>
-          <text x="626" y="106" text-anchor="middle">$19.48M</text>
+          <text x="280" y="230" text-anchor="middle">$4.02M</text>
+          <text x="390" y="190" text-anchor="middle">$9.00M</text>
+          <text x="500" y="144" text-anchor="middle">$14.74M</text>
+          <text x="610" y="106" text-anchor="middle">$19.48M</text>
         </g>
-        <!-- End labels -->
-        <text x="748" y="180" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#38B6FF">$11.00M</text>
-        <text x="748" y="194" font-family="Inter, sans-serif" font-size="10.5" fill="#8A857F">organic</text>
-        <text x="748" y="42" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#DA7101">$28.29M</text>
-        <text x="748" y="56" font-family="Inter, sans-serif" font-size="10.5" fill="#8A857F">with acquisitions</text>
+        <!-- End labels (in the right pad of the viewBox) -->
+        <text x="732" y="180" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#38B6FF">$11.00M</text>
+        <text x="732" y="194" font-family="Inter, sans-serif" font-size="10.5" fill="#8A857F">organic</text>
+        <text x="732" y="42" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#DA7101">$28.29M</text>
+        <text x="732" y="56" font-family="Inter, sans-serif" font-size="10.5" fill="#8A857F">with acquisitions</text>
         <!-- X labels -->
         <g font-family="Inter, sans-serif" font-size="10.5" fill="#4A4744">
           <text x="170" y="292" text-anchor="middle">2026A</text>
-          <text x="284" y="292" text-anchor="middle">2027</text><text x="284" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">Y1</text>
-          <text x="398" y="292" text-anchor="middle">2028</text><text x="398" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">Y2</text>
-          <text x="512" y="292" text-anchor="middle">2029</text><text x="512" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">Y3</text>
-          <text x="626" y="292" text-anchor="middle">2030</text><text x="626" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">Y4</text>
-          <text x="740" y="292" text-anchor="middle">2031</text><text x="740" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">Y5</text>
+          <text x="280" y="292" text-anchor="middle">2027</text><text x="280" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">Y1</text>
+          <text x="390" y="292" text-anchor="middle">2028</text><text x="390" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">Y2</text>
+          <text x="500" y="292" text-anchor="middle">2029</text><text x="500" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">Y3</text>
+          <text x="610" y="292" text-anchor="middle">2030</text><text x="610" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">Y4</text>
+          <text x="720" y="292" text-anchor="middle">2031</text><text x="720" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">Y5</text>
         </g>
       </svg>
       <div class="rc-legend">

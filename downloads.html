@@ -1,767 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="generator" content="Perplexity Computer">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data Room — Sophi Deal Room</title>
+<title>Documents — SOPHI Investor Deal Room</title>
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500;9..144,600;9..144,500,1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./assets/deal-room.css">
-<style>
-  .hero-dr {
-    padding: var(--space-8) 0 var(--space-6);
-    border-bottom: 1px solid var(--border);
-    margin-bottom: var(--space-7);
-  }
-  .hero-dr .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--accent);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    margin-bottom: var(--space-4);
-  }
-  .hero-dr h1 {
-    font-family: var(--font-display);
-    font-size: clamp(40px, 5vw, 60px);
-    line-height: 1.05;
-    font-weight: 500;
-    letter-spacing: -0.03em;
-    color: var(--text-strong);
-    margin-bottom: var(--space-4);
-    max-width: 20ch;
-  }
-  .hero-dr h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
-  .hero-dr .lede {
-    font-size: 17px;
-    color: var(--text-muted);
-    max-width: 66ch;
-    line-height: 1.6;
-  }
-
-  /* Category section */
-  .dr-cat {
-    margin-bottom: var(--space-8);
-  }
-  .dr-cat .cat-header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    padding-bottom: var(--space-3);
-    border-bottom: 1px solid var(--border);
-    margin-bottom: var(--space-5);
-  }
-  .dr-cat .cat-title {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--accent);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-  .dr-cat .cat-desc {
-    font-size: 13px;
-    color: var(--text-muted);
-    font-style: italic;
-  }
-
-  /* File grid */
-  .file-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4);
-  }
-  @media (max-width: 900px) { .file-grid { grid-template-columns: 1fr; } }
-
-  .file-card {
-    background: var(--bg-elev);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: var(--space-5);
-    display: flex;
-    gap: var(--space-4);
-    align-items: flex-start;
-    transition: all 160ms ease;
-  }
-  .file-card:hover {
-    border-color: var(--border-strong);
-    box-shadow: 0 4px 20px rgba(31, 29, 27, 0.06);
-  }
-  .file-card.pending {
-    opacity: 0.7;
-    background: var(--bg-elev-2);
-  }
-
-  .file-icon {
-    flex-shrink: 0;
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    background: var(--accent-soft);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .file-icon svg { color: var(--accent); }
-  .file-card.pending .file-icon {
-    background: var(--bg-elev-3);
-  }
-  .file-card.pending .file-icon svg { color: var(--text-faint); }
-
-  .file-body {
-    flex: 1;
-    min-width: 0;
-  }
-  .file-title {
-    font-family: var(--font-body);
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text-strong);
-    line-height: 1.35;
-    margin-bottom: 4px;
-  }
-  .file-desc {
-    font-size: 13px;
-    color: var(--text-muted);
-    line-height: 1.5;
-    margin-bottom: var(--space-3);
-  }
-  .file-meta {
-    display: flex;
-    gap: var(--space-3);
-    align-items: center;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--text-faint);
-    letter-spacing: 0.02em;
-  }
-  .file-meta .format {
-    background: var(--bg-elev-3);
-    color: var(--text-muted);
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-weight: 500;
-  }
-  .file-card.pending .file-meta .format {
-    color: var(--text-faint);
-  }
-  .file-meta .size { color: var(--text-faint); }
-  .file-meta .status-badge {
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    font-size: 10px;
-  }
-  .file-meta .status-badge.ready {
-    background: rgba(5, 150, 105, 0.1);
-    color: #059669;
-  }
-  .file-meta .status-badge.pending {
-    background: var(--bg-elev-3);
-    color: var(--text-faint);
-  }
-  .file-meta .status-badge.request {
-    background: var(--accent-soft);
-    color: var(--accent);
-  }
-
-  .file-action {
-    flex-shrink: 0;
-    align-self: center;
-  }
-  .file-action a {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
-    background: var(--accent);
-    color: white;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 140ms;
-  }
-  .file-action a:hover { background: var(--accent-hover); }
-  .file-action button {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
-    background: transparent;
-    color: var(--text-faint);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 500;
-    font-family: var(--font-body);
-    cursor: not-allowed;
-  }
-  .file-action .request-btn {
-    background: transparent;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    cursor: pointer;
-  }
-  .file-action .request-btn:hover {
-    background: var(--accent-soft);
-  }
-
-  /* Contact block */
-  .dr-contact {
-    background: linear-gradient(135deg, var(--accent-soft) 0%, var(--bg-elev-2) 100%);
-    border: 1px solid var(--border-strong);
-    border-radius: 14px;
-    padding: var(--space-6) var(--space-7);
-    margin-top: var(--space-8);
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: var(--space-5);
-    align-items: center;
-  }
-  @media (max-width: 800px) { .dr-contact { grid-template-columns: 1fr; } }
-  .dr-contact .dc-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: var(--space-2);
-  }
-  .dr-contact h3 {
-    font-family: var(--font-display);
-    font-size: 24px;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    color: var(--text-strong);
-    margin-bottom: var(--space-2);
-    line-height: 1.2;
-  }
-  .dr-contact p {
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.5;
-    margin: 0;
-    max-width: 60ch;
-  }
-  .dr-contact .contact-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 20px;
-    background: var(--accent);
-    color: white;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  .dr-contact .contact-cta:hover { background: var(--accent-hover); }
-</style>
 </head>
 <body>
-
-<script src="./assets/topstrip.js"></script>
-
+<div class="watermark" data-mark="CONFIDENTIAL · partner@fund.com    CONFIDENTIAL · partner@fund.com"></div>
 <div class="app-shell">
-<aside class="side-nav" id="side-nav"></aside>
-<main class="main">
+  <aside class="side-nav" id="side-nav"></aside>
+  <main class="main" style="position:relative; z-index:2;">
 
-<header class="hero-dr">
-  <div class="eyebrow">Diligence · Data Room</div>
-  <h1>Every number, <em>traceable</em>.</h1>
-  <p class="lede">Sophi's deal room is source-open by default. Model exports, methodology memos, per-market audits, and account-level enrichment files all live here. Ready items are downloadable inline; items still in review can be requested by email.</p>
-</header>
+    <header class="page-header">
+      <div class="ph-icon" style="background:#E8F4FF; color:#0B5394;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="14 3 14 9 20 9"/></svg>
+      </div>
+      <div class="ph-body">
+        <div class="ph-eyebrow">Diligence</div>
+        <h1 class="ph-title">Documents.<br>Every artifact behind every number.</h1>
+        <p class="ph-lede">
+          Thirteen files backing the model, the methodology, and the corporate record. Files are release-on-request — click Request to have the artifact emailed and access logged against your firm's diligence review.
+        </p>
+      </div>
+    </header>
 
-<!-- =============================================================== -->
-<section class="dr-cat">
-  <div class="cat-header">
-    <div class="cat-title">Section 01 · Model exports</div>
-    <div class="cat-desc">Machine-readable outputs from the v3 engine</div>
-  </div>
-  <div class="file-grid">
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5h9l3 3v11a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M17 5v3h3M9 13h6M9 17h6M9 9h3"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">v3 6-market portfolio rollup</div>
-        <div class="file-desc">Per-account TAM, SAM inclusion flags, WAS scores, quartile tier, modeled sign-year across Charlotte, Denver, Phoenix, Cleveland, Louisville, Indianapolis.</div>
-        <div class="file-meta">
-          <span class="format">JSON</span>
-          <span class="size">~1.2 MB</span>
-          <span class="status-badge pending">Coming soon</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button disabled>Pending</button>
-      </div>
+    <div class="doc-filters" id="doc-filters">
+      <button class="chip chip-blue active" data-filter="all">All 13</button>
+      <button class="chip chip-neutral" data-filter="model">Model exports · 3</button>
+      <button class="chip chip-neutral" data-filter="method">Methodology &amp; memos · 3</button>
+      <button class="chip chip-neutral" data-filter="market">Per-market audits · 3</button>
+      <button class="chip chip-neutral" data-filter="corp">Financials &amp; corporate · 4</button>
     </div>
 
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4zM4 9h16M4 14h16M4 19h16M9 4v16M14 4v16"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">Accounts book · flat CSV</div>
-        <div class="file-desc">All 203 accounts flattened for spreadsheet analysis — market, type, address, ownership group, operator, all model inputs, all v3 outputs.</div>
-        <div class="file-meta">
-          <span class="format">CSV</span>
-          <span class="size">~420 KB</span>
-          <span class="status-badge pending">Coming soon</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button disabled>Pending</button>
-      </div>
+    <div id="doc-list"></div>
+
+    <div class="callout" style="margin-top: var(--space-6);">
+      <div class="cl-title">How document requests work</div>
+      <p class="cl-body">Requests are logged against your firm's access record and forwarded to Joshua Casey for release. Sensitive artifacts (financials, cap tables, per-market account lists) are released only after a signed NDA is on file. Typical turnaround is under one business day.</p>
     </div>
 
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">Y1-Y5 SOM cash schedule</div>
-        <div class="file-desc">Annual revenue by market, by account type, and by tier. Includes organic run-rate and (separately) M&amp;A absorption tranches.</div>
-        <div class="file-meta">
-          <span class="format">XLSX</span>
-          <span class="size">~180 KB</span>
-          <span class="status-badge pending">Coming soon</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button disabled>Pending</button>
-      </div>
-    </div>
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3L3 5v16l6-2 6 2 6-2V3l-6 2-6-2zM9 3v16M15 5v16"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">Geo-scored accounts (GeoJSON)</div>
-        <div class="file-desc">All accounts with lat/lng, TAM, quartile tier, sign-year, and lifecycle status for GIS or mapping tool import.</div>
-        <div class="file-meta">
-          <span class="format">GeoJSON</span>
-          <span class="size">~680 KB</span>
-          <span class="status-badge pending">Coming soon</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button disabled>Pending</button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- =============================================================== -->
-<section class="dr-cat">
-  <div class="cat-header">
-    <div class="cat-title">Section 02 · Methodology &amp; memos</div>
-    <div class="cat-desc">The written record behind the model</div>
-  </div>
-  <div class="file-grid">
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h6a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H4V4zM20 4h-6a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h7V4z"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">Sophi methodology export · v3</div>
-        <div class="file-desc">Full written methodology: decoupling principle, TAM formulas, SAM filters, SOM engine, v3 upgrades. Companion to the on-site Methodology page.</div>
-        <div class="file-meta">
-          <span class="format">PDF</span>
-          <span class="size">~2.4 MB</span>
-          <span class="status-badge pending">Coming soon</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button disabled>Pending</button>
-      </div>
-    </div>
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h6a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H4V4zM20 4h-6a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h7V4z"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">v3 investor memo</div>
-        <div class="file-desc">Narrative summary of what changed from v2 to v3, why the SOM number moved, and how LPs should read the defensibility ceiling.</div>
-        <div class="file-meta">
-          <span class="format">PDF</span>
-          <span class="size">~880 KB</span>
-          <span class="status-badge pending">Coming soon</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button disabled>Pending</button>
-      </div>
-    </div>
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h6a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H4V4zM20 4h-6a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h7V4z"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">Operator cross-reference memo</div>
-        <div class="file-desc">Which national operators (LAZ, SP+, Ace, Towne Park, Impark) are gated where, why, and what would clear the gate. Includes displacement precedents from Sophi's book.</div>
-        <div class="file-meta">
-          <span class="format">MD</span>
-          <span class="size">~120 KB</span>
-          <span class="status-badge pending">Coming soon</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button disabled>Pending</button>
-      </div>
-    </div>
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h6a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H4V4zM20 4h-6a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h7V4z"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">Self-park repricing audit</div>
-        <div class="file-desc">Analysis of the self-park to valet repricing lever: which accounts qualify, expected revenue lift, precedents from Sophi's anchor properties.</div>
-        <div class="file-meta">
-          <span class="format">MD</span>
-          <span class="size">~90 KB</span>
-          <span class="status-badge pending">Coming soon</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button disabled>Pending</button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- =============================================================== -->
-<section class="dr-cat">
-  <div class="cat-header">
-    <div class="cat-title">Section 03 · Per-market audits</div>
-    <div class="cat-desc">TAM/SAM/SOM reasoning at the market level</div>
-  </div>
-  <div class="file-grid">
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3L3 5v16l6-2 6 2 6-2V3l-6 2-6-2zM9 3v16M15 5v16"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">Charlotte 2026 · scored + TAM refined</div>
-        <div class="file-desc">Warm-market anchor case. Includes 4 anchor accounts, WAS calibration, and $18.20M TAM / $9.10M SAM breakdown.</div>
-        <div class="file-meta">
-          <span class="format">MD + JSON</span>
-          <span class="size">~340 KB</span>
-          <span class="status-badge pending">Coming soon</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button disabled>Pending</button>
-      </div>
-    </div>
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3L3 5v16l6-2 6 2 6-2V3l-6 2-6-2zM9 3v16M15 5v16"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">Denver 2026 · Phase 1B TAM audit</div>
-        <div class="file-desc">Cold-market entry analysis. Documents the operator gate structure, PMC bundling in downtown, and the M&amp;A acceleration path.</div>
-        <div class="file-meta">
-          <span class="format">MD + JSON</span>
-          <span class="size">~410 KB</span>
-          <span class="status-badge pending">Coming soon</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button disabled>Pending</button>
-      </div>
-    </div>
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3L3 5v16l6-2 6 2 6-2V3l-6 2-6-2zM9 3v16M15 5v16"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">Phoenix 2025 · scored</div>
-        <div class="file-desc">Full account book with WAS scoring, operator gate assignments, quartile tiering.</div>
-        <div class="file-meta">
-          <span class="format">MD + JSON</span>
-          <span class="size">~280 KB</span>
-          <span class="status-badge pending">Coming soon</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button disabled>Pending</button>
-      </div>
-    </div>
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3L3 5v16l6-2 6 2 6-2V3l-6 2-6-2zM9 3v16M15 5v16"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">Cleveland 2026 · scored</div>
-        <div class="file-desc">Full account book with WAS scoring, operator gate assignments, quartile tiering.</div>
-        <div class="file-meta">
-          <span class="format">MD + JSON</span>
-          <span class="size">~240 KB</span>
-          <span class="status-badge pending">Coming soon</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button disabled>Pending</button>
-      </div>
-    </div>
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3L3 5v16l6-2 6 2 6-2V3l-6 2-6-2zM9 3v16M15 5v16"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">Louisville 2026 · scored</div>
-        <div class="file-desc">Full account book with WAS scoring, operator gate assignments, quartile tiering.</div>
-        <div class="file-meta">
-          <span class="format">MD + JSON</span>
-          <span class="size">~220 KB</span>
-          <span class="status-badge pending">Coming soon</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button disabled>Pending</button>
-      </div>
-    </div>
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3L3 5v16l6-2 6 2 6-2V3l-6 2-6-2zM9 3v16M15 5v16"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">Indianapolis 2026 · scored (v7 hometown)</div>
-        <div class="file-desc">Home market. Includes v7 hometown-advantage layer, Y2 M&amp;A absorption tranche, and Cold-to-Warm mid-plan pivot.</div>
-        <div class="file-meta">
-          <span class="format">MD + JSON</span>
-          <span class="size">~380 KB</span>
-          <span class="status-badge pending">Coming soon</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button disabled>Pending</button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- =============================================================== -->
-<section class="dr-cat">
-  <div class="cat-header">
-    <div class="cat-title">Section 04 · Expansion pipeline</div>
-    <div class="cat-desc">Markets 7-14 under active enrichment</div>
-  </div>
-  <div class="file-grid">
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h6a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H4V4zM20 4h-6a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h7V4z"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">8-market expansion summary</div>
-        <div class="file-desc">Executive summary of Columbus, Cincinnati, Charleston, Ft Lauderdale, Raleigh, Ft Wayne, Minneapolis, St Louis addition to the model.</div>
-        <div class="file-meta">
-          <span class="format">MD</span>
-          <span class="size">~150 KB</span>
-          <span class="status-badge request">By request</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button class="request-btn">Request access</button>
-      </div>
-    </div>
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5h9l3 3v11a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><path d="M17 5v3h3M9 13h6M9 17h6M9 9h3"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">14-market accounts book (v3)</div>
-        <div class="file-desc">Extended account book including expansion markets. Pre-scoring; enrichment in progress.</div>
-        <div class="file-meta">
-          <span class="format">JSON</span>
-          <span class="size">~2.1 MB</span>
-          <span class="status-badge request">By request</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button class="request-btn">Request access</button>
-      </div>
-    </div>
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h6a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H4V4zM20 4h-6a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h7V4z"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">New-market enrichment methodology</div>
-        <div class="file-desc">How Sophi assembles account books in new markets: data sources, enrichment pipeline, quality gates, and typical cost/time per market.</div>
-        <div class="file-meta">
-          <span class="format">MD</span>
-          <span class="size">~80 KB</span>
-          <span class="status-badge request">By request</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button class="request-btn">Request access</button>
-      </div>
-    </div>
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4zM4 9h16M4 14h16M4 19h16M9 4v16M14 4v16"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">14-market enrichment master CSV</div>
-        <div class="file-desc">Per-market flat CSVs zipped: hotel counts, restaurant counts, ADR bands, occupancy ranges, operator concentration.</div>
-        <div class="file-meta">
-          <span class="format">ZIP (CSV)</span>
-          <span class="size">~5.8 MB</span>
-          <span class="status-badge request">By request</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button class="request-btn">Request access</button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- =============================================================== -->
-<section class="dr-cat">
-  <div class="cat-header">
-    <div class="cat-title">Section 05 · Financials &amp; corporate</div>
-    <div class="cat-desc">P&amp;L, cap table, legal</div>
-  </div>
-  <div class="file-grid">
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4zM4 9h16M4 14h16M4 19h16M9 4v16M14 4v16"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">Historical P&amp;L (TTM + 3Y)</div>
-        <div class="file-desc">Revenue, cost of revenue, opex, EBITDA — trailing twelve months and prior three fiscal years.</div>
-        <div class="file-meta">
-          <span class="format">XLSX</span>
-          <span class="size">TBD</span>
-          <span class="status-badge request">By request · NDA</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button class="request-btn">Request access</button>
-      </div>
-    </div>
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4zM4 9h16M4 14h16M4 19h16M9 4v16M14 4v16"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">5-year financial forecast model</div>
-        <div class="file-desc">Full projections with revenue build (from SOM), COGS, staffing plan, capex, working capital, and cash flow.</div>
-        <div class="file-meta">
-          <span class="format">XLSX</span>
-          <span class="size">TBD</span>
-          <span class="status-badge request">By request · NDA</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button class="request-btn">Request access</button>
-      </div>
-    </div>
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h6a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H4V4zM20 4h-6a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h7V4z"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">Cap table &amp; ownership summary</div>
-        <div class="file-desc">Fully diluted cap table, current ownership, existing investors, and option pool.</div>
-        <div class="file-meta">
-          <span class="format">PDF</span>
-          <span class="size">TBD</span>
-          <span class="status-badge request">By request · NDA</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button class="request-btn">Request access</button>
-      </div>
-    </div>
-
-    <div class="file-card pending">
-      <div class="file-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h6a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H4V4zM20 4h-6a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h7V4z"/></svg>
-      </div>
-      <div class="file-body">
-        <div class="file-title">Founder deck (2026 raise)</div>
-        <div class="file-desc">Sophi's investor pitch deck. Includes company overview, product, traction, market, team, and ask.</div>
-        <div class="file-meta">
-          <span class="format">PDF</span>
-          <span class="size">TBD</span>
-          <span class="status-badge request">By request</span>
-        </div>
-      </div>
-      <div class="file-action">
-        <button class="request-btn">Request access</button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- =============================================================== -->
-<div class="dr-contact">
-  <div>
-    <div class="dc-label">Contact</div>
-    <h3>Need something not listed here?</h3>
-    <p>All materials in this data room are available on request. Sophi provides bespoke diligence support — custom market cuts, sensitivity analyses, or reference introductions — for actively engaged investors.</p>
-  </div>
-  <a class="contact-cta" href="mailto:jcasey@sophimobility.com?subject=Sophi%20Deal%20Room%20%E2%80%94%20Data%20Room%20Request">
-    Email Joshua Casey
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-  </a>
+  </main>
 </div>
 
-</main>
-</div>
-
-<script src="./assets/shell.js"></script>
 <script>
-  window.SOPHI_SHELL.mount('downloads.html');
+  const DOCS = [
+    // Model exports
+    {cat:'model', fmt:'XLSX', title:'Blend Wealth 5-Year P&L · full workbook', desc:'Full assumptions, monthly build-up, sensitivity tabs, and DCF terminal calc. Source of every organic-case number in this room.', size:'2.4 MB', sens:'NDA required'},
+    {cat:'model', fmt:'XLSX', title:'V3 six-market SOM model · workbook', desc:'Bottom-up build: 203 accounts across 6 markets with TAM/SAM/SOM per market, penetration curves, and yearly revenue ramp Y1–Y5.', size:'3.1 MB', sens:'NDA required'},
+    {cat:'model', fmt:'PDF', title:'Combined valuation deck · organic + v3', desc:'One-file investor summary with both DCF anchors, comps table, cap table, and return scenarios at $35 / $45 / $60 / $90 per share.', size:'1.8 MB', sens:'NDA required'},
 
-  // Request-access buttons prefill an email
-  document.querySelectorAll('.request-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const card = btn.closest('.file-card');
-      const title = card.querySelector('.file-title').textContent.trim();
-      const subject = encodeURIComponent(`Data Room request — ${title}`);
-      const body = encodeURIComponent(`Hi Joshua,\n\nRequesting access to: ${title}\n\nContext:\n\nThanks,`);
-      window.location.href = `mailto:jcasey@sophimobility.com?subject=${subject}&body=${body}`;
+    // Methodology & memos
+    {cat:'method', fmt:'MD', title:'V3 methodology · deltas from V2', desc:'What changed and why. Documents the account-level scoring rubric, ICP screens, and the shift from top-down to bottom-up SOM.', size:'86 KB', sens:'Open on request'},
+    {cat:'method', fmt:'MD', title:'V3 investor memo · long-form thesis', desc:'The narrative version of the model. Reads as an operator letter — what SOPHI is, what the OS is, and why the numbers land where they land.', size:'112 KB', sens:'Open on request'},
+    {cat:'method', fmt:'PDF', title:'SOPHI methodology v2 · export', desc:'The original scoring rubric and SAM/SOM framework, preserved for continuity with earlier diligence materials.', size:'640 KB', sens:'Open on request'},
+
+    // Per-market audits
+    {cat:'market', fmt:'MD', title:'Charlotte 2026 · scored account list &amp; TAM audit', desc:'Named accounts, scoring detail, TAM refinement notes, and the phase-1b audit findings for the home market.', size:'218 KB', sens:'NDA required'},
+    {cat:'market', fmt:'MD', title:'Denver 2026 · scored account list &amp; TAM audit', desc:'Denver phase-1b audit, TAM refinement, and the v2 scored account list including venue, hotel, and hospital targets.', size:'242 KB', sens:'NDA required'},
+    {cat:'market', fmt:'MD', title:'Indianapolis 2026 · scored account list', desc:'Full accounts + scoring for the Indianapolis SOM, one of the six anchor markets in the v3 build.', size:'196 KB', sens:'NDA required'},
+
+    // Financials & corporate
+    {cat:'corp', fmt:'PDF', title:'Cap table · post-money detail', desc:'Fully-diluted 100,000 shares, current ownership, ESOP pool structure, and pro-forma view at $500K raise / $45 per share.', size:'88 KB', sens:'NDA required'},
+    {cat:'corp', fmt:'PDF', title:'SOPHI Mobility LLC · formation &amp; operating agreement', desc:'Delaware LLC formation, operating agreement, and the conversion mechanics from LLC to C-corp at Series A.', size:'420 KB', sens:'NDA required'},
+    {cat:'corp', fmt:'PDF', title:'Founder bio &amp; leadership summary', desc:'Joshua Casey bio, CoStar tenure, and the leadership plan around the triumvirate operating model.', size:'156 KB', sens:'Open on request'},
+    {cat:'corp', fmt:'PDF', title:'Legal &amp; insurance summary', desc:'Current coverage across active sites, incident protocol documentation, and jurisdiction-by-jurisdiction labor compliance status.', size:'190 KB', sens:'NDA required'}
+  ];
+
+  const CAT_LABEL = {
+    'model': 'Model exports',
+    'method': 'Methodology &amp; memos',
+    'market': 'Per-market audits',
+    'corp': 'Financials &amp; corporate'
+  };
+  const CAT_CHIP = {
+    'model': 'chip-mint',
+    'method': 'chip-blue',
+    'market': 'chip-peach',
+    'corp': 'chip-lavender'
+  };
+
+  function renderDocs(filter) {
+    const list = document.getElementById('doc-list');
+    const shown = filter === 'all' ? DOCS : DOCS.filter(d => d.cat === filter);
+    list.innerHTML = shown.map(d => `
+      <article class="doc-row">
+        <div class="doc-fmt">${d.fmt}</div>
+        <div class="doc-body">
+          <h3 class="doc-title">${d.title}</h3>
+          <p class="doc-desc">${d.desc}</p>
+          <div class="doc-meta">
+            <span class="chip ${CAT_CHIP[d.cat]}" style="padding:2px 8px; font-size:10.5px;">${CAT_LABEL[d.cat]}</span>
+            <span class="doc-size">${d.size}</span>
+            <span class="doc-size">·</span>
+            <span class="doc-size">${d.sens}</span>
+          </div>
+        </div>
+        <button class="doc-request" data-doc="${d.title.replace(/&amp;/g,'&')}">Request</button>
+      </article>
+    `).join('');
+    list.querySelectorAll('.doc-request').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const title = btn.getAttribute('data-doc');
+        const original = btn.textContent;
+        btn.textContent = 'Requested ✓';
+        btn.style.background = 'var(--accent-soft)';
+        btn.style.color = 'var(--blue-ink)';
+        btn.style.borderColor = 'var(--accent)';
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.style.background = '';
+          btn.style.color = '';
+          btn.style.borderColor = '';
+        }, 2400);
+      });
+    });
+  }
+
+  document.getElementById('doc-filters').querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.getElementById('doc-filters').querySelectorAll('.chip').forEach(c => {
+        c.classList.remove('active');
+        c.classList.remove('chip-blue');
+        c.classList.add('chip-neutral');
+      });
+      chip.classList.add('active');
+      chip.classList.remove('chip-neutral');
+      chip.classList.add('chip-blue');
+      renderDocs(chip.getAttribute('data-filter'));
     });
   });
+  renderDocs('all');
 </script>
-
+<script src="./assets/shell.js"></script>
+<script>window.SOPHI_SHELL.mount('downloads.html');</script>
 </body>
 </html>
