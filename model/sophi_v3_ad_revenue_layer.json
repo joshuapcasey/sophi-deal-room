@@ -1,0 +1,1150 @@
+{
+  "meta": {
+    "version": "v3+ad",
+    "activation_monthly_sms": 15000,
+    "activation_annual_sms": 180000,
+    "activation_year": 2,
+    "diligence_case": "moderate",
+    "case_definitions": {
+      "low": "low-end conv \u00d7 low-end offer \u00d7 1.0 multi-touch (previous conservative base)",
+      "moderate": "midpoint conv \u00d7 midpoint offer \u00d7 1.0 multi-touch \u2014 DILIGENCE CASE, matches live deal-room pages",
+      "high": "high-end conv \u00d7 high-end offer \u00d7 hotel 3.5\u00d7 multi-touch fully exercised"
+    },
+    "referrals": "excluded \u2014 held as valuation optionality",
+    "sms_model": {
+      "Hotel": {
+        "capture": 0.55,
+        "conv_low": 0.18,
+        "conv_mid": 0.265,
+        "conv_high": 0.35,
+        "offer_low": 15.0,
+        "offer_mid": 30.0,
+        "offer_high": 45.0,
+        "multi_touch": 3.5
+      },
+      "Restaurant": {
+        "capture": 0.45,
+        "conv_low": 0.15,
+        "conv_mid": 0.225,
+        "conv_high": 0.3,
+        "offer_low": 12.0,
+        "offer_mid": 23.5,
+        "offer_high": 35.0,
+        "multi_touch": 1.0
+      },
+      "Venue": {
+        "capture": 0.35,
+        "conv_low": 0.2,
+        "conv_mid": 0.29,
+        "conv_high": 0.38,
+        "offer_low": 15.0,
+        "offer_mid": 32.5,
+        "offer_high": 50.0,
+        "multi_touch": 1.0
+      },
+      "Corporate": {
+        "capture": 0.4,
+        "conv_low": 0.14,
+        "conv_mid": 0.21,
+        "conv_high": 0.28,
+        "offer_low": 10.0,
+        "offer_mid": 20.0,
+        "offer_high": 30.0,
+        "multi_touch": 1.5
+      },
+      "Hospital": {
+        "capture": 0.15,
+        "conv_low": 0.0,
+        "conv_mid": 0.0,
+        "conv_high": 0.0,
+        "offer_low": 0.0,
+        "offer_mid": 0.0,
+        "offer_high": 0.0,
+        "multi_touch": 1.0
+      },
+      "Medical": {
+        "capture": 0.15,
+        "conv_low": 0.0,
+        "conv_mid": 0.0,
+        "conv_high": 0.0,
+        "offer_low": 0.0,
+        "offer_mid": 0.0,
+        "offer_high": 0.0,
+        "multi_touch": 1.0
+      }
+    },
+    "parking_dcf_anchor": 36300000.0
+  },
+  "portfolio_by_year": {
+    "Y1": {
+      "parking_som": 4016995.875,
+      "annual_sms": 138685.63125000003,
+      "monthly_sms": 11557.135937500003,
+      "ad_revenue": {
+        "low": 0.0,
+        "moderate": 0.0,
+        "high": 0.0
+      },
+      "total_revenue": {
+        "low": 4016995.875,
+        "moderate": 4016995.875,
+        "high": 4016995.875
+      }
+    },
+    "Y2": {
+      "parking_som": 8996664.6,
+      "annual_sms": 305002.4100000001,
+      "monthly_sms": 25416.867500000008,
+      "ad_revenue": {
+        "low": 757797.7882500001,
+        "moderate": 2230380.86653125,
+        "high": 4420487.0981250005
+      },
+      "total_revenue": {
+        "low": 9754462.388249999,
+        "moderate": 11227045.46653125,
+        "high": 13417151.698125001
+      }
+    },
+    "Y3": {
+      "parking_som": 14736772.8,
+      "annual_sms": 558321.5587500001,
+      "monthly_sms": 46526.79656250001,
+      "ad_revenue": {
+        "low": 1421749.9586250002,
+        "moderate": 4185073.2358125006,
+        "high": 8293541.425312501
+      },
+      "total_revenue": {
+        "low": 16158522.758625,
+        "moderate": 18921846.0358125,
+        "high": 23030314.2253125
+      }
+    },
+    "Y4": {
+      "parking_som": 19476676.8,
+      "annual_sms": 807177.2812500001,
+      "monthly_sms": 67264.77343750001,
+      "ad_revenue": {
+        "low": 2093660.4093750003,
+        "moderate": 6163476.229687501,
+        "high": 12213019.054687502
+      },
+      "total_revenue": {
+        "low": 21570337.209375,
+        "moderate": 25640153.0296875,
+        "high": 31689695.854687504
+      }
+    },
+    "Y5": {
+      "parking_som": 28292743.8,
+      "annual_sms": 1111811.45625,
+      "monthly_sms": 92650.95468750001,
+      "ad_revenue": {
+        "low": 2911008.9318750002,
+        "moderate": 8570041.8271875,
+        "high": 16980885.4359375
+      },
+      "total_revenue": {
+        "low": 31203752.731875002,
+        "moderate": 36862785.627187505,
+        "high": 45273629.235937506
+      }
+    }
+  },
+  "portfolio_sms_by_year": {
+    "Y1": 138685.63125000003,
+    "Y2": 305002.4100000001,
+    "Y3": 558321.5587500001,
+    "Y4": 807177.2812500001,
+    "Y5": 1111811.45625
+  },
+  "portfolio_cumulative": {
+    "parking_som_5yr": 75519853.875,
+    "ad_revenue_5yr": {
+      "low": 7184217.088125001,
+      "moderate": 21148972.15921875,
+      "high": 41907933.01406251
+    },
+    "total_5yr": {
+      "low": 82704070.963125,
+      "moderate": 96668826.03421876,
+      "high": 117427786.88906251
+    },
+    "y5_parking_only": 28292743.8,
+    "y5_ad": {
+      "low": 2911008.9318750002,
+      "moderate": 8570041.8271875,
+      "high": 16980885.4359375
+    },
+    "y5_total": {
+      "low": 31203752.731875002,
+      "moderate": 36862785.627187505,
+      "high": 45273629.235937506
+    },
+    "valuation_7x_parking_only": 198049206.6,
+    "valuation_7x_total": {
+      "low": 218426269.12312502,
+      "moderate": 258039499.39031255,
+      "high": 316915404.6515626
+    },
+    "valuation_uplift": {
+      "low": 20377062.523125023,
+      "moderate": 59990292.79031256,
+      "high": 118866198.05156258
+    },
+    "dcf_parking_anchor": 36300000.0,
+    "dcf_uplift": {
+      "low": 3734866.6136460933,
+      "moderate": 10995487.76626275,
+      "high": 21786721.912935544
+    },
+    "dcf_total": {
+      "low": 40034866.61364609,
+      "moderate": 47295487.76626275,
+      "high": 58086721.91293554
+    }
+  },
+  "by_market": {
+    "denver": {
+      "Y1": {
+        "parking_som": 0.0,
+        "annual_sms": 0.0,
+        "ad_rev_full": {
+          "low": 0.0,
+          "moderate": 0.0,
+          "high": 0.0
+        },
+        "ad_revenue": {
+          "low": 0.0,
+          "moderate": 0.0,
+          "high": 0.0
+        },
+        "ad_gate_status": "pre-activation"
+      },
+      "Y2": {
+        "parking_som": 3692163.6,
+        "annual_sms": 112202.18625000003,
+        "ad_rev_full": {
+          "low": 302945.902875,
+          "moderate": 892007.3806875001,
+          "high": 1767184.4334375004
+        },
+        "ad_revenue": {
+          "low": 302945.902875,
+          "moderate": 892007.3806875001,
+          "high": 1767184.4334375004
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y3": {
+        "parking_som": 3970601.1,
+        "annual_sms": 120091.24875000003,
+        "ad_rev_full": {
+          "low": 317146.215375,
+          "moderate": 933720.7986562501,
+          "high": 1850019.5896875004
+        },
+        "ad_revenue": {
+          "low": 317146.215375,
+          "moderate": 933720.7986562501,
+          "high": 1850019.5896875004
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y4": {
+        "parking_som": 4892057.1,
+        "annual_sms": 150065.23125000004,
+        "ad_rev_full": {
+          "low": 398075.968125,
+          "moderate": 1172013.9595312502,
+          "high": 2322109.8140625004
+        },
+        "ad_revenue": {
+          "low": 398075.968125,
+          "moderate": 1172013.9595312502,
+          "high": 2322109.8140625004
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y5": {
+        "parking_som": 11259737.1,
+        "annual_sms": 335558.23125000007,
+        "ad_rev_full": {
+          "low": 898907.0681250001,
+          "moderate": 2646683.3095312505,
+          "high": 5243624.5640625
+        },
+        "ad_revenue": {
+          "low": 898907.0681250001,
+          "moderate": 2646683.3095312505,
+          "high": 5243624.5640625
+        },
+        "ad_gate_status": "activated"
+      }
+    },
+    "charlotte": {
+      "Y1": {
+        "parking_som": 755578.125,
+        "annual_sms": 28544.0625,
+        "ad_rev_full": {
+          "low": 51379.3125,
+          "moderate": 150926.73046875,
+          "high": 299712.65625
+        },
+        "ad_revenue": {
+          "low": 0.0,
+          "moderate": 0.0,
+          "high": 0.0
+        },
+        "ad_gate_status": "pre-activation"
+      },
+      "Y2": {
+        "parking_som": 755578.125,
+        "annual_sms": 28544.0625,
+        "ad_rev_full": {
+          "low": 51379.3125,
+          "moderate": 150926.73046875,
+          "high": 299712.65625
+        },
+        "ad_revenue": {
+          "low": 51379.3125,
+          "moderate": 150926.73046875,
+          "high": 299712.65625
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y3": {
+        "parking_som": 4350273.075,
+        "annual_sms": 174161.16749999998,
+        "ad_rev_full": {
+          "low": 438090.80850000004,
+          "moderate": 1289487.59803125,
+          "high": 2555529.71625
+        },
+        "ad_revenue": {
+          "low": 438090.80850000004,
+          "moderate": 1289487.59803125,
+          "high": 2555529.71625
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y4": {
+        "parking_som": 6561681.075,
+        "annual_sms": 288492.3075,
+        "ad_rev_full": {
+          "low": 746784.8865000001,
+          "moderate": 2198420.1610312504,
+          "high": 4356245.171250001
+        },
+        "ad_revenue": {
+          "low": 746784.8865000001,
+          "moderate": 2198420.1610312504,
+          "high": 4356245.171250001
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y5": {
+        "parking_som": 7750653.075,
+        "annual_sms": 345194.14499999996,
+        "ad_rev_full": {
+          "low": 899879.8477500002,
+          "moderate": 2649199.76915625,
+          "high": 5249299.111875001
+        },
+        "ad_revenue": {
+          "low": 899879.8477500002,
+          "moderate": 2649199.76915625,
+          "high": 5249299.111875001
+        },
+        "ad_gate_status": "activated"
+      }
+    },
+    "indianapolis": {
+      "Y1": {
+        "parking_som": 3261417.75,
+        "annual_sms": 110141.56875000002,
+        "ad_rev_full": {
+          "low": 290927.54812500003,
+          "moderate": 856530.3543750001,
+          "high": 1697077.3640625002
+        },
+        "ad_revenue": {
+          "low": 0.0,
+          "moderate": 0.0,
+          "high": 0.0
+        },
+        "ad_gate_status": "pre-activation"
+      },
+      "Y2": {
+        "parking_som": 4039777.125,
+        "annual_sms": 139546.25625000003,
+        "ad_rev_full": {
+          "low": 343855.98562500003,
+          "moderate": 1012007.6395312501,
+          "high": 2005826.5828125002
+        },
+        "ad_revenue": {
+          "low": 343855.98562500003,
+          "moderate": 1012007.6395312501,
+          "high": 2005826.5828125002
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y3": {
+        "parking_som": 4039777.125,
+        "annual_sms": 139546.25625000003,
+        "ad_rev_full": {
+          "low": 343855.98562500003,
+          "moderate": 1012007.6395312501,
+          "high": 2005826.5828125002
+        },
+        "ad_revenue": {
+          "low": 343855.98562500003,
+          "moderate": 1012007.6395312501,
+          "high": 2005826.5828125002
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y4": {
+        "parking_som": 4039777.125,
+        "annual_sms": 139546.25625000003,
+        "ad_rev_full": {
+          "low": 343855.98562500003,
+          "moderate": 1012007.6395312501,
+          "high": 2005826.5828125002
+        },
+        "ad_revenue": {
+          "low": 343855.98562500003,
+          "moderate": 1012007.6395312501,
+          "high": 2005826.5828125002
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y5": {
+        "parking_som": 4039777.125,
+        "annual_sms": 139546.25625000003,
+        "ad_rev_full": {
+          "low": 343855.98562500003,
+          "moderate": 1012007.6395312501,
+          "high": 2005826.5828125002
+        },
+        "ad_revenue": {
+          "low": 343855.98562500003,
+          "moderate": 1012007.6395312501,
+          "high": 2005826.5828125002
+        },
+        "ad_gate_status": "activated"
+      }
+    },
+    "phoenix": {
+      "Y1": {
+        "parking_som": 0.0,
+        "annual_sms": 0.0,
+        "ad_rev_full": {
+          "low": 0.0,
+          "moderate": 0.0,
+          "high": 0.0
+        },
+        "ad_revenue": {
+          "low": 0.0,
+          "moderate": 0.0,
+          "high": 0.0
+        },
+        "ad_gate_status": "pre-activation"
+      },
+      "Y2": {
+        "parking_som": 509145.75,
+        "annual_sms": 24709.905000000002,
+        "ad_rev_full": {
+          "low": 59616.587250000004,
+          "moderate": 175439.11584375,
+          "high": 347763.42562500003
+        },
+        "ad_revenue": {
+          "low": 59616.587250000004,
+          "moderate": 175439.11584375,
+          "high": 347763.42562500003
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y3": {
+        "parking_som": 1616685.75,
+        "annual_sms": 86470.64250000002,
+        "ad_rev_full": {
+          "low": 226370.57850000003,
+          "moderate": 666436.9789687501,
+          "high": 1320495.0412500002
+        },
+        "ad_revenue": {
+          "low": 226370.57850000003,
+          "moderate": 666436.9789687501,
+          "high": 1320495.0412500002
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y4": {
+        "parking_som": 3223725.75,
+        "annual_sms": 191021.24250000002,
+        "ad_rev_full": {
+          "low": 508657.1985,
+          "moderate": 1497614.2489687502,
+          "high": 2967166.99125
+        },
+        "ad_revenue": {
+          "low": 508657.1985,
+          "moderate": 1497614.2489687502,
+          "high": 2967166.99125
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y5": {
+        "parking_som": 3923025.75,
+        "annual_sms": 230016.93000000002,
+        "ad_rev_full": {
+          "low": 613945.55475,
+          "moderate": 1807629.9645937502,
+          "high": 3581349.069375
+        },
+        "ad_revenue": {
+          "low": 613945.55475,
+          "moderate": 1807629.9645937502,
+          "high": 3581349.069375
+        },
+        "ad_gate_status": "activated"
+      }
+    },
+    "louisville": {
+      "Y1": {
+        "parking_som": 0.0,
+        "annual_sms": 0.0,
+        "ad_rev_full": {
+          "low": 0.0,
+          "moderate": 0.0,
+          "high": 0.0
+        },
+        "ad_revenue": {
+          "low": 0.0,
+          "moderate": 0.0,
+          "high": 0.0
+        },
+        "ad_gate_status": "pre-activation"
+      },
+      "Y2": {
+        "parking_som": 0.0,
+        "annual_sms": 0.0,
+        "ad_rev_full": {
+          "low": 0.0,
+          "moderate": 0.0,
+          "high": 0.0
+        },
+        "ad_revenue": {
+          "low": 0.0,
+          "moderate": 0.0,
+          "high": 0.0
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y3": {
+        "parking_som": 569591.9999999999,
+        "annual_sms": 30880.368750000005,
+        "ad_rev_full": {
+          "low": 83376.99562500001,
+          "moderate": 245498.93156250005,
+          "high": 486365.8078125001
+        },
+        "ad_revenue": {
+          "low": 83376.99562500001,
+          "moderate": 245498.93156250005,
+          "high": 486365.8078125001
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y4": {
+        "parking_som": 569591.9999999999,
+        "annual_sms": 30880.368750000005,
+        "ad_rev_full": {
+          "low": 83376.99562500001,
+          "moderate": 245498.93156250005,
+          "high": 486365.8078125001
+        },
+        "ad_revenue": {
+          "low": 83376.99562500001,
+          "moderate": 245498.93156250005,
+          "high": 486365.8078125001
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y5": {
+        "parking_som": 977831.9999999999,
+        "annual_sms": 48586.51875,
+        "ad_rev_full": {
+          "low": 131183.60062500002,
+          "moderate": 386262.82406250003,
+          "high": 765237.6703125001
+        },
+        "ad_revenue": {
+          "low": 131183.60062500002,
+          "moderate": 386262.82406250003,
+          "high": 765237.6703125001
+        },
+        "ad_gate_status": "activated"
+      }
+    },
+    "cleveland": {
+      "Y1": {
+        "parking_som": 0.0,
+        "annual_sms": 0.0,
+        "ad_rev_full": {
+          "low": 0.0,
+          "moderate": 0.0,
+          "high": 0.0
+        },
+        "ad_revenue": {
+          "low": 0.0,
+          "moderate": 0.0,
+          "high": 0.0
+        },
+        "ad_gate_status": "pre-activation"
+      },
+      "Y2": {
+        "parking_som": 0.0,
+        "annual_sms": 0.0,
+        "ad_rev_full": {
+          "low": 0.0,
+          "moderate": 0.0,
+          "high": 0.0
+        },
+        "ad_revenue": {
+          "low": 0.0,
+          "moderate": 0.0,
+          "high": 0.0
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y3": {
+        "parking_som": 189843.75,
+        "annual_sms": 7171.875,
+        "ad_rev_full": {
+          "low": 12909.375,
+          "moderate": 37921.2890625,
+          "high": 75304.6875
+        },
+        "ad_revenue": {
+          "low": 12909.375,
+          "moderate": 37921.2890625,
+          "high": 75304.6875
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y4": {
+        "parking_som": 189843.75,
+        "annual_sms": 7171.875,
+        "ad_rev_full": {
+          "low": 12909.375,
+          "moderate": 37921.2890625,
+          "high": 75304.6875
+        },
+        "ad_revenue": {
+          "low": 12909.375,
+          "moderate": 37921.2890625,
+          "high": 75304.6875
+        },
+        "ad_gate_status": "activated"
+      },
+      "Y5": {
+        "parking_som": 341718.75,
+        "annual_sms": 12909.375,
+        "ad_rev_full": {
+          "low": 23236.875,
+          "moderate": 68258.3203125,
+          "high": 135548.4375
+        },
+        "ad_revenue": {
+          "low": 23236.875,
+          "moderate": 68258.3203125,
+          "high": 135548.4375
+        },
+        "ad_gate_status": "activated"
+      }
+    }
+  },
+  "won_accounts_detail": [
+    {
+      "name": "The Capital Grille",
+      "market": "charlotte",
+      "type": "Restaurant",
+      "acquisition_year": 1,
+      "tam": 189843.75,
+      "annual_vehicles": 15938.0,
+      "annual_sms": 7172.0,
+      "annual_ad_rev_at_activation": {
+        "low": 12909.0,
+        "moderate": 37921.0,
+        "high": 75305.0
+      }
+    },
+    {
+      "name": "STK Steakhouse",
+      "market": "charlotte",
+      "type": "Restaurant",
+      "acquisition_year": 1,
+      "tam": 208828.125,
+      "annual_vehicles": 17531.0,
+      "annual_sms": 7889.0,
+      "annual_ad_rev_at_activation": {
+        "low": 14200.0,
+        "moderate": 41713.0,
+        "high": 82835.0
+      }
+    },
+    {
+      "name": "Chima Steakhouse",
+      "market": "charlotte",
+      "type": "Restaurant",
+      "acquisition_year": 1,
+      "tam": 167062.5,
+      "annual_vehicles": 14025.0,
+      "annual_sms": 6311.0,
+      "annual_ad_rev_at_activation": {
+        "low": 11360.0,
+        "moderate": 33371.0,
+        "high": 66268.0
+      }
+    },
+    {
+      "name": "Ruth's Chris",
+      "market": "charlotte",
+      "type": "Restaurant",
+      "acquisition_year": 1,
+      "tam": 189843.75,
+      "annual_vehicles": 15938.0,
+      "annual_sms": 7172.0,
+      "annual_ad_rev_at_activation": {
+        "low": 12909.0,
+        "moderate": 37921.0,
+        "high": 75305.0
+      }
+    },
+    {
+      "name": "JW Marriott Charlotte",
+      "market": "charlotte",
+      "type": "Hotel",
+      "acquisition_year": 3,
+      "tam": 1580083.2,
+      "annual_vehicles": 33376.0,
+      "annual_sms": 64248.0,
+      "annual_ad_rev_at_activation": {
+        "low": 173470.0,
+        "moderate": 510772.0,
+        "high": 1011906.0
+      }
+    },
+    {
+      "name": "Charlotte Marriott City Center",
+      "market": "charlotte",
+      "type": "Hotel",
+      "acquisition_year": 3,
+      "tam": 1824768.0,
+      "annual_vehicles": 38544.0,
+      "annual_sms": 74197.0,
+      "annual_ad_rev_at_activation": {
+        "low": 200332.0,
+        "moderate": 589868.0,
+        "high": 1168606.0
+      }
+    },
+    {
+      "name": "Sheraton Hotel",
+      "market": "charlotte",
+      "type": "Hotel",
+      "acquisition_year": 4,
+      "tam": 922320.0,
+      "annual_vehicles": 26718.0,
+      "annual_sms": 51432.0,
+      "annual_ad_rev_at_activation": {
+        "low": 138867.0,
+        "moderate": 408886.0,
+        "high": 810056.0
+      }
+    },
+    {
+      "name": "Omni Hotel",
+      "market": "charlotte",
+      "type": "Hotel",
+      "acquisition_year": 4,
+      "tam": 1289088.0,
+      "annual_vehicles": 32675.0,
+      "annual_sms": 62899.0,
+      "annual_ad_rev_at_activation": {
+        "low": 169827.0,
+        "moderate": 500047.0,
+        "high": 990659.0
+      }
+    },
+    {
+      "name": "Hyatt Place",
+      "market": "charlotte",
+      "type": "Hotel",
+      "acquisition_year": 5,
+      "tam": 352944.0,
+      "annual_vehicles": 9417.0,
+      "annual_sms": 18128.0,
+      "annual_ad_rev_at_activation": {
+        "low": 48945.0,
+        "moderate": 144115.0,
+        "high": 285512.0
+      }
+    },
+    {
+      "name": "Kimpton Tryon Park Hotel",
+      "market": "charlotte",
+      "type": "Hotel",
+      "acquisition_year": 5,
+      "tam": 562464.0,
+      "annual_vehicles": 11881.0,
+      "annual_sms": 22870.0,
+      "annual_ad_rev_at_activation": {
+        "low": 61750.0,
+        "moderate": 181820.0,
+        "high": 360209.0
+      }
+    },
+    {
+      "name": "Ruth's Chris #2",
+      "market": "charlotte",
+      "type": "Restaurant",
+      "acquisition_year": 3,
+      "tam": 189843.75,
+      "annual_vehicles": 15938.0,
+      "annual_sms": 7172.0,
+      "annual_ad_rev_at_activation": {
+        "low": 12909.0,
+        "moderate": 37921.0,
+        "high": 75305.0
+      }
+    },
+    {
+      "name": "Hilton Charlotte Uptown",
+      "market": "charlotte",
+      "type": "Hotel",
+      "acquisition_year": 5,
+      "tam": 273564.0,
+      "annual_vehicles": 8158.0,
+      "annual_sms": 15704.0,
+      "annual_ad_rev_at_activation": {
+        "low": 42400.0,
+        "moderate": 124844.0,
+        "high": 247333.0
+      }
+    },
+    {
+      "name": "STK Steakhouse - Scottsdale",
+      "market": "phoenix",
+      "type": "Restaurant",
+      "acquisition_year": 2,
+      "tam": 250593.75,
+      "annual_vehicles": 17531.0,
+      "annual_sms": 7889.0,
+      "annual_ad_rev_at_activation": {
+        "low": 14200.0,
+        "moderate": 41713.0,
+        "high": 82835.0
+      }
+    },
+    {
+      "name": "Grand Hyatt Scottsdale Resort",
+      "market": "phoenix",
+      "type": "Hotel",
+      "acquisition_year": 4,
+      "tam": 1607040.0,
+      "annual_vehicles": 54312.0,
+      "annual_sms": 104551.0,
+      "annual_ad_rev_at_activation": {
+        "low": 282287.0,
+        "moderate": 831177.0,
+        "high": 1646672.0
+      }
+    },
+    {
+      "name": "Scottsdale Marriott at McDowell Mountains",
+      "market": "phoenix",
+      "type": "Hotel",
+      "acquisition_year": 2,
+      "tam": 258552.0,
+      "annual_vehicles": 8738.0,
+      "annual_sms": 16821.0,
+      "annual_ad_rev_at_activation": {
+        "low": 45416.0,
+        "moderate": 133726.0,
+        "high": 264928.0
+      }
+    },
+    {
+      "name": "Omni Scottsdale Resort & Spa at Montelucia",
+      "market": "phoenix",
+      "type": "Hotel",
+      "acquisition_year": 3,
+      "tam": 1107540.0,
+      "annual_vehicles": 32084.0,
+      "annual_sms": 61761.0,
+      "annual_ad_rev_at_activation": {
+        "low": 166754.0,
+        "moderate": 490998.0,
+        "high": 972732.0
+      }
+    },
+    {
+      "name": "Andaz Scottsdale Resort & Bungalows",
+      "market": "phoenix",
+      "type": "Hotel",
+      "acquisition_year": 5,
+      "tam": 699300.0,
+      "annual_vehicles": 20258.0,
+      "annual_sms": 38996.0,
+      "annual_ad_rev_at_activation": {
+        "low": 105288.0,
+        "moderate": 310016.0,
+        "high": 614182.0
+      }
+    },
+    {
+      "name": "The Capital Grille",
+      "market": "cleveland",
+      "type": "Restaurant",
+      "acquisition_year": 3,
+      "tam": 189843.75,
+      "annual_vehicles": 15938.0,
+      "annual_sms": 7172.0,
+      "annual_ad_rev_at_activation": {
+        "low": 12909.0,
+        "moderate": 37921.0,
+        "high": 75305.0
+      }
+    },
+    {
+      "name": "Morton's The Steakhouse",
+      "market": "cleveland",
+      "type": "Restaurant",
+      "acquisition_year": 5,
+      "tam": 151875.0,
+      "annual_vehicles": 12750.0,
+      "annual_sms": 5738.0,
+      "annual_ad_rev_at_activation": {
+        "low": 10328.0,
+        "moderate": 30337.0,
+        "high": 60244.0
+      }
+    },
+    {
+      "name": "The Brown Hotel",
+      "market": "louisville",
+      "type": "Hotel",
+      "acquisition_year": 3,
+      "tam": 569591.9999999999,
+      "annual_vehicles": 16042.0,
+      "annual_sms": 30880.0,
+      "annual_ad_rev_at_activation": {
+        "low": 83377.0,
+        "moderate": 245499.0,
+        "high": 486366.0
+      }
+    },
+    {
+      "name": "Hotel Bourr\u00e9 Bonne (NEW \u2014 opened Apr 2025)",
+      "market": "louisville",
+      "type": "Hotel",
+      "acquisition_year": 5,
+      "tam": 408240.0,
+      "annual_vehicles": 9198.0,
+      "annual_sms": 17706.0,
+      "annual_ad_rev_at_activation": {
+        "low": 47807.0,
+        "moderate": 140764.0,
+        "high": 278872.0
+      }
+    },
+    {
+      "name": "Grand Hyatt Denver",
+      "market": "denver",
+      "type": "Hotel",
+      "acquisition_year": 2,
+      "tam": 2853273.6,
+      "annual_vehicles": 45202.0,
+      "annual_sms": 87013.0,
+      "annual_ad_rev_at_activation": {
+        "low": 234935.0,
+        "moderate": 691754.0,
+        "high": 1370456.0
+      }
+    },
+    {
+      "name": "Hyatt Regency Denver at Colorado Convention Center",
+      "market": "denver",
+      "type": "Hotel",
+      "acquisition_year": 5,
+      "tam": 6367680.0,
+      "annual_vehicles": 96360.0,
+      "annual_sms": 185493.0,
+      "annual_ad_rev_at_activation": {
+        "low": 500831.0,
+        "moderate": 1474669.0,
+        "high": 2921515.0
+      }
+    },
+    {
+      "name": "Four Seasons Hotel Denver",
+      "market": "denver",
+      "type": "Hotel",
+      "acquisition_year": 2,
+      "tam": 838890.0,
+      "annual_vehicles": 13085.0,
+      "annual_sms": 25189.0,
+      "annual_ad_rev_at_activation": {
+        "low": 68011.0,
+        "moderate": 200253.0,
+        "high": 396728.0
+      }
+    },
+    {
+      "name": "Ruth's Chris Steak House - Denver",
+      "market": "denver",
+      "type": "Restaurant",
+      "acquisition_year": 3,
+      "tam": 278437.5,
+      "annual_vehicles": 17531.0,
+      "annual_sms": 7889.0,
+      "annual_ad_rev_at_activation": {
+        "low": 14200.0,
+        "moderate": 41713.0,
+        "high": 82835.0
+      }
+    },
+    {
+      "name": "Hampton Inn & Suites Denver Downtown-Convention Center",
+      "market": "denver",
+      "type": "Hotel",
+      "acquisition_year": 4,
+      "tam": 622080.0,
+      "annual_vehicles": 10512.0,
+      "annual_sms": 20236.0,
+      "annual_ad_rev_at_activation": {
+        "low": 54636.0,
+        "moderate": 160873.0,
+        "high": 318711.0
+      }
+    },
+    {
+      "name": "Halcyon, a hotel in Cherry Creek",
+      "market": "denver",
+      "type": "Hotel",
+      "acquisition_year": 4,
+      "tam": 299375.9999999999,
+      "annual_vehicles": 5059.0,
+      "annual_sms": 9738.0,
+      "annual_ad_rev_at_activation": {
+        "low": 26294.0,
+        "moderate": 77420.0,
+        "high": 153380.0
+      }
+    },
+    {
+      "name": "Omni Severin Hotel",
+      "market": "indianapolis",
+      "type": "Hotel",
+      "acquisition_year": 1,
+      "tam": 2225664.0,
+      "annual_vehicles": 40296.0,
+      "annual_sms": 77570.0,
+      "annual_ad_rev_at_activation": {
+        "low": 209438.0,
+        "moderate": 616680.0,
+        "high": 1221724.0
+      }
+    },
+    {
+      "name": "Conrad Indianapolis",
+      "market": "indianapolis",
+      "type": "Hotel",
+      "acquisition_year": 1,
+      "tam": 845910.0,
+      "annual_vehicles": 13195.0,
+      "annual_sms": 25400.0,
+      "annual_ad_rev_at_activation": {
+        "low": 68580.0,
+        "moderate": 201929.0,
+        "high": 400048.0
+      }
+    },
+    {
+      "name": "The Capital Grille",
+      "market": "indianapolis",
+      "type": "Restaurant",
+      "acquisition_year": 1,
+      "tam": 189843.75,
+      "annual_vehicles": 15938.0,
+      "annual_sms": 7172.0,
+      "annual_ad_rev_at_activation": {
+        "low": 12909.0,
+        "moderate": 37921.0,
+        "high": 75305.0
+      }
+    },
+    {
+      "name": "St. Elmo Steak House",
+      "market": "indianapolis",
+      "type": "Restaurant",
+      "acquisition_year": 2,
+      "tam": 265781.25,
+      "annual_vehicles": 22312.0,
+      "annual_sms": 10041.0,
+      "annual_ad_rev_at_activation": {
+        "low": 18073.0,
+        "moderate": 53090.0,
+        "high": 105427.0
+      }
+    },
+    {
+      "name": "Harry & Izzy's (Downtown)",
+      "market": "indianapolis",
+      "type": "Restaurant",
+      "acquisition_year": 2,
+      "tam": 170859.375,
+      "annual_vehicles": 14344.0,
+      "annual_sms": 6455.0,
+      "annual_ad_rev_at_activation": {
+        "low": 11618.0,
+        "moderate": 34129.0,
+        "high": 67774.0
+      }
+    },
+    {
+      "name": "Ruth's Chris Steak House",
+      "market": "indianapolis",
+      "type": "Restaurant",
+      "acquisition_year": 2,
+      "tam": 189843.75,
+      "annual_vehicles": 15938.0,
+      "annual_sms": 7172.0,
+      "annual_ad_rev_at_activation": {
+        "low": 12909.0,
+        "moderate": 37921.0,
+        "high": 75305.0
+      }
+    },
+    {
+      "name": "Prime 47",
+      "market": "indianapolis",
+      "type": "Restaurant",
+      "acquisition_year": 2,
+      "tam": 151875.0,
+      "annual_vehicles": 12750.0,
+      "annual_sms": 5738.0,
+      "annual_ad_rev_at_activation": {
+        "low": 10328.0,
+        "moderate": 30337.0,
+        "high": 60244.0
+      }
+    }
+  ]
+}
