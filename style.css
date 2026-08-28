@@ -736,6 +736,10 @@ body.market-view {
   right: 0;
   bottom: 0;
 }
+/* Desaturate OSM basemap to muted grey to match deal-room aesthetic */
+#map .maplibregl-canvas {
+  filter: grayscale(0.85) brightness(1.08) contrast(0.92);
+}
 
 /* MapLibre marker styles */
 .map-marker {

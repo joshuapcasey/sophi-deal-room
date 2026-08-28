@@ -232,11 +232,11 @@
         'osm-raster': {
           type: 'raster',
           tiles: [
-            'https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}.png',
-            'https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png'
+            'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
           ],
           tileSize: 256,
-          attribution: '&copy; OpenStreetMap contributors &copy; CartoDB'
+          maxzoom: 19,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }
       },
       layers: [{ id: 'osm', type: 'raster', source: 'osm-raster' }]
