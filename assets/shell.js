@@ -1,29 +1,43 @@
 /* Shared shell: sidebar nav injection + active-page highlight */
 (function () {
   const NAV = [
-    { group: 'DEAL ROOM', items: [
-      { href: 'rollup.html', label: '6-Market Rollup', icon: 'grid' },
-      { href: 'growth-engine.html', label: 'Growth Engine', icon: 'trending' },
-      { href: 'market.html', label: 'Markets Map', icon: 'map' },
-      { href: 'portfolio.html', label: 'Portfolio Detail', icon: 'grid' },
+    { group: 'OVERVIEW', items: [
+      { href: 'summary.html', label: 'Summary', icon: 'sparkle' },
+      { href: 'company-history.html', label: 'Company History', icon: 'clock' },
+    ]},
+    { group: 'THE OPPORTUNITY', items: [
+      { href: 'sophi-hub.html', label: 'SOPHI Hub', icon: 'layers' },
+      { href: 'growth-model.html', label: 'Growth Model', icon: 'trending' },
+    ]},
+    { group: 'NUMBERS', items: [
+      { href: 'financial-performance.html', label: 'Financial Performance', icon: 'chart' },
+      { href: 'risk-milestones.html', label: 'Risk Mitigating Milestones', icon: 'shield' },
+    ]},
+    { group: 'THE DEAL', items: [
+      { href: 'organic-valuation.html', label: 'Organic Valuation', icon: 'file' },
+      { href: 'v3-valuation.html', label: 'V3 Acquisition Valuation', icon: 'file' },
     ]},
     { group: 'DILIGENCE', items: [
+      { href: 'downloads.html', label: 'Documents', icon: 'folder', badge: 13 },
+      { href: 'questions.html', label: 'Questions', icon: 'chat', badge: 3 },
+      { href: 'your-access.html', label: 'Your Access', icon: 'key' },
       { href: 'methodology.html', label: 'Methodology', icon: 'book' },
-    ]},
-    { group: 'DOWNLOADS', items: [
-      { href: 'downloads.html', label: 'Data Room', icon: 'download' },
     ]},
   ];
 
   const ICONS = {
-    grid: '<path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z" fill="none" stroke="currentColor" stroke-width="1.6"/>',
+    sparkle: '<path d="M12 3l1.6 4.6L18 9l-4.4 1.4L12 15l-1.6-4.6L6 9l4.4-1.4L12 3zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>',
+    clock: '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+    layers: '<path d="M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5M3 17l9 5 9-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>',
     trending: '<path d="M3 17l6-6 4 4 8-8M15 7h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>',
-    map: '<path d="M9 3L3 5v16l6-2 6 2 6-2V3l-6 2-6-2zM9 3v16M15 5v16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>',
+    chart: '<path d="M3 21V5M3 21h18M7 17V11M11 17V8M15 17v-4M19 17V6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+    shield: '<path d="M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6l8-3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>',
+    file: '<path d="M6 3h9l4 4v14H6V3zM14 3v5h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>',
+    folder: '<path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h4L11 7h8.5A1.5 1.5 0 0 1 21 8.5v10a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5v-12z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>',
+    chat: '<path d="M4 5h16v11H8l-4 4V5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>',
+    key: '<circle cx="7.5" cy="14.5" r="3.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 12l9-9M15.5 5.5l2 2M13 8l2 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
     book: '<path d="M4 4h6a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H4V4zM20 4h-6a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h7V4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>',
-    table: '<path d="M3 5h18v14H3zM3 10h18M3 15h18M9 5v14M15 5v14" fill="none" stroke="currentColor" stroke-width="1.6"/>',
-    target: '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/>',
-    download: '<path d="M12 4v12m-5-5l5 5 5-5M4 20h16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>',
-    lock: '<rect x="5" y="11" width="14" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V7a4 4 0 0 1 8 0v4" fill="none" stroke="currentColor" stroke-width="1.6"/>',
+    grid: '<path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z" fill="none" stroke="currentColor" stroke-width="1.6"/>',
   };
 
   function esc(str) {
@@ -33,7 +47,6 @@
   }
 
   function ensureAccess() {
-    // Check gate; if not accepted, redirect to gate.
     try {
       let ok = false;
       try { ok = window.sessionStorage.getItem('deal_room_ok') === '1'; } catch (e) {}
@@ -42,7 +55,7 @@
         window.location.replace('./index.html');
         return false;
       }
-    } catch (e) { /* be permissive if storage blocked */ }
+    } catch (e) {}
     return true;
   }
 
@@ -51,9 +64,11 @@
       const items = g.items.map(it => {
         const active = it.href === activeHref;
         const icon = ICONS[it.icon] || '';
+        const badge = it.badge != null ? `<span class="nav-badge">${it.badge}</span>` : '';
         return `<a href="./${it.href}" class="nav-item ${active ? 'active' : ''}" data-testid="nav-${it.icon}">
           <svg width="18" height="18" viewBox="0 0 24 24">${icon}</svg>
-          <span>${esc(it.label)}</span>
+          <span class="nav-label">${esc(it.label)}</span>
+          ${badge}
         </a>`;
       }).join('');
       return `<div class="nav-group">
@@ -66,14 +81,19 @@
       <div class="brand">
         <div class="mark">S</div>
         <div class="brand-text">
-          <div class="brand-name">Sophi Mobility</div>
-          <div class="brand-sub">Investor Deal Room · 2026</div>
+          <div class="brand-name">SOPHI</div>
+          <div class="brand-sub">INVESTOR DEAL ROOM · 2026</div>
         </div>
       </div>
       ${groups}
       <div class="nav-footer">
-        <div>Built ${new Date().toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' })}</div>
-        <div>v3 · 6-market model</div>
+        <div class="viewer-chip">
+          <span class="viewer-avatar">PA</span>
+          <span class="viewer-meta">
+            <span class="viewer-email">partner@fund.com</span>
+            <span class="viewer-role">Prospective investor</span>
+          </span>
+        </div>
       </div>
     `;
   }

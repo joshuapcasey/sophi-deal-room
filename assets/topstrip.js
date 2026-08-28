@@ -25,12 +25,12 @@
     font-size: 13px;
   }
   .dr-topstrip .dr-brand { display: flex; align-items: center; gap: 10px; color: #1F1D1B; font-weight: 500; }
-  .dr-topstrip .dr-brand-mark { width: 22px; height: 22px; border-radius: 5px; background: #673AB7; display: grid; place-items: center; color: #FFFFFF; font-family: 'Fraunces', 'Georgia', serif; font-weight: 700; font-size: 13px; }
+  .dr-topstrip .dr-brand-mark { width: 22px; height: 22px; border-radius: 5px; background: #38B6FF; display: grid; place-items: center; color: #FFFFFF; font-family: 'Fraunces', 'Georgia', serif; font-weight: 700; font-size: 13px; }
   .dr-topstrip .dr-brand-sub { color: #8A857F; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-left: 4px; }
   .dr-topstrip nav { display: flex; align-items: center; gap: 4px; }
   .dr-topstrip nav a { padding: 6px 12px; border-radius: 6px; color: #4A4744; text-decoration: none; transition: all 140ms ease; font-weight: 500; }
   .dr-topstrip nav a:hover { color: #1F1D1B; background: #F4F4F2; }
-  .dr-topstrip nav a.active { color: #673AB7; background: #EDE7F6; }
+  .dr-topstrip nav a.active { color: #0B5394; background: #E8F4FF; }
   @media (max-width: 720px) {
     .dr-topstrip { padding: 8px 12px; font-size: 12px; }
     .dr-topstrip nav { gap: 0; overflow-x: auto; }

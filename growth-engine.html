@@ -384,14 +384,14 @@
     // Cumulative line
     ctx.beginPath();
     cum.forEach((v, i) => i === 0 ? ctx.moveTo(x(i), y(v)) : ctx.lineTo(x(i), y(v)));
-    ctx.strokeStyle = '#673AB7'; ctx.lineWidth = 2.5; ctx.stroke();
+    ctx.strokeStyle = '#38B6FF'; ctx.lineWidth = 2.5; ctx.stroke();
 
     // Bars
     const barW = 26;
     annual.forEach((v, i) => {
       const bx = x(i) - barW/2, by = y(v), bh = H - pad.b - by;
       const bg = ctx.createLinearGradient(0, by, 0, by + bh);
-      bg.addColorStop(0, '#A78BFA'); bg.addColorStop(1, 'rgba(167,139,250,0.45)');
+      bg.addColorStop(0, '#7ED0FF'); bg.addColorStop(1, 'rgba(167,139,250,0.45)');
       ctx.fillStyle = bg; ctx.fillRect(bx, by, barW, bh);
       // Label on bar
       ctx.fillStyle = '#1F1D1B'; ctx.font = '11px Inter, sans-serif'; ctx.textAlign = 'center';
@@ -400,10 +400,10 @@
 
     // Cumulative dots + labels
     cum.forEach((v, i) => {
-      ctx.fillStyle = '#673AB7';
+      ctx.fillStyle = '#38B6FF';
       ctx.beginPath(); ctx.arc(x(i), y(v), 4.5, 0, Math.PI*2); ctx.fill();
       ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = 2; ctx.stroke();
-      ctx.fillStyle = '#673AB7'; ctx.font = '600 12px Inter, sans-serif'; ctx.textAlign = 'left';
+      ctx.fillStyle = '#38B6FF'; ctx.font = '600 12px Inter, sans-serif'; ctx.textAlign = 'left';
       ctx.fillText(`$${(v/1e6).toFixed(1)}M cum.`, x(i) + 10, y(v) - 6);
     });
 

@@ -5,9 +5,10 @@
 
 :root {
   /* Sophi palette */
-  --sophi-purple: #673AB7;
-  --sophi-purple-dark: #512DA8;
-  --sophi-purple-soft: #EDE7F6;
+  --sophi-purple: #38B6FF;         /* renamed — now SOPHI Blue */
+  --sophi-purple-dark: #1F9BE0;
+  --sophi-purple-soft: #E8F4FF;
+  --sophi-blue-ink: #0B5394;
   --sophi-green: #0F9D58;
   --sophi-amber: #F59E0B;
   --sophi-red: #EF4444;
@@ -31,7 +32,7 @@
   --tier-d: #94A3B8;
 
   /* Posture colors (legacy — retained for any utilities still referencing them) */
-  --posture-sophi: #673AB7;
+  --posture-sophi: #38B6FF;
   --posture-strong: #DC2626;
   --posture-weak: #F59E0B;
   --posture-inhouse: #06B6D4;
