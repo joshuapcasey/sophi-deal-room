@@ -16,12 +16,14 @@
       { href: 'risk-milestones.html', label: 'Risk Mitigating Milestones', icon: 'shield' },
     ]},
     { group: 'DILIGENCE', items: [
+      { href: 'methodology.html', label: 'Methodology', icon: 'book' },
       { href: 'downloads.html', label: 'Documents', icon: 'folder', badge: 13 },
       { href: 'questions.html', label: 'Questions', icon: 'chat', badge: 3 },
-      { href: 'your-access.html', label: 'Your Access', icon: 'key' },
-      { href: 'methodology.html', label: 'Methodology', icon: 'book' },
     ]},
   ];
+
+  // Rendered separately, pinned to the footer just above the viewer chip
+  const FOOTER_ITEM = { href: 'your-access.html', label: 'Your Access', icon: 'key' };
 
   const ICONS = {
     sparkle: '<path d="M12 3l1.6 4.6L18 9l-4.4 1.4L12 15l-1.6-4.6L6 9l4.4-1.4L12 3zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>',
@@ -85,6 +87,10 @@
       </div>
       ${groups}
       <div class="nav-footer">
+        <a href="./${FOOTER_ITEM.href}" class="nav-item ${FOOTER_ITEM.href === activeHref ? 'active' : ''}" data-testid="nav-${FOOTER_ITEM.icon}" style="margin-bottom: 12px;">
+          <svg width="18" height="18" viewBox="0 0 24 24">${ICONS[FOOTER_ITEM.icon] || ''}</svg>
+          <span class="nav-label">${esc(FOOTER_ITEM.label)}</span>
+        </a>
         <div class="viewer-chip">
           <span class="viewer-avatar">PA</span>
           <span class="viewer-meta">
