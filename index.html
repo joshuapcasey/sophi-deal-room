@@ -197,6 +197,11 @@
       Enter Deal Room
     </button>
 
+    <button type="button" id="gate-bypass" data-testid="button-bypass"
+            style="width:100%; margin-top:12px; padding:10px 16px; background:transparent; color:var(--text-faint); border:1px dashed var(--border); border-radius:var(--radius-s); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; cursor:pointer; font-family:var(--font-mono);">
+      Skip — Preview access (temporary)
+    </button>
+
     <div class="form-note">
       Your entry is logged to Sophi Mobility for access tracking. Questions: <a href="mailto:jcasey@sophimobility.com">jcasey@sophimobility.com</a>.
     </div>
@@ -252,6 +257,12 @@
     setTimeout(() => {
       window.location.href = './summary.html';
     }, 250);
+  });
+
+  // Temporary bypass — skip NDA/email gate for preview access
+  document.getElementById('gate-bypass').addEventListener('click', () => {
+    window.SOPHI_SHELL.grantAccess();
+    window.location.href = './summary.html';
   });
 
   // Focus email on load for keyboard flow
