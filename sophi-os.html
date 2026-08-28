@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/deal-room.css?v=20260828c">
+<link rel="stylesheet" href="./assets/deal-room.css?v=20260828d">
 <style>
   /* Pillars (used inside SOPHI Hub tab) */
   .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: var(--space-6); }
@@ -73,6 +73,58 @@
   .spm { background: var(--bg-elev-3); border: 1px solid var(--border); border-radius: var(--radius-s); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
   .spm-val { font: 700 22px/1.1 var(--font-body); color: var(--text-strong); font-variant-numeric: tabular-nums; }
   .spm-lbl { font-size: 11.5px; line-height: 1.4; color: var(--text-muted); }
+
+  /* ─── Staffing Model ─── */
+  .staff-btn { appearance: none; background: transparent; border: 0; padding: 8px 18px; border-radius: 999px; font: 500 13px/1 var(--font-body); color: var(--text-muted); cursor: pointer; transition: background 0.15s var(--ease), color 0.15s var(--ease); }
+  .staff-btn:hover { color: var(--text-strong); }
+  .staff-btn.active { background: var(--bg-elev); color: var(--blue-ink); box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+  .staff-section[hidden] { display: none; }
+
+  /* Orchestration hero */
+  .orch-hero-title { margin: 0 0 12px; font: 600 20px/1.35 var(--font-display); color: var(--text-strong); }
+  .orch-hero-body { margin: 0 0 20px; font-size: 14px; line-height: 1.7; color: var(--text); }
+  .orch-hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding-top: 16px; border-top: 1px solid var(--border); }
+  @media (max-width: 720px) { .orch-hero-stats { grid-template-columns: 1fr; } }
+  .orch-stat { display: flex; flex-direction: column; gap: 4px; }
+  .orch-stat-val { font: 600 28px/1.1 var(--font-body); color: var(--blue-ink); font-variant-numeric: tabular-nums; }
+  .orch-stat-lbl { font-size: 12px; line-height: 1.45; color: var(--text-muted); }
+  .orch-note { color: var(--text-faint); font-style: italic; }
+
+  /* Orchestration cards grid */
+  .orch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: var(--space-6); }
+  @media (max-width: 1080px) { .orch-grid { grid-template-columns: 1fr; } }
+  .orch-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 20px 22px; display: flex; flex-direction: column; gap: 16px; }
+  .orch-card-future { border: 1px dashed var(--border-strong); background: var(--bg-elev-2); }
+  .orch-card-head { display: flex; flex-direction: column; gap: 8px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .orch-card-future .orch-card-head { border-bottom-color: var(--border-strong); border-bottom-style: dashed; }
+  .orch-card-head .chip { align-self: flex-start; }
+  .orch-card-head h3 { margin: 0; font-size: 18px; font-weight: 600; color: var(--text-strong); display: flex; align-items: center; gap: 8px; }
+  .orch-future-badge { font: 600 9px/1 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 7px; border-radius: 999px; background: var(--bg-elev-3); color: var(--text-faint); border: 1px solid var(--border); }
+  .orch-tagline { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--text-muted); font-style: italic; }
+  .orch-block { display: flex; flex-direction: column; gap: 8px; }
+  .orch-block-label { font: 600 10px/1 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); display: flex; align-items: baseline; gap: 8px; }
+  .orch-block-note { font-weight: 400; text-transform: none; letter-spacing: 0; font-style: italic; color: var(--text-faint); font-size: 11px; }
+  .orch-list { margin: 0; padding-left: 18px; font-size: 12.5px; line-height: 1.6; color: var(--text); display: flex; flex-direction: column; gap: 4px; }
+  .orch-list li::marker { color: var(--accent); }
+  .orch-list-compact li { margin-bottom: 4px; }
+  .orch-tag { display: inline-block; font: 500 10px/1 var(--font-body); letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 6px; border-radius: 4px; background: var(--accent-soft); color: var(--blue-ink); margin-left: 4px; vertical-align: middle; }
+  .orch-owner { color: var(--blue-ink); font-weight: 600; }
+  .orch-score { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .orch-score tbody td { padding: 6px 0; border-bottom: 1px solid var(--border); color: var(--text); }
+  .orch-score tbody tr:last-child td { border-bottom: none; }
+  .orch-score tbody td.num-col { text-align: right; font-variant-numeric: tabular-nums; color: var(--text-strong); font-weight: 600; }
+  .orch-comp { margin: 0; padding-top: 12px; border-top: 1px dashed var(--border); font-size: 12px; line-height: 1.55; color: var(--text-muted); font-style: italic; }
+
+  /* Specialist tracks grid */
+  .track-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media (max-width: 1080px) { .track-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .track-grid { grid-template-columns: 1fr; } }
+  .track-card { background: var(--bg-elev-2); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; }
+  .track-head { display: flex; align-items: center; gap: 10px; }
+  .track-head h4 { margin: 0; font-size: 15px; font-weight: 600; color: var(--text-strong); }
+  .track-desc { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--text-muted); flex: 1; }
+  .track-unlock { margin: 0; padding-top: 10px; border-top: 1px dashed var(--border); font-size: 12px; line-height: 1.5; color: var(--text); }
+  .track-unlock-label { display: inline-block; font: 600 9px/1 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-ink); padding: 2px 6px; border-radius: 4px; background: var(--accent-soft); margin-right: 6px; vertical-align: middle; }
 
   /* Table row micro-notes + firewall row */
   .td-note { display: block; font-size: 11.5px; color: var(--text-faint); margin-top: 2px; font-weight: 400; }
@@ -178,46 +230,246 @@
 
     </section>
 
-    <!-- Panel: Staffing Model (placeholder) -->
+    <!-- Panel: Staffing Model -->
     <section class="subtab-panel" data-panel="staffing" hidden>
 
-      <div class="placeholder-callout">
-        <div class="pc-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
-        </div>
-        <div class="pc-body">
-          <p class="pc-title">SOPHI-specific staffing content coming</p>
-          <p class="pc-note">This tab will hold Josh's org-model, role economics, and per-property staffing rollup. The placeholder below shows the intended shape — real numbers land in the next pass.</p>
-        </div>
+      <!-- Nested section switcher -->
+      <div class="rev-switch" role="tablist" aria-label="Staffing Model sections">
+        <button class="staff-btn active" data-staff="layer" aria-selected="true">Orchestration Layer</button>
+        <button class="staff-btn" data-staff="tracks" aria-selected="false">Specialist Tracks</button>
+        <button class="staff-btn" data-staff="envelope" aria-selected="false">Staffing Envelope</button>
       </div>
 
-      <div class="section-eyebrow">Staffing envelope, per property, per vertical</div>
-      <div class="card" style="margin-bottom: var(--space-6);">
-        <table class="data-table">
-          <thead>
-            <tr><th>Vertical</th><th>GM / property</th><th>Shift leads</th><th>Attendants (peak)</th><th class="num-col">Fully-loaded labor, Y1</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Restaurant</strong></td><td>0.25 FTE</td><td>1</td><td>2–4</td><td class="num-col">TBD</td></tr>
-            <tr><td><strong>Hotel</strong></td><td>0.50 FTE</td><td>2</td><td>4–8</td><td class="num-col">TBD</td></tr>
-            <tr><td><strong>Hospital</strong></td><td>1.00 FTE</td><td>3</td><td>6–14</td><td class="num-col">TBD</td></tr>
-            <tr><td><strong>Venue</strong></td><td>0.25 FTE</td><td>1</td><td>4–12 (event-day)</td><td class="num-col">TBD</td></tr>
-            <tr><td><strong>Residential</strong></td><td>0.10 FTE</td><td>1</td><td>1–2</td><td class="num-col">TBD</td></tr>
-          </tbody>
-        </table>
-        <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Placeholder ratios — replace with SOPHI's actual staffing envelope by vertical.</p>
+      <!-- ─── SECTION: ORCHESTRATION LAYER ─── -->
+      <div class="staff-section active" data-staff-section="layer">
+
+        <div class="section-eyebrow">The business-model advantage</div>
+        <div class="card orch-hero" style="margin-bottom: var(--space-6);">
+          <p class="orch-hero-title">The orchestration layer + specialist certifications let a lean market team serve a disproportionately large book of accounts and employees.</p>
+          <p class="orch-hero-body">
+            Traditional valet operators staff each market with a stack of coordinators, GMs, HR partners, sales reps, and compliance leads. SOPHI runs the middle-management layer as a two-seat <strong>Orchestration Layer</strong> — a <strong>Market Officer</strong> (final authority, external voice, revenue owner) and a <strong>Sr. Account Executive</strong> (internal operations, people, standards). SOPHI OS carries the coordination, reporting, and monitoring work that traditionally justified a much larger middle-management footprint. Specialist certifications sit underneath and multiply what each seat can safely oversee.
+          </p>
+          <div class="orch-hero-stats">
+            <div class="orch-stat"><span class="orch-stat-val">2</span><span class="orch-stat-lbl">Market-level orchestration seats today <span class="orch-note">(3rd seat coming online)</span></span></div>
+            <div class="orch-stat"><span class="orch-stat-val">5</span><span class="orch-stat-lbl">Specialist certification tracks under the layer</span></div>
+            <div class="orch-stat"><span class="orch-stat-val">1</span><span class="orch-stat-lbl">SOPHI OS — the fourth teammate absorbing coordination overhead</span></div>
+          </div>
+        </div>
+
+        <div class="section-eyebrow">The two seats today — and the one coming online</div>
+        <div class="orch-grid">
+
+          <!-- Market Officer -->
+          <div class="orch-card">
+            <div class="orch-card-head">
+              <span class="chip chip-blue">Final authority · External</span>
+              <h3>Market Officer</h3>
+              <p class="orch-tagline">External voice. Revenue owner. Final call on market-level decisions.</p>
+            </div>
+            <div class="orch-block">
+              <div class="orch-block-label">Scope</div>
+              <ul class="orch-list">
+                <li>Final authority on market-level decisions</li>
+                <li>Player-coach carrying a revenue bag — personally closes new contracts</li>
+                <li>Existing client relationship management and retention</li>
+                <li>City compliance departments and regulatory relationships</li>
+                <li>Professional memberships, civic organizations, networking</li>
+                <li>Market brand presence, reputation, and culture stewardship</li>
+                <li>Feeds Sr. AE intelligence from the field — what clients are saying, what the market needs</li>
+              </ul>
+            </div>
+            <div class="orch-block">
+              <div class="orch-block-label">Scorecard</div>
+              <table class="orch-score">
+                <tbody>
+                  <tr><td>New Contract ARR (closed by market)</td><td class="num-col">35%</td></tr>
+                  <tr><td>Client Retention Rate</td><td class="num-col">30%</td></tr>
+                  <tr><td>Client NPS / Satisfaction Score</td><td class="num-col">20%</td></tr>
+                  <tr><td>Market Brand Presence (events, memberships, civic)</td><td class="num-col">15%</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="orch-comp">Lower base, highest variable upside. Client satisfaction weighted equally to revenue — quality gate against chasing bad-fit contracts.</p>
+          </div>
+
+          <!-- Sr. Account Executive -->
+          <div class="orch-card">
+            <div class="orch-card-head">
+              <span class="chip chip-sky">Internal</span>
+              <h3>Sr. Account Executive</h3>
+              <p class="orch-tagline">Guardian of standards. Steward of the market's people.</p>
+            </div>
+            <div class="orch-block">
+              <div class="orch-block-label">Scope</div>
+              <ul class="orch-list">
+                <li>Operational compliance and SOPHI OS standards enforcement across all locations</li>
+                <li>Account Manager oversight, coaching, and development</li>
+                <li>Employee performance management and escalation — the HR function for the market</li>
+                <li>New-employee onboarding coordination with the SOPHI Academy</li>
+                <li>Employee training, certification, and development pipeline <span class="orch-tag">interim — talent seat</span></li>
+                <li>Specialist certification tracking per employee <span class="orch-tag">interim — talent seat</span></li>
+                <li>Internal market health — the person who knows if the operation is actually healthy, not just outwardly healthy</li>
+              </ul>
+            </div>
+            <div class="orch-block">
+              <div class="orch-block-label">Scorecard</div>
+              <table class="orch-score">
+                <tbody>
+                  <tr><td>Market Employee Performance Score (EPS) Average</td><td class="num-col">30%</td></tr>
+                  <tr><td>Employee Retention Rate</td><td class="num-col">25%</td></tr>
+                  <tr><td>Certification Completion Rate (Academy)</td><td class="num-col">20%</td></tr>
+                  <tr><td>Location Health Score (LHS) Average</td><td class="num-col">15%</td></tr>
+                  <tr><td>Incident Rate (INC) Market Average</td><td class="num-col">10%</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="orch-comp">Base stability + heavy weighting on people and operations outcomes. Never measured on revenue or contract count — that's the Market Officer's domain.</p>
+          </div>
+
+          <!-- Coming Online: Talent / Culture Seat -->
+          <div class="orch-card orch-card-future">
+            <div class="orch-card-head">
+              <span class="chip chip-neutral">Coming online</span>
+              <h3>Talent &amp; Culture Seat <span class="orch-future-badge">Future</span></h3>
+              <p class="orch-tagline">Dedicated people-development and Academy delivery role. Responsibilities currently split into the two active seats.</p>
+            </div>
+            <div class="orch-block">
+              <div class="orch-block-label">Scope <span class="orch-block-note">when activated</span></div>
+              <ul class="orch-list">
+                <li>People development — coaches and grows AMs, Supervisors, Attendants</li>
+                <li>Academy coordination for the market — curriculum delivery, certification tracking</li>
+                <li>Culture stewardship — ensures SOPHIology is lived, not just stated</li>
+                <li>Talent identification — spots high-potential staff for promotion</li>
+                <li>Specialist certification pipeline — LUX, MED, EVT tracks</li>
+                <li>Onboarding experience for new hires in the market</li>
+              </ul>
+            </div>
+            <div class="orch-block">
+              <div class="orch-block-label">Interim assignment</div>
+              <ul class="orch-list orch-list-compact">
+                <li><strong>Academy delivery, certification tracking, onboarding</strong> — owned by <span class="orch-owner">Sr. Account Executive</span></li>
+                <li><strong>Culture stewardship, market brand presence</strong> — owned by <span class="orch-owner">Market Officer</span></li>
+                <li><strong>Talent identification, coaching, promotion pipeline</strong> — shared between both seats, with Sr. AE as system-of-record</li>
+              </ul>
+            </div>
+            <p class="orch-comp">Activation trigger: when a market's Sr. AE bandwidth is visibly constrained by people-development load, AND Academy curriculum is mature enough for a dedicated coordinator to deliver at scale.</p>
+          </div>
+
+        </div>
+
+        <div class="section-eyebrow">Span-of-control comparison</div>
+        <div class="card">
+          <p style="font-size:13.5px; line-height:1.65; color:var(--text); margin:0 0 18px;">
+            The Orchestration Layer replaces what a traditional valet operator staffs across four to six distinct middle-management roles. SOPHI OS carries the coordination and monitoring work — humans handle judgment and exceptions only.
+          </p>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Function</th>
+                <th>Traditional valet operator</th>
+                <th>SOPHI Orchestration Layer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Final market authority</strong></td><td>Regional GM + District Manager</td><td>Market Officer</td></tr>
+              <tr><td><strong>Sales &amp; new business</strong></td><td>Dedicated BDR / Sales Rep</td><td>Market Officer (player-coach)</td></tr>
+              <tr><td><strong>Client retention &amp; NPS</strong></td><td>Account Director</td><td>Market Officer</td></tr>
+              <tr><td><strong>Ops standards &amp; compliance</strong></td><td>Ops Manager + QA Lead</td><td>Sr. Account Executive</td></tr>
+              <tr><td><strong>HR / people management</strong></td><td>HR Business Partner</td><td>Sr. Account Executive</td></tr>
+              <tr><td><strong>Training &amp; certification</strong></td><td>Training Coordinator</td><td>Sr. Account Executive <span class="orch-tag">interim</span> → Talent Seat</td></tr>
+              <tr><td><strong>Coordination, scheduling, reporting</strong></td><td>Ops Coordinator + Scheduler</td><td><strong>SOPHI OS</strong> — the fourth teammate</td></tr>
+              <tr class="highlight"><td><strong>Total market-level headcount</strong></td><td class="num-col">6–10 people</td><td class="num-col">2 people + OS (3 when talent seat activates)</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Traditional headcount reflects typical multi-location valet operator staffing at 8–15 locations per market. SOPHI runs the same span with a two-seat orchestration layer today — the leverage compounds as SOPHI OS absorbs more of the coordination surface.</p>
+        </div>
+
       </div>
 
-      <div class="section-eyebrow">The Triumvirate + Academy pipeline</div>
-      <div class="card">
-        <p style="font-size:13.5px; line-height:1.65; color:var(--text); margin:0 0 14px;">
-          Staffing at the market level runs on the Triumvirate model — GM, Ops Lead, Sales Lead — with property-level attendants sourced through the Academy. Placeholder narrative below; SOPHI-specific hiring cadence, ramp times, and Academy throughput to be added.
-        </p>
-        <ul style="margin:0; padding-left: 20px; color: var(--text); font-size: 13px; line-height: 1.7;">
-          <li><strong>Triumvirate ramp</strong> — target hire dates, ramp curve to full productivity, cost per role. <em style="color:var(--text-faint)">(numbers pending)</em></li>
-          <li><strong>Academy throughput</strong> — cohorts per year, attendants per cohort, graduation-to-property-ready timing. <em style="color:var(--text-faint)">(numbers pending)</em></li>
-          <li><strong>Cross-property mobility</strong> — transfer certification, promotion path, retention proof from Charlotte and South Bend. <em style="color:var(--text-faint)">(narrative pending)</em></li>
-        </ul>
+      <!-- ─── SECTION: SPECIALIST TRACKS ─── -->
+      <div class="staff-section" data-staff-section="tracks" hidden>
+
+        <div class="section-eyebrow">Five specialist certification tracks</div>
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <p style="font-size:13.5px; line-height:1.65; color:var(--text); margin:0 0 18px;">
+            Specialist certifications sit underneath the Orchestration Layer and multiply what a lean market team can safely oversee. Every track has a defined curriculum, an in-Academy delivery path, and a specific set of assignments and rate uplifts it unlocks. Together they let SOPHI serve luxury, healthcare, event, and standard verticals with one workforce and one operating system.
+          </p>
+          <div class="track-grid">
+            <div class="track-card">
+              <div class="track-head"><span class="chip chip-sand">LUX</span><h4>Luxury &amp; Exotic</h4></div>
+              <p class="track-desc">Certified handling of high-value vehicles. Premium guest experience protocols. Required for any location with consistent luxury vehicle volume.</p>
+              <p class="track-unlock"><span class="track-unlock-label">Unlocks</span> Higher per-shift rate. Eligibility for luxury-contract locations.</p>
+            </div>
+            <div class="track-card">
+              <div class="track-head"><span class="chip chip-sky">MED</span><h4>Healthcare Operations</h4></div>
+              <p class="track-desc">HIPAA sensitivity training, patient and caregiver experience protocols, healthcare facility compliance standards.</p>
+              <p class="track-unlock"><span class="track-unlock-label">Unlocks</span> Eligibility for medical location assignments. Required for any AM at a healthcare location.</p>
+            </div>
+            <div class="track-card">
+              <div class="track-head"><span class="chip chip-peach">EVT</span><h4>Event Operations</h4></div>
+              <p class="track-desc">High-volume surge management, event coordination protocols, vendor and venue relationship standards.</p>
+              <p class="track-unlock"><span class="track-unlock-label">Unlocks</span> Event shift-lead eligibility. Higher event-shift rate. Required for Sr. Supervisor at event-primary locations.</p>
+            </div>
+            <div class="track-card">
+              <div class="track-head"><span class="chip chip-mint">TRN</span><h4>Training &amp; Mentorship</h4></div>
+              <p class="track-desc">Certified to onboard and mentor Jr. Attendants. Fundamentals of SOPHIology delivery. Feeds directly into the future Talent &amp; Culture seat.</p>
+              <p class="track-unlock"><span class="track-unlock-label">Unlocks</span> Peer coaching log access. Pathway toward the Talent &amp; Culture seat when activated.</p>
+            </div>
+            <div class="track-card">
+              <div class="track-head"><span class="chip chip-blue">COM</span><h4>Compliance &amp; Standards</h4></div>
+              <p class="track-desc">Deep SOPHI OS standards, audit protocol, incident documentation and escalation mastery.</p>
+              <p class="track-unlock"><span class="track-unlock-label">Unlocks</span> Pathway toward Sr. Account Executive consideration. Required for AM promotion eligibility.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-eyebrow">How the tracks compound the layer</div>
+        <div class="card">
+          <p style="font-size:13.5px; line-height:1.65; color:var(--text); margin:0 0 14px;">
+            The Orchestration Layer sets the standard; specialist certifications propagate it. Because a certified Sr. Supervisor can run an event, a certified AM can run a medical account, and a TRN-certified Attendant can onboard peers, the Market Officer and Sr. AE spend their time on judgment work — not on being physically present at every property, every shift.
+          </p>
+          <ul style="margin:0; padding-left: 20px; color: var(--text); font-size: 13px; line-height: 1.7;">
+            <li><strong>Locations per market officer</strong> — rises materially with COM-certified AMs (compliance eyes on the ground) and TRN-certified Sr. Supervisors (peer onboarding without pulling the layer down)</li>
+            <li><strong>Vertical breadth per market</strong> — LUX + MED + EVT let one team run luxury, healthcare, and event verticals without a dedicated vertical GM per line</li>
+            <li><strong>Talent-seat activation</strong> — TRN certification is the visible pipeline into the future Talent &amp; Culture seat; the market builds its own successor</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- ─── SECTION: STAFFING ENVELOPE ─── -->
+      <div class="staff-section" data-staff-section="envelope" hidden>
+
+        <div class="section-eyebrow">Staffing envelope, per property, per vertical</div>
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <table class="data-table">
+            <thead>
+              <tr><th>Vertical</th><th>Account Manager</th><th>Shift leads</th><th>Attendants (peak)</th><th class="num-col">Fully-loaded labor, Y1</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Restaurant</strong></td><td>0.25 FTE</td><td>1</td><td>2–4</td><td class="num-col">TBD</td></tr>
+              <tr><td><strong>Hotel</strong></td><td>0.50 FTE</td><td>2</td><td>4–8</td><td class="num-col">TBD</td></tr>
+              <tr><td><strong>Hospital</strong></td><td>1.00 FTE</td><td>3</td><td>6–14</td><td class="num-col">TBD</td></tr>
+              <tr><td><strong>Venue</strong></td><td>0.25 FTE</td><td>1</td><td>4–12 (event-day)</td><td class="num-col">TBD</td></tr>
+              <tr><td><strong>Residential</strong></td><td>0.10 FTE</td><td>1</td><td>1–2</td><td class="num-col">TBD</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Per-property envelope sits under the market-level Orchestration Layer. Account Managers (property-level) roll up to the Sr. Account Executive. Fully-loaded labor figures land in the next pass.</p>
+        </div>
+
+        <div class="section-eyebrow">The Academy pipeline</div>
+        <div class="card">
+          <p style="font-size:13.5px; line-height:1.65; color:var(--text); margin:0 0 14px;">
+            The SOPHI Academy is where the specialist certifications above are earned. It sources attendants, credentials the specialist tracks, and feeds the promotion path from Attendant → Supervisor → Account Manager → orchestration-layer consideration. Numbers pending; the mechanism is live in both Charlotte and South Bend today.
+          </p>
+          <ul style="margin:0; padding-left: 20px; color: var(--text); font-size: 13px; line-height: 1.7;">
+            <li><strong>Academy throughput</strong> — cohorts per year, attendants per cohort, graduation-to-property-ready timing <em style="color:var(--text-faint)">(numbers pending)</em></li>
+            <li><strong>Certification cadence</strong> — LUX / MED / EVT / TRN / COM completion rates per employee, per market <em style="color:var(--text-faint)">(numbers pending)</em></li>
+            <li><strong>Cross-property mobility</strong> — transfer certification, promotion path, retention proof from Charlotte and South Bend <em style="color:var(--text-faint)">(narrative pending)</em></li>
+            <li><strong>Orchestration-layer promotion path</strong> — COM certification is the gate to Sr. Account Executive consideration; TRN certification is the gate to Talent &amp; Culture seat consideration when activated</li>
+          </ul>
+        </div>
+
       </div>
 
     </section>
@@ -494,7 +746,7 @@
   </main>
 </div>
 
-<script src="./assets/shell.js?v=20260828c"></script>
+<script src="./assets/shell.js?v=20260828d"></script>
 <script>window.SOPHI_SHELL.mount('sophi-os.html');</script>
 
 <script>
@@ -526,6 +778,25 @@
     if (hash && document.querySelector(`.subtab[data-tab="${hash}"]`)) {
       activate(hash);
     }
+  })();
+
+  // Nested Staffing Model section switcher (Orchestration Layer / Specialist Tracks / Envelope)
+  (function () {
+    const btns = document.querySelectorAll('.staff-btn');
+    const sections = document.querySelectorAll('.staff-section');
+    function show(id) {
+      btns.forEach(b => {
+        const on = b.dataset.staff === id;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      sections.forEach(s => {
+        const on = s.dataset.staffSection === id;
+        s.classList.toggle('active', on);
+        if (on) s.removeAttribute('hidden'); else s.setAttribute('hidden', '');
+      });
+    }
+    btns.forEach(b => b.addEventListener('click', () => show(b.dataset.staff)));
   })();
 
   // Nested Revenue Model section switcher (Revenue Streams / SMS Retrieval Ad Model)
