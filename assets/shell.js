@@ -6,7 +6,7 @@
       { href: 'company-history.html', label: 'Company History', icon: 'clock' },
     ]},
     { group: 'THE OPPORTUNITY', items: [
-      { href: 'sophi-hub.html', label: 'SOPHI Hub', icon: 'layers' },
+      { href: 'sophi-os.html', label: 'SOPHI OS', icon: 'layers' },
       { href: 'growth-model.html', label: 'Growth Model', icon: 'trending' },
     ]},
     { group: 'THE DEAL', items: [
