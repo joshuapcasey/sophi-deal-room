@@ -13,8 +13,8 @@
   .history-grid { display: grid; grid-template-columns: 1fr 320px; gap: 32px; align-items: flex-start; }
   @media (max-width: 1100px) { .history-grid { grid-template-columns: 1fr; } }
   .rail-label { font: 700 10.5px/1.4 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
-  .leader-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 20px; }
-  .leader-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-s); padding: 14px 16px; }
+  .leader-grid { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+  .leader-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-s); padding: 12px 14px; }
   .leader-card .lc-init { font-family: var(--font-mono); font-size: 11px; color: var(--blue-ink); background: var(--accent-soft); border-radius: 4px; padding: 2px 6px; display: inline-block; margin-bottom: 8px; font-weight: 600; }
   .leader-card .lc-name { font-size: 13.5px; font-weight: 600; color: var(--text-strong); }
   .leader-card .lc-role { font-size: 11.5px; color: var(--text-faint); margin-top: 2px; }
@@ -69,35 +69,6 @@
           <div class="timeline-row"><div class="timeline-date">2027<span class="td-sub">Denver · Houston</span></div><div class="timeline-dot future"></div><div class="timeline-body"><h4>G&amp;G Denver ×2 + Houston committed</h4><p>Three cross-market G&amp;G properties on paper. Denver enters the six-market model with a signed anchor.</p></div></div>
         </div>
 
-        <div class="projection">
-          <div class="pj-eyebrow">2026 projection · booked → run-rate</div>
-          <div class="pj-calc">
-            <span>$593,740</span>
-            <span class="pj-op">booked Jan–Aug</span>
-            <span class="pj-op">÷</span>
-            <span>0.623</span>
-            <span class="pj-op">seasonal earnings share</span>
-            <span class="pj-op">=</span>
-            <span style="color:var(--blue-ink); font-weight:700;">$953,000</span>
-            <span class="pj-op">2026 projection</span>
-          </div>
-          <p class="pj-note">Aug 2026 anchor plus the Q4 seasonal pull produces the $1.38M organic 2026A used as the base year in every projection on the site.</p>
-        </div>
-
-        <div class="rail-label" style="margin-top:28px;">Leadership</div>
-        <div class="leader-grid">
-          <div class="leader-card"><span class="lc-init">JC</span><div class="lc-name">Joshua Casey</div><div class="lc-role">Chief Executive Officer</div></div>
-          <div class="leader-card"><span class="lc-init">TY</span><div class="lc-name">Trey Yoder</div><div class="lc-role">Chief Operating Officer</div></div>
-          <div class="leader-card"><span class="lc-init">BT</span><div class="lc-name">Ben Tolle</div><div class="lc-role">Chief Technology Officer</div></div>
-          <div class="leader-card"><span class="lc-init">AM</span><div class="lc-name">Alex Mountzouros</div><div class="lc-role">Charlotte General Manager</div></div>
-          <div class="leader-card" style="grid-column: 1 / -1;"><span class="lc-init">KA</span><div class="lc-name">Kyle Alexander</div><div class="lc-role">South Bend Manager</div></div>
-        </div>
-
-        <div class="rail-label" style="margin-top:28px;">Two patterns worth pricing in</div>
-        <div class="patterns">
-          <div class="pattern-card"><h4>The playbook survives the flag</h4><p>Same operating model has moved through Elite → Global → Denison → SOPHI. Accounts held, retention held, margins held. The flag is a wrapper; the operating memory is the asset.</p></div>
-          <div class="pattern-card"><h4>Density beats geography</h4><p>Every step of the record concentrates in a home market before it expands. South Bend, then Charlotte, then Denver. The six-market model is that same pattern with capital behind it.</p></div>
-        </div>
       </div>
 
       <aside class="record-rail">
@@ -109,6 +80,15 @@
         <div class="record-card"><div class="rc-val">28% → 72%</div><div class="rc-lbl">Net margin lift · JSK case</div><div class="rc-sub">Turnaround from $80K annual loss to margin leader in one operating year.</div></div>
         <div class="record-card"><div class="rc-val">~ 50%</div><div class="rc-lbl">Gross margin</div><div class="rc-sub">Steady across restaurant, hotel, and hospital verticals.</div></div>
         <div class="record-card"><div class="rc-val">3× / 5×</div><div class="rc-lbl">Review volume · property lift</div><div class="rc-sub">Multiplier on Google review counts within 12 months of installation.</div></div>
+
+        <div class="rail-label" style="margin-top:28px;">SOPHI Leadership</div>
+        <div class="leader-grid">
+          <div class="leader-card"><span class="lc-init">JC</span><div class="lc-name">Joshua Casey</div><div class="lc-role">Chief Executive Officer</div></div>
+          <div class="leader-card"><span class="lc-init">TY</span><div class="lc-name">Trey Yoder</div><div class="lc-role">Chief Operating Officer</div></div>
+          <div class="leader-card"><span class="lc-init">BT</span><div class="lc-name">Ben Tolle</div><div class="lc-role">Chief Technology Officer</div></div>
+          <div class="leader-card"><span class="lc-init">AM</span><div class="lc-name">Alex Mountzouros</div><div class="lc-role">Charlotte General Manager</div></div>
+          <div class="leader-card"><span class="lc-init">KA</span><div class="lc-name">Kyle Alexander</div><div class="lc-role">South Bend Manager</div></div>
+        </div>
       </aside>
     </div>
 
