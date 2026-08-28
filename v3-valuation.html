@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/deal-room.css?v=20260828e">
+<link rel="stylesheet" href="./assets/deal-room.css?v=20260828f">
 <style>
   .own-bar { display: flex; height: 26px; border-radius: 6px; overflow: hidden; margin: 20px 0 8px; border: 1px solid var(--border); }
   .own-bar .ob-seg { display: grid; place-items: center; font: 600 12px/1 var(--font-body); color: #fff; padding: 0 12px; }
@@ -25,10 +25,11 @@
   .rr-item { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 8px; padding: 14px 12px; text-align: center; }
   .rr-item .rr-year { font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-weight: 700; }
   .rr-item .rr-val { font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; font-size: 18px; font-weight: 700; color: var(--blue-ink); margin-top: 6px; }
-  .rr-item .rr-ad { font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; font-size: 11.5px; font-weight: 600; color: #B25E2E; margin-top: 2px; letter-spacing: 0.02em; }
+  .rr-item .rr-ad { font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; font-size: 11.5px; font-weight: 600; color: #437A22; margin-top: 2px; letter-spacing: 0.02em; }
   .rr-item .rr-total { font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; font-size: 11px; color: var(--text-faint); margin-top: 4px; padding-top: 4px; border-top: 1px solid var(--border); }
-  .col-ad { background: #FFF8E7; }
-  .col-ad-header { background: #F4E4B0; }
+  .col-ad { background: #F0F5EB; }
+  .col-ad-header { background: #D4E5C2; }
+  .rr-item .rr-ad { color: #437A22 !important; }
 </style>
 </head>
 <body>
@@ -65,7 +66,7 @@
 
     <div class="callout amber">
       <div class="cl-title">Revenue streams not in this valuation</div>
-      <p class="cl-body">The base v3 model prices only the parking-services SOM across six named markets ($36.3M DCF). The <strong>v3 + SMS ad layer</strong> column below adds the retrieval SMS ad revenue that scales with the same acquired portfolio ($40.0M DCF, base-case low-end). Still excluded from every column: hospitals as a full vertical, airport concessions, SpotHero online-valet arbitrage, cross-property referral services, franchise royalties, and OS licensing. Those remain in the valuation-optionality bucket and are documented separately.</p>
+      <p class="cl-body">The base v3 model prices only the parking-services SOM across six named markets ($36.3M DCF). The <strong>v3 + SMS ad layer</strong> column below adds the retrieval SMS ad revenue that scales with the same acquired portfolio at the <strong>moderate case</strong> ($47.4M DCF, midpoint of every account-type conversion and offer-value band). Still excluded from every column: hospitals as a full vertical, airport concessions, SpotHero online-valet arbitrage, cross-property referral services, franchise royalties, and OS licensing. Those remain in the valuation-optionality bucket and are documented separately.</p>
     </div>
 
     <div class="subtabs" role="tablist">
@@ -84,25 +85,25 @@
         <div class="kpi-tile"><div class="kpi-val">34</div><div class="kpi-label">Accounts won · Y5</div><div class="kpi-sub">36.6% SAM penetration by Year 5</div></div>
       </div>
 
-      <div class="section-eyebrow" style="margin-top:24px;">Revenue ramp · six-market SOM + SMS ad layer</div>
+      <div class="section-eyebrow" style="margin-top:24px;">Revenue ramp · six-market SOM + SMS ad layer <span style="font-weight:400; text-transform:none; letter-spacing:0; color:var(--text-faint); margin-left:8px;">moderate case — midpoint of conversion &amp; offer bands</span></div>
       <div class="rev-ramp">
         <div class="rr-item"><div class="rr-year">2027 · Y1</div><div class="rr-val">$4.02M</div><div class="rr-ad">+$0 <span style="color:var(--text-faint); font-weight:500;">pre-gate</span></div><div class="rr-total">$4.02M total</div></div>
-        <div class="rr-item"><div class="rr-year">2028 · Y2</div><div class="rr-val">$9.00M</div><div class="rr-ad">+$0.76M</div><div class="rr-total">$9.75M total</div></div>
-        <div class="rr-item"><div class="rr-year">2029 · Y3</div><div class="rr-val">$14.74M</div><div class="rr-ad">+$1.42M</div><div class="rr-total">$16.16M total</div></div>
-        <div class="rr-item"><div class="rr-year">2030 · Y4</div><div class="rr-val">$19.48M</div><div class="rr-ad">+$2.09M</div><div class="rr-total">$21.57M total</div></div>
-        <div class="rr-item"><div class="rr-year">2031 · Y5</div><div class="rr-val">$28.29M</div><div class="rr-ad">+$2.91M</div><div class="rr-total"><strong style="color:var(--text);">$31.20M total</strong></div></div>
+        <div class="rr-item"><div class="rr-year">2028 · Y2</div><div class="rr-val">$9.00M</div><div class="rr-ad">+$2.25M</div><div class="rr-total">$11.25M total</div></div>
+        <div class="rr-item"><div class="rr-year">2029 · Y3</div><div class="rr-val">$14.74M</div><div class="rr-ad">+$4.21M</div><div class="rr-total">$18.95M total</div></div>
+        <div class="rr-item"><div class="rr-year">2030 · Y4</div><div class="rr-val">$19.48M</div><div class="rr-ad">+$6.19M</div><div class="rr-total">$25.67M total</div></div>
+        <div class="rr-item"><div class="rr-year">2031 · Y5</div><div class="rr-val">$28.29M</div><div class="rr-ad">+$8.62M</div><div class="rr-total"><strong style="color:var(--text);">$36.91M total</strong></div></div>
       </div>
       <div style="display:flex; gap:20px; margin-top:12px; font-size:12px; color:var(--text-muted); flex-wrap:wrap;">
         <span><span style="width:12px; height:12px; background:var(--blue-ink); display:inline-block; vertical-align:middle; margin-right:6px; border-radius:2px;"></span>Parking SOM · v3 penetration engine</span>
-        <span><span style="width:12px; height:12px; background:#E8AF34; display:inline-block; vertical-align:middle; margin-right:6px; border-radius:2px;"></span>SMS ad revenue · low-end benchmarks (activation Y2)</span>
+        <span><span style="width:12px; height:12px; background:#437A22; display:inline-block; vertical-align:middle; margin-right:6px; border-radius:2px;"></span>SMS ad revenue · moderate benchmarks (activation Y2)</span>
       </div>
-      <p style="font-size:12.5px; color:var(--text-faint); margin-top:12px;">Cumulative Y1–Y5 parking $75.52M + SMS ad $7.18M = <strong style="color:var(--text);">$82.70M total</strong>. Full ad-layer model on <a href="./sophi-os.html#revenue" style="color:var(--blue-ink); font-weight:600;">SOPHI OS → Revenue Model</a>. Full portfolio detail on the <a href="./growth-model.html#portfolio" style="color:var(--blue-ink); font-weight:600;">Growth Model</a> page.</p>
+      <p style="font-size:12.5px; color:var(--text-faint); margin-top:12px;">Cumulative Y1–Y5 parking $75.52M + SMS ad $21.27M = <strong style="color:var(--text);">$96.79M total</strong>. Moderate case uses the midpoint of every account-type SMS conversion and average offer-value band (Hotel 26.5% × $30, Fine Dining 22.5% × $23.50, Venue 29% × $32.50, Corporate 21% × $20). Full ad-layer model on <a href="./sophi-os.html#revenue" style="color:var(--blue-ink); font-weight:600;">SOPHI OS → Revenue Model</a>. Full portfolio detail on the <a href="./growth-model.html#portfolio" style="color:var(--blue-ink); font-weight:600;">Growth Model</a> page.</p>
     </section>
 
     <section class="subtab-panel" data-panel="organic-v-v3">
       <div class="section-eyebrow">Two ways to price the same seed</div>
       <div class="card" style="padding: 22px 26px;">
-        <p style="font-size: 14px; line-height: 1.7; color: var(--text-muted); margin: 0 0 18px;">Same $500K, same 10% stake, same 100,000 FDSO. The v3 delta is the six-market acquisition engine priced from the bottom up. The <span style="color:#B25E2E; font-weight:600;">v3 + SMS ad layer</span> column adds the retrieval SMS ad revenue that scales with the same acquired portfolio — conservative low-end base case, activation Y2 at 15K/mo portfolio SMS. Referral revenue held as valuation optionality (not in any column below).</p>
+        <p style="font-size: 14px; line-height: 1.7; color: var(--text-muted); margin: 0 0 18px;">Same $500K, same 10% stake, same 100,000 FDSO. The v3 delta is the six-market acquisition engine priced from the bottom up. The <span style="color:#437A22; font-weight:600;">v3 + SMS ad layer</span> column adds the retrieval SMS ad revenue that scales with the same acquired portfolio at the <strong>moderate case</strong> (midpoint of every account-type conversion and offer-value band), activating Y2 at 15K/mo portfolio SMS. Referral revenue held as valuation optionality (not in any column below).</p>
         <table class="data-table">
           <thead>
             <tr>
@@ -114,16 +115,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>2031 revenue</td><td class="num-col">$11.00M</td><td class="num-col">$28.29M</td><td class="num-col col-ad">$31.20M</td><td class="num-col" style="color:var(--blue-ink); font-weight:600;">+$20.20M</td></tr>
+            <tr><td>2031 revenue</td><td class="num-col">$11.00M</td><td class="num-col">$28.29M</td><td class="num-col col-ad">$36.91M</td><td class="num-col" style="color:var(--blue-ink); font-weight:600;">+$25.91M</td></tr>
             <tr><td>Y5 EBIT margin</td><td class="num-col">25%</td><td class="num-col">25%</td><td class="num-col col-ad">25%</td><td class="num-col">—</td></tr>
-            <tr><td>Y5 EV @ 7× revenue</td><td class="num-col">$77.00M</td><td class="num-col">$198.05M</td><td class="num-col col-ad">$218.43M</td><td class="num-col" style="color:var(--blue-ink); font-weight:600;">+$141.43M</td></tr>
-            <tr><td>DCF equity value · 2031</td><td class="num-col">$12.43M</td><td class="num-col">$36.30M</td><td class="num-col col-ad">$40.03M</td><td class="num-col" style="color:var(--blue-ink); font-weight:600;">+$27.60M</td></tr>
-            <tr><td>Value per share</td><td class="num-col">$124.30</td><td class="num-col">$363.19</td><td class="num-col col-ad">$400.30</td><td class="num-col" style="color:var(--blue-ink); font-weight:600;">+$276.00</td></tr>
-            <tr class="highlight"><td>Seed value at 10%</td><td class="num-col">$1.24M</td><td class="num-col">$3.63M</td><td class="num-col col-ad">$4.00M</td><td class="num-col">+$2.76M</td></tr>
-            <tr><td>MOIC on $500K</td><td class="num-col">2.49×</td><td class="num-col">7.26×</td><td class="num-col col-ad">8.01×</td><td class="num-col">+5.52×</td></tr>
+            <tr><td>Y5 EV @ 7× revenue</td><td class="num-col">$77.00M</td><td class="num-col">$198.05M</td><td class="num-col col-ad">$258.37M</td><td class="num-col" style="color:var(--blue-ink); font-weight:600;">+$181.37M</td></tr>
+            <tr><td>DCF equity value · 2031</td><td class="num-col">$12.43M</td><td class="num-col">$36.30M</td><td class="num-col col-ad">$47.36M</td><td class="num-col" style="color:var(--blue-ink); font-weight:600;">+$34.93M</td></tr>
+            <tr><td>Value per share</td><td class="num-col">$124.30</td><td class="num-col">$363.19</td><td class="num-col col-ad">$473.61</td><td class="num-col" style="color:var(--blue-ink); font-weight:600;">+$349.31</td></tr>
+            <tr class="highlight"><td>Seed value at 10%</td><td class="num-col">$1.24M</td><td class="num-col">$3.63M</td><td class="num-col col-ad">$4.74M</td><td class="num-col">+$3.49M</td></tr>
+            <tr><td>MOIC on $500K</td><td class="num-col">2.49×</td><td class="num-col">7.26×</td><td class="num-col col-ad">9.47×</td><td class="num-col">+6.98×</td></tr>
           </tbody>
         </table>
-        <p style="font-size: 12.5px; color: var(--text-faint); margin: 14px 0 0;">Ad-layer DCF uplift is proportional to the parking DCF at the same 25% EBIT margin and 13.0× terminal multiple: $2.91M ÷ $28.29M × $36.30M = $3.73M added equity value. Same WACC (12%), same discount schedule. Full ad-layer model on <a href="./sophi-os.html#revenue" style="color:var(--blue-ink); font-weight:600;">SOPHI OS → Revenue Model</a>. Organic build-up on the <a href="./organic-valuation.html" style="color:var(--blue-ink); font-weight:600;">Organic Valuation</a> page.</p>
+        <p style="font-size: 12.5px; color: var(--text-faint); margin: 14px 0 0;">Ad-layer DCF uplift is proportional to the parking DCF at the same 25% EBIT margin and 13.0× terminal multiple: $8.62M ÷ $28.29M × $36.30M = $11.06M added equity value. Same WACC (12%), same discount schedule. Moderate case ad revenue = 2.96× the low-end base case (portfolio SMS-mix weighted). Full ad-layer model on <a href="./sophi-os.html#revenue" style="color:var(--blue-ink); font-weight:600;">SOPHI OS → Revenue Model</a>. Organic build-up on the <a href="./organic-valuation.html" style="color:var(--blue-ink); font-weight:600;">Organic Valuation</a> page.</p>
       </div>
     </section>
 
@@ -200,7 +201,7 @@
 
   </main>
 </div>
-<script src="./assets/shell.js?v=20260828e"></script>
+<script src="./assets/shell.js?v=20260828f"></script>
 <script>
   window.SOPHI_SHELL.mount('v3-valuation.html');
   document.querySelectorAll('.subtab').forEach(btn => {

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500;9..144,500,1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/deal-room.css?v=20260828e">
+<link rel="stylesheet" href="./assets/deal-room.css?v=20260828f">
 <style>
   .rev-chart { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 20px 24px; margin-bottom: var(--space-6); }
   .rev-chart .rc-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
@@ -57,8 +57,8 @@
     <div class="kpi-grid">
       <div class="kpi-tile"><div class="kpi-val">$150.3M</div><div class="kpi-label">Portfolio TAM</div><div class="kpi-sub">6 markets · 203 accounts</div></div>
       <div class="kpi-tile"><div class="kpi-val">$57.3M</div><div class="kpi-label">Addressable SAM</div><div class="kpi-sub">38% of TAM · 93 in SAM</div></div>
-      <div class="kpi-tile"><div class="kpi-val">$28.3M</div><div class="kpi-label">Y5 parking SOM</div><div class="kpi-sub">19% TAM · 49% SAM · +$2.9M ad</div></div>
-      <div class="kpi-tile"><div class="kpi-val">$75.5M</div><div class="kpi-label">5-year cum. parking</div><div class="kpi-sub">+$7.2M SMS ad = $82.7M total</div></div>
+      <div class="kpi-tile"><div class="kpi-val">$28.3M</div><div class="kpi-label">Y5 parking SOM</div><div class="kpi-sub">19% TAM · 49% SAM · +$8.6M ad</div></div>
+      <div class="kpi-tile"><div class="kpi-val">$75.5M</div><div class="kpi-label">5-year cum. parking</div><div class="kpi-sub">+$21.3M SMS ad = $96.8M total</div></div>
     </div>
 
     <div class="rev-chart">
@@ -70,64 +70,64 @@
         <!-- Axes -->
         <line x1="60" y1="270" x2="720" y2="270" stroke="#E7E5E0" stroke-width="1"/>
         <line x1="60" y1="20" x2="60" y2="270" stroke="#E7E5E0" stroke-width="1"/>
-        <!-- Y gridlines + labels (scale: $35M max, y = 270 - (val/35)*250) -->
+        <!-- Y gridlines + labels (scale: $40M max, y = 270 - (val/40)*250) -->
         <g font-family="JetBrains Mono, monospace" font-size="10" fill="#8A857F">
-          <line x1="60" y1="20" x2="720" y2="20" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="24" text-anchor="end">$35M</text>
-          <line x1="60" y1="56" x2="720" y2="56" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="60" text-anchor="end">$30M</text>
-          <line x1="60" y1="127" x2="720" y2="127" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="131" text-anchor="end">$20M</text>
-          <line x1="60" y1="199" x2="720" y2="199" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="203" text-anchor="end">$10M</text>
+          <line x1="60" y1="20" x2="720" y2="20" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="24" text-anchor="end">$40M</text>
+          <line x1="60" y1="82.5" x2="720" y2="82.5" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="86" text-anchor="end">$30M</text>
+          <line x1="60" y1="145" x2="720" y2="145" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="149" text-anchor="end">$20M</text>
+          <line x1="60" y1="207.5" x2="720" y2="207.5" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="211" text-anchor="end">$10M</text>
           <text x="52" y="274" text-anchor="end">$0</text>
         </g>
         <!-- Actual/Modeled divider at 2026 -->
         <line x1="170" y1="20" x2="170" y2="270" stroke="#D6D3CC" stroke-width="1" stroke-dasharray="4 4"/>
         <text x="128" y="15" font-family="Inter, sans-serif" font-size="10" fill="#8A857F">actual</text>
         <text x="180" y="15" font-family="Inter, sans-serif" font-size="10" fill="#8A857F">modeled</text>
-        <!-- Ad layer band (gold) — filled area BETWEEN v3 parking and v3+ad total, drawn first so lines sit on top -->
-        <!-- v3 parking (bottom of ad band): 170,260 280,241 390,206 500,165 610,131 720,68 -->
-        <!-- v3+ad total (top of ad band):   170,260 280,241 390,200 500,155 610,116 720,47 -->
-        <polygon points="170,260 280,241 390,200 500,155 610,116 720,47 720,68 610,131 500,165 390,206 280,241 170,260" fill="rgba(232,175,52,0.28)" stroke="none"/>
+        <!-- Ad layer band (green) — filled area BETWEEN v3 parking and v3+ad total (moderate) -->
+        <!-- v3 parking (bottom of band): 170,261 280,245 390,214 500,178 610,148 720,93 -->
+        <!-- v3+ad total (top of band):   170,261 280,245 390,200 500,152 610,110 720,39 -->
+        <polygon points="170,261 280,245 390,200 500,152 610,110 720,39 720,93 610,148 500,178 390,214 280,245 170,261" fill="rgba(67,122,34,0.20)" stroke="none"/>
         <!-- Organic line (blue) 2026A→2031: 1.38 1.72 2.10 3.70 6.50 11.00 -->
-        <polyline points="170,260 280,258 390,255 500,244 610,224 720,191" fill="none" stroke="#38B6FF" stroke-width="2.5" stroke-linejoin="round"/>
-        <polygon points="170,260 280,258 390,255 500,244 610,224 720,191 720,270 170,270" fill="rgba(56,182,255,0.06)"/>
-        <!-- v3 parking line (peach/orange) 2027→2031: 4.02 9.00 14.74 19.48 28.29 -->
-        <polyline points="170,260 280,241 390,206 500,165 610,131 720,68" fill="none" stroke="#DA7101" stroke-width="2.5" stroke-linejoin="round"/>
-        <!-- v3 + SMS ad total line (gold) 2027→2031: 4.02 9.75 16.16 21.57 31.20 -->
-        <polyline points="170,260 280,241 390,200 500,155 610,116 720,47" fill="none" stroke="#B25E2E" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="1 0"/>
+        <polyline points="170,261 280,259 390,257 500,247 610,229 720,201" fill="none" stroke="#38B6FF" stroke-width="2.5" stroke-linejoin="round"/>
+        <polygon points="170,261 280,259 390,257 500,247 610,229 720,201 720,270 170,270" fill="rgba(56,182,255,0.06)"/>
+        <!-- v3 parking line (orange) 2027→2031: 4.02 9.00 14.74 19.48 28.29 -->
+        <polyline points="170,261 280,245 390,214 500,178 610,148 720,93" fill="none" stroke="#DA7101" stroke-width="2.5" stroke-linejoin="round"/>
+        <!-- v3 + SMS ad total line (green) 2027→2031: 4.02 11.25 18.95 25.67 36.91 (moderate case) -->
+        <polyline points="170,261 280,245 390,200 500,152 610,110 720,39" fill="none" stroke="#437A22" stroke-width="2.5" stroke-linejoin="round"/>
         <!-- Data points -->
         <g fill="#38B6FF">
-          <circle cx="170" cy="260" r="3.5"/><circle cx="280" cy="258" r="3.5"/><circle cx="390" cy="255" r="3.5"/><circle cx="500" cy="244" r="3.5"/><circle cx="610" cy="224" r="3.5"/><circle cx="720" cy="191" r="3.5"/>
+          <circle cx="170" cy="261" r="3.5"/><circle cx="280" cy="259" r="3.5"/><circle cx="390" cy="257" r="3.5"/><circle cx="500" cy="247" r="3.5"/><circle cx="610" cy="229" r="3.5"/><circle cx="720" cy="201" r="3.5"/>
         </g>
         <g fill="#DA7101">
-          <circle cx="280" cy="241" r="3.5"/><circle cx="390" cy="206" r="3.5"/><circle cx="500" cy="165" r="3.5"/><circle cx="610" cy="131" r="3.5"/><circle cx="720" cy="68" r="3.5"/>
+          <circle cx="280" cy="245" r="3.5"/><circle cx="390" cy="214" r="3.5"/><circle cx="500" cy="178" r="3.5"/><circle cx="610" cy="148" r="3.5"/><circle cx="720" cy="93" r="3.5"/>
         </g>
-        <g fill="#B25E2E">
-          <circle cx="390" cy="200" r="3.5"/><circle cx="500" cy="155" r="3.5"/><circle cx="610" cy="116" r="3.5"/><circle cx="720" cy="47" r="3.5"/>
+        <g fill="#437A22">
+          <circle cx="390" cy="200" r="3.5"/><circle cx="500" cy="152" r="3.5"/><circle cx="610" cy="110" r="3.5"/><circle cx="720" cy="39" r="3.5"/>
         </g>
         <!-- Point labels -->
         <g font-family="JetBrains Mono, monospace" font-size="10.5" fill="#38B6FF" font-weight="500">
-          <text x="170" y="275" text-anchor="middle">$1.38M</text>
-          <text x="280" y="254" text-anchor="middle">$1.72M</text>
-          <text x="390" y="251" text-anchor="middle">$2.10M</text>
-          <text x="500" y="240" text-anchor="middle">$3.70M</text>
-          <text x="610" y="220" text-anchor="middle">$6.50M</text>
+          <text x="170" y="276" text-anchor="middle">$1.38M</text>
+          <text x="280" y="255" text-anchor="middle">$1.72M</text>
+          <text x="390" y="253" text-anchor="middle">$2.10M</text>
+          <text x="500" y="243" text-anchor="middle">$3.70M</text>
+          <text x="610" y="225" text-anchor="middle">$6.50M</text>
         </g>
         <g font-family="JetBrains Mono, monospace" font-size="10" fill="#DA7101" font-weight="500">
-          <text x="280" y="233" text-anchor="middle">$4.02M</text>
-          <text x="390" y="219" text-anchor="middle">$9.00M</text>
-          <text x="500" y="178" text-anchor="middle">$14.74M</text>
-          <text x="610" y="144" text-anchor="middle">$19.48M</text>
+          <text x="280" y="237" text-anchor="middle">$4.02M</text>
+          <text x="390" y="228" text-anchor="middle">$9.00M</text>
+          <text x="500" y="192" text-anchor="middle">$14.74M</text>
+          <text x="610" y="162" text-anchor="middle">$19.48M</text>
         </g>
-        <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#B25E2E" font-weight="600">
-          <text x="390" y="193" text-anchor="middle">+$0.76M</text>
-          <text x="500" y="148" text-anchor="middle">+$1.42M</text>
-          <text x="610" y="109" text-anchor="middle">+$2.09M</text>
+        <g font-family="JetBrains Mono, monospace" font-size="9.5" fill="#437A22" font-weight="600">
+          <text x="390" y="193" text-anchor="middle">+$2.25M</text>
+          <text x="500" y="145" text-anchor="middle">+$4.21M</text>
+          <text x="610" y="103" text-anchor="middle">+$6.19M</text>
         </g>
         <!-- End labels (in the right pad of the viewBox) -->
-        <text x="732" y="189" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#38B6FF">$11.00M</text>
-        <text x="732" y="203" font-family="Inter, sans-serif" font-size="10.5" fill="#8A857F">organic</text>
-        <text x="732" y="84" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#DA7101">$28.29M</text>
-        <text x="732" y="98" font-family="Inter, sans-serif" font-size="10.5" fill="#8A857F">v3 parking</text>
-        <text x="732" y="37" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#B25E2E">$31.20M</text>
+        <text x="732" y="199" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#38B6FF">$11.00M</text>
+        <text x="732" y="213" font-family="Inter, sans-serif" font-size="10.5" fill="#8A857F">organic</text>
+        <text x="732" y="91" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#DA7101">$28.29M</text>
+        <text x="732" y="105" font-family="Inter, sans-serif" font-size="10.5" fill="#8A857F">v3 parking</text>
+        <text x="732" y="37" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#437A22">$36.91M</text>
         <text x="732" y="51" font-family="Inter, sans-serif" font-size="10.5" fill="#8A857F">v3 + SMS ad</text>
         <!-- X labels -->
         <g font-family="Inter, sans-serif" font-size="10.5" fill="#4A4744">
@@ -142,10 +142,10 @@
       <div class="rc-legend">
         <span><span class="swatch" style="background:#38B6FF"></span>Organic — Blend Wealth 5-year P&amp;L, gross revenue</span>
         <span><span class="swatch" style="background:#DA7101"></span>v3 parking SOM — penetration engine, six markets</span>
-        <span><span class="swatch" style="background:#B25E2E"></span>v3 + SMS ad revenue — layered on the same portfolio</span>
+        <span><span class="swatch" style="background:#437A22"></span>v3 + SMS ad revenue — moderate case, layered on portfolio</span>
       </div>
       <p class="rc-note">
-        Three curves, one 2026 anchor ($1.38M actual). The <strong>organic</strong> line is SOPHI's own P&amp;L projection at 51.4% revenue CAGR on 15 markets by 2031. The <strong>v3 parking</strong> line is the six-market SOM with acquisition years Y1–Y5 anchored to 2027–2031. The <strong>v3 + SMS ad</strong> line rides on top — SMS retrieval ad revenue scaling with the same acquired portfolio, activating in Y2 at 15K/mo portfolio SMS. Gold band = ad-layer contribution. Full model on <a href="./sophi-os.html#revenue" style="color:var(--blue-ink); font-weight:600;">SOPHI OS → Revenue Model</a>.
+        Three curves, one 2026 anchor ($1.38M actual). The <strong>organic</strong> line is SOPHI's own P&amp;L projection at 51.4% revenue CAGR on 15 markets by 2031. The <strong>v3 parking</strong> line is the six-market SOM with acquisition years Y1–Y5 anchored to 2027–2031. The <strong>v3 + SMS ad</strong> line rides on top — SMS retrieval ad revenue at the <strong>moderate case</strong> (midpoint of every account-type conversion and offer-value band), scaling with the same acquired portfolio and activating in Y2 at 15K/mo portfolio SMS. Green band = ad-layer contribution. Full model on <a href="./sophi-os.html#revenue" style="color:var(--blue-ink); font-weight:600;">SOPHI OS → Revenue Model</a>.
       </p>
     </div>
 
@@ -175,7 +175,7 @@
 
   </main>
 </div>
-<script src="./assets/shell.js?v=20260828e"></script>
+<script src="./assets/shell.js?v=20260828f"></script>
 <script>window.SOPHI_SHELL.mount('summary.html');</script>
 </body>
 </html>
