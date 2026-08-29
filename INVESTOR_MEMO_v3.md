@@ -1,9 +1,10 @@
 # Sophi Mobility — Investor Memo
 
-**Subject:** v3 Penetration Model — methodology summary and five-year SOM
+**Subject:** v3 Penetration Model — methodology summary, five-year SOM, and seed-round returns
 **From:** Joshua Casey, Sophi Mobility (jcasey@sophimobility.com)
-**Date:** April 30, 2026
+**Date:** April 30, 2026 · updated August 29, 2026
 **Live model:** https://joshuapcasey.github.io/sophi-market-map/
+**Deal room:** https://joshuapcasey.github.io/sophi-deal-room/
 
 ---
 
@@ -12,6 +13,8 @@
 We rebuilt the SOM model from the ground up. The TAM ($150.35M across six markets) and SAM ($57.27M / 93 accounts) are unchanged. What changed is **how we model winning those accounts**: instead of every in-SAM account contributing a fractional ramp, each account now has a binary acquisition year governed by a credibility-weighted penetration engine — operator gates, ownership-group multipliers, and conservative per-market caps.
 
 The result is a more defensible curve: lower in Y1 (we don't book revenue from accounts we haven't won), heavier in Y4–Y5 (full-TAM accrual from the day we win), and a five-year cumulative SOM of **$75.52M** with a **$28.29M Y5 run-rate** off only **34 of 93 in-SAM accounts won** — leaving 59 accounts of remaining runway in the same six markets.
+
+Against that Y5 revenue, we're raising **$500K at $4.5M pre / $5.0M post** for a **10% seed**. The DCF against the v3 Y5 P&L values the seed at **$3.63M (7.26× MOIC, 48.7% IRR)** over a 5-year hold; the SP+ trading-comp floor still returns **~4× at 31.7% IRR**. Full scenario table further down.
 
 ---
 
@@ -93,6 +96,66 @@ The Y5 step-up reflects two things: (a) Charlotte and Indianapolis approaching t
 **Y5 run-rate ($28.3M) is the headline metric.** It compounds beyond the five-year window, it's a clean ARR analog for parking-management software-plus-operations economics, and it's tied to a known account list — every dollar in that number is a named property with a documented gate and group history.
 
 **Cleveland is small and we're documenting it honestly.** With 8 in-SAM accounts and Propark dominance, Cleveland comes in at $720K cumulative. We could soften the gate model to lift Cleveland; we chose not to. The credibility cost of one underperforming small market is far lower than the credibility cost of a model that hides its assumptions.
+
+---
+
+## Seed round terms and return scenarios
+
+*Added August 29, 2026 to reconcile the returns math against the v3 Y5 numbers above. Live version with sensitivity tables lives on the deal room's [Growth Valuation → Cap Table & Returns](https://joshuapcasey.github.io/sophi-deal-room/v3-valuation.html#cap) tab.*
+
+### Terms
+
+| Item | Value |
+|---|---|
+| Raise | $500K |
+| Pre-money | $4.50M ($45.00 / share) |
+| Post-money | $5.00M (100,000 FDSO) |
+| Seed equity | 10% (11,111 shares) |
+| Instrument | Priced round OR post-money SAFE @ $5M cap |
+| Minimum check | $25K (555 shares) |
+| Hold assumption (base) | 5 years — Jan 2027 close through end of 2031 |
+
+### Valuation anchors
+
+The DCF anchor uses WACC 12%, terminal growth 3%, and a 13.0× terminal EBITDA multiple against the Y5 v3 P&L ($28.29M revenue, 25% EBIT). That produces **$36.30M equity value at end of 2031**. Adding the SMS retrieval ad layer (moderate case, $8.62M Y5) lifts equity to **$47.36M**.
+
+### Return scenarios · $500K seed at 10% · 5-year hold
+
+| Scenario | Exit equity | Seed value | MOIC | IRR |
+|---|---|---|---|---|
+| Downside — miss Y5 by one year | $3.89M | $389K | 0.78× | **−4.8%** |
+| Entry at cost ($45/share) | $5.00M | $500K | 1.00× | 0.0% |
+| SP+ trading comp · 0.7× revenue | $19.80M | $1.98M | 3.96× | **31.7%** |
+| **v3 DCF anchor — parking only (base case)** | **$36.30M** | **$3.63M** | **7.26×** | **48.7%** |
+| **v3 DCF anchor — parking + SMS ad layer** | **$47.36M** | **$4.74M** | **9.47×** | **56.8%** |
+| NAICS median · 1.7× revenue | $48.09M | $4.81M | 9.62× | 57.3% |
+
+IRR = MOIC^(1/years) − 1, assuming single-shot exit at end of 2031. No interim distributions modeled.
+
+### The two numbers that matter for the underwriting decision
+
+**Base case: 7.26× / 48.7% IRR.** This is the DCF against the v3 Y5 P&L above. It's the number the round is priced against, and it's what an underwriting file should carry.
+
+**Downside protection: 3.96× / 31.7% IRR at the SP+ trading comp.** If SOPHI hits Y5 revenue but the market prices it as commodity parking services rather than as a services-plus-software business, the seed still returns roughly 4× at ~32% IRR. That's the floor the model can defend, not the ceiling it hopes for.
+
+The **v3 + SMS ad layer** case (9.47× / 56.8% IRR) is the base case with one revenue stream added back in — it's already inside the sales pipeline, it just isn't priced into the DCF anchor. Treat it as upside, not as the underwriting target.
+
+### Hold-period sensitivity · v3 DCF anchor (7.26× MOIC)
+
+| Hold | Exit year | IRR | What triggers it |
+|---|---|---|---|
+| 4 years | Y4 (2030) | 64.1% | Strategic acquirer arrives early (Metropolis-scale, PE roll-up) |
+| **5 years (base)** | **Y5 (2031)** | **48.7%** | Priced against the Y5 v3 P&L — the underwriting number |
+| 6 years | Y6 (2032) | 39.2% | Series A executes, seed rides through — same equity, longer hold |
+| 7 years | Y7 (2033) | 32.7% | Strategic exit slips or IPO path opens |
+
+The seed is priced on the 5-year assumption. Anything faster is upside from a strategic acquirer showing up early; anything slower is still a healthy IRR relative to how most seed rounds resolve.
+
+### Path to Series A
+
+At end of Y2 (Dec 2028), SOPHI is at $9.0M+ revenue run-rate with $5.19M cash on the balance sheet (see the deal room's [Cash Model](https://joshuapcasey.github.io/sophi-deal-room/cash-model.html)) and 12 accounts won across the six-market portfolio. That's the position from which the Series A is raised — targeted at $8–15M on a $20–35M pre-money range (7–13× revenue). Seed dilution at Series A is modeled at 15–20% depending on round size.
+
+The seed doesn't need to bridge to a Series A of desperation. The operating cash flow does that on its own.
 
 ---
 
