@@ -60,7 +60,7 @@
         <div class="hc-metric white"><div class="hc-val">$363.19</div><div class="hc-lbl">DCF value per share</div></div>
       </div>
       <p class="hc-note">
-        Six-market SOM build totalling $75.52M cumulative Y1–Y5 revenue against a $57.27M SAM and $150.35M TAM. EV cross-checks: 0.7× revenue = $19.80M · 1.7× revenue = $48.09M · DCF anchor = $36.30M. Same $500K seed at 10% is worth $3.63M at DCF — 7.26× MOIC.
+        Six-market SOM build totalling $75.52M cumulative Y1–Y5 revenue against a $57.27M SAM and $150.35M TAM. EV cross-checks: 0.7× revenue = $19.80M · 1.7× revenue = $48.09M · DCF anchor = $36.30M. Same $500K seed at 10% is worth $3.63M at DCF — <strong>7.26× MOIC ≡ 48.7% IRR over the 5-year hold</strong>. Adding the SMS ad layer takes the seed to $4.74M — <strong>9.47× MOIC ≡ 56.8% IRR</strong>.
       </p>
     </div>
 
@@ -182,12 +182,46 @@
         </table>
       </div>
 
-      <div class="section-eyebrow">Return analysis · $500K seed at 10%</div>
+      <div class="section-eyebrow">Return analysis · $500K seed at 10% · 5-year hold to end of 2031</div>
       <div class="grid-4" style="grid-template-columns: repeat(4, 1fr);">
         <div class="kpi-tile"><div class="kpi-val">$3.63M</div><div class="kpi-label">Seed value at DCF</div><div class="kpi-sub">10% × $36.30M equity</div></div>
-        <div class="kpi-tile"><div class="kpi-val">7.26×</div><div class="kpi-label">MOIC</div><div class="kpi-sub">$3.63M ÷ $500K</div></div>
-        <div class="kpi-tile"><div class="kpi-val">$4.81M</div><div class="kpi-label">Value at 1.7× rev</div><div class="kpi-sub">Seed at NAICS median</div></div>
-        <div class="kpi-tile"><div class="kpi-val">9.60×</div><div class="kpi-label">Return · 1.7× rev</div><div class="kpi-sub">Upside case on comps</div></div>
+        <div class="kpi-tile"><div class="kpi-val">7.26×</div><div class="kpi-label">MOIC · v3 DCF</div><div class="kpi-sub">$3.63M ÷ $500K</div></div>
+        <div class="kpi-tile"><div class="kpi-val">48.7%</div><div class="kpi-label">IRR · v3 DCF</div><div class="kpi-sub">(7.26×)^(1/5) − 1</div></div>
+        <div class="kpi-tile" style="background:var(--accent-soft); border-color:var(--accent);"><div class="kpi-val" style="color:var(--blue-ink);">56.8%</div><div class="kpi-label" style="color:var(--blue-ink);">IRR · v3 + SMS ad</div><div class="kpi-sub">9.47× MOIC to $4.74M</div></div>
+      </div>
+
+      <div class="section-eyebrow" style="margin-top:24px;">IRR by scenario · same $500K seed, same 5-year hold</div>
+      <div class="card">
+        <table class="data-table">
+          <thead>
+            <tr><th>Scenario</th><th class="num-col">Exit equity value</th><th class="num-col">Seed value (10%)</th><th class="num-col">MOIC</th><th class="num-col">IRR</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Downside — miss Y5 by one year</td><td class="num-col">$3.89M</td><td class="num-col">$389K</td><td class="num-col">0.78×</td><td class="num-col" style="color:#B25E2E;">−4.8%</td></tr>
+            <tr><td>Entry price · at cost ($45/share)</td><td class="num-col">$5.00M</td><td class="num-col">$500K</td><td class="num-col">1.00×</td><td class="num-col">0.0%</td></tr>
+            <tr><td>SP+ trading comp · 0.7× revenue</td><td class="num-col">$19.80M</td><td class="num-col">$1.98M</td><td class="num-col">3.96×</td><td class="num-col">31.7%</td></tr>
+            <tr class="highlight"><td><strong>DCF anchor — v3 parking only</strong> (base case)</td><td class="num-col">$36.30M</td><td class="num-col">$3.63M</td><td class="num-col">7.26×</td><td class="num-col"><strong>48.7%</strong></td></tr>
+            <tr class="highlight"><td><strong>DCF anchor — v3 + SMS ad layer</strong></td><td class="num-col">$47.36M</td><td class="num-col">$4.74M</td><td class="num-col">9.47×</td><td class="num-col"><strong>56.8%</strong></td></tr>
+            <tr><td>NAICS median · 1.7× revenue</td><td class="num-col">$48.09M</td><td class="num-col">$4.81M</td><td class="num-col">9.62×</td><td class="num-col">57.3%</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size: 12.5px; color: var(--text-faint); margin: 14px 0 0;">IRR = MOIC^(1/years) − 1, assuming single-shot exit at end of 2031 (5-year hold from Jan 2027 close). No interim distributions modeled. Downside scenario carried over from the Organic Valuation page for continuity — the v3 case doesn't have a symmetric downside because binary account acquisition either wins or waits, it doesn't produce partial-credit revenue.</p>
+      </div>
+
+      <div class="section-eyebrow" style="margin-top:24px;">IRR sensitivity to hold period · v3 DCF anchor (7.26×)</div>
+      <div class="card">
+        <table class="data-table">
+          <thead>
+            <tr><th>Hold period</th><th class="num-col">Exit year</th><th class="num-col">MOIC</th><th class="num-col">IRR</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>4 years</td><td class="num-col">Y4 (2030)</td><td class="num-col">7.26×</td><td class="num-col" style="color:#437A22; font-weight:600;">64.1%</td><td>Early exit before Y5 SMS-ad ramp — needs a strategic buyer</td></tr>
+            <tr class="highlight"><td>5 years <strong>(base)</strong></td><td class="num-col">Y5 (2031)</td><td class="num-col">7.26×</td><td class="num-col"><strong>48.7%</strong></td><td>Priced against the Y5 P&amp;L in the DCF; the number the round is underwritten to</td></tr>
+            <tr><td>6 years</td><td class="num-col">Y6 (2032)</td><td class="num-col">7.26×</td><td class="num-col">39.2%</td><td>Series A executes, seed rides through — same terminal equity, longer hold</td></tr>
+            <tr><td>7 years</td><td class="num-col">Y7 (2033)</td><td class="num-col">7.26×</td><td class="num-col">32.7%</td><td>Longer hold if strategic exit slips or IPO path opens</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size: 12.5px; color: var(--text-faint); margin: 14px 0 0;">Same terminal equity value ($36.30M), spread over different hold periods. The seed is priced on the 5-year assumption; anything faster is upside from a strategic acquirer arriving early.</p>
       </div>
     </section>
 
