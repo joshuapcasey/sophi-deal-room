@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Use of Funds — SOPHI Investor Deal Room</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/deal-room.css?v=20260828f">
+<style>
+  .alloc-bar { display: flex; height: 44px; border-radius: 8px; overflow: hidden; margin: 8px 0 10px; border: 1px solid var(--border); }
+  .alloc-bar .ab-seg { display: flex; align-items: center; justify-content: center; font: 700 12px/1 var(--font-body); color: #fff; padding: 0 10px; white-space: nowrap; }
+  .alloc-legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 12px; color: var(--text-muted); margin-bottom: 22px; }
+  .alloc-legend .al-item { display: flex; align-items: center; gap: 8px; }
+  .alloc-legend .al-sw { width: 14px; height: 14px; border-radius: 3px; }
+  .use-table { width: 100%; border-collapse: collapse; margin-top: 8px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; }
+  .use-table th, .use-table td { padding: 12px 16px; font-size: 13px; text-align: left; vertical-align: top; }
+  .use-table thead th { font: 700 10.5px/1.4 var(--font-body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); border-bottom: 1px solid var(--border); background: var(--bg); }
+  .use-table th.num, .use-table td.num { text-align: right; font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; }
+  .use-table tbody td { border-bottom: 1px solid var(--border); color: var(--text-strong); }
+  .use-table tbody tr:last-child td { border-bottom: none; }
+  .use-table tbody tr.total td { background: var(--accent-soft); font-weight: 700; color: var(--blue-ink); }
+  .use-table .cat-tag { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 8px; vertical-align: middle; }
+  .use-table .rationale { color: var(--text-muted); font-size: 12px; line-height: 1.55; margin-top: 3px; }
+
+  .milestone-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  @media (max-width: 900px) { .milestone-grid { grid-template-columns: 1fr; } }
+  .ms-card { background: var(--bg-elev); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius-s); padding: 16px 18px; }
+  .ms-card .ms-eyebrow { font: 700 10px/1.4 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-ink); margin-bottom: 6px; }
+  .ms-card h4 { font-size: 14px; font-weight: 600; margin: 0 0 6px; color: var(--text-strong); }
+  .ms-card .ms-when { font-family: var(--font-mono); font-size: 11.5px; color: var(--text-faint); margin-bottom: 8px; }
+  .ms-card p { font-size: 12.5px; line-height: 1.6; color: var(--text-muted); margin: 0; }
+
+  .runway-note { background: var(--bg-elev); border: 1px solid var(--border); border-left: 3px solid #437A22; border-radius: var(--radius-s); padding: 16px 20px; margin-top: 20px; font-size: 13px; line-height: 1.6; color: var(--text-muted); }
+  .runway-note strong { color: var(--text-strong); }
+
+  .not-fund { background: #FEF6EC; border: 1px solid #F0D9B3; border-radius: var(--radius-s); padding: 14px 18px; margin-top: 18px; font-size: 12.5px; color: #6B4A1A; line-height: 1.6; }
+  .not-fund strong { color: #3D2A0A; }
+</style>
+</head>
+<body>
+<div class="watermark" data-mark="CONFIDENTIAL · partner@fund.com    CONFIDENTIAL · partner@fund.com"></div>
+<div class="app-shell">
+  <aside class="side-nav" id="side-nav"></aside>
+  <main class="main" style="position:relative; z-index:2;">
+
+    <header class="page-header">
+      <div class="ph-icon" style="background:#E8F4FF; color:#0B5394;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><circle cx="8" cy="8" r="5"/><circle cx="15" cy="15" r="5"/><path d="M8 5v6M6 8h4M15 12v6M13 15h4"/></svg>
+      </div>
+      <div class="ph-body">
+        <div class="ph-eyebrow">The Deal</div>
+        <h1 class="ph-title">Use of funds.<br>$500K allocated to countable milestones.</h1>
+        <p class="ph-lede">
+          Every dollar tied to a specific outcome the round unlocks by end of Y2. No "general working capital." No "team expansion." Each allocation names the seat, the market, the milestone, and the risk it retires.
+        </p>
+      </div>
+    </header>
+
+    <div class="kpi-grid">
+      <div class="kpi-tile"><div class="kpi-val">$500K</div><div class="kpi-label">Total raise</div><div class="kpi-sub">10% seed equity</div></div>
+      <div class="kpi-tile"><div class="kpi-val">24 mo</div><div class="kpi-label">Runway extension</div><div class="kpi-sub">Y1–Y2 execution window</div></div>
+      <div class="kpi-tile"><div class="kpi-val">2</div><div class="kpi-label">New markets</div><div class="kpi-sub">Denver + Indianapolis</div></div>
+      <div class="kpi-tile"><div class="kpi-val">12</div><div class="kpi-label">Accounts won by Y2</div><div class="kpi-sub">Six-market portfolio</div></div>
+    </div>
+
+    <div class="section-eyebrow" style="margin-top:28px;">Allocation · $500K across five buckets</div>
+
+    <div class="alloc-bar">
+      <div class="ab-seg" style="background:#0B5394; flex:36;">36% · Market launch</div>
+      <div class="ab-seg" style="background:#DA7101; flex:28;">28% · Product / Hub</div>
+      <div class="ab-seg" style="background:#437A22; flex:16;">16% · GTM</div>
+      <div class="ab-seg" style="background:#7C3AED; flex:12;">12% · Compliance</div>
+      <div class="ab-seg" style="background:#8A857F; flex:8;">8% · Reserve</div>
+    </div>
+    <div class="alloc-legend">
+      <div class="al-item"><span class="al-sw" style="background:#0B5394;"></span>Market launch · $180K</div>
+      <div class="al-item"><span class="al-sw" style="background:#DA7101;"></span>Product & Hub · $140K</div>
+      <div class="al-item"><span class="al-sw" style="background:#437A22;"></span>GTM & sales · $80K</div>
+      <div class="al-item"><span class="al-sw" style="background:#7C3AED;"></span>Legal & compliance · $60K</div>
+      <div class="al-item"><span class="al-sw" style="background:#8A857F;"></span>Working capital reserve · $40K</div>
+    </div>
+
+    <table class="use-table">
+      <thead>
+        <tr>
+          <th style="width:26%;">Bucket</th>
+          <th class="num" style="width:12%;">$</th>
+          <th class="num" style="width:8%;">%</th>
+          <th style="width:54%;">What it funds · milestone linkage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="cat-tag" style="background:#0B5394;"></span><strong>Market launch</strong><div class="rationale">Denver + Indianapolis orchestration seats, first shift infrastructure, initial hiring.</div></td>
+          <td class="num">$180K</td>
+          <td class="num">36%</td>
+          <td>
+            <strong>Denver Market Officer</strong> ($75K partial-year, G&amp;G anchor drives revenue offset in H2 2027) · <strong>Indianapolis Sr. AE</strong> ($55K partial-year, V7 hometown warm-start) · initial attendant hiring, uniforms, equipment for 2 markets ($30K) · site setup + brand launch per market ($20K).
+            <div class="rationale">Retires <a href="./risk-milestones.html" style="color:var(--blue-ink); font-weight:600;">Risk #2 — Triumvirate</a> in the two new markets. Unlocks $9.0M v3 parking SOM by Y2.</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="cat-tag" style="background:#DA7101;"></span><strong>Product &amp; Hub</strong><div class="rationale">Ship Hub MVP May 1, deploy to 2 sites, first licensing demos.</div></td>
+          <td class="num">$140K</td>
+          <td class="num">28%</td>
+          <td>
+            <strong>Bryce (CTO) full-time ramp</strong> ($90K partial-year to convert from split time) · contract engineering for Hub v1 completion ($30K) · infrastructure, integrations, tooling ($20K).
+            <div class="rationale">Retires <a href="./risk-milestones.html" style="color:var(--blue-ink); font-weight:600;">Risk #3 — Hub MVP</a>. Unlocks OS ARR path (first 3 paying licensing contracts by Y2).</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="cat-tag" style="background:#437A22;"></span><strong>GTM &amp; sales</strong><div class="rationale">Pipeline generation, licensing sales motion, marketing infrastructure.</div></td>
+          <td class="num">$80K</td>
+          <td class="num">16%</td>
+          <td>
+            Outbound tooling + CRM ($15K) · targeted vertical marketing for Denver hospitality &amp; Indy healthcare ($25K) · fractional GTM operator to build licensing playbook ($30K) · trade-show presence at 2 hospitality ops conferences ($10K).
+            <div class="rationale">Retires <a href="./risk-milestones.html" style="color:var(--blue-ink); font-weight:600;">Risk #4 — Licensing GTM</a>. Feeds the $10K MRR-by-month-12 target.</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="cat-tag" style="background:#7C3AED;"></span><strong>Legal &amp; compliance</strong><div class="rationale">Per-market labor counsel, insurance uplift, corporate hygiene.</div></td>
+          <td class="num">$60K</td>
+          <td class="num">12%</td>
+          <td>
+            Jurisdiction-specific labor counsel (CO, IN) ($20K) · umbrella + garage-keeper insurance uplift for new markets ($20K) · Series A-ready diligence prep — clean audits, corporate records, cap-table administration ($20K).
+            <div class="rationale">Retires <a href="./risk-milestones.html" style="color:var(--blue-ink); font-weight:600;">Risk #5 &amp; #9</a>. Enables clean legal representation at Series A.</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="cat-tag" style="background:#8A857F;"></span><strong>Working capital reserve</strong><div class="rationale">9-month minimum cash floor buffer.</div></td>
+          <td class="num">$40K</td>
+          <td class="num">8%</td>
+          <td>
+            Cash floor cushion — reserved to hold runway above 9 months at all times (see <a href="./cash-model.html" style="color:var(--blue-ink); font-weight:600;">Cash Model</a>). Released to product or market launch if the Charlotte revenue plan lands ahead of forecast.
+            <div class="rationale">Retires <a href="./risk-milestones.html" style="color:var(--blue-ink); font-weight:600;">Risk #6 — Bridge capital</a>. Keeps SOPHI raising from momentum, not urgency.</div>
+          </td>
+        </tr>
+        <tr class="total">
+          <td><strong>Total raise</strong></td>
+          <td class="num"><strong>$500,000</strong></td>
+          <td class="num"><strong>100%</strong></td>
+          <td><strong>Bridges SOPHI from 2026 close through end of 2028 (Y2).</strong> Every dollar tied to a milestone in <a href="./risk-milestones.html" style="color:var(--blue-ink); font-weight:600;">Risk Mitigating Milestones</a>.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="not-fund">
+      <strong>What this round does NOT fund:</strong> Joshua's CoStar exit (funded from SOPHI cash flow once revenue coverage hits 80% — see Risk #10) · hospital-vertical expansion, airport concessions, SpotHero arbitrage (all held as post-Series A optionality) · Phoenix / Cleveland / Louisville market launches (Y3+ from operating cash flow) · founder salary above current draw.
+    </div>
+
+    <div class="section-eyebrow" style="margin-top:28px;">Milestones this round unlocks · countable by end of Y2 (Dec 2028)</div>
+    <div class="milestone-grid">
+      <div class="ms-card">
+        <div class="ms-eyebrow">Market</div>
+        <h4>Denver + Indianapolis launched</h4>
+        <div class="ms-when">Target · Q2–Q3 2027</div>
+        <p>Both markets have a Market Officer + Sr. AE in seat before first shift. Denver anchored by G&amp;G. Indianapolis anchored by V7 hometown pipeline.</p>
+      </div>
+      <div class="ms-card">
+        <div class="ms-eyebrow">Product</div>
+        <h4>Hub MVP live on ≥2 sites</h4>
+        <div class="ms-when">Target · May 1, 2027</div>
+        <p>Zero P0/P1 bugs at day 30 · ≥85% shift adoption · at least one licensing prospect has seen a live demo. Retires Risk #3.</p>
+      </div>
+      <div class="ms-card">
+        <div class="ms-eyebrow">Revenue</div>
+        <h4>$9.0M v3 parking SOM · Y2</h4>
+        <div class="ms-when">Target · full-year 2028</div>
+        <p>Six-market model Y2: 12 accounts won (Charlotte carry + Denver anchor + Indy warm-start). Base ramp for the Y5 $28.3M target.</p>
+      </div>
+      <div class="ms-card">
+        <div class="ms-eyebrow">Licensing</div>
+        <h4>3 paying OS contracts</h4>
+        <div class="ms-when">Target · month 18 post-Hub MVP</div>
+        <p>≥$1K/site/month, ≥90-day retention on each. Proves the OS licensing motion works outside SOPHI-operated sites. Retires Risk #4.</p>
+      </div>
+      <div class="ms-card">
+        <div class="ms-eyebrow">Ad layer</div>
+        <h4>$2.25M SMS ad revenue · Y2</h4>
+        <div class="ms-when">Target · Y2 activation, 15K/mo portfolio SMS</div>
+        <p>Moderate case activates once portfolio SMS volume clears the 15K/month gate. Cumulative Y1–Y5 ad revenue: $21.3M.</p>
+      </div>
+      <div class="ms-card">
+        <div class="ms-eyebrow">Founder</div>
+        <h4>SOPHI revenue covers 80% of Joshua's income</h4>
+        <div class="ms-when">Target · end of Y2</div>
+        <p>Threshold for CoStar exit. Ends the divided-attention risk (Risk #10) with financial safety, not hope.</p>
+      </div>
+    </div>
+
+    <div class="runway-note">
+      <strong>How this connects to the next round.</strong> The $500K seed bridges to a Series A raise targeted for late 2028 / early 2029, sized to fund Phoenix / Cleveland / Louisville market launches and the hospital vertical. At the Y2 milestones above, SOPHI's Series A ask is priced on $9.0M+ parking revenue, an operational licensing motion, and a de-risked six-market portfolio — not on projections. Expected Series A pre-money range: $20–35M (7–13× revenue). Seed dilution at Series A: modeled at 15–20% depending on round size. Detailed pathway on <a href="./cash-model.html" style="color:var(--blue-ink); font-weight:600;">Cash Model</a>.
+    </div>
+
+  </main>
+</div>
+<script src="./assets/shell.js?v=20260828f"></script>
+<script>window.SOPHI_SHELL.mount('use-of-funds.html');</script>
+</body>
+</html>

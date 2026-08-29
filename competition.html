@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Competition — SOPHI Investor Deal Room</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/deal-room.css?v=20260828f">
+<style>
+  .comp-matrix { width: 100%; border-collapse: collapse; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; margin-bottom: var(--space-6); }
+  .comp-matrix th, .comp-matrix td { padding: 12px 14px; font-size: 12.5px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); }
+  .comp-matrix thead th { font: 700 10.5px/1.4 var(--font-body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); background: var(--bg); }
+  .comp-matrix thead th.sophi-col { background: var(--accent-soft); color: var(--blue-ink); }
+  .comp-matrix tbody td.sophi-col { background: rgba(56,182,255,0.06); color: var(--text-strong); font-weight: 500; }
+  .comp-matrix td strong { color: var(--text-strong); }
+  .comp-matrix .dim-label { font-weight: 600; color: var(--text-strong); font-size: 13px; }
+  .comp-matrix .dim-note { color: var(--text-faint); font-size: 11.5px; margin-top: 3px; }
+  .comp-matrix tbody tr:last-child td { border-bottom: none; }
+  .comp-scroll { overflow-x: auto; }
+
+  .comp-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: var(--space-6); }
+  @media (max-width: 900px) { .comp-cards { grid-template-columns: 1fr; } }
+  .comp-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; }
+  .comp-card .cc-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .comp-card .cc-name { font-size: 16px; font-weight: 700; color: var(--text-strong); }
+  .comp-card .cc-tag { display: inline-block; font: 700 9.5px/1 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 9px; border-radius: 999px; }
+  .comp-card .cc-tag.incumbent { background: #FCE8DE; color: #A84B2F; }
+  .comp-card .cc-tag.regional { background: #EEF2F6; color: #475569; }
+  .comp-card .cc-tag.tech { background: #F3EBFF; color: #7C3AED; }
+  .comp-card .cc-tag.public { background: #DCF1F4; color: #20808D; }
+  .comp-card .cc-meta { font-size: 11.5px; color: var(--text-faint); font-family: var(--font-mono); }
+  .comp-card p { font-size: 12.5px; line-height: 1.6; color: var(--text-muted); margin: 0; }
+  .comp-card p strong { color: var(--text-strong); font-weight: 600; }
+  .comp-card .cc-so { padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; line-height: 1.55; color: var(--text-strong); }
+  .comp-card .cc-so strong { color: var(--blue-ink); }
+
+  .moat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 900px) { .moat-grid { grid-template-columns: 1fr; } }
+  .moat-card { background: var(--bg-elev); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius-s); padding: 16px 18px; }
+  .moat-card .m-eyebrow { font: 700 10px/1.4 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-ink); margin-bottom: 6px; }
+  .moat-card h4 { font-size: 14px; font-weight: 600; margin: 0 0 8px; color: var(--text-strong); }
+  .moat-card p { font-size: 12.5px; line-height: 1.65; color: var(--text-muted); margin: 0; }
+
+  .win-legend { display: inline-flex; gap: 12px; align-items: center; font-size: 12px; color: var(--text-faint); margin-bottom: 14px; }
+  .win-legend .wl-item { display: inline-flex; align-items: center; gap: 6px; }
+  .win-legend .wl-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .win-legend .wl-dot.strong { background: #437A22; }
+  .win-legend .wl-dot.mid { background: #DA7101; }
+  .win-legend .wl-dot.weak { background: #B25E2E; }
+
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+  .dot.strong { background: #437A22; }
+  .dot.mid { background: #DA7101; }
+  .dot.weak { background: #B25E2E; }
+</style>
+</head>
+<body>
+<div class="watermark" data-mark="CONFIDENTIAL · partner@fund.com    CONFIDENTIAL · partner@fund.com"></div>
+<div class="app-shell">
+  <aside class="side-nav" id="side-nav"></aside>
+  <main class="main" style="position:relative; z-index:2;">
+
+    <header class="page-header">
+      <div class="ph-icon" style="background:#E8F4FF; color:#0B5394;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+      </div>
+      <div class="ph-body">
+        <div class="ph-eyebrow">The Deal</div>
+        <h1 class="ph-title">Competition.<br>An unbundled category with no operator-plus-OS winner.</h1>
+        <p class="ph-lede">
+          Valet is a $9B+ US category split between three player types — national labor operators, regional shops, and pure parking tech. None combines operating credibility with a software layer. That's SOPHI's opening.
+        </p>
+      </div>
+    </header>
+
+    <div class="section-eyebrow">The five competitors on the map</div>
+    <div class="comp-cards">
+      <div class="comp-card">
+        <div class="cc-head">
+          <div><div class="cc-name">Towne Park</div><div class="cc-meta">National · $500M+ revenue · PE-owned (GI Partners)</div></div>
+          <span class="cc-tag incumbent">Incumbent</span>
+        </div>
+        <p><strong>The biggest.</strong> ~500 sites, hospital-heavy, brand-name hotels. Deep operational reach, legacy relationships across every major flag. But their model is <strong>labor-arbitrage at scale</strong> — margin comes from staff density, not technology leverage. High turnover, thin operating data, no product story.</p>
+        <div class="cc-so"><strong>SOPHI's opening:</strong> Towne Park sells "reliable labor." SOPHI sells "a system that gets better every shift." Where a client wants data-backed guest experience, not just a badge on the podium, SOPHI wins.</div>
+      </div>
+      <div class="comp-card">
+        <div class="cc-head">
+          <div><div class="cc-name">LAZ Parking</div><div class="cc-meta">National · $1B+ revenue · privately held</div></div>
+          <span class="cc-tag incumbent">Incumbent</span>
+        </div>
+        <p><strong>The other big one.</strong> Airport and mixed-use dominant, valet as one line of business among many. Runs proprietary tech (LAZgo, LPR), but tech serves parking transactions, not <strong>hospitality operations</strong>. Cultural fit with premium hospitality operators is inconsistent.</p>
+        <div class="cc-so"><strong>SOPHI's opening:</strong> LAZ is a parking company that does valet. SOPHI is a hospitality operations company that manifests as valet. Different buyer, different sales motion.</div>
+      </div>
+      <div class="comp-card">
+        <div class="cc-head">
+          <div><div class="cc-name">SP+ Corporation</div><div class="cc-meta">Public co · NASDAQ:SP · $1.6B revenue · acquired by Metropolis Aug 2023</div></div>
+          <span class="cc-tag public">Public / M&amp;A</span>
+        </div>
+        <p><strong>The comp.</strong> Parking-services benchmark used across the deal room's valuation work (0.7× revenue trading, 10.1× EBITDA, 13.3× EBIT). Post-Metropolis merger, SP+ is now part of a computer-vision parking platform — but the underlying valet business is still commodity operations. Metropolis play is about parking flow, not hospitality software.</p>
+        <div class="cc-so"><strong>SOPHI's opening:</strong> The Metropolis / SP+ combination validates that parking+tech is worth big money at the transaction layer. SOPHI attacks the <strong>ops layer</strong> — orthogonal, higher-margin, and higher retention.</div>
+      </div>
+      <div class="comp-card">
+        <div class="cc-head">
+          <div><div class="cc-name">SpotHero</div><div class="cc-meta">Chicago · Series D · ~$130M raised · parking marketplace</div></div>
+          <span class="cc-tag tech">Parking tech</span>
+        </div>
+        <p><strong>The tech-side reference.</strong> Consumer parking marketplace with growing B2B footprint. Zero valet operations. Named in the deal room as an <strong>arbitrage revenue stream</strong> (online-valet online demand into SOPHI-operated capacity), not a competitor. If SpotHero ever built ops tech, it would need to acquire — not build — the hospitality relationship.</p>
+        <div class="cc-so"><strong>SOPHI's opening:</strong> SpotHero fills SOPHI's cars. SOPHI fills the guest experience. Partnership before competition.</div>
+      </div>
+      <div class="comp-card">
+        <div class="cc-head">
+          <div><div class="cc-name">Regional / independent operators</div><div class="cc-meta">Hundreds of shops · 1–20 sites each · owner-operated</div></div>
+          <span class="cc-tag regional">Regional</span>
+        </div>
+        <p><strong>Where 60%+ of the market lives.</strong> Independent operators run most valet in every SOPHI market. Cheap to switch to, cheap to switch away from. Zero software. Founder-in-a-truck economics. In the six-market SOM, these are catalogued as <strong>"Weak incumbent"</strong> — SOPHI's easiest displacement targets.</p>
+        <div class="cc-so"><strong>SOPHI's opening:</strong> The account book already scores which regional incumbents are vulnerable and which relationships to press. This is not theoretical competition — it's a targeted pipeline of 203 accounts.</div>
+      </div>
+      <div class="comp-card">
+        <div class="cc-head">
+          <div><div class="cc-name">Hospitality ops software</div><div class="cc-meta">Alice, HotSOS, Cendyn · SaaS · $10K–$100K ARR/property</div></div>
+          <span class="cc-tag tech">Adjacent SaaS</span>
+        </div>
+        <p><strong>The category SOPHI OS reaches into.</strong> Hotel operations software (guest requests, task routing, work orders). None cover valet, arrival, or curb experience. If any moved into valet ops, they'd need to build the operator relationship SOPHI already has. This is the <strong>upsell surface</strong> as OS licensing matures.</p>
+        <div class="cc-so"><strong>SOPHI's opening:</strong> Hospitality ops software solves back-of-house. SOPHI solves front-of-house at the moment of arrival — the highest-signal guest moment. Non-overlapping today; potential partnership tomorrow.</div>
+      </div>
+    </div>
+
+    <div class="section-eyebrow">Positioning matrix · six dimensions that matter to premium hospitality</div>
+    <div class="win-legend">
+      <span class="wl-item"><span class="wl-dot strong"></span>Strong</span>
+      <span class="wl-item"><span class="wl-dot mid"></span>Mixed</span>
+      <span class="wl-item"><span class="wl-dot weak"></span>Weak / absent</span>
+    </div>
+    <div class="comp-scroll">
+      <table class="comp-matrix">
+        <thead>
+          <tr>
+            <th style="width:24%;">Dimension</th>
+            <th class="sophi-col" style="width:14%;">SOPHI</th>
+            <th style="width:14%;">Towne Park</th>
+            <th style="width:14%;">LAZ</th>
+            <th style="width:14%;">SP+ / Metropolis</th>
+            <th style="width:14%;">Regional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="dim-label">Operator credibility in premium hospitality</div><div class="dim-note">Can a Ritz-Carlton or a Ruth's Chris trust them with the podium?</div></td>
+            <td class="sophi-col"><span class="dot strong"></span><strong>Strong</strong> — 22-yr operating record, Darden anchor, JSK turnaround, 82% no-wait rate</td>
+            <td><span class="dot strong"></span>Strong at scale, mixed on cultural fit</td>
+            <td><span class="dot mid"></span>Mixed — parking-first culture</td>
+            <td><span class="dot weak"></span>Not their category</td>
+            <td><span class="dot mid"></span>Locally strong, regionally inconsistent</td>
+          </tr>
+          <tr>
+            <td><div class="dim-label">Operating data / software layer</div><div class="dim-note">Is there a shift-level operational paper trail?</div></td>
+            <td class="sophi-col"><span class="dot strong"></span><strong>Strong</strong> — Hub, dispatch, incident logging, per-property P&amp;L</td>
+            <td><span class="dot weak"></span>Legacy tools, no product</td>
+            <td><span class="dot mid"></span>LAZgo/LPR — parking transaction layer</td>
+            <td><span class="dot mid"></span>Metropolis CV — transaction, not ops</td>
+            <td><span class="dot weak"></span>None</td>
+          </tr>
+          <tr>
+            <td><div class="dim-label">Guest experience differentiation</div><div class="dim-note">Does the guest notice a better arrival than at the competitor's site?</div></td>
+            <td class="sophi-col"><span class="dot strong"></span><strong>Strong</strong> — 3–5× review lift, sub-1-minute retrieval SMS</td>
+            <td><span class="dot mid"></span>Standardized, not premium</td>
+            <td><span class="dot mid"></span>Functional, not memorable</td>
+            <td><span class="dot weak"></span>Commodity</td>
+            <td><span class="dot mid"></span>Owner-personality-dependent</td>
+          </tr>
+          <tr>
+            <td><div class="dim-label">Staff retention / culture</div><div class="dim-note">Industry avg turnover 70–80%. What can the operator show?</div></td>
+            <td class="sophi-col"><span class="dot strong"></span><strong>Strong</strong> — &lt;5% churn, Academy pipeline, specialist certifications</td>
+            <td><span class="dot weak"></span>Industry-typical turnover</td>
+            <td><span class="dot weak"></span>Industry-typical turnover</td>
+            <td><span class="dot weak"></span>Industry-typical turnover</td>
+            <td><span class="dot mid"></span>Highly variable</td>
+          </tr>
+          <tr>
+            <td><div class="dim-label">Unit economics / gross margin</div><div class="dim-note">What margin does the operator sustain, and can the client see it?</div></td>
+            <td class="sophi-col"><span class="dot strong"></span><strong>Strong</strong> — 50% GM, 25% EBIT, portable turnaround record</td>
+            <td><span class="dot mid"></span>Thin at property level, thick on volume</td>
+            <td><span class="dot mid"></span>Portfolio-blended</td>
+            <td><span class="dot mid"></span>Public co margins are diluted</td>
+            <td><span class="dot mid"></span>Owner-take variable</td>
+          </tr>
+          <tr>
+            <td><div class="dim-label">Second product / expansion lever</div><div class="dim-note">Does buying them get more than a labor contract?</div></td>
+            <td class="sophi-col"><span class="dot strong"></span><strong>Strong</strong> — OS licensing, SMS ad layer, referrals, franchise</td>
+            <td><span class="dot weak"></span>Labor only</td>
+            <td><span class="dot mid"></span>Adjacent parking services</td>
+            <td><span class="dot mid"></span>Metropolis CV platform</td>
+            <td><span class="dot weak"></span>Labor only</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-eyebrow">Why SOPHI wins · three moats that compound</div>
+    <div class="moat-grid">
+      <div class="moat-card">
+        <div class="m-eyebrow">Moat 01 · Data density</div>
+        <h4>Every shift, logged in the same schema</h4>
+        <p>Ten sites × 12 months of Hub data = 10K+ shift records per site. That's a dataset no new entrant can synthesize without years of runway. Insurance underwriters price it. Clients renew on it. Series A prices on it.</p>
+      </div>
+      <div class="moat-card">
+        <div class="m-eyebrow">Moat 02 · Operating record</div>
+        <h4>22 years of vertical credibility, one operator</h4>
+        <p>Joshua's Elite → SOPHI Global → Denison → SOPHI Mobility arc is what a warm intro is worth. Darden, Marriott, and hospital ops leaders take the meeting because of who's asking, not what's pitched. Not copyable by a PE roll-up.</p>
+      </div>
+      <div class="moat-card">
+        <div class="m-eyebrow">Moat 03 · Culture as switching cost</div>
+        <h4>Sub-5% churn in a 15–20% churn category</h4>
+        <p>The Axiom, the Academy, and the Orchestration Layer produce staff who stay, which produces clients who stay. The moat isn't the software — it's what the software captures about how the people work. That takes years to replicate.</p>
+      </div>
+    </div>
+
+    <div class="callout amber" style="margin-top:24px;">
+      <div class="cl-title">The competitive risk we take seriously</div>
+      <p class="cl-body">Named on <a href="./risk-milestones.html" style="color:var(--blue-ink); font-weight:600;">Risk #8 — Competitive moat</a>. The real threat isn't Towne Park copying the model. It's a well-capitalized entrant — a Metropolis-scale player or a PE-backed roll-up — deciding hospitality ops is a category and building or buying into it before SOPHI reaches 10-site data density. The milestone that retires this: 10 sites on SOPHI OS with 12+ months of operational data each, before month 36.</p>
+    </div>
+
+    <div class="cta-strip" style="margin-top:24px;">
+      <div class="cs-text">
+        <div class="cs-title">Want to see how competitive risk shows up in the valuation?</div>
+        <div class="cs-sub">SP+ trading comps ground the valuation floor; the DCF anchor above them prices the operator-plus-OS premium.</div>
+      </div>
+      <a href="./v3-valuation.html#comps" class="cs-btn">Open comps analysis</a>
+    </div>
+
+  </main>
+</div>
+<script src="./assets/shell.js?v=20260828f"></script>
+<script>window.SOPHI_SHELL.mount('competition.html');</script>
+</body>
+</html>

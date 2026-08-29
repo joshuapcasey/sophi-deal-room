@@ -10,9 +10,12 @@
       { href: 'growth-model.html', label: 'Growth Model', icon: 'trending' },
     ]},
     { group: 'THE DEAL', items: [
+      { href: 'use-of-funds.html', label: 'Use of Funds', icon: 'coins' },
+      { href: 'cash-model.html', label: 'Cash Model', icon: 'wallet' },
       { href: 'financial-performance.html', label: 'Financial Performance', icon: 'chart' },
       { href: 'organic-valuation.html', label: 'Organic Valuation', icon: 'seedling' },
       { href: 'v3-valuation.html', label: 'Growth Valuation', icon: 'rocket' },
+      { href: 'competition.html', label: 'Competition', icon: 'crosshair' },
       { href: 'risk-milestones.html', label: 'Risk Mitigating Milestones', icon: 'shield' },
     ]},
     { group: 'DILIGENCE', items: [
@@ -40,6 +43,9 @@
     seedling: '<path d="M12 20v-6M12 14c0-3 2-6 6-6-.5 3-2.5 6-6 6zM12 14c0-3-2-6-6-6 .5 3 2.5 6 6 6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>',
     rocket: '<path d="M12 3c3 2 5 5.5 5 9v4l-2 2h-6l-2-2v-4c0-3.5 2-7 5-9zM9 20l-1 2M15 20l1 2M12 20v2M8 12H5l-1 5 4-2M16 12h3l1 5-4-2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/>',
     grid: '<path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z" fill="none" stroke="currentColor" stroke-width="1.6"/>',
+    coins: '<circle cx="8" cy="8" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="15" cy="15" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 5v6M6 8h4M15 12v6M13 15h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+    wallet: '<path d="M3 7a2 2 0 0 1 2-2h14v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M3 10h18M17 15h.01" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+    crosshair: '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
   };
 
   function esc(str) {

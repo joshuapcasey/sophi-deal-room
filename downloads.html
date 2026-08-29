@@ -24,13 +24,14 @@
         <div class="ph-eyebrow">Diligence</div>
         <h1 class="ph-title">Documents.<br>Every artifact behind every number.</h1>
         <p class="ph-lede">
-          Thirteen files backing the model, the methodology, and the corporate record. Files are release-on-request — click Request to have the artifact emailed and access logged against your firm's diligence review.
+          Fourteen files backing the model, the methodology, and the corporate record. The pitch deck downloads instantly — sensitive artifacts (financials, cap tables, per-market account lists) are release-on-request against your firm's NDA.
         </p>
       </div>
     </header>
 
     <div class="doc-filters" id="doc-filters">
-      <button class="chip chip-blue active" data-filter="all">All 13</button>
+      <button class="chip chip-blue active" data-filter="all">All 14</button>
+      <button class="chip chip-neutral" data-filter="featured">Instant download · 1</button>
       <button class="chip chip-neutral" data-filter="model">Model exports · 3</button>
       <button class="chip chip-neutral" data-filter="method">Methodology &amp; memos · 3</button>
       <button class="chip chip-neutral" data-filter="market">Per-market audits · 3</button>
@@ -49,6 +50,9 @@
 
 <script>
   const DOCS = [
+    // Featured — instant download
+    {cat:'featured', fmt:'PDF', title:'SOPHI Pitch Deck · 12-slide investor summary', desc:'Cover → problem → insight → market → product → traction → model → financials → competition → team → ask → contact. The whole story in one file. Landscape PDF, ~200 KB.', size:'PDF', sens:'Instant download', href:'./assets/SOPHI_Pitch_Deck.pdf', featured:true},
+
     // Model exports
     {cat:'model', fmt:'XLSX', title:'Blend Wealth 5-Year P&L · full workbook', desc:'Full assumptions, monthly build-up, sensitivity tabs, and DCF terminal calc. Source of every organic-case number in this room.', size:'2.4 MB', sens:'NDA required'},
     {cat:'model', fmt:'XLSX', title:'V3 six-market SOM model · workbook', desc:'Bottom-up build: 203 accounts across 6 markets with TAM/SAM/SOM per market, penetration curves, and yearly revenue ramp Y1–Y5.', size:'3.1 MB', sens:'NDA required'},
@@ -72,12 +76,14 @@
   ];
 
   const CAT_LABEL = {
+    'featured': 'Instant download',
     'model': 'Model exports',
     'method': 'Methodology &amp; memos',
     'market': 'Per-market audits',
     'corp': 'Financials &amp; corporate'
   };
   const CAT_CHIP = {
+    'featured': 'chip-mint',
     'model': 'chip-mint',
     'method': 'chip-blue',
     'market': 'chip-peach',
@@ -87,8 +93,13 @@
   function renderDocs(filter) {
     const list = document.getElementById('doc-list');
     const shown = filter === 'all' ? DOCS : DOCS.filter(d => d.cat === filter);
-    list.innerHTML = shown.map(d => `
-      <article class="doc-row">
+    list.innerHTML = shown.map(d => {
+      const action = d.href
+        ? `<a class="doc-request" href="${d.href}" target="_blank" rel="noopener" style="background:var(--accent); color:#fff; border-color:var(--accent); text-decoration:none; display:inline-block;">Download ↓</a>`
+        : `<button class="doc-request" data-doc="${d.title.replace(/&amp;/g,'&')}">Request</button>`;
+      const featureStyle = d.featured ? 'border-left: 3px solid var(--accent); background: var(--accent-soft);' : '';
+      return `
+      <article class="doc-row" style="${featureStyle}">
         <div class="doc-fmt">${d.fmt}</div>
         <div class="doc-body">
           <h3 class="doc-title">${d.title}</h3>
@@ -100,10 +111,10 @@
             <span class="doc-size">${d.sens}</span>
           </div>
         </div>
-        <button class="doc-request" data-doc="${d.title.replace(/&amp;/g,'&')}">Request</button>
-      </article>
-    `).join('');
-    list.querySelectorAll('.doc-request').forEach(btn => {
+        ${action}
+      </article>`;
+    }).join('');
+    list.querySelectorAll('button.doc-request').forEach(btn => {
       btn.addEventListener('click', () => {
         const title = btn.getAttribute('data-doc');
         const original = btn.textContent;
