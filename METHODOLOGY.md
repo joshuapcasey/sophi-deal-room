@@ -1,25 +1,35 @@
-# Sophi v3 Methodology — Penetration Engine (Canonical)
+# SOPHI Growth Engine — Methodology (Canonical)
 
-**Status:** Live in app. Supersedes METHODOLOGY_v2.md.
+**Status:** Live. Canonical methodology for the SOPHI Deal Room.
 **Repo:** https://github.com/joshuapcasey/sophi-market-map
 **Live app:** https://joshuapcasey.github.io/sophi-market-map/
-**Date:** April 30, 2026
-**Author:** Joshua Casey (Sophi Mobility)
+**Date:** April 30, 2026 · updated August 31, 2026
+**Author:** Joshua Casey (SOPHI Mobility)
+
+**Note on naming:** The SOPHI Growth Engine is the single methodology framework behind every scenario in the deal room. It produces:
+
+- **Organic Growth Model** — downside case (SOPHI 6, no operator acquisitions).
+- **Acquisition Growth Model** — base case (SOPHI 6, plus two operator acquisitions in Indianapolis + Denver financed by R2).
+- **Expansion Growth Model** — upside case (same engine applied to markets beyond the SOPHI 6). Account-universe research for this scenario is being scoped separately and is not part of this V1 deal room.
+
+All three models use the same account-level engine; the difference is which levers are activated (operator gates, acquisition inputs, market scope). Historical context: an earlier ~15-market iteration with 825 scored accounts is preserved for reference in `_archive/METHODOLOGY_v2.md` and the `07d6c972` session artifacts. That work informed but does not directly feed the current SOPHI 6 methodology.
+
+This doc walks through the engine mechanics: TAM formulas, SAM filters, the SOM penetration engine, and the three refinements that produce a defensible, gate-and-cap-disciplined SOM number.
 
 ---
 
-## 1. Why v3
+## 1. Why we built the engine this way
 
-v2 modeled penetration implicitly: every in-SAM account contributed a fractional share of its TAM in Y1–Y5 along a generic ramp. That produced an attractive but overstated curve — every account contributed *something* even when, in reality, we have not won that account yet.
+An earlier iteration modeled penetration implicitly: every in-SAM account contributed a fractional share of its TAM in Y1–Y5 along a generic ramp. That produced an attractive but overstated curve — every account contributed *something* even when, in reality, we hadn't won that account yet.
 
-v3 separates the two questions that v2 collapsed into one ramp:
+The SOPHI Growth Engine separates the two questions the earlier ramp collapsed into one:
 
 1. **When (or whether) do we win this account?** → a binary per-account `acquisition_year ∈ {1, 2, 3, 4, 5, never}`, governed by a penetration engine.
 2. **What does this account contribute once we own it?** → its full annual TAM, accrued every year forward from acquisition (and zero before).
 
 This rotates revenue **right** on the curve (Y1 falls, Y4–Y5 lift) and exposes more honest credibility risk (operator gates, ownership-group dynamics, conservative per-market caps), at the cost of a less impressive headline number in Y1.
 
-TAM and SAM are **unchanged** between v2 and v3. The only thing that changed is how we model SOM out of SAM.
+TAM and SAM are **unchanged** from the earlier scoring iteration to the current SOPHI Growth Engine. The only thing that changed is how we model SOM out of SAM.
 
 ---
 
@@ -45,7 +55,7 @@ For each market m:
 
 Each in-SAM account is awarded `acquisition_year`. From the year of acquisition onward, the account contributes its **full annual TAM** to SOM. Before the acquisition year it contributes zero. There are no fractional ramps.
 
-This is the most consequential change vs v2 and the foundation of every other v3 mechanic.
+This is the most consequential change from the earlier ramp-based approach, and the foundation of every other engine mechanic.
 
 ### 2.2 S-curve targets
 
@@ -110,7 +120,7 @@ If we have already won prior properties owned/managed by the same group within t
 
 This compounds the natural network effect of selling into Darden, Huse Culinary, Marriott-managed clusters, etc., without overwriting the operator gate (you still have to clear the operator gate first).
 
-### 2.6 V7 layer (Indianapolis-specific, preserved from v2)
+### 2.6 Hometown layer (Indianapolis-specific)
 
 Indianapolis carries three account flags that bypass the normal scoring:
 
@@ -122,7 +132,7 @@ In the app these surface as **SOPHI Anchor** or **v7 Hometown** / **v7 M&A Absor
 
 ---
 
-## 3. Locked v3 outputs
+## 3. Locked outputs
 
 ### 3.1 Portfolio totals
 
@@ -145,7 +155,7 @@ In the app these surface as **SOPHI Anchor** or **v7 Hometown** / **v7 M&A Absor
 | Y4 | $19.48M | $47.23M |
 | Y5 | $28.29M | $75.52M |
 
-### 3.3 Per-market 5-year SOM (v3)
+### 3.3 Per-market 5-year SOM
 
 | Market | Cap | In-SAM | Acquired by Y5 | 5-yr SOM |
 |---|---|---|---|---|
@@ -175,7 +185,7 @@ The 59 "never" is **not** a list of accounts we believe we will lose forever. It
 
 ## 4. Cleveland note
 
-Cleveland is the most-discussed v3 outcome. With only 8 in-SAM accounts and a 30% cap, the market can mathematically acquire at most 2 accounts in five years. Because Cleveland is heavily Propark-operated and the Propark gate (4 accts / 2 verticals) does not unlock from inside Cleveland alone, the two acquisitions that do happen are operator-independent or already-cleared. Cleveland Marriott Downtown — the largest TAM in the market — surfaces in the app as **Operator-gated** and stays unwon at Y5.
+Cleveland is the most-discussed engine outcome. With only 8 in-SAM accounts and a 30% cap, the market can mathematically acquire at most 2 accounts in five years. Because Cleveland is heavily Propark-operated and the Propark gate (4 accts / 2 verticals) does not unlock from inside Cleveland alone, the two acquisitions that do happen are operator-independent or already-cleared. Cleveland Marriott Downtown — the largest TAM in the market — surfaces in the app as **Operator-gated** and stays unwon at Y5.
 
 This is the right output of an honest gate model. We are documenting it explicitly so investors and the team can evaluate the trade-off: a more credible Charlotte/Indianapolis story comes paired with a deliberately small Cleveland Y1–Y5.
 
@@ -183,7 +193,7 @@ This is the right output of an honest gate model. We are documenting it explicit
 
 ## 5. App surfaces
 
-| Surface | What v3 shows |
+| Surface | What the engine shows |
 |---|---|
 | Landing hero | $150.35M TAM · $28.3M Y5 run-rate · "Conservative, gated, defensible" |
 | Methodology cards | Binary Acquisition · Operator Credibility Gates · Relationship Multiplier · Conservative Per-Market Caps |
@@ -191,7 +201,7 @@ This is the right output of an honest gate model. We are documenting it explicit
 | Acquisition timeline | Stacked column per year (Y1–Y5) showing wins by market + unacquired tail |
 | Market table | Cap column · Won-of-In-SAM column |
 | Market badge | "WARM/COLD · N anchors · X% Y5 cap" |
-| Account modal | v3 Lifecycle block: acquisition year + status pill + gate detail + group multiplier |
+| Account modal | Lifecycle block: acquisition year + status pill + gate detail + group multiplier |
 | Trajectory bars | Dashed/striped pre-acquisition years, solid post-acquisition, ★ on acquisition year |
 | Status pills | SOPHI Anchor · v7 Hometown · v7 M&A Absorption · Operator-gated · Cap-deferred · Below cap line |
 
@@ -199,9 +209,11 @@ This is the right output of an honest gate model. We are documenting it explicit
 
 ## 6. Build pipeline
 
+*Note: `v3`, `v7`, and similar identifiers in this section refer to source-file names and code layers inside the `sophi-market-map` implementation repository. They are internal implementation labels, not investor-facing names. The methodology as a whole is called the **SOPHI Growth Engine** everywhere externally.*
+
 ```
 operator_data/*.csv ──┐
-                     ├─► src/normalize_v3.py ──► src/accounts_v3.json
+                     ├─► src/normalize.py ──► src/accounts.json
 v7 flag layer ────────┘                                   │
                                                           ▼
                                   src/build_data_js_v3.py ──► data.js
@@ -225,38 +237,38 @@ git diff data.js                   # sanity-check the diff
 
 | Path | Purpose | Size |
 |---|---|---|
-| `src/normalize_v3.py` | v3 penetration engine | ~430 lines |
+| `src/normalize_v3.py` | SOPHI Growth Engine | ~430 lines |
 | `src/accounts_v3.json` | Engine output: 6 markets, 203 accounts | 380 KB |
 | `src/build_data_js_v3.py` | Builds front-end `data.js` from `accounts_v3.json` + v2 geocode cache | — |
 | `src/compare_v2_v3.py` | Diff utility | — |
 | `data.js` | Front-end-consumable model | 255 KB |
-| `V3_METHODOLOGY_DELTAS.md` | Original delta memo (kept for history) | 10 KB |
-| `METHODOLOGY_v3.md` | This document — canonical | — |
+| `_archive/V3_METHODOLOGY_DELTAS.md` | Original delta memo (kept for history) | 10 KB |
+| `METHODOLOGY.md` | This document — canonical | — |
 
 ---
 
-## 7. Reconciliation log
+## 7. Reconciliation log (evolution from earlier iteration)
 
-| Field | v2 | v3 |
+| Field | Earlier iteration | SOPHI Growth Engine (current) |
 |---|---|---|
-| Per-account behavior | Fractional Y1–Y5 ramp on every in-SAM account | Binary acquisition_year; full-TAM from acq onward |
+| Per-account behavior | Fractional Y1–Y5 ramp on every in-SAM account | Binary `acquisition_year`; full-TAM from acquisition onward |
 | Penetration mechanism | Implicit in the ramp | Explicit S-curve × per-market cap × gates × multipliers |
 | Operator gates | None | 8 named operators with min-accts/min-verticals thresholds |
 | Group dynamics | None | Cumulative 1.5× / 2× / 3× multiplier |
 | Per-market cap | None | 50% Charlotte/Indy, 30% others |
 | Anchor handling | Implicit Y1 priority | Hard Y1 force |
-| v7 (Indy) | Hometown displaced + WAS boost + M&A absorption | Preserved; hometown/was_boost forced Y1, ma_absorption forced Y2 |
+| Hometown (Indy) | Displaced + WAS boost + M&A absorption | Preserved; hometown/was_boost forced Y1, ma_absorption forced Y2 |
 | TAM, SAM | Methodology unchanged | Methodology unchanged |
 
 ---
 
-## 8. What v3 deliberately does not do (yet)
+## 8. What the engine deliberately does not do (yet)
 
 - No annual churn or lost-account mechanic — once won, always won across Y1–Y5
 - No price escalation across years — TAM is held constant
 - No per-account ramp inside the year of acquisition — full TAM applies from Y_acq
 - No cross-market network effect — the group multiplier is in-market only
 - No "small market modifier" — Cleveland's gating is honest, not softened
-- No "v2 toggle" in the UI — v3 supersedes v2, period
+- No toggle to the earlier ramp-based approach in the UI — the current engine is canonical
 
-These are all candidate v4 levers if we need them.
+These are all candidate refinements for a future iteration if we need them.

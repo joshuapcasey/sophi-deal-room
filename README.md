@@ -4,13 +4,13 @@ Interactive working file for SOPHI Mobility's 2026 capital strategy, used to fin
 
 ## The capital plan (two rounds)
 
-**Round 1 · F&F Refinance (now):** $500K at $4.50/share, organic-DCF-anchored ($4.5M pre / $5.0M post). Sold to Bryce Tolle, Blend Wealth, board participants, and other early movers. Refinances the company and supports the Blend Wealth expansion plan.
+**Round 1 · F&F Refinance (now):** $500K at $4.50/share, anchored to the Organic Growth Valuation ($4.5M pre / $5.0M post). Sold to Bryce Tolle, board participants, and other early movers. Refinances the company and supports the Organic 6-market growth plan.
 
-**Round 2 · Acquisition Seed (~early 2028):** $4.5M at $10.80/share, v3-DCF-anchored ($12M pre placeholder / $16.5M post). Funds two valet-operator acquisitions in Indianapolis and Denver.
+**Round 2 · Acquisition Seed (~early 2028):** $4.5M at $10.80/share, anchored to the Acquisition Growth Valuation ($12M pre placeholder / $16.5M post). Funds two valet-operator acquisitions in Indianapolis and Denver.
 
 **Cap table (Option C issuance, 1,000,000 starting cap):** Founder ends at 70.4% ownership · 78.3% including ESOP pool. Total FDSO: 1M today → 1.11M after R1 → 1.28M after R2.
 
-## The v3 model
+## The Acquisition Growth Model
 
 Six-market SOM built account-by-account. Every account has a specific address, a real operator, a known credibility gate, and its own revenue formula.
 
@@ -36,13 +36,13 @@ Exit at end of 2031. R1 = 5-yr hold from Jan 2027 close. R2 = 4-yr hold from ear
 
 | Scenario | Exit equity | R1 MOIC | R1 IRR | R2 MOIC | R2 IRR |
 |---|---|---|---|---|---|
-| Downside — organic DCF only | $12.43M | 2.16× | 16.7% | 0.90× | −2.6% |
-| **Base — v3 DCF (6 markets)** | **$36.30M** | **6.31×** | **44.6%** | **2.63×** | **27.4%** |
-| v3 + SMS ad layer | $47.36M | 8.24× | 52.5% | 3.43× | 36.1% |
-| v3 + acquisitions integrated | $55.00M | 9.56× | 56.9% | 3.99× | 41.3% |
+| Downside — Organic Growth Valuation only | $12.43M | 2.16× | 16.7% | 0.90× | −2.6% |
+| **Base — Acquisition Growth Valuation (6 markets)** | **$36.30M** | **6.31×** | **44.6%** | **2.63×** | **27.4%** |
+| Acquisition Growth + SMS ad layer | $47.36M | 8.24× | 52.5% | 3.43× | 36.1% |
+| Acquisition Growth + acquisitions integrated | $55.00M | 9.56× | 56.9% | 3.99× | 41.3% |
 | **Upside — expansion beyond 6 markets** | **$75.00M** | **13.04×** | **67.0%** | **5.44×** | **52.6%** |
 
-Full scenario tables and cap table evolution on [Valuation → Return scenarios](https://joshuapcasey.github.io/sophi-deal-room/v3-valuation.html#scenarios) and [Capital Strategy](https://joshuapcasey.github.io/sophi-deal-room/capital-strategy.html).
+Full scenario tables and cap table evolution on [Valuation → Return scenarios](https://joshuapcasey.github.io/sophi-deal-room/valuation.html#scenarios) and [Capital Strategy](https://joshuapcasey.github.io/sophi-deal-room/capital-strategy.html).
 
 ## What's in the working file
 
@@ -59,7 +59,7 @@ Plus a 12-slide advisor working deck PDF as an instant-download in the Documents
 
 Nine open decisions on [Advisor Questions](https://joshuapcasey.github.io/sophi-deal-room/advisor-questions.html). The four Priority-1 items:
 
-1. **Round 1 discount to organic DCF** — is 64% the right F&F pricing?
+1. **Round 1 discount to Organic Growth Valuation** — is 64% the right F&F pricing?
 2. **Round 2 base-case MOIC** — 2.63× is thin. Which lever moves?
 3. **Expansion-beyond-6 upside scenario** — which markets, timeline, gate discipline?
 4. **Acquisition target operators** — which specific Indy and Denver operators, at what price?
@@ -69,13 +69,13 @@ Nine open decisions on [Advisor Questions](https://joshuapcasey.github.io/sophi-
 - `index.html` — access gate
 - `summary.html` → `your-access.html` — 14 working-file screens
 - `capital-strategy.html`, `advisor-questions.html` — new screens for the two-round plan
-- `v3-valuation.html` — consolidated Valuation (organic downside / v3 base / expansion upside)
+- `valuation.html` — consolidated Valuation (Organic downside / Acquisition base / Expansion upside placeholder)
 - `use-of-funds.html` — R1 and R2 allocations side-by-side
 - `growth-model.html` + `market.html` — six-market card grid and per-market map drilldown
 - `assets/shell.js` — shared sidebar nav
 - `assets/deal-room.css` — shared stylesheet
 - `assets/SOPHI_Pitch_Deck.pdf` — 12-slide advisor working deck
-- `INVESTOR_MEMO_v3.md`, `METHODOLOGY_v3.md`, `V3_METHODOLOGY_DELTAS.md` — supporting narrative docs
+- `INVESTOR_MEMO.md`, `METHODOLOGY.md`, `_archive/V3_METHODOLOGY_DELTAS.md` — supporting narrative docs
 - `data.js` / `data_14mkt.js` — account-level data behind the market map
 
 ## Contact

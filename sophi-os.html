@@ -739,20 +739,20 @@
           <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Ad revenue range = annual SMS interactions × conversion rate × avg offer value, using low/mid/high account-type benchmarks. Medical accounts excluded from the ad model by design.</p>
         </div>
 
-        <!-- ═══ v3 GROWTH MODEL OVERLAY ═══ -->
-        <div class="section-eyebrow">v3 growth model overlay — layered on the six-market SOM curve</div>
+        <!-- ═══ ACQUISITION GROWTH MODEL OVERLAY ═══ -->
+        <div class="section-eyebrow">Ad-revenue overlay — layered on the SOPHI 6 SOM curve</div>
 
         <div class="callout" style="margin-bottom: var(--space-6);">
           <div class="cl-title">How this maps onto the acquisition growth model</div>
-          <p class="cl-body">Layered directly on the v3 penetration engine. For every account acquired, annual SMS interactions are computed from real inputs already in the model — hotel rooms × occupancy × valet conversion, restaurant seats × turnover × valet conversion. Two-stage activation: <strong>portfolio-wide gate at 15K/mo</strong>, then linear compounding across every market from the activation year forward. Moderate case uses the <strong>midpoint of every account-type conversion band × the midpoint avg offer value</strong> (Hotel 26.5% × $30, Fine Dining 22.5% × $23.50, Venue 29% × $32.50, Corporate 21% × $20) — 2.96× the low-end base case, portfolio SMS-mix weighted. Referral revenue is deliberately excluded; held as valuation optionality alongside SpotHero, franchise royalties, and OS licensing.</p>
+          <p class="cl-body">Layered directly on the SOPHI Growth Engine. For every account acquired, annual SMS interactions are computed from real inputs already in the model — hotel rooms × occupancy × valet conversion, restaurant seats × turnover × valet conversion. Two-stage activation: <strong>portfolio-wide gate at 15K/mo</strong>, then linear compounding across every market from the activation year forward. Moderate case uses the <strong>midpoint of every account-type conversion band × the midpoint avg offer value</strong> (Hotel 26.5% × $30, Fine Dining 22.5% × $23.50, Venue 29% × $32.50, Corporate 21% × $20) — 2.96× the low-end base case, portfolio SMS-mix weighted. Referral revenue is deliberately excluded; held as valuation optionality alongside SpotHero, franchise royalties, and OS licensing.</p>
         </div>
 
         <div class="card" style="margin-bottom: var(--space-6);">
           <div class="rc-head" style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:10px; margin-bottom:14px;">
             <div class="rc-title" style="font: 700 10.5px/1.4 var(--font-body); letter-spacing:0.14em; text-transform:uppercase; color:var(--text-muted);">Portfolio Y1–Y5 · parking SOM + SMS ad layer</div>
-            <div class="rc-sub" style="font-size:11.5px; color:var(--text-faint); font-family:var(--font-mono);">Moderate case · midpoint benchmarks · six-market portfolio</div>
+            <div class="rc-sub" style="font-size:11.5px; color:var(--text-faint); font-family:var(--font-mono);">Moderate case · midpoint benchmarks · SOPHI 6 portfolio</div>
           </div>
-          <svg viewBox="0 0 880 320" style="width:100%; height:auto; display:block;" aria-label="v3 parking SOM plus SMS ad revenue Y1 to Y5" role="img">
+          <svg viewBox="0 0 880 320" style="width:100%; height:auto; display:block;" aria-label="Acquisition parking revenue SOM plus SMS ad revenue Y1 to Y5" role="img">
             <!-- axes -->
             <line x1="60" y1="270" x2="820" y2="270" stroke="#E7E5E0" stroke-width="1"/>
             <line x1="60" y1="20" x2="60" y2="270" stroke="#E7E5E0" stroke-width="1"/>
@@ -816,7 +816,7 @@
             </g>
           </svg>
           <div style="display:flex; gap:20px; margin-top:14px; padding-top:14px; border-top:1px solid var(--border); font-size:12px; color:var(--text-muted); flex-wrap:wrap;">
-            <span><span style="width:14px; height:12px; background:#0B5394; display:inline-block; vertical-align:middle; margin-right:6px; border-radius:2px;"></span>Parking SOM · v3 penetration engine</span>
+            <span><span style="width:14px; height:12px; background:#0B5394; display:inline-block; vertical-align:middle; margin-right:6px; border-radius:2px;"></span>Parking SOM · SOPHI Growth Engine</span>
             <span><span style="width:14px; height:12px; background:#437A22; display:inline-block; vertical-align:middle; margin-right:6px; border-radius:2px;"></span>SMS ad revenue · moderate case (midpoint benchmarks)</span>
           </div>
           <p style="font-size:12.5px; line-height:1.65; color:var(--text-faint); margin: 14px 0 0;">Portfolio annual SMS interactions cross the 15K/mo threshold in Y2 (25,417/mo). From Y2 forward, every acquired account contributes its full ad economics. Y1 SMS = 11,557/mo — just below the gate, so ad revenue = $0.</p>
@@ -885,7 +885,7 @@
               </tr>
             </tbody>
           </table>
-          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Parking SOM curve is unchanged from v3 (see <a href="./v3-valuation.html" style="color:var(--blue-ink); font-weight:600;">Growth Valuation</a>). Moderate-case ad revenue layers additively — 28.2% of parking cumulatively, 30.5% of Y5 run-rate.</p>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Parking SOM curve is the Acquisition Growth Model output (see <a href="./valuation.html" style="color:var(--blue-ink); font-weight:600;">Valuation</a>). Moderate-case ad revenue layers additively — 28.2% of parking cumulatively, 30.5% of Y5 run-rate.</p>
         </div>
 
         <div class="section-eyebrow">Per-market Y5 breakdown</div>
@@ -960,7 +960,7 @@
               </tr>
             </tbody>
           </table>
-          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Phoenix has the highest ad-attach ratio (31.6%) because its Y5 portfolio skews hotel-heavy (55% capture × 3.5 multi-touch). Cleveland is minimal — only 2 accounts unlock under v3 operator gates. Every additional hotel win beyond v3 assumptions moves the ad layer disproportionately.</p>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Phoenix has the highest ad-attach ratio (31.6%) because its Y5 portfolio skews hotel-heavy (55% capture × 3.5 multi-touch). Cleveland is minimal — only 2 accounts unlock under the Acquisition Growth Model operator gates. Every additional hotel win beyond Acquisition Growth Model assumptions moves the ad layer disproportionately.</p>
         </div>
 
         <div class="section-eyebrow">Valuation impact — 7× Y5 run-rate</div>
@@ -969,7 +969,7 @@
             <div class="kpi-tile">
               <div class="kpi-val" style="color: var(--text-muted);">$198M</div>
               <div class="kpi-label">Parking-only @ 7× Y5</div>
-              <div class="kpi-sub">v3 headline · $28.29M × 7</div>
+              <div class="kpi-sub">Acquisition base · $28.29M × 7</div>
             </div>
             <div class="kpi-tile" style="background:#F0F5EB; border-color:#D4E5C2;">
               <div class="kpi-val" style="color: #437A22;">+$60.3M</div>
@@ -982,7 +982,7 @@
               <div class="kpi-sub">Parking + SMS ad · moderate case</div>
             </div>
           </div>
-          <p style="font-size:13px; line-height:1.65; color:var(--text-muted); margin: 18px 0 0;">Moderate case is the diligence case — midpoint of every conversion and offer-value band, portfolio SMS-mix weighted (2.96× the low-end base case in the threshold row above). High-end (top of every band × 3.5× hotel multi-touch fully exercised) would run <strong>~1.9× this figure</strong>, putting Y5 ad revenue at ~$16M and 7× valuation uplift at ~$114M. Full model in <a href="./v3-valuation.html#organic-v-v3" style="color:var(--blue-ink); font-weight:600;">Growth Valuation → Organic vs. v3</a>.</p>
+          <p style="font-size:13px; line-height:1.65; color:var(--text-muted); margin: 18px 0 0;">Moderate case is the diligence case — midpoint of every conversion and offer-value band, portfolio SMS-mix weighted (2.96× the low-end base case in the threshold row above). High-end (top of every band × 3.5× hotel multi-touch fully exercised) would run <strong>~1.9× this figure</strong>, putting Y5 ad revenue at ~$16M and 7× valuation uplift at ~$114M. Full model in <a href="./valuation.html" style="color:var(--blue-ink); font-weight:600;">Valuation → Organic vs. Acquisition</a>.</p>
         </div>
 
       </div>

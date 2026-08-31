@@ -1,7 +1,7 @@
-# Sophi Mobility — Investor Memo
+# SOPHI Mobility — Investor Memo
 
-**Subject:** v3 Penetration Model — methodology summary, five-year SOM, and seed-round returns
-**From:** Joshua Casey, Sophi Mobility (jcasey@sophimobility.com)
+**Subject:** SOPHI Growth Engine — methodology summary, five-year SOM, and seed-round returns
+**From:** Joshua Casey, SOPHI Mobility (jcasey@sophimobility.com)
 **Date:** April 30, 2026 · updated August 29, 2026
 **Live model:** https://joshuapcasey.github.io/sophi-market-map/
 **Deal room:** https://joshuapcasey.github.io/sophi-deal-room/
@@ -14,7 +14,7 @@ We rebuilt the SOM model from the ground up. The TAM ($150.35M across six market
 
 The result is a more defensible curve: lower in Y1 (we don't book revenue from accounts we haven't won), heavier in Y4–Y5 (full-TAM accrual from the day we win), and a five-year cumulative SOM of **$75.52M** with a **$28.29M Y5 run-rate** off only **34 of 93 in-SAM accounts won** — leaving 59 accounts of remaining runway in the same six markets.
 
-Against that plan, SOPHI is raising in **two rounds**: a **$500K F&F refinance (Round 1)** priced against the organic DCF at a 64% discount ($4.5M pre / $5.0M post), then a **$4.5M Acquisition Seed (Round 2)** priced against the v3 DCF ($12M pre placeholder / $16.5M post) to fund two valet-operator acquisitions — one in Indianapolis, one in Denver. Founder retains **70.4% ownership (78.3% including ESOP pool)** through both rounds. Round 1 investors see **6.31× / 44.6% IRR** at v3 base case. Round 2 investors see **2.63× / 27.4% IRR** at v3 base case, expanding to **3.99×** with acquisitions integrated. Full scenario tables further down.
+Against that plan, SOPHI is raising in **two rounds**: a **$500K F&F refinance (Round 1)** priced against the Organic Growth Valuation at a 64% discount ($4.5M pre / $5.0M post), then a **$4.5M Acquisition Seed (Round 2)** priced against the Acquisition Growth Valuation ($12M pre placeholder / $16.5M post) to fund two valet-operator acquisitions — one in Indianapolis, one in Denver. Founder retains **70.4% ownership (78.3% including ESOP pool)** through both rounds. Round 1 investors see **6.31× / 44.6% IRR** at Acquisition base case. Round 2 investors see **2.63× / 27.4% IRR** at Acquisition base case, expanding to **3.99×** with acquisitions integrated. Full scenario tables further down.
 
 ---
 
@@ -25,7 +25,7 @@ The v2 model used an implicit penetration ramp: every in-SAM account contributed
 1. **Operator credibility gates.** National operators (Towne Park, LAZ, SP+, Propark, Park Inc, Epic Valet, Elite) don't lose accounts to an unproven challenger until the challenger has demonstrated wins across enough properties and verticals. We can't book displaced-Towne-Park revenue in Y1 if we haven't beaten them anywhere yet.
 2. **Ownership-group network effects.** Once we win one Darden / Huse / Marriott-managed property, sister properties in the same market move materially faster. v2 had no mechanic for this.
 
-v3 makes both of these explicit, plus it caps per-market penetration at conservative levels (50% Charlotte/Indianapolis where we have the strongest unlock stories; 30% elsewhere) so the curve can't run away on us.
+The SOPHI Growth Engine makes both of these explicit, plus it caps per-market penetration at conservative levels (50% Charlotte/Indianapolis where we have the strongest unlock stories; 30% elsewhere) so the curve can't run away on us.
 
 ---
 
@@ -42,7 +42,7 @@ v3 makes both of these explicit, plus it caps per-market penetration at conserva
 
 **Once acquired, an account contributes its full annual TAM every year forward — no fractional ramp.**
 
-That's the entire model. Full canonical doc: `METHODOLOGY_v3.md` in the repo.
+That's the entire model. Full canonical doc: `METHODOLOGY.md` in the repo.
 
 ---
 
@@ -89,7 +89,7 @@ The Y5 step-up reflects two things: (a) Charlotte and Indianapolis approaching t
 
 ## What this means for the investor narrative
 
-**The model now matches our sales motion.** v3 says we win Charlotte and Indianapolis early because we have anchor relationships and credible unlock stories there, and we earn the rest of the portfolio across years 3–5 as gates clear and group effects compound. That's exactly how we plan to execute, and it's exactly what the numbers now show.
+**The model matches our sales motion.** The SOPHI Growth Engine says we win Charlotte and Indianapolis early because we have anchor relationships and credible unlock stories there, and we earn the rest of the portfolio across years 3–5 as gates clear and group effects compound. That's exactly how we plan to execute, and it's exactly what the numbers show.
 
 **The 5-year total is conservative on purpose.** 34 of 93 accounts is a 37% acquisition rate over five years, against per-market caps of 30–50%. That's deliberate headroom: 59 unwon in-SAM accounts is runway, not failure. The investor takeaway is "this $75.5M is what we believe we can defend, not what we hope we can claim."
 
@@ -108,23 +108,23 @@ The Y5 step-up reflects two things: (a) Charlotte and Indianapolis approaching t
 | Item | Value |
 |---|---|
 | Raise | $500K |
-| Pre-money | $4.50M (64% discount to $12.43M organic DCF) |
+| Pre-money | $4.50M (64% discount to $12.43M Organic Growth Valuation) |
 | Post-money | $5.00M |
 | Share price | $4.50 |
 | New shares issued | 111,111 (Round 1 = 10% at post) |
 | Instrument | Priced round OR post-money SAFE @ $5M cap |
-| Investor pool | Bryce Tolle, Blend Wealth, board participants, early movers |
+| Investor pool | Bryce Tolle, board participants, early movers |
 | Hold assumption | 5 years (Jan 2027 close → end of 2031) |
-| Use of funds | Refinance, Blend Wealth expansion support, Hub MVP, R2 diligence prep |
+| Use of funds | Refinance, organic growth plan support, Hub MVP, R2 diligence prep |
 
 **What Round 1 investors see:**
 
 | Scenario | Exit equity | R1 value at exit | MOIC | IRR (5yr) |
 |---|---|---|---|---|
-| Downside — organic DCF only | $12.43M | $1.08M | **2.16×** | **16.7%** |
-| Base — v3 DCF (6 markets) | $36.30M | $3.16M | **6.31×** | **44.6%** |
-| v3 + SMS ad layer | $47.36M | $4.12M | 8.24× | 52.5% |
-| v3 + acquisitions integrated | $55.00M | $4.78M | 9.56× | 56.9% |
+| Downside — Organic Growth Valuation only | $12.43M | $1.08M | **2.16×** | **16.7%** |
+| Base — Acquisition Growth Valuation (6 markets) | $36.30M | $3.16M | **6.31×** | **44.6%** |
+| Acquisition Growth + SMS ad layer | $47.36M | $4.12M | 8.24× | 52.5% |
+| Acquisition Growth + acquisitions integrated | $55.00M | $4.78M | 9.56× | 56.9% |
 | Upside — expansion beyond 6 markets | $75.00M | $6.52M | **13.04×** | **67.0%** |
 
 ### Round 2 · Acquisition Seed (~early 2028)
@@ -132,7 +132,7 @@ The Y5 step-up reflects two things: (a) Charlotte and Indianapolis approaching t
 | Item | Value |
 |---|---|
 | Raise | $4.5M |
-| Pre-money | $12.00M (67% discount to $36.30M v3 DCF) · illustrative placeholder |
+| Pre-money | $12.00M (67% discount to $36.30M Acquisition Growth Valuation) · illustrative placeholder |
 | Post-money | $16.50M |
 | Share price | $10.80 (2.4× step-up from Round 1) |
 | New shares issued | 416,667 (Round 2 = 13.04% at post) |
@@ -145,13 +145,13 @@ The Y5 step-up reflects two things: (a) Charlotte and Indianapolis approaching t
 
 | Scenario | Exit equity | R2 value at exit | MOIC | IRR (4yr) |
 |---|---|---|---|---|
-| Downside — organic DCF only | $12.43M | $1.62M | 0.36× | −21.7% |
-| Base — v3 DCF (6 markets) | $36.30M | $4.74M | **2.63×** | **27.4%** |
-| v3 + SMS ad layer | $47.36M | $6.18M | 3.43× | 36.1% |
-| **v3 + acquisitions integrated** | **$55.00M** | **$7.17M** | **3.99×** | **41.3%** |
+| Downside — Organic Growth Valuation only | $12.43M | $1.62M | 0.36× | −21.7% |
+| Base — Acquisition Growth Valuation (6 markets) | $36.30M | $4.74M | **2.63×** | **27.4%** |
+| Acquisition Growth + SMS ad layer | $47.36M | $6.18M | 3.43× | 36.1% |
+| **Acquisition Growth + acquisitions integrated** | **$55.00M** | **$7.17M** | **3.99×** | **41.3%** |
 | Upside — expansion beyond 6 markets | $75.00M | $9.78M | **5.44×** | **52.6%** |
 
-Round 2's underwriting narrative is the **v3 + acquisitions case ($55M exit, 3.99× MOIC)** — not the pure v3 case. The acquisitions are the reason Round 2 exists; the base scenario for Round 2 investors already assumes those acquisitions perform as expected.
+Round 2's underwriting narrative is the **Acquisition Growth Model + acquisitions integrated case ($55M exit, 3.99× MOIC)** — not the pure Acquisition base case. The acquisitions are the reason Round 2 exists; the base scenario for Round 2 investors already assumes those acquisitions perform as expected.
 
 ### Cap table evolution · Option C issuance (1,000,000 starting cap)
 
@@ -170,7 +170,7 @@ Founder retains supermajority control through Round 2. Round 3 (Series A) would 
 
 Nine open decisions live on the deal room's [Advisor Questions](https://joshuapcasey.github.io/sophi-deal-room/advisor-questions.html) page. The four Priority-1 items that block further progress:
 
-1. **Round 1 discount to organic DCF** — is 64% the right F&F pricing, or should Round 1 pre-money move?
+1. **Round 1 discount to Organic Growth Valuation** — is 64% the right F&F pricing, or should Round 1 pre-money move?
 2. **Round 2 base-case MOIC** — 2.63× is thin for institutional seed. Levers: lower pre-money, smaller raise, or lean on the integrated-case narrative ($55M exit).
 3. **Expansion-beyond-6 upside scenario** — which markets, timeline, gate discipline? Currently a $75M placeholder; needs a defensible construction.
 4. **Acquisition target operators** — which specific Indy and Denver operators, at what confirmed price range, with what deal structure?
@@ -183,10 +183,10 @@ https://joshuapcasey.github.io/sophi-market-map/
 
 - **Landing page:** portfolio hero ($150M TAM / $28.3M Y5 / "Conservative, gated, defensible") and four methodology cards (binary acquisition, operator gates, group multiplier, per-market caps).
 - **Portfolio page:** $75.5M / $28.3M / 7.0× multiple hero, stacked acquisition timeline by market by year, market table with Cap and Won/In-SAM columns.
-- **Per-market pages:** acquisition-year filter, per-account modal showing v3 lifecycle (acquisition year, gate detail, group multiplier), trajectory bars (dashed pre-acquisition, solid post-acquisition, ★ on acquisition year).
+- **Per-market pages:** acquisition-year filter, per-account modal showing account lifecycle (acquisition year, gate detail, group multiplier), trajectory bars (dashed pre-acquisition, solid post-acquisition, ★ on acquisition year).
 - **Status pills:** SOPHI Anchor · v7 Hometown · v7 M&A Absorption · Operator-gated · Cap-deferred · Below cap line.
 
-Repo (private): https://github.com/joshuapcasey/sophi-market-map. Engine in `src/normalize_v3.py`, build pipeline in `src/build_data_js_v3.py`, full methodology in `METHODOLOGY_v3.md`.
+Repo (private): https://github.com/joshuapcasey/sophi-market-map. Engine implementation in `src/`, full methodology in `METHODOLOGY.md`.
 
 ---
 

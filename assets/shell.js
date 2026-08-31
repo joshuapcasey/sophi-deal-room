@@ -14,7 +14,7 @@
     { group: 'THE DEAL', items: [
       { href: 'financial-performance.html', label: 'Financial Performance', icon: 'chart' },
       { href: 'use-of-funds.html', label: 'Use of Funds', icon: 'coins' },
-      { href: 'v3-valuation.html', label: 'Valuation', icon: 'rocket' },
+      { href: 'valuation.html', label: 'Valuation', icon: 'rocket' },
       { href: 'risk-milestones.html', label: 'Risk Mitigating Milestones', icon: 'shield' },
     ]},
     { group: 'ADVISOR WORKING FILE', items: [
