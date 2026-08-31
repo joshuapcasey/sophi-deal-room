@@ -1,5 +1,7 @@
-/* Deal-room top strip + gate check for the original landing/market/portfolio pages.
-   Inserts a sticky nav at document.body top, and redirects to gate if access not granted. */
+/* Compact top strip for deep-linked pages outside the main sidebar shell
+ * (currently: market.html — the per-market drilldown from Growth Model).
+ * Also enforces the deal-room access gate.
+ */
 (function () {
   // Gate check (session-scoped)
   try {
@@ -16,7 +18,7 @@
     }
   } catch (e) {}
 
-  const active = (location.pathname.split('/').pop() || 'rollup.html').toLowerCase();
+  const active = (location.pathname.split('/').pop() || 'market.html').toLowerCase();
 
   const CSS = `
   .dr-topstrip {
@@ -29,7 +31,7 @@
     font-size: 13px;
   }
   .dr-topstrip .dr-brand { display: flex; align-items: center; gap: 10px; color: #1F1D1B; font-weight: 500; }
-  .dr-topstrip .dr-brand-mark { width: 22px; height: 22px; border-radius: 5px; background: #38B6FF; display: grid; place-items: center; color: #FFFFFF; font-family: 'Fraunces', 'Georgia', serif; font-weight: 700; font-size: 13px; }
+  .dr-topstrip .dr-brand-mark { width: 22px; height: 22px; border-radius: 5px; background: #0B5394; display: grid; place-items: center; color: #FFFFFF; font-family: 'Fraunces', 'Georgia', serif; font-weight: 700; font-size: 13px; }
   .dr-topstrip .dr-brand-sub { color: #8A857F; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-left: 4px; }
   .dr-topstrip nav { display: flex; align-items: center; gap: 4px; }
   .dr-topstrip nav a { padding: 6px 12px; border-radius: 6px; color: #4A4744; text-decoration: none; transition: all 140ms ease; font-weight: 500; }
@@ -40,20 +42,19 @@
     .dr-topstrip nav { gap: 0; overflow-x: auto; }
     .dr-topstrip nav a { padding: 6px 8px; white-space: nowrap; }
   }
-  /* Market view has fixed header — push topstrip above it */
+  /* Market view has a fixed header — push topstrip above it */
   body.market-view .dr-topstrip { position: sticky; top: 0; }
   body.market-view #header { top: 45px; }
   body.market-view #sidebar { top: calc(45px + 64px); height: calc(100vh - 45px - 64px); }
   body.market-view #map { top: calc(45px + 64px); height: calc(100vh - 45px - 64px); }
   `;
 
+  // Simplified nav for deep-linked market drilldown: back to the main deal room + related pages
   const NAV = [
-    ['rollup.html',        'Rollup'],
-    ['growth-engine.html', 'Growth Engine'],
-    ['portfolio.html',     'Portfolio'],
-    ['market.html',        'Markets Map'],
-    ['methodology.html',   'Methodology'],
-    ['downloads.html',     'Data Room'],
+    ['summary.html',      'Summary'],
+    ['growth-model.html', 'Growth Model'],
+    ['market.html',       'Market Detail'],
+    ['methodology.html',  'Methodology'],
   ];
 
   const links = NAV.map(([href, label]) => {
@@ -66,8 +67,8 @@
   strip.innerHTML = `
     <div class="dr-brand">
       <div class="dr-brand-mark">S</div>
-      <span>Sophi Investor Deal Room</span>
-      <span class="dr-brand-sub">2026 · v3</span>
+      <span>SOPHI Deal Room</span>
+      <span class="dr-brand-sub">Advisor Working File</span>
     </div>
     <nav>${links}</nav>
   `;
