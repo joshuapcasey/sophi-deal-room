@@ -20,7 +20,7 @@
     ]},
     { group: 'DILIGENCE', items: [
       { href: 'methodology.html', label: 'Methodology', icon: 'book' },
-      { href: 'downloads.html', label: 'Documents', icon: 'folder', badge: 13 },
+      { href: 'downloads.html', label: 'Documents', icon: 'folder', badge: 14 },
       { href: 'questions.html', label: 'Questions', icon: 'chat', badge: 3 },
     ]},
   ];

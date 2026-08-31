@@ -109,7 +109,7 @@ The Y5 step-up reflects two things: (a) Charlotte and Indianapolis approaching t
 |---|---|
 | Raise | $500K |
 | Pre-money | $4.50M ($45.00 / share) |
-| Post-money | $5.00M (100,000 FDSO) |
+| Post-money | $5.00M (111,111 FDSO) |
 | Seed equity | 10% (11,111 shares) |
 | Instrument | Priced round OR post-money SAFE @ $5M cap |
 | Minimum check | $25K (555 shares) |
