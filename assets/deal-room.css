@@ -934,11 +934,11 @@ hr.section-rule {
 }
 .record-card.dark .rc-sub { color: rgba(245,242,236,0.55); }
 
-/* --- Watermark overlay (blue rotated) --- */
+/* --- Watermark overlay (blue rotated, low-opacity, sits below content) --- */
 .watermark {
   position: fixed; inset: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   overflow: hidden;
 }
 .watermark::before, .watermark::after {
@@ -946,15 +946,15 @@ hr.section-rule {
   position: absolute;
   font-family: var(--font-mono);
   font-weight: 500;
-  font-size: 48px;
-  color: rgba(11,83,148,0.05);
+  font-size: 44px;
+  color: rgba(11,83,148,0.028);
   letter-spacing: 0.04em;
   white-space: nowrap;
   transform: rotate(-22deg);
-  top: 30%;
-  left: -20%;
+  top: 42%;
+  left: -18%;
 }
-.watermark::after { top: 70%; left: 0%; }
+.watermark::after { top: 78%; left: -4%; }
 
 /* --- Thread UI (Questions) --- */
 .thread-grid { display: grid; grid-template-columns: minmax(280px, 380px) 1fr; gap: 20px; }
