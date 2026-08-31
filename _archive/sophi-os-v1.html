@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOPHI OS — SOPHI Deal Room · Advisor Working File</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/deal-room.css?v=20260831c">
+<style>
+  /* Pillars (used inside SOPHI Hub tab) */
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: var(--space-6); }
+  @media (max-width: 1080px) { .pillars { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 720px) { .pillars { grid-template-columns: 1fr; } }
+  .pillar { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 20px 22px; display: flex; flex-direction: column; gap: 12px; }
+  .pillar .p-icon { width: 38px; height: 38px; border-radius: 8px; background: var(--accent-soft); color: var(--blue-ink); display: grid; place-items: center; }
+  .pillar .p-icon svg { width: 20px; height: 20px; }
+  .pillar h3 { font-size: 16px; font-weight: 600; color: var(--text-strong); margin: 0; }
+  .pillar p { font-size: 13.5px; line-height: 1.6; color: var(--text-muted); margin: 0; }
+  .pillar .p-features { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }
+  .pillar .p-features li { font-size: 12.5px; color: var(--text); padding-left: 16px; position: relative; line-height: 1.5; }
+  .pillar .p-features li::before { content: ""; position: absolute; left: 0; top: 7px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+  .pillar .chip { align-self: flex-start; }
+
+  .arch-strip { background: #0E0D0B; color: #F5F2EC; border-radius: var(--radius-m); padding: 22px 26px; margin-bottom: var(--space-6); }
+  .arch-strip .as-eyebrow { font: 700 10.5px/1.4 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  .arch-strip .as-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  @media (max-width: 900px) { .arch-strip .as-grid { grid-template-columns: 1fr 1fr; } }
+  .arch-strip .as-item h4 { font-size: 14px; font-weight: 600; margin: 0 0 6px; color: #F5F2EC; }
+  .arch-strip .as-item p { font-size: 12.5px; line-height: 1.6; color: rgba(245,242,236,0.7); margin: 0; }
+
+  /* ─── Revenue Model — nested section switcher ─── */
+  .rev-switch { display: inline-flex; gap: 2px; background: var(--bg-elev-3); border: 1px solid var(--border); border-radius: 999px; padding: 4px; margin-bottom: var(--space-6); }
+  .rev-btn { appearance: none; background: transparent; border: 0; padding: 8px 18px; border-radius: 999px; font: 500 13px/1 var(--font-body); color: var(--text-muted); cursor: pointer; transition: background 0.15s var(--ease), color 0.15s var(--ease); }
+  .rev-btn:hover { color: var(--text-strong); }
+  .rev-btn.active { background: var(--bg-elev); color: var(--blue-ink); box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+  .rev-section[hidden] { display: none; }
+
+  /* Stream cards */
+  .stream-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 1080px) { .stream-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .stream-grid { grid-template-columns: 1fr; } }
+  .stream-card { background: var(--bg-elev-2); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; }
+  .stream-head { display: flex; align-items: center; gap: 10px; }
+  .stream-head h3 { margin: 0; font-size: 16px; font-weight: 600; color: var(--text-strong); }
+  .stream-desc { margin: 0; font-size: 13px; line-height: 1.55; color: var(--text-muted); flex: 1; }
+  .stream-bar { position: relative; height: 8px; background: var(--bg-elev-3); border-radius: 999px; overflow: hidden; }
+  .stream-bar-fill { position: absolute; inset: 0 auto 0 0; border-radius: 999px; }
+  .stream-bar-fill.floor { background: var(--accent); }
+  .stream-bar-fill.upside { background: repeating-linear-gradient(45deg, var(--accent) 0 6px, var(--accent-soft) 6px 12px); }
+  .stream-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 8px; border-top: 1px dashed var(--border); }
+  .stream-metrics > div { display: flex; flex-direction: column; gap: 2px; }
+  .sm-label { font: 600 10px/1 var(--font-body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); }
+  .sm-val { font: 600 15px/1.2 var(--font-body); color: var(--text-strong); font-variant-numeric: tabular-nums; }
+  .stream-cta { margin: 4px 0 0; font-size: 12.5px; color: var(--text-muted); }
+  .stream-link { appearance: none; background: transparent; border: 0; padding: 0; font: 500 12.5px/1 var(--font-body); color: var(--blue-ink); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+  .stream-link:hover { color: var(--blue-ink-hover); }
+
+  /* SMS hero + stats */
+  .sms-hero-title { margin: 0 0 12px; font: 600 20px/1.35 var(--font-display); color: var(--text-strong); }
+  .sms-hero-body { margin: 0 0 20px; font-size: 14px; line-height: 1.7; color: var(--text); }
+  .sms-hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding-top: 16px; border-top: 1px solid var(--border); }
+  @media (max-width: 720px) { .sms-hero-stats { grid-template-columns: 1fr; } }
+  .sms-stat { display: flex; flex-direction: column; gap: 4px; }
+  .sms-stat-val { font: 600 22px/1.1 var(--font-body); color: var(--blue-ink); font-variant-numeric: tabular-nums; }
+  .sms-stat-lbl { font-size: 12px; line-height: 1.4; color: var(--text-muted); }
+
+  /* Portfolio summary tiles */
+  .sms-portfolio-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 900px) { .sms-portfolio-summary { grid-template-columns: 1fr 1fr; } }
+  .spm { background: var(--bg-elev-3); border: 1px solid var(--border); border-radius: var(--radius-s); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+  .spm-val { font: 700 22px/1.1 var(--font-body); color: var(--text-strong); font-variant-numeric: tabular-nums; }
+  .spm-lbl { font-size: 11.5px; line-height: 1.4; color: var(--text-muted); }
+
+  /* ─── Staffing Model ─── */
+  .staff-btn { appearance: none; background: transparent; border: 0; padding: 8px 18px; border-radius: 999px; font: 500 13px/1 var(--font-body); color: var(--text-muted); cursor: pointer; transition: background 0.15s var(--ease), color 0.15s var(--ease); }
+  .staff-btn:hover { color: var(--text-strong); }
+  .staff-btn.active { background: var(--bg-elev); color: var(--blue-ink); box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+  .staff-section[hidden] { display: none; }
+
+  /* Orchestration hero */
+  .orch-hero-title { margin: 0 0 12px; font: 600 20px/1.35 var(--font-display); color: var(--text-strong); }
+  .orch-hero-body { margin: 0 0 20px; font-size: 14px; line-height: 1.7; color: var(--text); }
+  .orch-hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding-top: 16px; border-top: 1px solid var(--border); }
+  @media (max-width: 720px) { .orch-hero-stats { grid-template-columns: 1fr; } }
+  .orch-stat { display: flex; flex-direction: column; gap: 4px; }
+  .orch-stat-val { font: 600 28px/1.1 var(--font-body); color: var(--blue-ink); font-variant-numeric: tabular-nums; }
+  .orch-stat-lbl { font-size: 12px; line-height: 1.45; color: var(--text-muted); }
+  .orch-note { color: var(--text-faint); font-style: italic; }
+
+  /* Orchestration cards grid */
+  .orch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: var(--space-6); }
+  @media (max-width: 1080px) { .orch-grid { grid-template-columns: 1fr; } }
+  .orch-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 20px 22px; display: flex; flex-direction: column; gap: 16px; }
+  .orch-card-future { border: 1px dashed var(--border-strong); background: var(--bg-elev-2); }
+  .orch-card-head { display: flex; flex-direction: column; gap: 8px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .orch-card-future .orch-card-head { border-bottom-color: var(--border-strong); border-bottom-style: dashed; }
+  .orch-card-head .chip { align-self: flex-start; }
+  .orch-card-head h3 { margin: 0; font-size: 18px; font-weight: 600; color: var(--text-strong); display: flex; align-items: center; gap: 8px; }
+  .orch-future-badge { font: 600 9px/1 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 7px; border-radius: 999px; background: var(--bg-elev-3); color: var(--text-faint); border: 1px solid var(--border); }
+  .orch-tagline { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--text-muted); font-style: italic; }
+  .orch-block { display: flex; flex-direction: column; gap: 8px; }
+  .orch-block-label { font: 600 10px/1 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-faint); display: flex; align-items: baseline; gap: 8px; }
+  .orch-block-note { font-weight: 400; text-transform: none; letter-spacing: 0; font-style: italic; color: var(--text-faint); font-size: 11px; }
+  .orch-list { margin: 0; padding-left: 18px; font-size: 12.5px; line-height: 1.6; color: var(--text); display: flex; flex-direction: column; gap: 4px; }
+  .orch-list li::marker { color: var(--accent); }
+  .orch-list-compact li { margin-bottom: 4px; }
+  .orch-tag { display: inline-block; font: 500 10px/1 var(--font-body); letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 6px; border-radius: 4px; background: var(--accent-soft); color: var(--blue-ink); margin-left: 4px; vertical-align: middle; }
+  .orch-owner { color: var(--blue-ink); font-weight: 600; }
+  .orch-score { width: 100%; border-collapse: collapse; font-size: 12px; }
+  .orch-score tbody td { padding: 6px 0; border-bottom: 1px solid var(--border); color: var(--text); }
+  .orch-score tbody tr:last-child td { border-bottom: none; }
+  .orch-score tbody td.num-col { text-align: right; font-variant-numeric: tabular-nums; color: var(--text-strong); font-weight: 600; }
+  .orch-comp { margin: 0; padding-top: 12px; border-top: 1px dashed var(--border); font-size: 12px; line-height: 1.55; color: var(--text-muted); font-style: italic; }
+
+  /* Specialist tracks grid */
+  .track-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media (max-width: 1080px) { .track-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .track-grid { grid-template-columns: 1fr; } }
+  .track-card { background: var(--bg-elev-2); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; }
+  .track-head { display: flex; align-items: center; gap: 10px; }
+  .track-head h4 { margin: 0; font-size: 15px; font-weight: 600; color: var(--text-strong); }
+  .track-desc { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--text-muted); flex: 1; }
+  .track-unlock { margin: 0; padding-top: 10px; border-top: 1px dashed var(--border); font-size: 12px; line-height: 1.5; color: var(--text); }
+  .track-unlock-label { display: inline-block; font: 600 9px/1 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-ink); padding: 2px 6px; border-radius: 4px; background: var(--accent-soft); margin-right: 6px; vertical-align: middle; }
+
+  /* Table row micro-notes + firewall row */
+  .td-note { display: block; font-size: 11.5px; color: var(--text-faint); margin-top: 2px; font-weight: 400; }
+  .data-table tbody tr.row-firewall td { background: #FBF3EE; color: var(--text); }
+  .data-table tbody tr.row-firewall td strong { color: #B25E2E; }
+
+  /* Placeholder callout for tabs pending SOPHI-specific input */
+  .placeholder-callout {
+    background: var(--bg-elev);
+    border: 1px dashed var(--border-strong);
+    border-radius: var(--radius-m);
+    padding: 20px 24px;
+    margin-bottom: var(--space-5);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .placeholder-callout .pc-icon {
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: rgba(56, 182, 255, 0.10);
+    color: var(--accent);
+    display: grid; place-items: center;
+  }
+  .placeholder-callout .pc-icon svg { width: 16px; height: 16px; }
+  .placeholder-callout .pc-body { flex: 1; min-width: 0; }
+  .placeholder-callout .pc-title { font-size: 13px; font-weight: 600; color: var(--text-strong); margin: 0 0 4px; }
+  .placeholder-callout .pc-note { font-size: 12.5px; color: var(--text-muted); margin: 0; line-height: 1.55; }
+</style>
+</head>
+<body>
+<div class="watermark" data-mark="ADVISOR WORKING FILE · SOPHI Mobility LLC"></div>
+<div class="app-shell">
+  <aside class="side-nav" id="side-nav"></aside>
+  <main class="main" style="position:relative; z-index:2;">
+
+    <header class="page-header">
+      <div class="ph-icon" style="background:#E8F4FF; color:#0B5394;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+      </div>
+      <div class="ph-body">
+        <div class="ph-eyebrow">The Opportunity</div>
+        <h1 class="ph-title">SOPHI OS.<br>The operating layer, the people layer, and the money layer.</h1>
+        <p class="ph-lede">
+          SOPHI operates as one system across every property. The hub is the software, the staffing model is how the shifts get filled, and the revenue model is how each property is priced. Three views of the same operating unit.
+        </p>
+      </div>
+    </header>
+
+    <!-- ─────────────── TAB STRIP ─────────────── -->
+    <div class="subtabs" role="tablist" aria-label="SOPHI OS sections">
+      <button class="subtab active" role="tab" data-tab="hub" aria-selected="true" data-testid="tab-hub">SOPHI Hub</button>
+      <button class="subtab" role="tab" data-tab="staffing" aria-selected="false" data-testid="tab-staffing">Staffing Model</button>
+      <button class="subtab" role="tab" data-tab="revenue" aria-selected="false" data-testid="tab-revenue">Revenue Model</button>
+    </div>
+
+    <!-- ─────────────── TAB PANELS ─────────────── -->
+
+    <!-- Panel: SOPHI Hub (existing content, verbatim) -->
+    <section class="subtab-panel active" data-panel="hub">
+
+      <div class="pillars">
+        <div class="pillar"><div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div><span class="chip chip-peach">Operations</span><h3>Incidents &amp; write-ups</h3><p>Every service-recovery event, damage claim, or friction point captured in the same schema across every property.</p><ul class="p-features"><li>Photo, timestamp, GPS on every entry</li><li>Auto-routing by severity and vertical</li><li>Insurance-grade paper trail</li></ul></div>
+
+        <div class="pillar"><div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><span class="chip chip-peach">Operations</span><h3>Shift daily reports</h3><p>The single artifact GMs open every morning: last night's covers, revenue, tips, incidents, and staffing gaps, per property, in one view.</p><ul class="p-features"><li>Auto-generated at 03:00 local time</li><li>Owner-configurable KPI set</li><li>Text-first, mobile-first</li></ul></div>
+
+        <div class="pillar"><div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></div><span class="chip chip-mint">Growth</span><h3>Sales</h3><p>The account book: which prospect, in which vertical, under which operator, at what credibility gate — the pipeline the six-market model runs on.</p><ul class="p-features"><li>203 accounts under active tracking</li><li>Operator-gate awareness built in</li><li>Relationship-multiplier tagging</li></ul></div>
+
+        <div class="pillar"><div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><span class="chip chip-mint">Growth</span><h3>Marketing &amp; reviews</h3><p>Every guest interaction routed to a review at the right moment. Property-level review sentiment fed back into the shift report.</p><ul class="p-features"><li>3× to 5× review-volume lift</li><li>Negative-review interception path</li><li>Owner-visible sentiment index</li></ul></div>
+
+        <div class="pillar"><div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="6" width="4" height="15"/><rect x="17" y="9" width="4" height="12"/></svg></div><span class="chip chip-sky">Insight</span><h3>Reporting</h3><p>Owner dashboards fed by the same schema powering operations. No manual roll-up. No spreadsheet drift.</p><ul class="p-features"><li>Live per-property P&amp;L</li><li>Portfolio and multi-brand roll-ups</li><li>Export-ready for lender / investor</li></ul></div>
+
+        <div class="pillar"><div class="p-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><span class="chip chip-lavender">People</span><h3>Academy</h3><p>Onboarding, upskilling, and cross-property mobility. The mechanism behind &lt;5% churn and 82% no-wait service in a category that averages 1%.</p><ul class="p-features"><li>Role-based curriculum</li><li>Property-transfer certification</li><li>GM promotion path</li></ul></div>
+      </div>
+
+      <div class="arch-strip">
+        <div class="as-eyebrow">Architecture posture</div>
+        <div class="as-grid">
+          <div class="as-item"><h4>Config-driven accounts</h4><p>Every property is a config object. New verticals ship as configuration, not code.</p></div>
+          <div class="as-item"><h4>Zero-trust by role and tag</h4><p>Reads gated by property, role, and tag. Cross-tenant access requires explicit provisioning.</p></div>
+          <div class="as-item"><h4>Kill-switched outbound</h4><p>Every outbound integration (SMS, review platform, POS) behind a per-property switch.</p></div>
+          <div class="as-item"><h4>Vendor-neutral AI</h4><p>Model layer swappable. No dependency on a single model provider for the operating loop.</p></div>
+        </div>
+      </div>
+
+      <div class="section-eyebrow">How an account is priced</div>
+      <div class="card">
+        <table class="data-table">
+          <thead>
+            <tr><th>Vertical</th><th>Pricing formula</th><th>Primary driver</th><th class="num-col">Y1 typical revenue</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Restaurant</strong></td><td>Seats × turns × attach rate</td><td>Reservations &amp; covers</td><td class="num-col">$70K–$180K</td></tr>
+            <tr><td><strong>Hotel</strong></td><td>Rooms × ADR × attach</td><td>Occupancy &amp; ADR</td><td class="num-col">$140K–$420K</td></tr>
+            <tr><td><strong>Hospital</strong></td><td>Beds × visitor volume</td><td>Visitor traffic profile</td><td class="num-col">$260K–$780K</td></tr>
+            <tr><td><strong>Venue</strong></td><td>Event capacity × cadence</td><td>Booked event calendar</td><td class="num-col">$110K–$340K</td></tr>
+            <tr><td><strong>Residential</strong></td><td>Units × amenity fee</td><td>Amenity mix &amp; lease terms</td><td class="num-col">$60K–$220K</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Every account in the six-market book carries its own formula and driver. The Y5 curve is the sum of those cells, not a top-down TAM assumption.</p>
+      </div>
+
+    </section>
+
+    <!-- Panel: Staffing Model -->
+    <section class="subtab-panel" data-panel="staffing" hidden>
+
+      <!-- Nested section switcher -->
+      <div class="rev-switch" role="tablist" aria-label="Staffing Model sections">
+        <button class="staff-btn active" data-staff="layer" aria-selected="true">Orchestration Layer</button>
+        <button class="staff-btn" data-staff="tracks" aria-selected="false">Specialist Tracks</button>
+        <button class="staff-btn" data-staff="envelope" aria-selected="false">Staffing Envelope</button>
+      </div>
+
+      <!-- ─── SECTION: ORCHESTRATION LAYER ─── -->
+      <div class="staff-section active" data-staff-section="layer">
+
+        <div class="section-eyebrow">The business-model advantage</div>
+        <div class="card orch-hero" style="margin-bottom: var(--space-6);">
+          <p class="orch-hero-title">The orchestration layer + specialist certifications let a lean market team serve a disproportionately large book of accounts and employees.</p>
+          <p class="orch-hero-body">
+            Traditional valet operators staff each market with a stack of coordinators, GMs, HR partners, sales reps, and compliance leads. SOPHI runs the middle-management layer as a two-seat <strong>Orchestration Layer</strong> — a <strong>Market Officer</strong> (final authority, external voice, revenue owner) and a <strong>Sr. Account Executive</strong> (internal operations, people, standards). SOPHI OS carries the coordination, reporting, and monitoring work that traditionally justified a much larger middle-management footprint. Specialist certifications sit underneath and multiply what each seat can safely oversee.
+          </p>
+          <div class="orch-hero-stats">
+            <div class="orch-stat"><span class="orch-stat-val">2</span><span class="orch-stat-lbl">Market-level orchestration seats today <span class="orch-note">(3rd seat coming online)</span></span></div>
+            <div class="orch-stat"><span class="orch-stat-val">5</span><span class="orch-stat-lbl">Specialist certification tracks under the layer</span></div>
+            <div class="orch-stat"><span class="orch-stat-val">1</span><span class="orch-stat-lbl">SOPHI OS — the fourth teammate absorbing coordination overhead</span></div>
+          </div>
+        </div>
+
+        <div class="section-eyebrow">The two seats today — and the one coming online</div>
+        <div class="orch-grid">
+
+          <!-- Market Officer -->
+          <div class="orch-card">
+            <div class="orch-card-head">
+              <span class="chip chip-blue">Final authority · External</span>
+              <h3>Market Officer</h3>
+              <p class="orch-tagline">External voice. Revenue owner. Final call on market-level decisions.</p>
+            </div>
+            <div class="orch-block">
+              <div class="orch-block-label">Scope</div>
+              <ul class="orch-list">
+                <li>Final authority on market-level decisions</li>
+                <li>Player-coach carrying a revenue bag — personally closes new contracts</li>
+                <li>Existing client relationship management and retention</li>
+                <li>City compliance departments and regulatory relationships</li>
+                <li>Professional memberships, civic organizations, networking</li>
+                <li>Market brand presence, reputation, and culture stewardship</li>
+                <li>Feeds Sr. AE intelligence from the field — what clients are saying, what the market needs</li>
+              </ul>
+            </div>
+            <div class="orch-block">
+              <div class="orch-block-label">Scorecard</div>
+              <table class="orch-score">
+                <tbody>
+                  <tr><td>New Contract ARR (closed by market)</td><td class="num-col">35%</td></tr>
+                  <tr><td>Client Retention Rate</td><td class="num-col">30%</td></tr>
+                  <tr><td>Client NPS / Satisfaction Score</td><td class="num-col">20%</td></tr>
+                  <tr><td>Market Brand Presence (events, memberships, civic)</td><td class="num-col">15%</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="orch-comp">Lower base, highest variable upside. Client satisfaction weighted equally to revenue — quality gate against chasing bad-fit contracts.</p>
+          </div>
+
+          <!-- Sr. Account Executive -->
+          <div class="orch-card">
+            <div class="orch-card-head">
+              <span class="chip chip-sky">Internal</span>
+              <h3>Sr. Account Executive</h3>
+              <p class="orch-tagline">Guardian of standards. Steward of the market's people.</p>
+            </div>
+            <div class="orch-block">
+              <div class="orch-block-label">Scope</div>
+              <ul class="orch-list">
+                <li>Operational compliance and SOPHI OS standards enforcement across all locations</li>
+                <li>Account Manager oversight, coaching, and development</li>
+                <li>Employee performance management and escalation — the HR function for the market</li>
+                <li>New-employee onboarding coordination with the SOPHI Academy</li>
+                <li>Employee training, certification, and development pipeline <span class="orch-tag">interim — talent seat</span></li>
+                <li>Specialist certification tracking per employee <span class="orch-tag">interim — talent seat</span></li>
+                <li>Internal market health — the person who knows if the operation is actually healthy, not just outwardly healthy</li>
+              </ul>
+            </div>
+            <div class="orch-block">
+              <div class="orch-block-label">Scorecard</div>
+              <table class="orch-score">
+                <tbody>
+                  <tr><td>Market Employee Performance Score (EPS) Average</td><td class="num-col">30%</td></tr>
+                  <tr><td>Employee Retention Rate</td><td class="num-col">25%</td></tr>
+                  <tr><td>Certification Completion Rate (Academy)</td><td class="num-col">20%</td></tr>
+                  <tr><td>Location Health Score (LHS) Average</td><td class="num-col">15%</td></tr>
+                  <tr><td>Incident Rate (INC) Market Average</td><td class="num-col">10%</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="orch-comp">Base stability + heavy weighting on people and operations outcomes. Never measured on revenue or contract count — that's the Market Officer's domain.</p>
+          </div>
+
+          <!-- Coming Online: Talent / Culture Seat -->
+          <div class="orch-card orch-card-future">
+            <div class="orch-card-head">
+              <span class="chip chip-neutral">Coming online</span>
+              <h3>Talent &amp; Culture Seat <span class="orch-future-badge">Future</span></h3>
+              <p class="orch-tagline">Dedicated people-development and Academy delivery role. Responsibilities currently split into the two active seats.</p>
+            </div>
+            <div class="orch-block">
+              <div class="orch-block-label">Scope <span class="orch-block-note">when activated</span></div>
+              <ul class="orch-list">
+                <li>People development — coaches and grows AMs, Supervisors, Attendants</li>
+                <li>Academy coordination for the market — curriculum delivery, certification tracking</li>
+                <li>Culture stewardship — ensures SOPHIology is lived, not just stated</li>
+                <li>Talent identification — spots high-potential staff for promotion</li>
+                <li>Specialist certification pipeline — LUX, MED, EVT tracks</li>
+                <li>Onboarding experience for new hires in the market</li>
+              </ul>
+            </div>
+            <div class="orch-block">
+              <div class="orch-block-label">Interim assignment</div>
+              <ul class="orch-list orch-list-compact">
+                <li><strong>Academy delivery, certification tracking, onboarding</strong> — owned by <span class="orch-owner">Sr. Account Executive</span></li>
+                <li><strong>Culture stewardship, market brand presence</strong> — owned by <span class="orch-owner">Market Officer</span></li>
+                <li><strong>Talent identification, coaching, promotion pipeline</strong> — shared between both seats, with Sr. AE as system-of-record</li>
+              </ul>
+            </div>
+            <p class="orch-comp">Activation trigger: when a market's Sr. AE bandwidth is visibly constrained by people-development load, AND Academy curriculum is mature enough for a dedicated coordinator to deliver at scale.</p>
+          </div>
+
+        </div>
+
+        <div class="section-eyebrow">Span-of-control comparison</div>
+        <div class="card">
+          <p style="font-size:13.5px; line-height:1.65; color:var(--text); margin:0 0 18px;">
+            The Orchestration Layer replaces what a traditional valet operator staffs across four to six distinct middle-management roles. SOPHI OS carries the coordination and monitoring work — humans handle judgment and exceptions only.
+          </p>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Function</th>
+                <th>Traditional valet operator</th>
+                <th>SOPHI Orchestration Layer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Final market authority</strong></td><td>Regional GM + District Manager</td><td>Market Officer</td></tr>
+              <tr><td><strong>Sales &amp; new business</strong></td><td>Dedicated BDR / Sales Rep</td><td>Market Officer (player-coach)</td></tr>
+              <tr><td><strong>Client retention &amp; NPS</strong></td><td>Account Director</td><td>Market Officer</td></tr>
+              <tr><td><strong>Ops standards &amp; compliance</strong></td><td>Ops Manager + QA Lead</td><td>Sr. Account Executive</td></tr>
+              <tr><td><strong>HR / people management</strong></td><td>HR Business Partner</td><td>Sr. Account Executive</td></tr>
+              <tr><td><strong>Training &amp; certification</strong></td><td>Training Coordinator</td><td>Sr. Account Executive <span class="orch-tag">interim</span> → Talent Seat</td></tr>
+              <tr><td><strong>Coordination, scheduling, reporting</strong></td><td>Ops Coordinator + Scheduler</td><td><strong>SOPHI OS</strong> — the fourth teammate</td></tr>
+              <tr class="highlight"><td><strong>Total market-level headcount</strong></td><td class="num-col">6–10 people</td><td class="num-col">2 people + OS (3 when talent seat activates)</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Traditional headcount reflects typical multi-location valet operator staffing at 8–15 locations per market. SOPHI runs the same span with a two-seat orchestration layer today — the leverage compounds as SOPHI OS absorbs more of the coordination surface.</p>
+        </div>
+
+      </div>
+
+      <!-- ─── SECTION: SPECIALIST TRACKS ─── -->
+      <div class="staff-section" data-staff-section="tracks" hidden>
+
+        <div class="section-eyebrow">Five specialist certification tracks</div>
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <p style="font-size:13.5px; line-height:1.65; color:var(--text); margin:0 0 18px;">
+            Specialist certifications sit underneath the Orchestration Layer and multiply what a lean market team can safely oversee. Every track has a defined curriculum, an in-Academy delivery path, and a specific set of assignments and rate uplifts it unlocks. Together they let SOPHI serve luxury, healthcare, event, and standard verticals with one workforce and one operating system.
+          </p>
+          <div class="track-grid">
+            <div class="track-card">
+              <div class="track-head"><span class="chip chip-sand">LUX</span><h4>Luxury &amp; Exotic</h4></div>
+              <p class="track-desc">Certified handling of high-value vehicles. Premium guest experience protocols. Required for any location with consistent luxury vehicle volume.</p>
+              <p class="track-unlock"><span class="track-unlock-label">Unlocks</span> Higher per-shift rate. Eligibility for luxury-contract locations.</p>
+            </div>
+            <div class="track-card">
+              <div class="track-head"><span class="chip chip-sky">MED</span><h4>Healthcare Operations</h4></div>
+              <p class="track-desc">HIPAA sensitivity training, patient and caregiver experience protocols, healthcare facility compliance standards.</p>
+              <p class="track-unlock"><span class="track-unlock-label">Unlocks</span> Eligibility for medical location assignments. Required for any AM at a healthcare location.</p>
+            </div>
+            <div class="track-card">
+              <div class="track-head"><span class="chip chip-peach">EVT</span><h4>Event Operations</h4></div>
+              <p class="track-desc">High-volume surge management, event coordination protocols, vendor and venue relationship standards.</p>
+              <p class="track-unlock"><span class="track-unlock-label">Unlocks</span> Event shift-lead eligibility. Higher event-shift rate. Required for Sr. Supervisor at event-primary locations.</p>
+            </div>
+            <div class="track-card">
+              <div class="track-head"><span class="chip chip-mint">TRN</span><h4>Training &amp; Mentorship</h4></div>
+              <p class="track-desc">Certified to onboard and mentor Jr. Attendants. Fundamentals of SOPHIology delivery. Feeds directly into the future Talent &amp; Culture seat.</p>
+              <p class="track-unlock"><span class="track-unlock-label">Unlocks</span> Peer coaching log access. Pathway toward the Talent &amp; Culture seat when activated.</p>
+            </div>
+            <div class="track-card">
+              <div class="track-head"><span class="chip chip-blue">COM</span><h4>Compliance &amp; Standards</h4></div>
+              <p class="track-desc">Deep SOPHI OS standards, audit protocol, incident documentation and escalation mastery.</p>
+              <p class="track-unlock"><span class="track-unlock-label">Unlocks</span> Pathway toward Sr. Account Executive consideration. Required for AM promotion eligibility.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-eyebrow">How the tracks compound the layer</div>
+        <div class="card">
+          <p style="font-size:13.5px; line-height:1.65; color:var(--text); margin:0 0 14px;">
+            The Orchestration Layer sets the standard; specialist certifications propagate it. Because a certified Sr. Supervisor can run an event, a certified AM can run a medical account, and a TRN-certified Attendant can onboard peers, the Market Officer and Sr. AE spend their time on judgment work — not on being physically present at every property, every shift.
+          </p>
+          <ul style="margin:0; padding-left: 20px; color: var(--text); font-size: 13px; line-height: 1.7;">
+            <li><strong>Locations per market officer</strong> — rises materially with COM-certified AMs (compliance eyes on the ground) and TRN-certified Sr. Supervisors (peer onboarding without pulling the layer down)</li>
+            <li><strong>Vertical breadth per market</strong> — LUX + MED + EVT let one team run luxury, healthcare, and event verticals without a dedicated vertical GM per line</li>
+            <li><strong>Talent-seat activation</strong> — TRN certification is the visible pipeline into the future Talent &amp; Culture seat; the market builds its own successor</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- ─── SECTION: STAFFING ENVELOPE ─── -->
+      <div class="staff-section" data-staff-section="envelope" hidden>
+
+        <div style="background: #FEF6EC; border: 1px solid #F0D9B3; border-left: 3px solid #DA7101; border-radius: var(--radius-s); padding: 14px 18px; margin-bottom: var(--space-6); font-size: 12.5px; color: #6B4A1A; line-height: 1.55;">
+          <strong style="color: #3D2A0A;">Advisor working file.</strong> Fully-loaded labor figures are being finalized with the CFO. The per-vertical FTE ratios and attendant peak counts below are locked from actual Charlotte and South Bend operations — the dollar Y1 fully-loaded-labor column is deliberately left open pending the R1-close labor benchmarking pass (Bryce + advisor).
+        </div>
+
+        <div class="section-eyebrow">Staffing envelope, per property, per vertical</div>
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <table class="data-table">
+            <thead>
+              <tr><th>Vertical</th><th>Account Manager</th><th>Shift leads</th><th>Attendants (peak)</th><th class="num-col">Fully-loaded labor, Y1</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Restaurant</strong></td><td>0.25 FTE</td><td>1</td><td>2–4</td><td class="num-col" style="color:var(--text-faint);">Pending R1-close labor pass</td></tr>
+              <tr><td><strong>Hotel</strong></td><td>0.50 FTE</td><td>2</td><td>4–8</td><td class="num-col" style="color:var(--text-faint);">Pending R1-close labor pass</td></tr>
+              <tr><td><strong>Hospital</strong></td><td>1.00 FTE</td><td>3</td><td>6–14</td><td class="num-col" style="color:var(--text-faint);">Pending R1-close labor pass</td></tr>
+              <tr><td><strong>Venue</strong></td><td>0.25 FTE</td><td>1</td><td>4–12 (event-day)</td><td class="num-col" style="color:var(--text-faint);">Pending R1-close labor pass</td></tr>
+              <tr><td><strong>Residential</strong></td><td>0.10 FTE</td><td>1</td><td>1–2</td><td class="num-col" style="color:var(--text-faint);">Pending R1-close labor pass</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Per-property envelope sits under the market-level Orchestration Layer. Account Managers (property-level) roll up to the Sr. Account Executive. Fully-loaded labor figures land in the next pass.</p>
+        </div>
+
+        <div class="section-eyebrow">The Academy pipeline</div>
+        <div class="card">
+          <p style="font-size:13.5px; line-height:1.65; color:var(--text); margin:0 0 14px;">
+            The SOPHI Academy is where the specialist certifications above are earned. It sources attendants, credentials the specialist tracks, and feeds the promotion path from Attendant → Supervisor → Account Manager → orchestration-layer consideration. Numbers pending; the mechanism is live in both Charlotte and South Bend today.
+          </p>
+          <ul style="margin:0; padding-left: 20px; color: var(--text); font-size: 13px; line-height: 1.7;">
+            <li><strong>Academy throughput</strong> — cohorts per year, attendants per cohort, graduation-to-property-ready timing <em style="color:var(--text-faint)">(numbers pending)</em></li>
+            <li><strong>Certification cadence</strong> — LUX / MED / EVT / TRN / COM completion rates per employee, per market <em style="color:var(--text-faint)">(numbers pending)</em></li>
+            <li><strong>Cross-property mobility</strong> — transfer certification, promotion path, retention proof from Charlotte and South Bend <em style="color:var(--text-faint)">(narrative pending)</em></li>
+            <li><strong>Orchestration-layer promotion path</strong> — COM certification is the gate to Sr. Account Executive consideration; TRN certification is the gate to Talent &amp; Culture seat consideration when activated</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Panel: Revenue Model -->
+    <section class="subtab-panel" data-panel="revenue" hidden>
+
+      <!-- Nested section switcher -->
+      <div class="rev-switch" role="tablist" aria-label="Revenue Model sections">
+        <button class="rev-btn active" data-rev="streams" aria-selected="true">Revenue Streams</button>
+        <button class="rev-btn" data-rev="sms" aria-selected="false">SMS Retrieval Ad Model</button>
+      </div>
+
+      <!-- ─── SECTION: REVENUE STREAMS ─── -->
+      <div class="rev-section active" data-rev-section="streams">
+
+        <div class="section-eyebrow">Five streams — floor vs upside</div>
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <p style="font-size:13.5px; line-height:1.65; color:var(--text); margin:0 0 18px;">
+            SOPHI's revenue is anchored by valet operations today, with four additional streams that light up as SOPHI OS matures and the portfolio scales. Each stream is modeled as a <strong>floor</strong> (share of revenue we can count on now) and an <strong>upside</strong> (share we expect at scale, gated on defined activation conditions).
+          </p>
+          <div class="stream-grid">
+            <div class="stream-card">
+              <div class="stream-head">
+                <span class="chip chip-blue">Anchor</span>
+                <h3>Valet Operations</h3>
+              </div>
+              <p class="stream-desc">Service contracts with hotels, restaurants, hospitals, venues, and residential properties. Priced per vertical; live today across two markets.</p>
+              <div class="stream-bar" aria-hidden="true">
+                <div class="stream-bar-fill floor" style="width:97.5%"></div>
+              </div>
+              <div class="stream-metrics">
+                <div><span class="sm-label">Floor</span><span class="sm-val">95–100%</span></div>
+                <div><span class="sm-label">Upside</span><span class="sm-val">40–55%</span></div>
+              </div>
+            </div>
+
+            <div class="stream-card">
+              <div class="stream-head">
+                <span class="chip chip-sky">SaaS</span>
+                <h3>OS Licensing</h3>
+              </div>
+              <p class="stream-desc">SOPHI OS licensed to non-competing operators. $800–2,500/site/month. Highest-multiple stream in the mix — $8–12× EV/ARR vs $4–6× for services.</p>
+              <div class="stream-bar" aria-hidden="true">
+                <div class="stream-bar-fill upside" style="width:30%"></div>
+              </div>
+              <div class="stream-metrics">
+                <div><span class="sm-label">Floor</span><span class="sm-val">0%</span></div>
+                <div><span class="sm-label">Upside</span><span class="sm-val">25–35%</span></div>
+              </div>
+            </div>
+
+            <div class="stream-card">
+              <div class="stream-head">
+                <span class="chip chip-mint">Network</span>
+                <h3>Referral Services</h3>
+              </div>
+              <p class="stream-desc">Guest Experience OS routes captured guests to partner venues. SOPHI is the attribution layer. CPL paid by the receiving partner.</p>
+              <div class="stream-bar" aria-hidden="true">
+                <div class="stream-bar-fill upside" style="width:10%"></div>
+              </div>
+              <div class="stream-metrics">
+                <div><span class="sm-label">Floor</span><span class="sm-val">0%</span></div>
+                <div><span class="sm-label">Upside</span><span class="sm-val">8–12%</span></div>
+              </div>
+            </div>
+
+            <div class="stream-card">
+              <div class="stream-head">
+                <span class="chip chip-peach">Ads</span>
+                <h3>Geo-Targeted Advertising</h3>
+              </div>
+              <p class="stream-desc">Retrieval SMS advertising at the moment of highest guest intent. Requires ~20+ sites for network viability. Brand-dilution risk actively managed via account-type firewalls.</p>
+              <div class="stream-bar" aria-hidden="true">
+                <div class="stream-bar-fill upside" style="width:6.5%"></div>
+              </div>
+              <div class="stream-metrics">
+                <div><span class="sm-label">Floor</span><span class="sm-val">0%</span></div>
+                <div><span class="sm-label">Upside</span><span class="sm-val">5–8%</span></div>
+              </div>
+              <p class="stream-cta">Detail in <button type="button" class="stream-link" data-rev-jump="sms">SMS Retrieval Ad Model →</button></p>
+            </div>
+
+            <div class="stream-card">
+              <div class="stream-head">
+                <span class="chip chip-sand">Year 4–5</span>
+                <h3>Franchise Royalties</h3>
+              </div>
+              <p class="stream-desc">Franchise the SOPHI operating model. Gated on two $5M ARR proof-of-model markets. Long-horizon stream — not modeled in Y1–Y3 base case.</p>
+              <div class="stream-bar" aria-hidden="true">
+                <div class="stream-bar-fill upside" style="width:5%"></div>
+              </div>
+              <div class="stream-metrics">
+                <div><span class="sm-label">Floor</span><span class="sm-val">0%</span></div>
+                <div><span class="sm-label">Upside</span><span class="sm-val">0–10%</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-eyebrow">Multiple mix — why the OS matters</div>
+        <div class="card">
+          <p style="font-size:13.5px; line-height:1.65; color:var(--text); margin:0 0 14px;">
+            Services businesses trade at 4–6× EV/ARR. Software businesses trade at 8–12×. The OS Licensing stream — even at 25–35% of revenue at scale — is what pulls SOPHI's blended multiple up. Every point of ARR that moves from services into OS Licensing compounds the exit valuation.
+          </p>
+          <table class="data-table">
+            <thead>
+              <tr><th>Stream</th><th>Model</th><th class="num-col">EV / ARR range</th><th>Activation</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Valet Operations</strong></td><td>Service contract</td><td class="num-col">4–6×</td><td>Live today</td></tr>
+              <tr class="highlight"><td><strong>OS Licensing (SaaS)</strong></td><td>Per-site subscription</td><td class="num-col">8–12×</td><td>Phase 2 — non-competing operators first</td></tr>
+              <tr><td><strong>Referral Services</strong></td><td>CPL to partner venues</td><td class="num-col">5–7×</td><td>Guest Experience OS + captured guest scale</td></tr>
+              <tr><td><strong>Geo-Targeted Advertising</strong></td><td>CPL / CPM on retrieval SMS</td><td class="num-col">6–8×</td><td>15,000 monthly SMS interactions (see next section)</td></tr>
+              <tr><td><strong>Franchise Royalties</strong></td><td>Recurring royalty on franchisee ARR</td><td class="num-col">6–9×</td><td>Two $5M ARR proof markets</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Multiples are directional ranges informed by comparable service and SaaS transactions; actual exit multiple depends on stream mix, growth rate, and retention at the time of transaction.</p>
+        </div>
+
+      </div>
+
+      <!-- ─── SECTION: SMS RETRIEVAL AD MODEL ─── -->
+      <div class="rev-section" data-rev-section="sms" hidden>
+
+        <div class="section-eyebrow">The insight</div>
+        <div class="card sms-hero" style="margin-bottom: var(--space-6);">
+          <p class="sms-hero-title">The retrieval SMS is not advertising. It's a conversation.</p>
+          <p class="sms-hero-body">
+            Standard SMS marketing benchmarks are built on cold or warm outbound sends. The retrieval SMS is categorically different — the guest initiated the interaction. They texted SOPHI to request their car. They are now holding their phone, actively waiting for a reply, with anticipation. Every message sent in that window has near-100% open rate by definition. This is not a marketing channel. It is a captive, high-intent moment of direct human attention at the precise instant of peak engagement.
+          </p>
+          <div class="sms-hero-stats">
+            <div class="sms-stat"><span class="sms-stat-val">25–45%</span><span class="sms-stat-lbl">Transactional SMS conversion (2024–26 benchmark)</span></div>
+            <div class="sms-stat"><span class="sms-stat-val">20–30%+</span><span class="sms-stat-lbl">Hospitality-specific SMS conversion</span></div>
+            <div class="sms-stat"><span class="sms-stat-val">+19%</span><span class="sms-stat-lbl">Repeat-purchase lift from upsell-in-transactional</span></div>
+          </div>
+        </div>
+
+        <div class="section-eyebrow">Account-type benchmarks</div>
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Account type</th>
+                <th>Workflow</th>
+                <th class="num-col">Capture rate</th>
+                <th class="num-col">SMS conversion</th>
+                <th class="num-col">Avg offer value</th>
+                <th>Revenue model</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Hotel</strong><br><span class="td-note">Business + leisure</span></td>
+                <td>Multi-touch (3.5 interactions/stay)</td>
+                <td class="num-col">55%</td>
+                <td class="num-col">18–32%</td>
+                <td class="num-col">$15–$45</td>
+                <td>CPL — restaurant, experience, partner</td>
+              </tr>
+              <tr>
+                <td><strong>Fine Dining</strong><br><span class="td-note">Local high-income</span></td>
+                <td>Single-touch transient</td>
+                <td class="num-col">45%</td>
+                <td class="num-col">15–30%</td>
+                <td class="num-col">$12–$35</td>
+                <td>CPL — hyper-local network</td>
+              </tr>
+              <tr>
+                <td><strong>Event / Venue</strong><br><span class="td-note">Weddings, concerts</span></td>
+                <td>Burst single-touch (post-event peak)</td>
+                <td class="num-col">35%</td>
+                <td class="num-col">20–38%</td>
+                <td class="num-col">$15–$50</td>
+                <td>CPL — after-event, experience</td>
+              </tr>
+              <tr>
+                <td><strong>Corporate</strong><br><span class="td-note">Weekday professional</span></td>
+                <td>Moderate repeat (1.5/visit)</td>
+                <td class="num-col">40%</td>
+                <td class="num-col">14–28%</td>
+                <td class="num-col">$10–$30</td>
+                <td>CPL — lunch, professional services</td>
+              </tr>
+              <tr class="row-firewall">
+                <td><strong>Medical / Healthcare</strong><br><span class="td-note">Patients, caregivers, staff</span></td>
+                <td>Repeat operational</td>
+                <td class="num-col">15%</td>
+                <td class="num-col">—</td>
+                <td class="num-col">—</td>
+                <td><strong>Firewalled from ad model</strong> — operational SMS only</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Medical accounts are excluded from all advertising functions by design. Any marketing inference from a medical visit context is an existential legal and reputational risk regardless of HIPAA applicability — hard-suppressed at the data pipeline level.</p>
+        </div>
+
+        <div class="section-eyebrow">Current portfolio — real Domo data</div>
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <div class="sms-portfolio-summary">
+            <div class="spm"><span class="spm-val">59,945</span><span class="spm-lbl">Annual vehicles (5 accounts)</span></div>
+            <div class="spm"><span class="spm-val">54%</span><span class="spm-lbl">SMS rate — 13-month avg</span></div>
+            <div class="spm"><span class="spm-val">32,370</span><span class="spm-lbl">Annual SMS interactions today</span></div>
+            <div class="spm"><span class="spm-val">2,698</span><span class="spm-lbl">Monthly SMS interactions</span></div>
+          </div>
+          <table class="data-table" style="margin-top: var(--space-5);">
+            <thead>
+              <tr><th>Account</th><th>Type</th><th class="num-col">Annual vehicles</th><th class="num-col">Avg monthly</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Courtyard South Bend Marriott</td><td>Hotel</td><td class="num-col">19,312</td><td class="num-col">1,609</td></tr>
+              <tr><td>Chima Restaurant</td><td>Fine Dining</td><td class="num-col">15,740</td><td class="num-col">1,312</td></tr>
+              <tr><td>The Capital Grille</td><td>Fine Dining</td><td class="num-col">9,861</td><td class="num-col">822</td></tr>
+              <tr><td>STK Restaurant</td><td>Fine Dining</td><td class="num-col">8,771</td><td class="num-col">731</td></tr>
+              <tr><td>Ruth's Chris Steak House</td><td>Fine Dining</td><td class="num-col">6,261</td><td class="num-col">522</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Vehicle counts sourced from SOPHI Domo dashboard, confirmed May 2026. SMS rate is a 13-month observed average (range 47%–60%; May 2026 current: 52%). Guests are already self-selecting into the SMS retrieval channel organically — this is the real addressable population before any consent flow or marketing incentive exists.</p>
+        </div>
+
+        <div class="section-eyebrow">Activation threshold — when the ad line lights up</div>
+        <div class="card">
+          <p style="font-size:13.5px; line-height:1.65; color:var(--text); margin:0 0 18px;">
+            The retrieval SMS ad revenue stream activates at <strong>15,000 monthly SMS interactions</strong> — the scale at which the consent-gated customer persona database becomes structurally valuable and the pricing moat becomes executable.
+          </p>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Scenario</th>
+                <th>Portfolio</th>
+                <th class="num-col">Monthly SMS</th>
+                <th class="num-col">Annual ad revenue</th>
+                <th>Recommendation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Today</strong><br><span class="td-note">Real</span></td>
+                <td>1 hotel + 4 dining</td>
+                <td class="num-col">2,698</td>
+                <td class="num-col">$58K–$310K</td>
+                <td>Build Phase 2 consent infrastructure now — 5.6× to threshold</td>
+              </tr>
+              <tr>
+                <td><strong>6–12 months</strong><br><span class="td-note">Modeled</span></td>
+                <td>+1 hotel, +4 dining, +2 event</td>
+                <td class="num-col">6,750</td>
+                <td class="num-col">$146K–$778K</td>
+                <td>Consent flow design in parallel — ~2.2× to threshold</td>
+              </tr>
+              <tr class="highlight">
+                <td><strong>12–18 months</strong><br><span class="td-note">Threshold</span></td>
+                <td>~23 accounts (multi-type)</td>
+                <td class="num-col">15,000</td>
+                <td class="num-col">$324K–$1.73M</td>
+                <td><strong>Activate Phase 3</strong> — launch customer persona database</td>
+              </tr>
+              <tr>
+                <td><strong>3–5 years</strong><br><span class="td-note">Full OS scale</span></td>
+                <td>Full multi-market portfolio</td>
+                <td class="num-col">54,000</td>
+                <td class="num-col">$1.17M–$6.22M</td>
+                <td>Full pricing moat — ad revenue offsets 20–50% of OpEx</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Ad revenue range = annual SMS interactions × conversion rate × avg offer value, using low/mid/high account-type benchmarks. Medical accounts excluded from the ad model by design.</p>
+        </div>
+
+        <!-- ═══ ACQUISITION GROWTH MODEL OVERLAY ═══ -->
+        <div class="section-eyebrow">Ad-revenue overlay — layered on the SOPHI 6 SOM curve</div>
+
+        <div class="callout" style="margin-bottom: var(--space-6);">
+          <div class="cl-title">How this maps onto the acquisition growth model</div>
+          <p class="cl-body">Layered directly on the SOPHI Growth Engine. For every account acquired, annual SMS interactions are computed from real inputs already in the model — hotel rooms × occupancy × valet conversion, restaurant seats × turnover × valet conversion. Two-stage activation: <strong>portfolio-wide gate at 15K/mo</strong>, then linear compounding across every market from the activation year forward. Moderate case uses the <strong>midpoint of every account-type conversion band × the midpoint avg offer value</strong> (Hotel 26.5% × $30, Fine Dining 22.5% × $23.50, Venue 29% × $32.50, Corporate 21% × $20) — 2.96× the low-end base case, portfolio SMS-mix weighted. Referral revenue is deliberately excluded; held as valuation optionality alongside SpotHero, franchise royalties, and OS licensing.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <div class="rc-head" style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:10px; margin-bottom:14px;">
+            <div class="rc-title" style="font: 700 10.5px/1.4 var(--font-body); letter-spacing:0.14em; text-transform:uppercase; color:var(--text-muted);">Portfolio Y1–Y5 · parking SOM + SMS ad layer</div>
+            <div class="rc-sub" style="font-size:11.5px; color:var(--text-faint); font-family:var(--font-mono);">Moderate case · midpoint benchmarks · SOPHI 6 portfolio</div>
+          </div>
+          <svg viewBox="0 0 880 320" style="width:100%; height:auto; display:block;" aria-label="Acquisition parking revenue SOM plus SMS ad revenue Y1 to Y5" role="img">
+            <!-- axes -->
+            <line x1="60" y1="270" x2="820" y2="270" stroke="#E7E5E0" stroke-width="1"/>
+            <line x1="60" y1="20" x2="60" y2="270" stroke="#E7E5E0" stroke-width="1"/>
+            <g font-family="JetBrains Mono, monospace" font-size="10.5" fill="#8A857F">
+              <line x1="60" y1="30" x2="820" y2="30" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="34" text-anchor="end">$40M</text>
+              <line x1="60" y1="90" x2="820" y2="90" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="94" text-anchor="end">$30M</text>
+              <line x1="60" y1="150" x2="820" y2="150" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="154" text-anchor="end">$20M</text>
+              <line x1="60" y1="210" x2="820" y2="210" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="214" text-anchor="end">$10M</text>
+            </g>
+            <!-- bar geometry: 5 groups, width 88, gap 60. x = 110 + i*152 -->
+            <!-- scale: $40M = 240px range (30→270), so $/px = 0.1667. y = 270 - value/40 * 240 -->
+            <!-- Y1: parking 4.02, ad 0 -->
+            <g>
+              <rect x="110" y="245.9" width="88" height="24.1" fill="#0B5394"/>
+              <text x="154" y="261" text-anchor="middle" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">$4.0M</text>
+              <text x="154" y="239" text-anchor="middle" fill="#28251D" font-family="Inter, sans-serif" font-size="12" font-weight="700">$4.0M</text>
+            </g>
+            <!-- Y2: parking 9.00, ad 2.25 -->
+            <g>
+              <rect x="262" y="216.0" width="88" height="54.0" fill="#0B5394"/>
+              <rect x="262" y="202.5" width="88" height="13.5" fill="#437A22"/>
+              <text x="306" y="246" text-anchor="middle" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">$9.0M</text>
+              <text x="306" y="212" text-anchor="middle" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600">+$2.3M</text>
+              <text x="306" y="196" text-anchor="middle" fill="#28251D" font-family="Inter, sans-serif" font-size="12" font-weight="700">$11.3M</text>
+            </g>
+            <!-- Y3: parking 14.74, ad 4.21 -->
+            <g>
+              <rect x="414" y="181.6" width="88" height="88.4" fill="#0B5394"/>
+              <rect x="414" y="156.3" width="88" height="25.3" fill="#437A22"/>
+              <text x="458" y="228" text-anchor="middle" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">$14.7M</text>
+              <text x="458" y="172" text-anchor="middle" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600">+$4.2M</text>
+              <text x="458" y="150" text-anchor="middle" fill="#28251D" font-family="Inter, sans-serif" font-size="12" font-weight="700">$19.0M</text>
+            </g>
+            <!-- Y4: parking 19.48, ad 6.19 -->
+            <g>
+              <rect x="566" y="153.1" width="88" height="116.9" fill="#0B5394"/>
+              <rect x="566" y="116.0" width="88" height="37.1" fill="#437A22"/>
+              <text x="610" y="215" text-anchor="middle" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">$19.5M</text>
+              <text x="610" y="139" text-anchor="middle" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600">+$6.2M</text>
+              <text x="610" y="110" text-anchor="middle" fill="#28251D" font-family="Inter, sans-serif" font-size="12" font-weight="700">$25.7M</text>
+            </g>
+            <!-- Y5: parking 28.29, ad 8.62 -->
+            <g>
+              <rect x="718" y="100.3" width="88" height="169.7" fill="#0B5394"/>
+              <rect x="718" y="48.5" width="88" height="51.7" fill="#437A22"/>
+              <text x="762" y="189" text-anchor="middle" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">$28.3M</text>
+              <text x="762" y="78" text-anchor="middle" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600">+$8.6M</text>
+              <text x="762" y="42" text-anchor="middle" fill="#28251D" font-family="Inter, sans-serif" font-size="13" font-weight="700">$36.9M</text>
+            </g>
+            <!-- Activation gate marker between Y1 and Y2 -->
+            <line x1="230" y1="20" x2="230" y2="270" stroke="#8A857F" stroke-width="1" stroke-dasharray="3 4" opacity="0.7"/>
+            <text x="236" y="38" font-family="Inter, sans-serif" font-size="10" fill="#8A857F" font-style="italic">Activation gate</text>
+            <text x="236" y="52" font-family="Inter, sans-serif" font-size="10" fill="#8A857F" font-style="italic">15K/mo portfolio SMS</text>
+            <!-- x-axis labels -->
+            <g font-family="Inter, sans-serif" font-size="11" fill="#28251D">
+              <text x="154" y="292" text-anchor="middle" font-weight="600">Y1</text><text x="154" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">2027</text>
+              <text x="306" y="292" text-anchor="middle" font-weight="600">Y2</text><text x="306" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">2028</text>
+              <text x="458" y="292" text-anchor="middle" font-weight="600">Y3</text><text x="458" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">2029</text>
+              <text x="610" y="292" text-anchor="middle" font-weight="600">Y4</text><text x="610" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">2030</text>
+              <text x="762" y="292" text-anchor="middle" font-weight="600">Y5</text><text x="762" y="305" text-anchor="middle" fill="#8A857F" font-size="9.5">2031</text>
+            </g>
+          </svg>
+          <div style="display:flex; gap:20px; margin-top:14px; padding-top:14px; border-top:1px solid var(--border); font-size:12px; color:var(--text-muted); flex-wrap:wrap;">
+            <span><span style="width:14px; height:12px; background:#0B5394; display:inline-block; vertical-align:middle; margin-right:6px; border-radius:2px;"></span>Parking SOM · SOPHI Growth Engine</span>
+            <span><span style="width:14px; height:12px; background:#437A22; display:inline-block; vertical-align:middle; margin-right:6px; border-radius:2px;"></span>SMS ad revenue · moderate case (midpoint benchmarks)</span>
+          </div>
+          <p style="font-size:12.5px; line-height:1.65; color:var(--text-faint); margin: 14px 0 0;">Portfolio annual SMS interactions cross the 15K/mo threshold in Y2 (25,417/mo). From Y2 forward, every acquired account contributes its full ad economics. Y1 SMS = 11,557/mo — just below the gate, so ad revenue = $0.</p>
+        </div>
+
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th class="num-col">Monthly SMS</th>
+                <th class="num-col">Annual SMS</th>
+                <th class="num-col">Parking SOM</th>
+                <th class="num-col">SMS ad revenue</th>
+                <th class="num-col">Total revenue</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Y1</strong> <span class="td-note">2027</span></td>
+                <td class="num-col">11,557</td>
+                <td class="num-col">138,686</td>
+                <td class="num-col">$4.02M</td>
+                <td class="num-col" style="color:var(--text-faint);">$0 <span class="td-note">pre-gate</span></td>
+                <td class="num-col">$4.02M</td>
+              </tr>
+              <tr class="highlight">
+                <td><strong>Y2</strong> <span class="td-note">2028 · activation</span></td>
+                <td class="num-col">25,417</td>
+                <td class="num-col">305,002</td>
+                <td class="num-col">$9.00M</td>
+                <td class="num-col">$2.25M</td>
+                <td class="num-col">$11.25M</td>
+              </tr>
+              <tr>
+                <td><strong>Y3</strong> <span class="td-note">2029</span></td>
+                <td class="num-col">46,527</td>
+                <td class="num-col">558,322</td>
+                <td class="num-col">$14.74M</td>
+                <td class="num-col">$4.21M</td>
+                <td class="num-col">$18.95M</td>
+              </tr>
+              <tr>
+                <td><strong>Y4</strong> <span class="td-note">2030</span></td>
+                <td class="num-col">67,265</td>
+                <td class="num-col">807,177</td>
+                <td class="num-col">$19.48M</td>
+                <td class="num-col">$6.19M</td>
+                <td class="num-col">$25.67M</td>
+              </tr>
+              <tr>
+                <td><strong>Y5</strong> <span class="td-note">2031 · run-rate</span></td>
+                <td class="num-col">92,651</td>
+                <td class="num-col">1,111,811</td>
+                <td class="num-col"><strong>$28.29M</strong></td>
+                <td class="num-col"><strong>$8.62M</strong></td>
+                <td class="num-col"><strong>$36.91M</strong></td>
+              </tr>
+              <tr style="border-top: 2px solid var(--border);">
+                <td><strong>5-yr cumulative</strong></td>
+                <td class="num-col">—</td>
+                <td class="num-col">2,920,998</td>
+                <td class="num-col"><strong>$75.52M</strong></td>
+                <td class="num-col"><strong>$21.27M</strong></td>
+                <td class="num-col"><strong>$96.79M</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Parking SOM curve is the Acquisition Growth Model output (see <a href="./valuation.html" style="color:var(--blue-ink); font-weight:600;">Valuation</a>). Moderate-case ad revenue layers additively — 28.2% of parking cumulatively, 30.5% of Y5 run-rate.</p>
+        </div>
+
+        <div class="section-eyebrow">Per-market Y5 breakdown</div>
+        <div class="card" style="margin-bottom: var(--space-6);">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Market</th>
+                <th class="num-col">Monthly SMS · Y5</th>
+                <th class="num-col">Parking Y5</th>
+                <th class="num-col">SMS ad Y5</th>
+                <th class="num-col">Total Y5</th>
+                <th class="num-col">Ad %</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Denver</strong></td>
+                <td class="num-col">27,963</td>
+                <td class="num-col">$11.26M</td>
+                <td class="num-col">$2.67M</td>
+                <td class="num-col">$13.93M</td>
+                <td class="num-col">19.1%</td>
+              </tr>
+              <tr>
+                <td><strong>Charlotte</strong></td>
+                <td class="num-col">28,766</td>
+                <td class="num-col">$7.75M</td>
+                <td class="num-col">$2.67M</td>
+                <td class="num-col">$10.42M</td>
+                <td class="num-col">25.6%</td>
+              </tr>
+              <tr>
+                <td><strong>Indianapolis</strong></td>
+                <td class="num-col">11,629</td>
+                <td class="num-col">$4.04M</td>
+                <td class="num-col">$1.01M</td>
+                <td class="num-col">$5.05M</td>
+                <td class="num-col">20.0%</td>
+              </tr>
+              <tr class="highlight">
+                <td><strong>Phoenix</strong></td>
+                <td class="num-col">19,168</td>
+                <td class="num-col">$3.92M</td>
+                <td class="num-col">$1.81M</td>
+                <td class="num-col">$5.73M</td>
+                <td class="num-col"><strong>31.6%</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Louisville</strong></td>
+                <td class="num-col">4,049</td>
+                <td class="num-col">$0.98M</td>
+                <td class="num-col">$0.39M</td>
+                <td class="num-col">$1.37M</td>
+                <td class="num-col">28.2%</td>
+              </tr>
+              <tr>
+                <td><strong>Cleveland</strong></td>
+                <td class="num-col">1,076</td>
+                <td class="num-col">$0.34M</td>
+                <td class="num-col">$0.06M</td>
+                <td class="num-col">$0.40M</td>
+                <td class="num-col">14.8%</td>
+              </tr>
+              <tr style="border-top: 2px solid var(--border);">
+                <td><strong>Portfolio</strong></td>
+                <td class="num-col"><strong>92,651</strong></td>
+                <td class="num-col"><strong>$28.29M</strong></td>
+                <td class="num-col"><strong>$8.62M</strong></td>
+                <td class="num-col"><strong>$36.91M</strong></td>
+                <td class="num-col"><strong>30.5%</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Phoenix has the highest ad-attach ratio (31.6%) because its Y5 portfolio skews hotel-heavy (55% capture × 3.5 multi-touch). Cleveland is minimal — only 2 accounts unlock under the Acquisition Growth Model operator gates. Every additional hotel win beyond Acquisition Growth Model assumptions moves the ad layer disproportionately.</p>
+        </div>
+
+        <div class="section-eyebrow">Valuation impact — 7× Y5 run-rate</div>
+        <div class="card">
+          <div class="kpi-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="kpi-tile">
+              <div class="kpi-val" style="color: var(--text-muted);">$198M</div>
+              <div class="kpi-label">Parking-only @ 7× Y5</div>
+              <div class="kpi-sub">Acquisition base · $28.29M × 7</div>
+            </div>
+            <div class="kpi-tile" style="background:#F0F5EB; border-color:#D4E5C2;">
+              <div class="kpi-val" style="color: #437A22;">+$60.3M</div>
+              <div class="kpi-label">SMS ad layer uplift</div>
+              <div class="kpi-sub">$8.62M × 7 · +30.5%</div>
+            </div>
+            <div class="kpi-tile" style="background: rgba(56, 182, 255, 0.08); border-color: rgba(11, 83, 148, 0.25);">
+              <div class="kpi-val" style="color: var(--blue-ink);">$258M</div>
+              <div class="kpi-label">Total @ 7× Y5</div>
+              <div class="kpi-sub">Parking + SMS ad · moderate case</div>
+            </div>
+          </div>
+          <p style="font-size:13px; line-height:1.65; color:var(--text-muted); margin: 18px 0 0;">Moderate case is the diligence case — midpoint of every conversion and offer-value band, portfolio SMS-mix weighted (2.96× the low-end base case in the threshold row above). High-end (top of every band × 3.5× hotel multi-touch fully exercised) would run <strong>~1.9× this figure</strong>, putting Y5 ad revenue at ~$16M and 7× valuation uplift at ~$114M. Full model in <a href="./valuation.html" style="color:var(--blue-ink); font-weight:600;">Valuation → Organic vs. Acquisition</a>.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<script src="./assets/shell.js?v=20260831c"></script>
+<script>window.SOPHI_SHELL.mount('sophi-os.html');</script>
+
+<script>
+  // Tab switching — text-only tabs with blue-ink active + underline (via .subtab.active in deal-room.css)
+  (function () {
+    const tabs = document.querySelectorAll('.subtab');
+    const panels = document.querySelectorAll('.subtab-panel');
+
+    function activate(tabId) {
+      tabs.forEach(t => {
+        const isActive = t.dataset.tab === tabId;
+        t.classList.toggle('active', isActive);
+        t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      panels.forEach(p => {
+        const isActive = p.dataset.panel === tabId;
+        p.classList.toggle('active', isActive);
+        if (isActive) { p.removeAttribute('hidden'); }
+        else { p.setAttribute('hidden', ''); }
+      });
+      // Persist to hash for deep-link
+      if (history.replaceState) history.replaceState(null, '', '#' + tabId);
+    }
+
+    tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.tab)));
+
+    // Open to hash target if present
+    const hash = (window.location.hash || '').replace('#', '');
+    if (hash && document.querySelector(`.subtab[data-tab="${hash}"]`)) {
+      activate(hash);
+    }
+  })();
+
+  // Nested Staffing Model section switcher (Orchestration Layer / Specialist Tracks / Envelope)
+  (function () {
+    const btns = document.querySelectorAll('.staff-btn');
+    const sections = document.querySelectorAll('.staff-section');
+    function show(id) {
+      btns.forEach(b => {
+        const on = b.dataset.staff === id;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      sections.forEach(s => {
+        const on = s.dataset.staffSection === id;
+        s.classList.toggle('active', on);
+        if (on) s.removeAttribute('hidden'); else s.setAttribute('hidden', '');
+      });
+    }
+    btns.forEach(b => b.addEventListener('click', () => show(b.dataset.staff)));
+  })();
+
+  // Nested Revenue Model section switcher (Revenue Streams / SMS Retrieval Ad Model)
+  (function () {
+    const btns = document.querySelectorAll('.rev-btn');
+    const sections = document.querySelectorAll('.rev-section');
+    function show(id) {
+      btns.forEach(b => {
+        const on = b.dataset.rev === id;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      sections.forEach(s => {
+        const on = s.dataset.revSection === id;
+        s.classList.toggle('active', on);
+        if (on) s.removeAttribute('hidden'); else s.setAttribute('hidden', '');
+      });
+    }
+    btns.forEach(b => b.addEventListener('click', () => show(b.dataset.rev)));
+    // In-page jump link from Advertising stream card to SMS section
+    document.querySelectorAll('[data-rev-jump]').forEach(el => {
+      el.addEventListener('click', () => {
+        show(el.dataset.revJump);
+        const panel = document.querySelector('[data-panel="revenue"]');
+        if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
