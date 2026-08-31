@@ -240,9 +240,9 @@ The Blend Wealth firm is listed as an early investor. That's why every rename he
 
 ### 4. Expansion Growth Model — historical iteration
 
-The prior 15-market model had 825 scored accounts and $164.88M TAM. That data is preserved in the `07d6c972` session and represents real research work that shouldn't be discarded.
+The prior expansion work extended the SOPHI 6 methodology to 8 additional markets (14 markets total: 895 scored accounts, $574.54M TAM). That data is preserved in session `8d590dde` and represents real research work — enrichment, operator cross-reference, and self-park repricing — that shouldn't be discarded. (Session `07d6c972` is the SOPHI 6 methodology source, not the expansion source, despite older copy citing it that way.)
 
-**Ask Joshua:** When we build the Expansion Growth Model in a future iteration, do we start from that 15-market work, or start fresh with additional markets identified through the current pipeline? The former is faster; the latter is more rigorous.
+**Ask Joshua:** When we build the Expansion Growth Model in a future iteration, do we start from that 14-market work, or start fresh with additional markets identified through the current pipeline? The former is faster; the latter is more rigorous.
 
 ---
 

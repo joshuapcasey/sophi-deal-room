@@ -41,7 +41,7 @@ There are **exactly three growth models** in the SOPHI narrative. They share one
 - **Valuation anchor:** Expansion Growth Valuation *(placeholder, not populated)*.
 - **What it will answer:** "What is SOPHI worth once the same growth engine is applied to markets beyond the SOPHI 6?"
 
-**Historical context (for future iterations, not for V1):** An earlier iteration modeled ~15 markets with 825 scored accounts and $164.88M TAM. That iteration is superseded by the SOPHI 6 methodology and its 203 named, scored accounts. The 15-market work will inform (but not directly feed) the Expansion Growth Model when it's populated with the same rigor as the SOPHI 6.
+**Historical context (for future iterations, not for V1):** An earlier iteration extended the SOPHI 6 methodology to 8 additional expansion markets (Fort Wayne, Cincinnati, Columbus, Minneapolis, St. Louis, Raleigh, Charleston, Fort Lauderdale) for a 14-market universe of 895 scored accounts and $574.54M TAM. That work is preserved in session `8d590dde` and includes the enrichment, operator cross-reference, and self-park repricing passes that reframed expansion as a Towne Park / LAZ / SP+ / Propark partnership-unlock strategy. It will inform (but not directly feed) the Expansion Growth Model when it's populated with the same rigor as the SOPHI 6. Note: session `07d6c972` — sometimes cited as the "15-market" source — is actually the origin of the SOPHI 6 methodology itself, not the expansion work.
 
 ---
 
