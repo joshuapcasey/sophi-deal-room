@@ -107,16 +107,11 @@ Hospital operators (Towne Park, LAZ, Reimagined) overlap heavily with hotel oper
 
 ## Where the data lives
 
-**In `joshuapcasey/sophi-market-map` (source repo for the map app):**
+**Primary preservation:** [Google Drive folder — SOPHI Expansion Research (Deferred) — Session 8d590dde](https://drive.google.com/drive/folders/1o0Z87e9b8OsSIwhMilQ0k_6Pd2nGeTIv). Contains all 4 memos, both account JSONs, all 3 research CSVs, the per-market ZIP, and a README with the full "do not quote" disclaimer. Preserved on August 31, 2026 to protect these artifacts from session drift.
 
-| File | Purpose |
-|---|---|
-| `src/normalize_v3_14mkt.py` | The 14-market engine (WAS×300, new-cold Y1 lockout, self-park repricing) |
-| `src/accounts_v2_14mkt_enriched.json` | Canonical 895-account universe (post-enrichment, pre-xref) |
-| `src/accounts_v3_14mkt.json` | Engine output (post-xref, post-self-park) |
-| `data_14mkt.js` | Front-end bundle for 14-market view (separate from live 6-market `data.js`) |
+**Not in `joshuapcasey/sophi-market-map`** — despite what older memos referenced. The 14-market files were sandbox working files during session `8d590dde` that never landed in the repo. Two of them (`normalize_v3_14mkt.py`, the engine; `data_14mkt.js`, the front-end bundle) exist only as references in the memos and would need to be re-implemented from the methodology description in `V3_14MARKET_RESULTS.md`. See [`sophi-market-map/EXPANSION_PROVENANCE.md`](https://github.com/joshuapcasey/sophi-market-map/blob/main/EXPANSION_PROVENANCE.md) for the full account of what's missing and the rules for future 14-market integration.
 
-**In Perplexity session `8d590dde` (research memos and CSVs):**
+**In Perplexity session `8d590dde`** (original research memos and CSVs — also mirrored in the Drive folder above):
 
 | File | Purpose |
 |---|---|
