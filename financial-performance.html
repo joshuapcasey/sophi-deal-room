@@ -246,22 +246,20 @@
         <polyline points="60,322.4 94.3,322.7 128.7,321.1 163.0,319.4 197.4,315.4 231.7,310.5 266.1,306.0 300.4,300.0 334.8,293.1 369.1,286.9 403.5,279.0 437.8,271.1 472.2,263.0 506.5,253.3 540.9,239.2 575.2,223.0 609.6,203.4 643.9,181.1 678.3,160.9 712.6,138.5 747.0,117.6 781.3,96.8 815.7,77.1 850.0,57.4" fill="none" stroke="#0B5394" stroke-width="2.5" stroke-linejoin="round"/>
         <polygon points="60,322.4 94.3,322.7 128.7,321.1 163.0,319.4 197.4,315.4 231.7,310.5 266.1,306.0 300.4,300.0 334.8,293.1 369.1,286.9 403.5,279.0 437.8,271.1 472.2,263.0 506.5,253.3 540.9,239.2 575.2,223.0 609.6,203.4 643.9,181.1 678.3,160.9 712.6,138.5 747.0,117.6 781.3,96.8 815.7,77.1 850.0,57.4 850.0,350 60,350" fill="rgba(11,83,148,0.08)"/>
 
-        <!-- Min cash marker (Feb 27, idx 1). Label ABOVE + LEFT of point to avoid overlap with runway line -->
+        <!-- Min cash marker (Feb 27, idx 1). Simple inline label to the right of the point, below the polyline. -->
         <circle cx="94.3" cy="322.7" r="4.5" fill="#8A2C3E" stroke="white" stroke-width="1.5"/>
-        <line x1="94.3" y1="322.7" x2="94.3" y2="300" stroke="#8A2C3E" stroke-width="1" stroke-dasharray="2 2" opacity="0.5"/>
-        <rect x="30" y="285" width="128" height="34" rx="4" fill="white" stroke="#8A2C3E" stroke-width="1"/>
-        <text x="94.3" y="298" font-family="Inter, sans-serif" font-size="10" fill="#8A2C3E" font-weight="700" text-anchor="middle">MIN CASH · FEB 2027</text>
-        <text x="94.3" y="313" font-family="JetBrains Mono, monospace" font-size="12" fill="#8A2C3E" font-weight="700" text-anchor="middle">$484K</text>
+        <text x="102" y="327" font-family="Inter, sans-serif" font-size="11" fill="#8A2C3E" font-weight="700">Min · $484K (Feb 27)</text>
 
-        <!-- Default-alive-by-month-3 marker (Mar 27, idx 2) - callout moved HIGH to avoid Y1 close collision -->
+        <!-- Default-alive-by-month-3 marker (Mar 27, idx 2) - callout high, leader with more visible green -->
         <circle cx="128.7" cy="321.1" r="4.5" fill="#437A22" stroke="white" stroke-width="1.5"/>
-        <line x1="128.7" y1="321.1" x2="220" y2="185" stroke="#437A22" stroke-width="1" opacity="0.4" stroke-dasharray="2 2"/>
-        <rect x="130" y="165" width="180" height="30" rx="4" fill="#EAF3E0" stroke="#437A22" stroke-width="1"/>
-        <text x="220" y="183" font-family="Inter, sans-serif" font-size="11" fill="#437A22" font-weight="700" text-anchor="middle">Default alive · from Mar 2027</text>
+        <line x1="128.7" y1="321.1" x2="220" y2="197" stroke="#437A22" stroke-width="1.5" opacity="0.75" stroke-dasharray="3 3"/>
+        <rect x="130" y="165" width="180" height="32" rx="4" fill="#EAF3E0" stroke="#437A22" stroke-width="1"/>
+        <text x="220" y="184" font-family="Inter, sans-serif" font-size="11" fill="#437A22" font-weight="700" text-anchor="middle">Default alive · from Mar 2027</text>
 
-        <!-- Y1 close (Dec 27, idx 11) -->
+        <!-- Y1 close (Dec 27, idx 11) - WHITE CHIP so it hides the divider line and polyline behind it -->
         <circle cx="437.8" cy="271.1" r="4" fill="#0B5394" stroke="white" stroke-width="1.5"/>
-        <text x="437.8" y="264" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B5394" font-weight="600" text-anchor="middle">Y1 close · $1.40M</text>
+        <rect x="390" y="238" width="96" height="22" rx="3" fill="white" stroke="#0B5394" stroke-width="1"/>
+        <text x="438" y="253" font-family="Inter, sans-serif" font-size="10.5" fill="#0B5394" font-weight="600" text-anchor="middle">Y1 close · $1.40M</text>
 
         <!-- Y2 close (Dec 28, idx 23) - the payoff annotation -->
         <circle cx="850" cy="57.4" r="5.5" fill="#437A22" stroke="white" stroke-width="2"/>
