@@ -3,6 +3,7 @@
   const NAV = [
     { group: 'OVERVIEW', items: [
       { href: 'summary.html', label: 'Summary', icon: 'sparkle' },
+      { href: 'capital-strategy.html', label: 'Capital Strategy', icon: 'split' },
       { href: 'company-history.html', label: 'Company History', icon: 'clock' },
     ]},
     { group: 'THE OPPORTUNITY', items: [
@@ -13,15 +14,14 @@
       { href: 'use-of-funds.html', label: 'Use of Funds', icon: 'coins' },
       { href: 'cash-model.html', label: 'Cash Model', icon: 'wallet' },
       { href: 'financial-performance.html', label: 'Financial Performance', icon: 'chart' },
-      { href: 'organic-valuation.html', label: 'Organic Valuation', icon: 'seedling' },
-      { href: 'v3-valuation.html', label: 'Growth Valuation', icon: 'rocket' },
+      { href: 'v3-valuation.html', label: 'Valuation', icon: 'rocket' },
       { href: 'competition.html', label: 'Competition', icon: 'crosshair' },
       { href: 'risk-milestones.html', label: 'Risk Mitigating Milestones', icon: 'shield' },
     ]},
-    { group: 'DILIGENCE', items: [
+    { group: 'ADVISOR WORKING FILE', items: [
+      { href: 'advisor-questions.html', label: 'Advisor Questions', icon: 'help' },
       { href: 'methodology.html', label: 'Methodology', icon: 'book' },
       { href: 'downloads.html', label: 'Documents', icon: 'folder', badge: 14 },
-      { href: 'questions.html', label: 'Questions', icon: 'chat', badge: 3 },
     ]},
   ];
 
@@ -46,6 +46,8 @@
     coins: '<circle cx="8" cy="8" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="15" cy="15" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 5v6M6 8h4M15 12v6M13 15h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
     wallet: '<path d="M3 7a2 2 0 0 1 2-2h14v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M3 10h18M17 15h.01" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
     crosshair: '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
+    split: '<path d="M6 3v6a3 3 0 0 0 3 3h6a3 3 0 0 1 3 3v6M6 21v-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="3" r="1.5" fill="currentColor"/><circle cx="18" cy="21" r="1.5" fill="currentColor"/><circle cx="6" cy="21" r="1.5" fill="currentColor"/>',
+    help: '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2.5 2-2.5 3.5M12 16.5h.01" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>',
   };
 
   function esc(str) {
@@ -90,7 +92,7 @@
         <div class="mark">S</div>
         <div class="brand-text">
           <div class="brand-name">SOPHI</div>
-          <div class="brand-sub">INVESTOR DEAL ROOM · 2026</div>
+          <div class="brand-sub">ADVISOR WORKING FILE · 2026</div>
         </div>
       </div>
       ${groups}
@@ -100,10 +102,10 @@
           <span class="nav-label">${esc(FOOTER_ITEM.label)}</span>
         </a>
         <div class="viewer-chip">
-          <span class="viewer-avatar">PA</span>
+          <span class="viewer-avatar">CFO</span>
           <span class="viewer-meta">
-            <span class="viewer-email">partner@fund.com</span>
-            <span class="viewer-role">Prospective investor</span>
+            <span class="viewer-email">advisor@sophimobility.com</span>
+            <span class="viewer-role">CFO / Business advisor</span>
           </span>
         </div>
       </div>

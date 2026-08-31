@@ -14,7 +14,7 @@ We rebuilt the SOM model from the ground up. The TAM ($150.35M across six market
 
 The result is a more defensible curve: lower in Y1 (we don't book revenue from accounts we haven't won), heavier in Y4–Y5 (full-TAM accrual from the day we win), and a five-year cumulative SOM of **$75.52M** with a **$28.29M Y5 run-rate** off only **34 of 93 in-SAM accounts won** — leaving 59 accounts of remaining runway in the same six markets.
 
-Against that Y5 revenue, we're raising **$500K at $4.5M pre / $5.0M post** for a **10% seed**. The DCF against the v3 Y5 P&L values the seed at **$3.63M (7.26× MOIC, 48.7% IRR)** over a 5-year hold; the SP+ trading-comp floor still returns **~4× at 31.7% IRR**. Full scenario table further down.
+Against that plan, SOPHI is raising in **two rounds**: a **$500K F&F refinance (Round 1)** priced against the organic DCF at a 64% discount ($4.5M pre / $5.0M post), then a **$4.5M Acquisition Seed (Round 2)** priced against the v3 DCF ($12M pre placeholder / $16.5M post) to fund two valet-operator acquisitions — one in Indianapolis, one in Denver. Founder retains **70.4% ownership (78.3% including ESOP pool)** through both rounds. Round 1 investors see **6.31× / 44.6% IRR** at v3 base case. Round 2 investors see **2.63× / 27.4% IRR** at v3 base case, expanding to **3.99×** with acquisitions integrated. Full scenario tables further down.
 
 ---
 
@@ -99,63 +99,81 @@ The Y5 step-up reflects two things: (a) Charlotte and Indianapolis approaching t
 
 ---
 
-## Seed round terms and return scenarios
+## Two-round capital strategy
 
-*Added August 29, 2026 to reconcile the returns math against the v3 Y5 numbers above. Live version with sensitivity tables lives on the deal room's [Growth Valuation → Cap Table & Returns](https://joshuapcasey.github.io/sophi-deal-room/v3-valuation.html#cap) tab.*
+*Restructured August 31, 2026 from a single-round seed narrative into a two-round F&F + Acquisition Seed plan. Live cap table evolution and return scenarios by round on the deal room's [Capital Strategy](https://joshuapcasey.github.io/sophi-deal-room/capital-strategy.html) page. This section is a working-file draft — final terms pending CFO and business advisor review.*
 
-### Terms
+### Round 1 · F&F Refinance (now)
 
 | Item | Value |
 |---|---|
 | Raise | $500K |
-| Pre-money | $4.50M ($45.00 / share) |
-| Post-money | $5.00M (111,111 FDSO) |
-| Seed equity | 10% (11,111 shares) |
+| Pre-money | $4.50M (64% discount to $12.43M organic DCF) |
+| Post-money | $5.00M |
+| Share price | $4.50 |
+| New shares issued | 111,111 (Round 1 = 10% at post) |
 | Instrument | Priced round OR post-money SAFE @ $5M cap |
-| Minimum check | $25K (555 shares) |
-| Hold assumption (base) | 5 years — Jan 2027 close through end of 2031 |
+| Investor pool | Bryce Tolle, Blend Wealth, board participants, early movers |
+| Hold assumption | 5 years (Jan 2027 close → end of 2031) |
+| Use of funds | Refinance, Blend Wealth expansion support, Hub MVP, R2 diligence prep |
 
-### Valuation anchors
+**What Round 1 investors see:**
 
-The DCF anchor uses WACC 12%, terminal growth 3%, and a 13.0× terminal EBITDA multiple against the Y5 v3 P&L ($28.29M revenue, 25% EBIT). That produces **$36.30M equity value at end of 2031**. Adding the SMS retrieval ad layer (moderate case, $8.62M Y5) lifts equity to **$47.36M**.
-
-### Return scenarios · $500K seed at 10% · 5-year hold
-
-| Scenario | Exit equity | Seed value | MOIC | IRR |
+| Scenario | Exit equity | R1 value at exit | MOIC | IRR (5yr) |
 |---|---|---|---|---|
-| Downside — miss Y5 by one year | $3.89M | $389K | 0.78× | **−4.8%** |
-| Entry at cost ($45/share) | $5.00M | $500K | 1.00× | 0.0% |
-| SP+ trading comp · 0.7× revenue | $19.80M | $1.98M | 3.96× | **31.7%** |
-| **v3 DCF anchor — parking only (base case)** | **$36.30M** | **$3.63M** | **7.26×** | **48.7%** |
-| **v3 DCF anchor — parking + SMS ad layer** | **$47.36M** | **$4.74M** | **9.47×** | **56.8%** |
-| NAICS median · 1.7× revenue | $48.09M | $4.81M | 9.62× | 57.3% |
+| Downside — organic DCF only | $12.43M | $1.08M | **2.16×** | **16.7%** |
+| Base — v3 DCF (6 markets) | $36.30M | $3.16M | **6.31×** | **44.6%** |
+| v3 + SMS ad layer | $47.36M | $4.12M | 8.24× | 52.5% |
+| v3 + acquisitions integrated | $55.00M | $4.78M | 9.56× | 56.9% |
+| Upside — expansion beyond 6 markets | $75.00M | $6.52M | **13.04×** | **67.0%** |
 
-IRR = MOIC^(1/years) − 1, assuming single-shot exit at end of 2031. No interim distributions modeled.
+### Round 2 · Acquisition Seed (~early 2028)
 
-### The two numbers that matter for the underwriting decision
+| Item | Value |
+|---|---|
+| Raise | $4.5M |
+| Pre-money | $12.00M (67% discount to $36.30M v3 DCF) · illustrative placeholder |
+| Post-money | $16.50M |
+| Share price | $10.80 (2.4× step-up from Round 1) |
+| New shares issued | 416,667 (Round 2 = 13.04% at post) |
+| Instrument | Priced preferred (structure TBD with advisor) |
+| Investor pool | Institutional seed / family office / strategic hospitality operator |
+| Hold assumption | ~4 years (early 2028 → end of 2031) |
+| Use of funds | Indianapolis operator acquisition + Denver operator acquisition + integration |
 
-**Base case: 7.26× / 48.7% IRR.** This is the DCF against the v3 Y5 P&L above. It's the number the round is priced against, and it's what an underwriting file should carry.
+**What Round 2 investors see:**
 
-**Downside protection: 3.96× / 31.7% IRR at the SP+ trading comp.** If SOPHI hits Y5 revenue but the market prices it as commodity parking services rather than as a services-plus-software business, the seed still returns roughly 4× at ~32% IRR. That's the floor the model can defend, not the ceiling it hopes for.
+| Scenario | Exit equity | R2 value at exit | MOIC | IRR (4yr) |
+|---|---|---|---|---|
+| Downside — organic DCF only | $12.43M | $1.62M | 0.36× | −21.7% |
+| Base — v3 DCF (6 markets) | $36.30M | $4.74M | **2.63×** | **27.4%** |
+| v3 + SMS ad layer | $47.36M | $6.18M | 3.43× | 36.1% |
+| **v3 + acquisitions integrated** | **$55.00M** | **$7.17M** | **3.99×** | **41.3%** |
+| Upside — expansion beyond 6 markets | $75.00M | $9.78M | **5.44×** | **52.6%** |
 
-The **v3 + SMS ad layer** case (9.47× / 56.8% IRR) is the base case with one revenue stream added back in — it's already inside the sales pipeline, it just isn't priced into the DCF anchor. Treat it as upside, not as the underwriting target.
+Round 2's underwriting narrative is the **v3 + acquisitions case ($55M exit, 3.99× MOIC)** — not the pure v3 case. The acquisitions are the reason Round 2 exists; the base scenario for Round 2 investors already assumes those acquisitions perform as expected.
 
-### Hold-period sensitivity · v3 DCF anchor (7.26× MOIC)
+### Cap table evolution · Option C issuance (1,000,000 starting cap)
 
-| Hold | Exit year | IRR | What triggers it |
+| Holder | Today | After R1 | After R2 |
 |---|---|---|---|
-| 4 years | Y4 (2030) | 64.1% | Strategic acquirer arrives early (Metropolis-scale, PE roll-up) |
-| **5 years (base)** | **Y5 (2031)** | **48.7%** | Priced against the Y5 v3 P&L — the underwriting number |
-| 6 years | Y6 (2032) | 39.2% | Series A executes, seed rides through — same equity, longer hold |
-| 7 years | Y7 (2033) | 32.7% | Strategic exit slips or IPO path opens |
+| Joshua Casey · Founder | 900,000 (90.00%) | 900,000 (81.00%) | 900,000 (**70.43%**) |
+| ESOP / Board pool | 100,000 (10.00%) | 100,000 (9.00%) | 100,000 (7.83%) |
+| Round 1 F&F Seed | — | 111,111 (10.00%) | 111,111 (8.70%) |
+| Round 2 Acquisition Seed | — | — | 166,667 (13.04%) |
+| **Total FDSO** | **1,000,000** | **1,111,111** | **1,277,778** |
+| Founder + ESOP (control) | 100.00% | 90.00% | **78.26%** |
 
-The seed is priced on the 5-year assumption. Anything faster is upside from a strategic acquirer showing up early; anything slower is still a healthy IRR relative to how most seed rounds resolve.
+Founder retains supermajority control through Round 2. Round 3 (Series A) would target another 15–20% dilution against a Series-A-priced valuation — leaving founder at ~55% and still founder-controlled.
 
-### Path to Series A
+### Open questions for the advisor conversation
 
-At end of Y2 (Dec 2028), SOPHI is at $9.0M+ revenue run-rate with $5.19M cash on the balance sheet (see the deal room's [Cash Model](https://joshuapcasey.github.io/sophi-deal-room/cash-model.html)) and 12 accounts won across the six-market portfolio. That's the position from which the Series A is raised — targeted at $8–15M on a $20–35M pre-money range (7–13× revenue). Seed dilution at Series A is modeled at 15–20% depending on round size.
+Nine open decisions live on the deal room's [Advisor Questions](https://joshuapcasey.github.io/sophi-deal-room/advisor-questions.html) page. The four Priority-1 items that block further progress:
 
-The seed doesn't need to bridge to a Series A of desperation. The operating cash flow does that on its own.
+1. **Round 1 discount to organic DCF** — is 64% the right F&F pricing, or should Round 1 pre-money move?
+2. **Round 2 base-case MOIC** — 2.63× is thin for institutional seed. Levers: lower pre-money, smaller raise, or lean on the integrated-case narrative ($55M exit).
+3. **Expansion-beyond-6 upside scenario** — which markets, timeline, gate discipline? Currently a $75M placeholder; needs a defensible construction.
+4. **Acquisition target operators** — which specific Indy and Denver operators, at what confirmed price range, with what deal structure?
 
 ---
 

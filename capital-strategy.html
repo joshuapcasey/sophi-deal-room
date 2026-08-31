@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capital Strategy — SOPHI Advisor Working File</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/deal-room.css?v=20260831">
+<style>
+  .working-banner { background: #FEF6EC; border: 1px solid #F0D9B3; border-left: 3px solid #DA7101; border-radius: var(--radius-s); padding: 12px 16px; margin-bottom: var(--space-6); font-size: 12.5px; color: #6B4A1A; line-height: 1.55; }
+  .working-banner strong { color: #3D2A0A; }
+
+  .round-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: var(--space-6); }
+  @media (max-width: 900px) { .round-grid { grid-template-columns: 1fr; } }
+  .round-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 22px 24px; }
+  .round-card.r1 { border-top: 4px solid var(--accent); }
+  .round-card.r2 { border-top: 4px solid #437A22; }
+  .round-card .rc-eyebrow { font: 700 10px/1.4 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+  .round-card.r1 .rc-eyebrow { color: var(--blue-ink); }
+  .round-card.r2 .rc-eyebrow { color: #437A22; }
+  .round-card h2 { font-size: 22px; font-weight: 700; margin: 0 0 8px; color: var(--text-strong); letter-spacing: -0.01em; }
+  .round-card .rc-purpose { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 18px; }
+  .rc-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .rc-row:last-child { border-bottom: none; }
+  .rc-row .lbl { color: var(--text-muted); font-weight: 500; }
+  .rc-row .val { font-family: var(--font-mono); color: var(--text-strong); font-weight: 600; text-align: right; }
+  .rc-block { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); }
+  .rc-block h4 { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); margin: 0 0 8px; }
+  .rc-block p { font-size: 12.5px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+  .rc-block ul { margin: 0; padding-left: 18px; font-size: 12.5px; color: var(--text-muted); line-height: 1.65; }
+  .rc-block ul li { margin-bottom: 4px; }
+
+  .cap-table { width: 100%; border-collapse: collapse; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; margin-top: 8px; }
+  .cap-table th, .cap-table td { padding: 12px 14px; font-size: 12.5px; text-align: right; }
+  .cap-table th:first-child, .cap-table td:first-child { text-align: left; font-weight: 500; color: var(--text-strong); }
+  .cap-table thead th { font: 700 10px/1.4 var(--font-body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); background: var(--bg); border-bottom: 1px solid var(--border); }
+  .cap-table tbody td { font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; border-bottom: 1px solid var(--border); }
+  .cap-table tbody td:first-child { font-family: var(--font-body); }
+  .cap-table tbody tr.founder td { background: rgba(56,182,255,0.04); }
+  .cap-table tbody tr.r1 td { background: rgba(56,182,255,0.08); }
+  .cap-table tbody tr.r2 td { background: rgba(67,122,34,0.08); }
+  .cap-table tbody tr.total td { background: var(--accent-soft); font-weight: 700; color: var(--blue-ink); }
+
+  .retention-bar { display: flex; height: 32px; border-radius: 6px; overflow: hidden; border: 1px solid var(--border); margin: 10px 0 6px; }
+  .retention-bar .rb-seg { display: flex; align-items: center; justify-content: center; font: 600 11.5px/1 var(--font-body); color: #fff; padding: 0 8px; white-space: nowrap; }
+  .retention-legend { display: flex; gap: 18px; margin-bottom: 20px; font-size: 12px; color: var(--text-muted); flex-wrap: wrap; }
+  .retention-legend .rl-sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; vertical-align: middle; margin-right: 6px; }
+
+  .flow-note { background: var(--bg-elev); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius-s); padding: 14px 18px; margin-top: 14px; font-size: 12.5px; color: var(--text-muted); line-height: 1.65; }
+  .flow-note strong { color: var(--text-strong); }
+</style>
+</head>
+<body>
+<div class="watermark" data-mark="ADVISOR WORKING FILE · SOPHI Mobility LLC"></div>
+<div class="app-shell">
+  <aside class="side-nav" id="side-nav"></aside>
+  <main class="main" style="position:relative; z-index:2;">
+
+    <header class="page-header">
+      <div class="ph-icon" style="background:#E8F4FF; color:#0B5394;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><path d="M6 3v6a3 3 0 0 0 3 3h6a3 3 0 0 1 3 3v6M6 21v-6"/><circle cx="6" cy="3" r="1.5" fill="currentColor"/><circle cx="18" cy="21" r="1.5" fill="currentColor"/><circle cx="6" cy="21" r="1.5" fill="currentColor"/></svg>
+      </div>
+      <div class="ph-body">
+        <div class="ph-eyebrow">Overview · Working File</div>
+        <h1 class="ph-title">Two rounds. One capital plan.<br>Founder majority preserved through both.</h1>
+        <p class="ph-lede">
+          Round 1 is an F&amp;F refinance priced against the organic valuation. Round 2 is a proper seed priced against the v3 growth valuation, sized to fund two valet-operator acquisitions (Indianapolis + Denver). Both rounds sit inside a 1,000,000-share starting cap with standard Option-C issuance mechanics.
+        </p>
+      </div>
+    </header>
+
+    <div class="working-banner">
+      <strong>Advisor working file.</strong> Numbers below are illustrative and reflect Joshua's working thesis. The purpose of this deck is to give a new CFO and business advisor a defensible baseline to finalize the actual terms, valuation, and deal structure. Open decisions live on <a href="./advisor-questions.html" style="color:#3D2A0A; font-weight:600; text-decoration:underline;">Advisor Questions</a>.
+    </div>
+
+    <div class="section-eyebrow">The two rounds · side-by-side</div>
+    <div class="round-grid">
+
+      <div class="round-card r1">
+        <div class="rc-eyebrow">Round 1 · Now</div>
+        <h2>F&amp;F Refinance</h2>
+        <p class="rc-purpose">Priced against organic DCF. Refinances the company and funds the Blend Wealth 15-market expansion plan already in motion. Sold to Bryce, Blend Wealth, board participants, and other early movers who move at friends-and-family speed.</p>
+
+        <div class="rc-row"><span class="lbl">Raise</span><span class="val">$500,000</span></div>
+        <div class="rc-row"><span class="lbl">Pre-money</span><span class="val">$4.50M</span></div>
+        <div class="rc-row"><span class="lbl">Post-money</span><span class="val">$5.00M</span></div>
+        <div class="rc-row"><span class="lbl">Share price</span><span class="val">$4.50</span></div>
+        <div class="rc-row"><span class="lbl">New shares issued</span><span class="val">111,111</span></div>
+        <div class="rc-row"><span class="lbl">Round 1 ownership at post</span><span class="val">10.00%</span></div>
+        <div class="rc-row"><span class="lbl">Discount to organic DCF</span><span class="val">~64% ($12.43M → $4.50M)</span></div>
+        <div class="rc-row"><span class="lbl">Instrument</span><span class="val">Priced round or SAFE @ $5M cap</span></div>
+        <div class="rc-row"><span class="lbl">Hold assumption</span><span class="val">5 years (Jan 2027 → 2031)</span></div>
+
+        <div class="rc-block">
+          <h4>Return math</h4>
+          <ul>
+            <li><strong>Downside (organic-only):</strong> 2.16× · 16.7% IRR</li>
+            <li><strong>Base case (v3 DCF):</strong> 6.31× · 44.6% IRR</li>
+            <li><strong>Upside (expansion):</strong> 13.04× · 67.0% IRR</li>
+          </ul>
+        </div>
+
+        <div class="rc-block">
+          <h4>Use of funds</h4>
+          <p>Company refinance · working capital · Blend Wealth expansion plan support. Full breakdown on <a href="./use-of-funds.html" style="color:var(--blue-ink); font-weight:600;">Use of Funds → Round 1</a>.</p>
+        </div>
+      </div>
+
+      <div class="round-card r2">
+        <div class="rc-eyebrow">Round 2 · Later (2028)</div>
+        <h2>Acquisition Seed</h2>
+        <p class="rc-purpose">Priced against v3 DCF. Sized to fund <strong>two valet-operator acquisitions</strong> — one in the Indianapolis market, one in the Denver market — that turn the v3 SOM plan from projected accounts into acquired portfolio. Different investor pool, different terms, different risk profile.</p>
+
+        <div class="rc-row"><span class="lbl">Raise</span><span class="val">$4.50M</span></div>
+        <div class="rc-row"><span class="lbl">Pre-money</span><span class="val">$12.00M (illustrative)</span></div>
+        <div class="rc-row"><span class="lbl">Post-money</span><span class="val">$16.50M</span></div>
+        <div class="rc-row"><span class="lbl">Share price</span><span class="val">$10.80</span></div>
+        <div class="rc-row"><span class="lbl">New shares issued</span><span class="val">416,667</span></div>
+        <div class="rc-row"><span class="lbl">Round 2 ownership at post</span><span class="val">13.04%</span></div>
+        <div class="rc-row"><span class="lbl">Discount to v3 DCF</span><span class="val">~67% ($36.30M → $12.00M)</span></div>
+        <div class="rc-row"><span class="lbl">Instrument</span><span class="val">Priced preferred (TBD with advisor)</span></div>
+        <div class="rc-row"><span class="lbl">Hold assumption</span><span class="val">~4 years (early 2028 → 2031)</span></div>
+
+        <div class="rc-block">
+          <h4>Return math</h4>
+          <ul>
+            <li><strong>Downside (organic-only):</strong> 0.90× · −2.6% IRR</li>
+            <li><strong>Base case (v3 DCF):</strong> 2.63× · 27.4% IRR</li>
+            <li><strong>With acquisitions integrated:</strong> 3.99× · 41.3% IRR</li>
+            <li><strong>Upside (expansion):</strong> 5.44× · 52.6% IRR</li>
+          </ul>
+        </div>
+
+        <div class="rc-block">
+          <h4>Use of funds</h4>
+          <p>Indianapolis operator acquisition · Denver operator acquisition · integration cost · working capital reserve. Full breakdown on <a href="./use-of-funds.html" style="color:var(--blue-ink); font-weight:600;">Use of Funds → Round 2</a>.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-eyebrow">Founder retention path</div>
+    <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.65; margin-bottom: 8px;">
+      Illustrative on the current numbers: founder ends at <strong style="color: var(--text-strong);">70.4%</strong> ownership after both rounds, <strong style="color: var(--text-strong);">78.3%</strong> including the ESOP/board pool. Comfortable supermajority. Founder-controlled through Series A optionality.
+    </p>
+
+    <table class="cap-table">
+      <thead>
+        <tr>
+          <th>Holder</th>
+          <th>Today (1,000,000 shares)</th>
+          <th>After Round 1 (1,111,111)</th>
+          <th>After Round 2 (1,277,778)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="founder">
+          <td><strong>Joshua Casey · Founder</strong></td>
+          <td>900,000 · 90.00%</td>
+          <td>900,000 · 81.00%</td>
+          <td>900,000 · <strong>70.43%</strong></td>
+        </tr>
+        <tr class="founder">
+          <td>ESOP / Board pool</td>
+          <td>100,000 · 10.00%</td>
+          <td>100,000 · 9.00%</td>
+          <td>100,000 · 7.83%</td>
+        </tr>
+        <tr class="r1">
+          <td>Round 1 F&amp;F Seed</td>
+          <td>—</td>
+          <td>111,111 · 10.00%</td>
+          <td>111,111 · 8.70%</td>
+        </tr>
+        <tr class="r2">
+          <td>Round 2 Acquisition Seed</td>
+          <td>—</td>
+          <td>—</td>
+          <td>166,667 · 13.04%</td>
+        </tr>
+        <tr class="total">
+          <td>Founder + ESOP (control)</td>
+          <td>100.00%</td>
+          <td>90.00%</td>
+          <td><strong>78.26%</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-eyebrow" style="margin-top:28px;">Ownership progression · visual</div>
+    <div>
+      <div style="font-size:11.5px; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:6px;">Today</div>
+      <div class="retention-bar">
+        <div class="rb-seg" style="background:#0B5394; flex:90;">Founder · 90%</div>
+        <div class="rb-seg" style="background:#3B5F82; flex:10;">ESOP 10%</div>
+      </div>
+      <div style="font-size:11.5px; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; margin: 14px 0 6px;">After Round 1</div>
+      <div class="retention-bar">
+        <div class="rb-seg" style="background:#0B5394; flex:81;">Founder · 81%</div>
+        <div class="rb-seg" style="background:#3B5F82; flex:9;">ESOP 9%</div>
+        <div class="rb-seg" style="background:#38B6FF; flex:10;">R1 F&amp;F · 10%</div>
+      </div>
+      <div style="font-size:11.5px; color:var(--text-muted); font-weight:600; letter-spacing:0.06em; text-transform:uppercase; margin: 14px 0 6px;">After Round 2</div>
+      <div class="retention-bar">
+        <div class="rb-seg" style="background:#0B5394; flex:70.43;">Founder · 70.4%</div>
+        <div class="rb-seg" style="background:#3B5F82; flex:7.83;">ESOP 7.8%</div>
+        <div class="rb-seg" style="background:#38B6FF; flex:8.70;">R1 · 8.7%</div>
+        <div class="rb-seg" style="background:#437A22; flex:13.04;">R2 Acquisition · 13.0%</div>
+      </div>
+      <div class="retention-legend" style="margin-top:14px;">
+        <span><span class="rl-sw" style="background:#0B5394;"></span>Founder</span>
+        <span><span class="rl-sw" style="background:#3B5F82;"></span>ESOP / Board pool</span>
+        <span><span class="rl-sw" style="background:#38B6FF;"></span>Round 1 F&amp;F Seed</span>
+        <span><span class="rl-sw" style="background:#437A22;"></span>Round 2 Acquisition Seed</span>
+      </div>
+    </div>
+
+    <div class="flow-note">
+      <strong>Why two rounds, not one:</strong> Round 1 gives F&amp;F investors organic-priced entry with v3 upside — a strong return for people who move on relationship. Round 2 investors get v3-priced entry with expansion upside — sized to what an institutional check will underwrite. Trying to raise a single blended round leaves both audiences unhappy. This structure lets each priced against the anchor that fits them.
+    </div>
+
+    <div class="flow-note" style="border-left-color:#DA7101;">
+      <strong>What the advisor needs to weigh in on:</strong> Round 2 pre-money at $12M is a placeholder that produces a 2.6× base-case MOIC — thin for institutional seed pricing. Options include (a) lower R2 pre-money, (b) smaller R2 raise, (c) higher R2 ownership target, (d) lean harder on the acquisitions/expansion upside so R2 base case is $55M-exit not $36M. Full list on <a href="./advisor-questions.html" style="color:#3D2A0A; font-weight:600; text-decoration:underline;">Advisor Questions</a>.
+    </div>
+
+  </main>
+</div>
+<script src="./assets/shell.js?v=20260831"></script>
+<script>window.SOPHI_SHELL.mount('capital-strategy.html');</script>
+</body>
+</html>

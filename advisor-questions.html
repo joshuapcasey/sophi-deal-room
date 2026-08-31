@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advisor Questions — SOPHI Advisor Working File</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/deal-room.css?v=20260831">
+<style>
+  .working-banner { background: #FEF6EC; border: 1px solid #F0D9B3; border-left: 3px solid #DA7101; border-radius: var(--radius-s); padding: 12px 16px; margin-bottom: var(--space-6); font-size: 12.5px; color: #6B4A1A; line-height: 1.55; }
+  .working-banner strong { color: #3D2A0A; }
+
+  .q-card { background: var(--bg-elev); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius-m); padding: 20px 24px; margin-bottom: 16px; }
+  .q-card.priority { border-left-color: #B25E2E; background: #FFF3EC; }
+  .q-card.medium { border-left-color: #DA7101; }
+  .q-card.later { border-left-color: #7A7974; }
+
+  .q-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+  .q-head .q-num { font: 700 11px/1 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+  .q-head .q-num strong { color: var(--text-strong); font-size: 15px; letter-spacing: 0; }
+  .q-head .q-priority { font: 700 9.5px/1 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; }
+  .q-priority.p1 { background: #FFE1D5; color: #B25E2E; }
+  .q-priority.p2 { background: #FEF0DB; color: #DA7101; }
+  .q-priority.p3 { background: #EEEDE9; color: #7A7974; }
+
+  .q-title { font-size: 16px; font-weight: 600; color: var(--text-strong); margin: 0 0 10px; line-height: 1.35; }
+  .q-body { font-size: 13px; color: var(--text-muted); line-height: 1.7; margin: 0 0 12px; }
+  .q-body strong { color: var(--text-strong); }
+
+  .q-context { background: var(--bg); border-radius: 6px; padding: 12px 14px; margin: 12px 0; font-size: 12px; color: var(--text-muted); line-height: 1.65; }
+  .q-context strong { color: var(--text-strong); }
+
+  .q-options { margin: 12px 0 6px; padding-left: 20px; font-size: 12.5px; color: var(--text-muted); line-height: 1.7; }
+  .q-options li { margin-bottom: 5px; }
+  .q-options li strong { color: var(--text-strong); }
+
+  .q-owner { display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--text-faint); margin-top: 8px; padding-top: 12px; border-top: 1px dashed var(--border); }
+  .q-owner strong { color: var(--text-muted); }
+
+  .q-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 24px; }
+  @media (max-width: 700px) { .q-nav { grid-template-columns: 1fr; } }
+  .q-nav a { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; text-decoration: none; color: var(--text-strong); font-size: 12.5px; transition: all 140ms var(--ease); }
+  .q-nav a:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .q-nav a strong { display: block; color: var(--blue-ink); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3px; }
+</style>
+</head>
+<body>
+<div class="watermark" data-mark="ADVISOR WORKING FILE · SOPHI Mobility LLC"></div>
+<div class="app-shell">
+  <aside class="side-nav" id="side-nav"></aside>
+  <main class="main" style="position:relative; z-index:2;">
+
+    <header class="page-header">
+      <div class="ph-icon" style="background:#E8F4FF; color:#0B5394;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2.5 2-2.5 3.5M12 16.5h.01" stroke-linecap="round"/></svg>
+      </div>
+      <div class="ph-body">
+        <div class="ph-eyebrow">Advisor Working File</div>
+        <h1 class="ph-title">Open decisions.<br>What the CFO and advisor need to weigh in on.</h1>
+        <p class="ph-lede">
+          Nine open decisions across capital structure, valuation, acquisition sizing, and Round 2 sequencing. Each names the option set, the trade-off, and who owns the call. Purpose of this page: give the CFO/advisor a punch list to work through before Round 1 F&amp;F terms are finalized.
+        </p>
+      </div>
+    </header>
+
+    <div class="working-banner">
+      <strong>How to use this page:</strong> Every open decision below has a page link showing the current placeholder assumption. Advisor input replaces the placeholder, the deal room re-renders, and the numbers propagate through the two-round math and cap table automatically.
+    </div>
+
+    <div class="q-nav">
+      <a href="#q1"><strong>P1 · Capital</strong> Round 1 discount to organic DCF</a>
+      <a href="#q2"><strong>P1 · Capital</strong> Round 2 pre-money — thin MOIC</a>
+      <a href="#q3"><strong>P1 · Model</strong> Expansion-beyond-6 upside scenario</a>
+      <a href="#q4"><strong>P1 · Deal</strong> Acquisition target operators (Indy + Denver)</a>
+      <a href="#q5"><strong>P2 · Deal</strong> R2 acquisition reserve sizing</a>
+      <a href="#q6"><strong>P2 · Capital</strong> ESOP sizing before Round 2</a>
+      <a href="#q7"><strong>P2 · Terms</strong> Round 1 instrument — SAFE vs priced</a>
+      <a href="#q8"><strong>P3 · Sequencing</strong> Time between R1 and R2 close</a>
+      <a href="#q9"><strong>P3 · Governance</strong> Board composition post-R2</a>
+    </div>
+
+    <!-- ============================== Q1 ============================== -->
+    <div class="q-card priority" id="q1">
+      <div class="q-head">
+        <div class="q-num"><strong>Q1</strong> · Capital structure</div>
+        <span class="q-priority p1">Priority 1 · Blocks R1</span>
+      </div>
+      <h3 class="q-title">Is a 64% discount to the organic DCF the right F&amp;F pricing?</h3>
+      <p class="q-body">
+        Current placeholder: <strong>Round 1 at $4.5M pre against a $12.43M organic DCF</strong> — a 64% discount. F&amp;F investors get organic-anchored entry with v3 upside optionality, producing 2.16× MOIC at organic-only and 6.31× at v3 base.
+      </p>
+      <div class="q-context">
+        <strong>Trade-off:</strong> Deeper discount rewards F&amp;F for early-mover risk but sets a low anchor that could compress Round 2 pricing. Shallower discount keeps optionality for R2 but may under-reward the F&amp;F pool who's carrying execution risk before Hub ships. Standard F&amp;F discount to next-round pricing is 20–30%, but this is F&amp;F priced against an *earlier* valuation anchor, so the two aren't directly comparable.
+      </div>
+      <p class="q-body"><strong>Option set:</strong></p>
+      <ul class="q-options">
+        <li><strong>A · 64% discount (current):</strong> $4.5M pre, aligns with the deal-room's existing organic-DCF discount math</li>
+        <li><strong>B · 50% discount:</strong> $6.2M pre, thinner F&amp;F return but leaves more room for R2 pricing</li>
+        <li><strong>C · Tighter (20% off DCF):</strong> $10M pre, treats F&amp;F as a proper priced round with modest discount — F&amp;F becomes a smaller check base</li>
+      </ul>
+      <div class="q-owner"><strong>Owner:</strong> CFO + Joshua · <strong>Anchor page:</strong> <a href="./v3-valuation.html#downside" style="color:var(--blue-ink);">Valuation → Downside floor</a></div>
+    </div>
+
+    <!-- ============================== Q2 ============================== -->
+    <div class="q-card priority" id="q2">
+      <div class="q-head">
+        <div class="q-num"><strong>Q2</strong> · Capital structure</div>
+        <span class="q-priority p1">Priority 1 · Blocks R2</span>
+      </div>
+      <h3 class="q-title">Round 2 pre-money produces a thin 2.6× base-case MOIC. Which lever moves?</h3>
+      <p class="q-body">
+        Current placeholder: <strong>Round 2 at $12M pre / $4.5M raise / 27.3% dilution</strong> against a $36.30M v3 DCF. That produces a 2.63× MOIC / 27.4% IRR at base case (v3 DCF), which is thin for institutional seed pricing. Real institutional seed investors typically underwrite for 3–5× at base case.
+      </p>
+      <div class="q-context">
+        <strong>Trade-off:</strong> Lowering the R2 pre-money improves investor returns but increases founder dilution. Raising less money means fewer acquisitions financed. Pushing the story hard on the "v3 + acquisitions integrated" case ($55M exit, 3.99× R2 MOIC) reframes the base case but assumes acquisitions perform as expected. Fastest path to a defensible R2 story is to reduce raise size, but that means one acquisition instead of two.
+      </div>
+      <p class="q-body"><strong>Option set:</strong></p>
+      <ul class="q-options">
+        <li><strong>A · Lower R2 pre-money to $8M:</strong> R2 investors get 36% at post, 3.9× base MOIC. Founder drops to ~62%.</li>
+        <li><strong>B · Reduce R2 raise to $2.5M:</strong> Fund one acquisition instead of two. R2 investors get ~17% at post, still ~2.6× MOIC but at lower absolute risk.</li>
+        <li><strong>C · Keep $12M pre, lean on integrated-case upside:</strong> Reframe the R2 investor pitch on the $55M-exit case (3.99× / 41% IRR) not the $36M-exit case. Requires confident acquisition narrative.</li>
+        <li><strong>D · Mix:</strong> $10M pre, $4.0M raise. R2 investors 28.6% at post, ~2.9× base MOIC, funds ~$3.5M of acquisitions.</li>
+      </ul>
+      <div class="q-owner"><strong>Owner:</strong> CFO + advisor · <strong>Anchor page:</strong> <a href="./v3-valuation.html#scenarios" style="color:var(--blue-ink);">Valuation → Return scenarios</a></div>
+    </div>
+
+    <!-- ============================== Q3 ============================== -->
+    <div class="q-card priority" id="q3">
+      <div class="q-head">
+        <div class="q-num"><strong>Q3</strong> · Model</div>
+        <span class="q-priority p1">Priority 1 · Blocks R2 narrative</span>
+      </div>
+      <h3 class="q-title">Which additional markets, timeline, and sizing define the "expansion beyond 6 markets" upside?</h3>
+      <p class="q-body">
+        Current placeholder: <strong>$75M exit ceiling, illustrative</strong>, roughly 2× the v3 six-market DCF. No specific markets, no timeline, no gate discipline defined. This is the number that anchors the upside column across every scenario table in the deal room.
+      </p>
+      <div class="q-context">
+        <strong>Trade-off:</strong> A defensible expansion scenario is what makes the R2 base-case MOIC problem go away. If R2 investors underwrite to a scenario where the six-market SOM is the floor, not the ceiling, the math works. But an under-defended expansion number ("we'll go to 10 more markets") gets discounted immediately. Need real markets, real operator relationships, real capacity ramp mechanics — either extending v3 methodology to specific target cities or defining a franchise/M&amp;A path that produces expansion revenue at a defensible rate.
+      </div>
+      <p class="q-body"><strong>Joshua to circle back with proposal.</strong> Options being considered:</p>
+      <ul class="q-options">
+        <li><strong>A · Extend v3 methodology to 8–10 cities</strong> using the same account-book scoring approach (Houston, Nashville, Atlanta, Austin as candidates)</li>
+        <li><strong>B · Franchise / OS licensing path:</strong> Post-Y3, license the SOPHI OS to independent operators in additional markets — capital-light expansion</li>
+        <li><strong>C · Adjacent-vertical expansion:</strong> Hospital as a full vertical, airport concessions — same six markets but new revenue per site</li>
+        <li><strong>D · Some combination:</strong> Extend to 3 markets + license to 3 more + one vertical addition</li>
+      </ul>
+      <div class="q-owner"><strong>Owner:</strong> Joshua · <strong>Anchor page:</strong> <a href="./v3-valuation.html" style="color:var(--blue-ink);">Valuation → Upside ceiling card</a> (currently placeholder)</div>
+    </div>
+
+    <!-- ============================== Q4 ============================== -->
+    <div class="q-card priority" id="q4">
+      <div class="q-head">
+        <div class="q-num"><strong>Q4</strong> · Deal structure</div>
+        <span class="q-priority p1">Priority 1 · Blocks R2</span>
+      </div>
+      <h3 class="q-title">Which Indianapolis and Denver operators are the acquisition targets, and what's the confirmed price range?</h3>
+      <p class="q-body">
+        Current placeholder: <strong>Indy operator $1.8M + Denver operator $1.6M = $3.4M in acquisitions</strong>. Named operators not yet in the deal room. Price range is Joshua's working thesis, not a validated LOI.
+      </p>
+      <div class="q-context">
+        <strong>Trade-off:</strong> Round 2 fundraise is unsellable to institutional investors without named targets and pricing validated by LOI or diligence. The current deal room can talk about "the acquisition engine" abstractly, but Round 2 investors will underwrite the specific operators — their revenue, their contracts, their staff quality, their integration cost. Real work required here before R2 conversations can start.
+      </div>
+      <p class="q-body"><strong>Action items:</strong></p>
+      <ul class="q-options">
+        <li>Identify 2–3 Indy target operators, run initial conversations</li>
+        <li>Identify 2–3 Denver target operators, run initial conversations</li>
+        <li>Get to non-binding LOIs on primary targets before Round 1 F&amp;F closes</li>
+        <li>Define acquisition-diligence checklist with advisor (revenue verification, contract review, staff retention terms, insurance transfer)</li>
+      </ul>
+      <div class="q-owner"><strong>Owner:</strong> Joshua + advisor · <strong>Anchor page:</strong> <a href="./use-of-funds.html" style="color:var(--blue-ink);">Use of Funds → Round 2</a></div>
+    </div>
+
+    <!-- ============================== Q5 ============================== -->
+    <div class="q-card medium" id="q5">
+      <div class="q-head">
+        <div class="q-num"><strong>Q5</strong> · Deal structure</div>
+        <span class="q-priority p2">Priority 2</span>
+      </div>
+      <h3 class="q-title">Is a 10% reserve enough for a first-time acquirer buying two operators simultaneously?</h3>
+      <p class="q-body">
+        Current placeholder: <strong>$450K working capital reserve (10% of Round 2)</strong>. Standard for a repeat acquirer with acquisition muscle. SOPHI has never done an acquisition and is doing two at once.
+      </p>
+      <div class="q-context">
+        <strong>Trade-off:</strong> A larger reserve means less deployed to acquisition price, potentially reducing the size of what SOPHI can buy or forcing an earnout structure. A smaller reserve exposes the company to post-close surprises — unexpected liabilities, key-staff departures, contract non-renewals, integration cost overruns.
+      </div>
+      <p class="q-body"><strong>Option set:</strong></p>
+      <ul class="q-options">
+        <li><strong>A · Keep 10%:</strong> Standard, keeps acquisition budget higher</li>
+        <li><strong>B · 15–20% reserve:</strong> First-time-acquirer prudent</li>
+        <li><strong>C · Earnout structure on both deals:</strong> Reduces upfront cash need, keeps reserve tight, aligns operator incentives — but requires operator agreement</li>
+      </ul>
+      <div class="q-owner"><strong>Owner:</strong> Advisor + CFO · <strong>Anchor page:</strong> <a href="./use-of-funds.html" style="color:var(--blue-ink);">Use of Funds → Round 2 reserve</a></div>
+    </div>
+
+    <!-- ============================== Q6 ============================== -->
+    <div class="q-card medium" id="q6">
+      <div class="q-head">
+        <div class="q-num"><strong>Q6</strong> · Capital structure</div>
+        <span class="q-priority p2">Priority 2</span>
+      </div>
+      <h3 class="q-title">Should the ESOP pool expand between Round 1 and Round 2?</h3>
+      <p class="q-body">
+        Current placeholder: <strong>100,000 shares (10% of pre-round cap) allocated to ESOP</strong>, unchanged across both rounds. That's 7.83% of post-R2 cap. Institutional Series A rounds typically require a 10–15% option pool refresh — Round 2 investors may push for the same.
+      </p>
+      <div class="q-context">
+        <strong>Trade-off:</strong> Refreshing the pool before Round 2 is founder-friendly on paper — the dilution comes from pre-money — but Round 2 investors may still push. Not refreshing may make Round 2 harder to close on standard terms. Adding pool at Round 1 dilutes F&amp;F too, which reduces their return.
+      </div>
+      <p class="q-body"><strong>Option set:</strong></p>
+      <ul class="q-options">
+        <li><strong>A · Keep 10% pool, no refresh:</strong> Cleanest founder position but may create R2 friction</li>
+        <li><strong>B · Refresh pool to 15% pre-R2:</strong> Standard institutional expectation, dilutes founder from 70.4% → 65.6%</li>
+        <li><strong>C · Refresh pool to 12.5% pre-R2:</strong> Compromise, dilutes founder to 68% at post-R2</li>
+      </ul>
+      <div class="q-owner"><strong>Owner:</strong> CFO · <strong>Anchor page:</strong> <a href="./capital-strategy.html" style="color:var(--blue-ink);">Capital Strategy → Cap table</a></div>
+    </div>
+
+    <!-- ============================== Q7 ============================== -->
+    <div class="q-card medium" id="q7">
+      <div class="q-head">
+        <div class="q-num"><strong>Q7</strong> · Terms</div>
+        <span class="q-priority p2">Priority 2</span>
+      </div>
+      <h3 class="q-title">Round 1 as priced round or SAFE — which better serves the F&amp;F pool and Round 2 close?</h3>
+      <p class="q-body">
+        Current placeholder: <strong>Priced round OR post-money SAFE @ $5M cap</strong>. Priced is cleaner cap-table-wise and lets F&amp;F investors see their exact ownership. SAFE is faster/cheaper to close but adds complexity at R2 conversion.
+      </p>
+      <div class="q-context">
+        <strong>Trade-off:</strong> Priced round requires more legal work up-front ($15–30K per YC/Cooley template) but gives F&amp;F investors a real share count and pre-emptive rights. SAFE gets money in the door in a week, but F&amp;F investors sometimes push back on SAFE terms (no pre-emptive rights, no board seat, ambiguous conversion mechanics). SAFE conversion at Round 2 also gets messy if pre-money moves.
+      </div>
+      <div class="q-owner"><strong>Owner:</strong> Advisor + legal · <strong>Anchor page:</strong> <a href="./capital-strategy.html" style="color:var(--blue-ink);">Capital Strategy → R1 Instrument</a></div>
+    </div>
+
+    <!-- ============================== Q8 ============================== -->
+    <div class="q-card later" id="q8">
+      <div class="q-head">
+        <div class="q-num"><strong>Q8</strong> · Sequencing</div>
+        <span class="q-priority p3">Priority 3</span>
+      </div>
+      <h3 class="q-title">How much time between Round 1 close and Round 2 close?</h3>
+      <p class="q-body">
+        Current placeholder: <strong>~12 months (Jan 2027 → early 2028)</strong>. Gives SOPHI enough time to ship Hub MVP, demonstrate Y1 v3 SOM traction, and finalize acquisition LOIs. But 12 months is short for institutional Round 2 diligence and closing if diligence prep isn't already in place.
+      </p>
+      <div class="q-context">
+        <strong>Trade-off:</strong> Shorter gap keeps momentum but risks R2 investors seeing insufficient v3 execution evidence. Longer gap gives more traction to price against but increases the risk that the F&amp;F check-runners burn through their check-writing energy before R2 is ready. Also depends on how much R1 refinance stabilizes the burn.
+      </div>
+      <div class="q-owner"><strong>Owner:</strong> Joshua + CFO · <strong>Anchor page:</strong> <a href="./cash-model.html" style="color:var(--blue-ink);">Cash Model</a></div>
+    </div>
+
+    <!-- ============================== Q9 ============================== -->
+    <div class="q-card later" id="q9">
+      <div class="q-head">
+        <div class="q-num"><strong>Q9</strong> · Governance</div>
+        <span class="q-priority p3">Priority 3 · Post-R2</span>
+      </div>
+      <h3 class="q-title">Board composition after Round 2 — how many R2 seats?</h3>
+      <p class="q-body">
+        Currently unaddressed in the deal room. Standard institutional Round 2 with 13% ownership would expect 1 board seat. SOPHI's board currently has zero outside members (founder + potentially F&amp;F observer).
+      </p>
+      <div class="q-context">
+        <strong>Trade-off:</strong> A defined governance structure (3 founder + 1 R2 + 1 independent) is the institutional-friendly path and gives Round 2 real skin in the game. An observer-only model preserves founder control but may make Round 2 harder to close. Board dynamics on acquisitions specifically — approval thresholds for target selection, purchase price, integration decisions — need to be spelled out before the R2 term sheet.
+      </div>
+      <div class="q-owner"><strong>Owner:</strong> Advisor + legal · <strong>Anchor page:</strong> Not yet in deal room · needs a Governance section</div>
+    </div>
+
+  </main>
+</div>
+<script src="./assets/shell.js?v=20260831"></script>
+<script>window.SOPHI_SHELL.mount('advisor-questions.html');</script>
+</body>
+</html>

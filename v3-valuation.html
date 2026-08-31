@@ -3,37 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Growth Valuation — SOPHI Investor Deal Room</title>
+<title>Valuation — SOPHI Advisor Working File</title>
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/deal-room.css?v=20260828f">
+<link rel="stylesheet" href="./assets/deal-room.css?v=20260831">
 <style>
-  .own-bar { display: flex; height: 26px; border-radius: 6px; overflow: hidden; margin: 20px 0 8px; border: 1px solid var(--border); }
-  .own-bar .ob-seg { display: grid; place-items: center; font: 600 12px/1 var(--font-body); color: #fff; padding: 0 12px; }
-  .own-legend { display: flex; gap: 24px; font-size: 12.5px; color: var(--text-muted); margin-bottom: 20px; flex-wrap: wrap; }
-  .own-legend .ol-item { display: flex; gap: 8px; align-items: center; }
-  .own-legend .ol-sw { width: 12px; height: 12px; border-radius: 3px; }
+  .band-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: var(--space-6); }
+  @media (max-width: 900px) { .band-grid { grid-template-columns: 1fr; } }
+  .band-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 18px 20px; border-top: 3px solid var(--border); display: flex; flex-direction: column; gap: 10px; }
+  .band-card.downside { border-top-color: #B25E2E; }
+  .band-card.base     { border-top-color: var(--accent); background: var(--accent-soft); }
+  .band-card.upside   { border-top-color: #437A22; }
+  .band-card .bc-eyebrow { font: 700 10px/1.4 var(--font-body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+  .band-card.downside .bc-eyebrow { color: #B25E2E; }
+  .band-card.base .bc-eyebrow     { color: var(--blue-ink); }
+  .band-card.upside .bc-eyebrow   { color: #437A22; }
+  .band-card h3 { font-size: 17px; font-weight: 700; margin: 0; color: var(--text-strong); line-height: 1.25; }
+  .band-card .bc-val { font-family: var(--font-mono); font-size: 26px; font-weight: 700; color: var(--text-strong); letter-spacing: -0.01em; margin-top: 4px; }
+  .band-card .bc-sub { font-size: 12px; color: var(--text-muted); line-height: 1.55; }
+  .band-card .bc-list { font-size: 12.5px; color: var(--text-muted); line-height: 1.6; margin: 0; padding-left: 16px; }
+  .band-card .bc-list li { margin-bottom: 4px; }
+
+  .rr-item .rr-year { font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-weight: 700; }
+  .rr-item .rr-val { font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; font-size: 18px; font-weight: 700; color: var(--blue-ink); margin-top: 6px; }
+  .rr-item .rr-ad { font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; font-size: 11.5px; font-weight: 600; color: #437A22; margin-top: 2px; }
+  .rr-item .rr-total { font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; font-size: 11px; color: var(--text-faint); margin-top: 4px; padding-top: 4px; border-top: 1px solid var(--border); }
+  .rev-ramp { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 18px 0; }
+  .rr-item { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 8px; padding: 14px 12px; text-align: center; }
+
   .cta-strip { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: var(--space-6); }
   .cta-strip .cs-text .cs-title { font-size: 15px; font-weight: 600; color: var(--text-strong); }
   .cta-strip .cs-text .cs-sub { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
   .cta-strip .cs-btn { display: inline-block; padding: 12px 22px; background: var(--accent); color: #fff; text-decoration: none; border-radius: 6px; font: 600 14px/1.4 var(--font-body); transition: background 140ms var(--ease); }
   .cta-strip .cs-btn:hover { background: var(--blue-ink); }
-  .rev-ramp { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 18px 0; }
-  @media (max-width: 900px) { .rev-ramp { grid-template-columns: repeat(5, 1fr); gap: 6px; } .rev-ramp .rr-item { padding: 12px 8px; } }
-  .rr-item { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 8px; padding: 14px 12px; text-align: center; }
-  .rr-item .rr-year { font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); font-weight: 700; }
-  .rr-item .rr-val { font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; font-size: 18px; font-weight: 700; color: var(--blue-ink); margin-top: 6px; }
-  .rr-item .rr-ad { font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; font-size: 11.5px; font-weight: 600; color: #437A22; margin-top: 2px; letter-spacing: 0.02em; }
-  .rr-item .rr-total { font-family: var(--font-mono); font-feature-settings: 'tnum','lnum'; font-size: 11px; color: var(--text-faint); margin-top: 4px; padding-top: 4px; border-top: 1px solid var(--border); }
-  .col-ad { background: #F0F5EB; }
-  .col-ad-header { background: #D4E5C2; }
-  .rr-item .rr-ad { color: #437A22 !important; }
+
+  .working-banner { background: #FEF6EC; border: 1px solid #F0D9B3; border-left: 3px solid #DA7101; border-radius: var(--radius-s); padding: 12px 16px; margin-bottom: var(--space-6); font-size: 12.5px; color: #6B4A1A; line-height: 1.55; }
+  .working-banner strong { color: #3D2A0A; }
 </style>
 </head>
 <body>
-<div class="watermark" data-mark="CONFIDENTIAL · partner@fund.com    CONFIDENTIAL · partner@fund.com"></div>
+<div class="watermark" data-mark="ADVISOR WORKING FILE · SOPHI Mobility LLC"></div>
 <div class="app-shell">
   <aside class="side-nav" id="side-nav"></aside>
   <main class="main" style="position:relative; z-index:2;">
@@ -43,93 +54,190 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"><path d="M4 20V10l8-6 8 6v10"/><path d="M9 20v-6h6v6"/></svg>
       </div>
       <div class="ph-body">
-        <div class="ph-eyebrow">The deal</div>
-        <h1 class="ph-title">Growth valuation.<br>Six markets, priced from the bottom up.</h1>
+        <div class="ph-eyebrow">The Deal · Working File</div>
+        <h1 class="ph-title">Valuation.<br>Downside floor · Base case · Upside ceiling.</h1>
         <p class="ph-lede">
-          The v3 methodology — market-by-market SOM builds across six markets, 203 identified accounts, 93 in SAM, 34 won by Year 5. The valuation the model actually produces when the acquisition engine is priced in.
+          Three valuation anchors. Organic (Blend Wealth 5-yr P&amp;L) is the <strong>downside floor</strong> — what SOPHI is worth without the acquisition engine. v3 six-market SOM is the <strong>base case</strong> — what the current model produces. Expansion beyond six markets is the <strong>upside ceiling</strong>. All three feed the same deal.
         </p>
       </div>
     </header>
 
-    <div class="hero-card">
-      <div class="hc-eyebrow">Growth valuation snapshot</div>
-      <div class="hc-metrics">
-        <div class="hc-metric mint"><div class="hc-val">$4.50M</div><div class="hc-lbl">Pre-money valuation</div></div>
-        <div class="hc-metric blue"><div class="hc-val">$36.30M</div><div class="hc-lbl">DCF equity value · 2031</div></div>
-        <div class="hc-metric peach"><div class="hc-val">8.07×</div><div class="hc-lbl">Value / pre-money multiple</div></div>
-        <div class="hc-metric white"><div class="hc-val">$326.70</div><div class="hc-lbl">DCF value per share</div></div>
-      </div>
-      <p class="hc-note">
-        Six-market SOM build totalling $75.52M cumulative Y1–Y5 revenue against a $57.27M SAM and $150.35M TAM. EV cross-checks: 0.7× revenue = $19.80M · 1.7× revenue = $48.09M · DCF anchor = $36.30M. Same $500K seed at 10% is worth $3.63M at DCF — <strong>7.26× MOIC ≡ 48.7% IRR over the 5-year hold</strong>. Adding the SMS ad layer takes the seed to $4.74M — <strong>9.47× MOIC ≡ 56.8% IRR</strong>.
-      </p>
+    <div class="working-banner">
+      <strong>Advisor working file.</strong> This valuation feeds the two-tranche capital strategy on the <a href="./capital-strategy.html" style="color:#3D2A0A; font-weight:600; text-decoration:underline;">Capital Strategy</a> page. Round 1 (F&amp;F) is priced against the organic anchor. Round 2 (Acquisition Seed) is priced against the v3 anchor. Open questions for the CFO/advisor conversation live on <a href="./advisor-questions.html" style="color:#3D2A0A; font-weight:600; text-decoration:underline;">Advisor Questions</a>.
     </div>
 
-    <div class="callout amber">
-      <div class="cl-title">Revenue streams not in this valuation</div>
-      <p class="cl-body">The base v3 model prices only the parking-services SOM across six named markets ($36.3M DCF). The <strong>v3 + SMS ad layer</strong> column below adds the retrieval SMS ad revenue that scales with the same acquired portfolio at the <strong>moderate case</strong> ($47.4M DCF, midpoint of every account-type conversion and offer-value band). Still excluded from every column: hospitals as a full vertical, airport concessions, SpotHero online-valet arbitrage, cross-property referral services, franchise royalties, and OS licensing. Those remain in the valuation-optionality bucket and are documented separately.</p>
+    <div class="section-eyebrow">Three valuation anchors</div>
+    <div class="band-grid">
+      <div class="band-card downside">
+        <div class="bc-eyebrow">Downside floor</div>
+        <h3>Organic — Blend Wealth 5-yr P&amp;L</h3>
+        <div class="bc-val">$12.43M</div>
+        <div class="bc-sub">DCF equity value · end of 2031. Current playbook, current geographies, no acquisitions, no new streams.</div>
+        <ul class="bc-list">
+          <li>2031 revenue: $11.00M · 51.4% CAGR</li>
+          <li>25% EBIT margin at Y5</li>
+          <li>Priced against SP+ / NAICS comps as floor sanity-check</li>
+        </ul>
+      </div>
+      <div class="band-card base">
+        <div class="bc-eyebrow">Base case · v3 DCF</div>
+        <h3>v3 — Six-market acquisition engine</h3>
+        <div class="bc-val">$36.30M</div>
+        <div class="bc-sub">DCF equity value · end of 2031. 203 named accounts, 93 in SAM, 34 won by Y5 through operator gates and market caps.</div>
+        <ul class="bc-list">
+          <li>2031 revenue: $28.29M · $75.5M cumulative Y1–Y5</li>
+          <li>+ SMS ad layer: $47.36M equity, $8.62M Y5 ad revenue</li>
+          <li>2.9× step-up from organic floor</li>
+        </ul>
+      </div>
+      <div class="band-card upside">
+        <div class="bc-eyebrow">Upside ceiling · placeholder</div>
+        <h3>Expansion beyond six markets</h3>
+        <div class="bc-val">~$75M</div>
+        <div class="bc-sub">Illustrative — awaiting advisor input on which additional markets, timeline, and gate discipline apply. See <a href="./advisor-questions.html" style="color:#437A22; font-weight:600;">Advisor Questions #3</a>.</div>
+        <ul class="bc-list">
+          <li>Draft: v3 mechanics extended to 8–10 markets</li>
+          <li>Same gate/cap discipline, additional operator relationships</li>
+          <li>Not the underwriting target — the ceiling for Round 2 narrative</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="subtabs" role="tablist">
-      <button class="subtab active" data-tab="terms">Deal terms</button>
-      <button class="subtab" data-tab="organic-v-v3">Organic vs. v3</button>
-      <button class="subtab" data-tab="intrinsic">Intrinsic value</button>
-      <button class="subtab" data-tab="comps">Comps</button>
-      <button class="subtab" data-tab="cap">Cap table &amp; returns</button>
+    <div class="section-eyebrow">v3 Six-market revenue ramp · base case</div>
+    <div class="rev-ramp">
+      <div class="rr-item"><div class="rr-year">2027 · Y1</div><div class="rr-val">$4.02M</div><div class="rr-ad">+$0 <span style="color:var(--text-faint); font-weight:500;">pre-gate</span></div><div class="rr-total">$4.02M total</div></div>
+      <div class="rr-item"><div class="rr-year">2028 · Y2</div><div class="rr-val">$9.00M</div><div class="rr-ad">+$2.25M</div><div class="rr-total">$11.25M total</div></div>
+      <div class="rr-item"><div class="rr-year">2029 · Y3</div><div class="rr-val">$14.74M</div><div class="rr-ad">+$4.21M</div><div class="rr-total">$18.95M total</div></div>
+      <div class="rr-item"><div class="rr-year">2030 · Y4</div><div class="rr-val">$19.48M</div><div class="rr-ad">+$6.19M</div><div class="rr-total">$25.67M total</div></div>
+      <div class="rr-item"><div class="rr-year">2031 · Y5</div><div class="rr-val">$28.29M</div><div class="rr-ad">+$8.62M</div><div class="rr-total"><strong style="color:var(--text);">$36.91M total</strong></div></div>
+    </div>
+    <div style="display:flex; gap:20px; margin-top:12px; font-size:12px; color:var(--text-muted); flex-wrap:wrap;">
+      <span><span style="width:12px; height:12px; background:var(--blue-ink); display:inline-block; vertical-align:middle; margin-right:6px; border-radius:2px;"></span>Parking SOM · v3 penetration engine</span>
+      <span><span style="width:12px; height:12px; background:#437A22; display:inline-block; vertical-align:middle; margin-right:6px; border-radius:2px;"></span>SMS ad revenue · moderate benchmarks (activation Y2)</span>
     </div>
 
-    <section class="subtab-panel active" data-panel="terms">
-      <div class="kpi-grid">
-        <div class="kpi-tile"><div class="kpi-val">$150.35M</div><div class="kpi-label">TAM · 6 markets</div><div class="kpi-sub">All parking-service revenue in scope</div></div>
-        <div class="kpi-tile"><div class="kpi-val">$57.27M</div><div class="kpi-label">SAM · 6 markets</div><div class="kpi-sub">93 qualified accounts inside SOPHI's ICP</div></div>
-        <div class="kpi-tile"><div class="kpi-val">203</div><div class="kpi-label">Accounts identified</div><div class="kpi-sub">Named, scored, geocoded</div></div>
-        <div class="kpi-tile"><div class="kpi-val">34</div><div class="kpi-label">Accounts won · Y5</div><div class="kpi-sub">36.6% SAM penetration by Year 5</div></div>
-      </div>
+    <div class="subtabs" role="tablist" style="margin-top:32px;">
+      <button class="subtab active" data-tab="scenarios">Return scenarios</button>
+      <button class="subtab" data-tab="cap-evolution">Cap table evolution</button>
+      <button class="subtab" data-tab="dcf">DCF assumptions</button>
+      <button class="subtab" data-tab="comps">Comps sanity-check</button>
+      <button class="subtab" data-tab="downside">Downside — organic detail</button>
+    </div>
 
-      <div class="section-eyebrow" style="margin-top:24px;">Revenue ramp · six-market SOM + SMS ad layer <span style="font-weight:400; text-transform:none; letter-spacing:0; color:var(--text-faint); margin-left:8px;">moderate case — midpoint of conversion &amp; offer bands</span></div>
-      <div class="rev-ramp">
-        <div class="rr-item"><div class="rr-year">2027 · Y1</div><div class="rr-val">$4.02M</div><div class="rr-ad">+$0 <span style="color:var(--text-faint); font-weight:500;">pre-gate</span></div><div class="rr-total">$4.02M total</div></div>
-        <div class="rr-item"><div class="rr-year">2028 · Y2</div><div class="rr-val">$9.00M</div><div class="rr-ad">+$2.25M</div><div class="rr-total">$11.25M total</div></div>
-        <div class="rr-item"><div class="rr-year">2029 · Y3</div><div class="rr-val">$14.74M</div><div class="rr-ad">+$4.21M</div><div class="rr-total">$18.95M total</div></div>
-        <div class="rr-item"><div class="rr-year">2030 · Y4</div><div class="rr-val">$19.48M</div><div class="rr-ad">+$6.19M</div><div class="rr-total">$25.67M total</div></div>
-        <div class="rr-item"><div class="rr-year">2031 · Y5</div><div class="rr-val">$28.29M</div><div class="rr-ad">+$8.62M</div><div class="rr-total"><strong style="color:var(--text);">$36.91M total</strong></div></div>
-      </div>
-      <div style="display:flex; gap:20px; margin-top:12px; font-size:12px; color:var(--text-muted); flex-wrap:wrap;">
-        <span><span style="width:12px; height:12px; background:var(--blue-ink); display:inline-block; vertical-align:middle; margin-right:6px; border-radius:2px;"></span>Parking SOM · v3 penetration engine</span>
-        <span><span style="width:12px; height:12px; background:#437A22; display:inline-block; vertical-align:middle; margin-right:6px; border-radius:2px;"></span>SMS ad revenue · moderate benchmarks (activation Y2)</span>
-      </div>
-      <p style="font-size:12.5px; color:var(--text-faint); margin-top:12px;">Cumulative Y1–Y5 parking $75.52M + SMS ad $21.27M = <strong style="color:var(--text);">$96.79M total</strong>. Moderate case uses the midpoint of every account-type SMS conversion and average offer-value band (Hotel 26.5% × $30, Fine Dining 22.5% × $23.50, Venue 29% × $32.50, Corporate 21% × $20). Full ad-layer model on <a href="./sophi-os.html#revenue" style="color:var(--blue-ink); font-weight:600;">SOPHI OS → Revenue Model</a>. Full portfolio detail on the <a href="./growth-model.html" style="color:var(--blue-ink); font-weight:600;">Growth Model</a> page.</p>
-    </section>
-
-    <section class="subtab-panel" data-panel="organic-v-v3">
-      <div class="section-eyebrow">Two ways to price the same seed</div>
+    <section class="subtab-panel active" data-panel="scenarios">
+      <div class="section-eyebrow">Return scenarios · both rounds, same exit values</div>
       <div class="card" style="padding: 22px 26px;">
-        <p style="font-size: 14px; line-height: 1.7; color: var(--text-muted); margin: 0 0 18px;">Same $500K, same 10% stake, same 111,111 FDSO. The v3 delta is the six-market acquisition engine priced from the bottom up. The <span style="color:#437A22; font-weight:600;">v3 + SMS ad layer</span> column adds the retrieval SMS ad revenue that scales with the same acquired portfolio at the <strong>moderate case</strong> (midpoint of every account-type conversion and offer-value band), activating Y2 at 15K/mo portfolio SMS. Referral revenue held as valuation optionality (not in any column below).</p>
+        <p style="font-size: 14px; line-height: 1.7; color: var(--text-muted); margin: 0 0 18px;">
+          Round 1 F&amp;F: $500K at $4.50/share, 5-year hold (Jan 2027 → end 2031). Round 2 Acquisition Seed: $4.5M at $10.80/share, ~4-year hold (early 2028 → end 2031). Post-Round-2 FDSO: 1,277,778 shares. Per-share value at each scenario = exit equity ÷ 1,277,778.
+        </p>
+        <div style="overflow-x:auto;">
         <table class="data-table">
           <thead>
             <tr>
-              <th>Metric</th>
-              <th class="num-col">Organic (Blend Wealth)</th>
-              <th class="num-col">v3 acquisition engine</th>
-              <th class="num-col col-ad-header">v3 + SMS ad layer</th>
-              <th class="num-col">Delta · v3+ad vs organic</th>
+              <th>Scenario</th>
+              <th class="num-col">Exit equity</th>
+              <th class="num-col">Per-share</th>
+              <th class="num-col">R1 MOIC</th>
+              <th class="num-col">R1 IRR (5yr)</th>
+              <th class="num-col">R2 MOIC</th>
+              <th class="num-col">R2 IRR (4yr)</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>2031 revenue</td><td class="num-col">$11.00M</td><td class="num-col">$28.29M</td><td class="num-col col-ad">$36.91M</td><td class="num-col" style="color:var(--blue-ink); font-weight:600;">+$25.91M</td></tr>
-            <tr><td>Y5 EBIT margin</td><td class="num-col">25%</td><td class="num-col">25%</td><td class="num-col col-ad">25%</td><td class="num-col">—</td></tr>
-            <tr><td>Y5 EV @ 7× revenue</td><td class="num-col">$77.00M</td><td class="num-col">$198.05M</td><td class="num-col col-ad">$258.37M</td><td class="num-col" style="color:var(--blue-ink); font-weight:600;">+$181.37M</td></tr>
-            <tr><td>DCF equity value · 2031</td><td class="num-col">$12.43M</td><td class="num-col">$36.30M</td><td class="num-col col-ad">$47.36M</td><td class="num-col" style="color:var(--blue-ink); font-weight:600;">+$34.93M</td></tr>
-            <tr><td>Value per share</td><td class="num-col">$111.87</td><td class="num-col">$326.70</td><td class="num-col col-ad">$426.24</td><td class="num-col" style="color:var(--blue-ink); font-weight:600;">+$314.37</td></tr>
-            <tr class="highlight"><td>Seed value at 10%</td><td class="num-col">$1.24M</td><td class="num-col">$3.63M</td><td class="num-col col-ad">$4.74M</td><td class="num-col">+$3.49M</td></tr>
-            <tr><td>MOIC on $500K</td><td class="num-col">2.49×</td><td class="num-col">7.26×</td><td class="num-col col-ad">9.47×</td><td class="num-col">+6.98×</td></tr>
+            <tr><td>Downside — organic DCF only</td><td class="num-col">$12.43M</td><td class="num-col">$9.73</td><td class="num-col">2.16×</td><td class="num-col" style="color:#B25E2E;">16.7%</td><td class="num-col" style="color:#B25E2E;">0.90×</td><td class="num-col" style="color:#B25E2E;">−2.6%</td></tr>
+            <tr class="highlight"><td><strong>Base case — v3 DCF (6 markets)</strong></td><td class="num-col">$36.30M</td><td class="num-col">$28.41</td><td class="num-col"><strong>6.31×</strong></td><td class="num-col"><strong>44.6%</strong></td><td class="num-col"><strong>2.63×</strong></td><td class="num-col"><strong>27.4%</strong></td></tr>
+            <tr><td>v3 + SMS ad layer</td><td class="num-col">$47.36M</td><td class="num-col">$37.06</td><td class="num-col">8.24×</td><td class="num-col">52.5%</td><td class="num-col">3.43×</td><td class="num-col">36.1%</td></tr>
+            <tr><td>v3 + acquisitions integrated (Indy + Denver)</td><td class="num-col">$55.00M</td><td class="num-col">$43.04</td><td class="num-col">9.56×</td><td class="num-col">56.9%</td><td class="num-col">3.99×</td><td class="num-col">41.3%</td></tr>
+            <tr class="highlight"><td><strong>Upside — expansion beyond 6 markets</strong></td><td class="num-col">$75.00M</td><td class="num-col">$58.70</td><td class="num-col"><strong>13.04×</strong></td><td class="num-col"><strong>67.0%</strong></td><td class="num-col"><strong>5.44×</strong></td><td class="num-col"><strong>52.6%</strong></td></tr>
           </tbody>
         </table>
-        <p style="font-size: 12.5px; color: var(--text-faint); margin: 14px 0 0;">Ad-layer DCF uplift is proportional to the parking DCF at the same 25% EBIT margin and 13.0× terminal multiple: $8.62M ÷ $28.29M × $36.30M = $11.06M added equity value. Same WACC (12%), same discount schedule. Moderate case ad revenue = 2.96× the low-end base case (portfolio SMS-mix weighted). Full ad-layer model on <a href="./sophi-os.html#revenue" style="color:var(--blue-ink); font-weight:600;">SOPHI OS → Revenue Model</a>. Organic build-up on the <a href="./organic-valuation.html" style="color:var(--blue-ink); font-weight:600;">Organic Valuation</a> page.</p>
+        </div>
+        <p style="font-size: 12.5px; color: var(--text-faint); margin: 14px 0 0;">
+          IRR = MOIC^(1/years) − 1. R1 hold assumed 5 years from Jan 2027 close. R2 hold assumed 4 years from early-2028 close. Both computed as single-shot exit at end of 2031. <strong style="color:var(--text);">Advisor question:</strong> Round 2 base-case MOIC of 2.63× is thin for institutional seed pricing — see <a href="./advisor-questions.html" style="color:var(--blue-ink); font-weight:600;">Advisor Questions #2</a> on whether Round 2 pre-money should drop or the raise should shrink.
+        </p>
       </div>
     </section>
 
-    <section class="subtab-panel" data-panel="intrinsic">
-      <div class="section-eyebrow">DCF assumptions</div>
+    <section class="subtab-panel" data-panel="cap-evolution">
+      <div class="section-eyebrow">Cap table evolution · Option C issuance (new shares each round)</div>
+      <div class="card" style="padding: 22px 26px;">
+        <p style="font-size: 14px; line-height: 1.7; color: var(--text-muted); margin: 0 0 18px;">
+          Founder retention preserved through both rounds. Starting cap: 1,000,000 shares authorized (Founder 900k + ESOP pool 100k). Round 1 issues 111,111 new shares. Round 2 issues 416,667 new shares. Founder ends at 70.4% ownership · 78.3% including ESOP pool.
+        </p>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Holder</th>
+              <th class="num-col">Today</th>
+              <th class="num-col">After R1</th>
+              <th class="num-col">After R2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Joshua Casey · Founder</td>
+              <td class="num-col">900,000 · <strong>90.00%</strong></td>
+              <td class="num-col">900,000 · <strong>81.00%</strong></td>
+              <td class="num-col">900,000 · <strong>70.43%</strong></td>
+            </tr>
+            <tr>
+              <td>ESOP / Board pool</td>
+              <td class="num-col">100,000 · 10.00%</td>
+              <td class="num-col">100,000 · 9.00%</td>
+              <td class="num-col">100,000 · 7.83%</td>
+            </tr>
+            <tr class="highlight">
+              <td>Round 1 · F&amp;F Seed</td>
+              <td class="num-col">—</td>
+              <td class="num-col">111,111 · <strong>10.00%</strong></td>
+              <td class="num-col">111,111 · 8.70%</td>
+            </tr>
+            <tr class="highlight">
+              <td>Round 2 · Acquisition Seed</td>
+              <td class="num-col">—</td>
+              <td class="num-col">—</td>
+              <td class="num-col">166,667 · <strong>13.04%</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Total FDSO</strong></td>
+              <td class="num-col"><strong>1,000,000</strong></td>
+              <td class="num-col"><strong>1,111,111</strong></td>
+              <td class="num-col"><strong>1,277,778</strong></td>
+            </tr>
+            <tr class="highlight">
+              <td>Share price</td>
+              <td class="num-col">—</td>
+              <td class="num-col">$4.50</td>
+              <td class="num-col">$10.80</td>
+            </tr>
+            <tr>
+              <td>Pre-money valuation</td>
+              <td class="num-col">—</td>
+              <td class="num-col">$4.50M</td>
+              <td class="num-col">$12.00M</td>
+            </tr>
+            <tr>
+              <td>Post-money valuation</td>
+              <td class="num-col">—</td>
+              <td class="num-col">$5.00M</td>
+              <td class="num-col">$16.50M</td>
+            </tr>
+            <tr>
+              <td>Founder + ESOP (control)</td>
+              <td class="num-col">100.00%</td>
+              <td class="num-col">90.00%</td>
+              <td class="num-col"><strong>78.26%</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size: 12.5px; color: var(--text-faint); margin: 14px 0 0;">
+          Option C mechanic: each round issues new shares against a new pre-money valuation. Standard priced-round convention. Round 2 pre-money at $12M represents a 2.4× step-up from Round 1 post-money ($5M) and a 33% discount to the v3 DCF ($36.30M) — leaving meaningful upside for Round 2 investors. <strong style="color:var(--text);">Advisor question:</strong> Should the $12M R2 pre-money move (see <a href="./advisor-questions.html" style="color:var(--blue-ink); font-weight:600;">Advisor Questions #2</a>)?
+        </p>
+      </div>
+    </section>
+
+    <section class="subtab-panel" data-panel="dcf">
+      <div class="section-eyebrow">DCF assumptions · v3 base case</div>
       <div class="card">
         <table class="data-table">
           <thead><tr><th>Assumption</th><th class="num-col">Value</th><th>Rationale</th></tr></thead>
@@ -141,14 +249,14 @@
             <tr><td>Y5 EBIT margin</td><td class="num-col">25.0%</td><td>Middle of SOPHI observed operating band</td></tr>
             <tr><td>Y5 EBIT</td><td class="num-col">$7.07M</td><td>Y5 revenue × Y5 EBIT margin</td></tr>
             <tr class="highlight"><td>Equity value · 2031</td><td class="num-col">$36.30M</td><td>Sum of discounted FCFs + terminal value</td></tr>
-            <tr class="highlight"><td>Per-share value</td><td class="num-col">$326.70</td><td>Equity value ÷ 111,111 FDSO</td></tr>
+            <tr class="highlight"><td>Per-share value · post-R2 FDSO</td><td class="num-col">$28.41</td><td>$36.30M ÷ 1,277,778 shares</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
     <section class="subtab-panel" data-panel="comps">
-      <div class="section-eyebrow">Trading &amp; transaction comps · applied to 2027–2031</div>
+      <div class="section-eyebrow">Trading &amp; transaction comps · applied to 2031 v3 revenue</div>
       <div class="card">
         <table class="data-table">
           <thead>
@@ -164,78 +272,45 @@
             <tr class="highlight"><td colspan="2">DCF anchor (base case)</td><td class="num-col">—</td><td class="num-col">—</td><td class="num-col">$36.30M</td></tr>
           </tbody>
         </table>
-        <p style="font-size: 12.5px; color: var(--text-faint); margin: 14px 0 0;">DCF is used as the base case; the range across comps runs $19.80M (SP+ trading price) to $154.13M (NAICS median on EBIT). The 0.7× and 1.7× revenue bookends are the honest sanity check.</p>
+        <p style="font-size: 12.5px; color: var(--text-faint); margin: 14px 0 0;">DCF sits below the SP+ EBITDA/EBIT floor and above the SP+ trading revenue multiple. The DCF is the conservative anchor; NAICS median is the ceiling sanity-check.</p>
       </div>
     </section>
 
-    <section class="subtab-panel" data-panel="cap">
-      <div class="section-eyebrow">Post-money cap table</div>
-      <div class="card" style="margin-bottom: 18px;">
+    <section class="subtab-panel" data-panel="downside" id="downside">
+      <div class="section-eyebrow">Downside floor detail · organic Blend Wealth plan</div>
+      <div class="card" style="padding: 22px 26px;">
+        <p style="font-size: 14px; line-height: 1.7; color: var(--text-muted); margin: 0 0 18px;">
+          This is what SOPHI is worth if the v3 acquisition engine never fires — current playbook, current 15-market expansion, no new verticals. It's the floor that protects Round 1 investors and gives Round 2 investors a bottom to their downside math.
+        </p>
         <table class="data-table">
-          <thead><tr><th>Holder</th><th class="num-col">Shares</th><th class="num-col">%</th><th class="num-col">$ at $45</th></tr></thead>
+          <thead><tr><th>Metric</th><th class="num-col">Value</th><th>Rationale</th></tr></thead>
           <tbody>
-            <tr><td>Joshua Casey · Founder</td><td class="num-col">70,000</td><td class="num-col">63%</td><td class="num-col">$3.15M</td></tr>
-            <tr><td>Board reserve · ESOP</td><td class="num-col">30,000</td><td class="num-col">27%</td><td class="num-col">$1.35M</td></tr>
-            <tr class="highlight"><td>Seed round</td><td class="num-col">11,111</td><td class="num-col">10%</td><td class="num-col">$500K</td></tr>
-            <tr><td><strong>Total FDSO</strong></td><td class="num-col"><strong>111,111</strong></td><td class="num-col"><strong>100%</strong></td><td class="num-col"><strong>$5.00M</strong></td></tr>
+            <tr><td>2031 revenue</td><td class="num-col">$11.00M</td><td>Blend Wealth organic plan · 51.4% CAGR from $1.38M 2026 base</td></tr>
+            <tr><td>Y5 EBIT margin</td><td class="num-col">25.0%</td><td>Middle of SOPHI observed operating band</td></tr>
+            <tr><td>Y5 EBIT</td><td class="num-col">$2.75M</td><td>Y5 revenue × Y5 EBIT margin</td></tr>
+            <tr class="highlight"><td>DCF equity value · 2031</td><td class="num-col">$12.43M</td><td>Same WACC/terminal/multiple as v3 base case</td></tr>
+            <tr><td>Per-share value · post-R2 FDSO</td><td class="num-col">$9.73</td><td>$12.43M ÷ 1,277,778 shares</td></tr>
+            <tr class="highlight"><td>R1 MOIC / IRR (5yr)</td><td class="num-col">2.16× / 16.7%</td><td>F&amp;F still returns healthy multiple even in downside</td></tr>
+            <tr><td>R2 MOIC / IRR (4yr)</td><td class="num-col">0.90× / −2.6%</td><td>R2 investors underwater if v3 never executes — this is the risk they carry</td></tr>
           </tbody>
         </table>
-      </div>
-
-      <div class="section-eyebrow">Return analysis · $500K seed at 10% · 5-year hold to end of 2031</div>
-      <div class="grid-4" style="grid-template-columns: repeat(4, 1fr);">
-        <div class="kpi-tile"><div class="kpi-val">$3.63M</div><div class="kpi-label">Seed value at DCF</div><div class="kpi-sub">10% × $36.30M equity</div></div>
-        <div class="kpi-tile"><div class="kpi-val">7.26×</div><div class="kpi-label">MOIC · v3 DCF</div><div class="kpi-sub">$3.63M ÷ $500K</div></div>
-        <div class="kpi-tile"><div class="kpi-val">48.7%</div><div class="kpi-label">IRR · v3 DCF</div><div class="kpi-sub">(7.26×)^(1/5) − 1</div></div>
-        <div class="kpi-tile" style="background:var(--accent-soft); border-color:var(--accent);"><div class="kpi-val" style="color:var(--blue-ink);">56.8%</div><div class="kpi-label" style="color:var(--blue-ink);">IRR · v3 + SMS ad</div><div class="kpi-sub">9.47× MOIC to $4.74M</div></div>
-      </div>
-
-      <div class="section-eyebrow" style="margin-top:24px;">IRR by scenario · same $500K seed, same 5-year hold</div>
-      <div class="card">
-        <table class="data-table">
-          <thead>
-            <tr><th>Scenario</th><th class="num-col">Exit equity value</th><th class="num-col">Seed value (10%)</th><th class="num-col">MOIC</th><th class="num-col">IRR</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Downside — miss Y5 by one year</td><td class="num-col">$3.89M</td><td class="num-col">$389K</td><td class="num-col">0.78×</td><td class="num-col" style="color:#B25E2E;">−4.8%</td></tr>
-            <tr><td>Entry price · at cost ($45/share)</td><td class="num-col">$5.00M</td><td class="num-col">$500K</td><td class="num-col">1.00×</td><td class="num-col">0.0%</td></tr>
-            <tr><td>SP+ trading comp · 0.7× revenue</td><td class="num-col">$19.80M</td><td class="num-col">$1.98M</td><td class="num-col">3.96×</td><td class="num-col">31.7%</td></tr>
-            <tr class="highlight"><td><strong>DCF anchor — v3 parking only</strong> (base case)</td><td class="num-col">$36.30M</td><td class="num-col">$3.63M</td><td class="num-col">7.26×</td><td class="num-col"><strong>48.7%</strong></td></tr>
-            <tr class="highlight"><td><strong>DCF anchor — v3 + SMS ad layer</strong></td><td class="num-col">$47.36M</td><td class="num-col">$4.74M</td><td class="num-col">9.47×</td><td class="num-col"><strong>56.8%</strong></td></tr>
-            <tr><td>NAICS median · 1.7× revenue</td><td class="num-col">$48.09M</td><td class="num-col">$4.81M</td><td class="num-col">9.62×</td><td class="num-col">57.3%</td></tr>
-          </tbody>
-        </table>
-        <p style="font-size: 12.5px; color: var(--text-faint); margin: 14px 0 0;">IRR = MOIC^(1/years) − 1, assuming single-shot exit at end of 2031 (5-year hold from Jan 2027 close). No interim distributions modeled. Downside scenario carried over from the Organic Valuation page for continuity — the v3 case doesn't have a symmetric downside because binary account acquisition either wins or waits, it doesn't produce partial-credit revenue.</p>
-      </div>
-
-      <div class="section-eyebrow" style="margin-top:24px;">IRR sensitivity to hold period · v3 DCF anchor (7.26×)</div>
-      <div class="card">
-        <table class="data-table">
-          <thead>
-            <tr><th>Hold period</th><th class="num-col">Exit year</th><th class="num-col">MOIC</th><th class="num-col">IRR</th><th>Notes</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>4 years</td><td class="num-col">Y4 (2030)</td><td class="num-col">7.26×</td><td class="num-col" style="color:#437A22; font-weight:600;">64.1%</td><td>Early exit before Y5 SMS-ad ramp — needs a strategic buyer</td></tr>
-            <tr class="highlight"><td>5 years <strong>(base)</strong></td><td class="num-col">Y5 (2031)</td><td class="num-col">7.26×</td><td class="num-col"><strong>48.7%</strong></td><td>Priced against the Y5 P&amp;L in the DCF; the number the round is underwritten to</td></tr>
-            <tr><td>6 years</td><td class="num-col">Y6 (2032)</td><td class="num-col">7.26×</td><td class="num-col">39.2%</td><td>Series A executes, seed rides through — same terminal equity, longer hold</td></tr>
-            <tr><td>7 years</td><td class="num-col">Y7 (2033)</td><td class="num-col">7.26×</td><td class="num-col">32.7%</td><td>Longer hold if strategic exit slips or IPO path opens</td></tr>
-          </tbody>
-        </table>
-        <p style="font-size: 12.5px; color: var(--text-faint); margin: 14px 0 0;">Same terminal equity value ($36.30M), spread over different hold periods. The seed is priced on the 5-year assumption; anything faster is upside from a strategic acquirer arriving early.</p>
+        <p style="font-size: 12.5px; color: var(--text-faint); margin: 14px 0 0;">
+          The organic-only case is the honest downside — not a scare number. R1 F&amp;F still returns ~2× at organic-only, which is the whole point of pricing R1 at the organic anchor. R2 carries the acquisition-execution risk in exchange for the base-case upside. That trade is the deal.
+        </p>
       </div>
     </section>
 
     <div class="cta-strip">
       <div class="cs-text">
-        <div class="cs-title">Want the per-market build-up for all six markets?</div>
-        <div class="cs-sub">Portfolio detail — accounts, SOM, and scoring — lives on the Growth Model page.</div>
+        <div class="cs-title">Ready to see how this priced across both rounds?</div>
+        <div class="cs-sub">Capital Strategy walks Round 1 F&amp;F and Round 2 Acquisition Seed side-by-side with founder retention math.</div>
       </div>
-      <a href="./growth-model.html" class="cs-btn">Open portfolio detail</a>
+      <a href="./capital-strategy.html" class="cs-btn">Open Capital Strategy</a>
     </div>
 
   </main>
 </div>
-<script src="./assets/shell.js?v=20260828f"></script>
+<script src="./assets/shell.js?v=20260831"></script>
 <script>
   window.SOPHI_SHELL.mount('v3-valuation.html');
   document.querySelectorAll('.subtab').forEach(btn => {
