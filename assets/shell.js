@@ -4,18 +4,17 @@
     { group: 'OVERVIEW', items: [
       { href: 'summary.html', label: 'Summary', icon: 'sparkle' },
       { href: 'capital-strategy.html', label: 'Capital Strategy', icon: 'split' },
-      { href: 'company-history.html', label: 'Company History', icon: 'clock' },
     ]},
     { group: 'THE OPPORTUNITY', items: [
+      { href: 'company-history.html', label: 'Company History', icon: 'clock' },
       { href: 'sophi-os.html', label: 'SOPHI OS', icon: 'layers' },
+      { href: 'competition.html', label: 'Competition', icon: 'crosshair' },
       { href: 'growth-model.html', label: 'Growth Model', icon: 'trending' },
     ]},
     { group: 'THE DEAL', items: [
-      { href: 'use-of-funds.html', label: 'Use of Funds', icon: 'coins' },
-      { href: 'cash-model.html', label: 'Cash Model', icon: 'wallet' },
       { href: 'financial-performance.html', label: 'Financial Performance', icon: 'chart' },
+      { href: 'use-of-funds.html', label: 'Use of Funds', icon: 'coins' },
       { href: 'v3-valuation.html', label: 'Valuation', icon: 'rocket' },
-      { href: 'competition.html', label: 'Competition', icon: 'crosshair' },
       { href: 'risk-milestones.html', label: 'Risk Mitigating Milestones', icon: 'shield' },
     ]},
     { group: 'ADVISOR WORKING FILE', items: [
