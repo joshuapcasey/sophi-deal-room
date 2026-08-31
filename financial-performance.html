@@ -8,8 +8,85 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/deal-room.css?v=20260831a">
+<link rel="stylesheet" href="./assets/deal-room.css?v=20260831b">
 <style>
+  /* ============ At-a-glance strip (P1) ============ */
+  .glance {
+    background: linear-gradient(180deg, var(--bg-elev) 0%, var(--bg) 100%);
+    border: 1px solid var(--border);
+    border-left: 3px solid #0B5394;
+    border-radius: var(--radius-m);
+    padding: 20px 26px;
+    margin-bottom: var(--space-6);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 900px) { .glance { grid-template-columns: 1fr; gap: 20px; } }
+  .glance-item .g-eyebrow {
+    font: 700 10px/1.4 var(--font-body);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: #0B5394; margin-bottom: 6px;
+  }
+  .glance-item .g-value {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.1;
+    color: var(--text-strong);
+    font-feature-settings: 'tnum','lnum';
+    margin-bottom: 4px;
+  }
+  .glance-item .g-value .g-arrow {
+    color: var(--text-muted);
+    font-weight: 400;
+    margin: 0 6px;
+  }
+  .glance-item .g-caption {
+    font-size: 12.5px; line-height: 1.5;
+    color: var(--text-muted);
+  }
+
+  /* ============ Two-column narrative strip (P2) ============ */
+  .narrative {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: var(--space-6);
+  }
+  @media (max-width: 900px) { .narrative { grid-template-columns: 1fr; } }
+  .nar-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m);
+    padding: 18px 22px;
+    position: relative;
+  }
+  .nar-card.r1 { border-top: 3px solid #0B5394; }
+  .nar-card.r2 { border-top: 3px solid #437A22; }
+  .nar-card .nc-round {
+    display: inline-block;
+    font: 700 9.5px/1.4 var(--font-body);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  .nar-card.r1 .nc-round { background: #E8F4FF; color: #0B5394; }
+  .nar-card.r2 .nc-round { background: #EAF3E0; color: #437A22; }
+  .nar-card h3 {
+    margin: 0 0 8px;
+    font-family: var(--font-body);
+    font-size: 17px; font-weight: 600;
+    color: var(--text-strong);
+    line-height: 1.3;
+  }
+  .nar-card p {
+    margin: 0;
+    font-size: 13px; line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  /* ============ P&L table ============ */
   .pnl-wrap { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; margin-bottom: var(--space-6); }
   .pnl-wrap .pw-head { padding: 16px 24px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
   .pnl-wrap .pw-title { font: 700 10.5px/1.4 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
@@ -26,7 +103,7 @@
   .pnl-wrap tbody tr.indent td:first-child { padding-left: 30px; color: var(--text-muted); font-weight: 400; }
   .pnl-wrap tbody tr.pct td:not(:first-child) { color: var(--text-faint); font-size: 12px; }
 
-  /* Cash chart (moved from Cash Model) */
+  /* ============ Cash chart (bigger + repositioned annotations for P3, P4) ============ */
   .cf-chart-wrap { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 22px 24px; margin-bottom: var(--space-6); }
   .cf-chart-wrap .cfw-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
   .cf-chart-wrap .cfw-title { font: 700 10.5px/1.4 var(--font-body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
@@ -35,7 +112,7 @@
   .cf-legend .swatch { width: 14px; height: 3px; display: inline-block; vertical-align: middle; margin-right: 6px; border-radius: 1px; }
   .cf-legend .swatch-box { width: 12px; height: 12px; display: inline-block; vertical-align: middle; margin-right: 6px; border-radius: 2px; }
 
-  /* Assumption cards (moved from Cash Model) */
+  /* Assumption cards */
   .assump-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 8px; margin-bottom: var(--space-6); }
   @media (max-width: 900px) { .assump-grid { grid-template-columns: 1fr; } }
   .assump-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-s); padding: 14px 16px; }
@@ -43,14 +120,6 @@
   .assump-card ul { margin: 0; padding-left: 18px; }
   .assump-card li { font-size: 12.5px; line-height: 1.65; color: var(--text-muted); margin-bottom: 4px; }
   .assump-card li strong { color: var(--text-strong); font-weight: 600; }
-
-  /* Cash mini-KPI strip inline with the chart section */
-  .cash-mini { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px; }
-  @media (max-width: 900px) { .cash-mini { grid-template-columns: repeat(2, 1fr); } }
-  .cash-mini .cm-tile { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-s); padding: 10px 12px; }
-  .cash-mini .cm-val { font-family: var(--font-mono); font-weight: 700; font-size: 17px; color: var(--text-strong); line-height: 1.1; }
-  .cash-mini .cm-label { font-size: 10.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
-  .cash-mini .cm-sub { font-size: 10.5px; color: var(--text-faint); margin-top: 2px; }
 </style>
 </head>
 <body>
@@ -68,18 +137,42 @@
         <h1 class="ph-title">This is what the business is worth on its own.<br>We survive without you.</h1>
         <p class="ph-lede">
           The organic Blend Wealth plan reaches <strong>$11M revenue at 25% EBIT</strong> in 2031 using only Charlotte carry, Indianapolis, Denver, and Louisville — no acquisitions, no hospital vertical, no airport concessions. The 24-month cash trajectory is default-alive by month 3 and closes 2028 with <strong>$5.19M</strong> on the balance sheet, funding the Series A conversation from strength.
-          <br><br>
-          <span style="color:var(--text-strong); font-weight:600;">R1 makes the existing plan cleaner and faster. R2 changes the ceiling.</span> Neither round is required for survival.
         </p>
       </div>
     </header>
 
-    <div class="section-eyebrow" id="pnl">Organic 5-year P&amp;L</div>
-    <div class="kpi-grid">
-      <div class="kpi-tile"><div class="kpi-val">$11.00M</div><div class="kpi-label">2031 revenue</div><div class="kpi-sub">Y5 organic run-rate</div></div>
-      <div class="kpi-tile"><div class="kpi-val">51.4%</div><div class="kpi-label">Revenue CAGR</div><div class="kpi-sub">2026A → 2031</div></div>
-      <div class="kpi-tile"><div class="kpi-val">25%</div><div class="kpi-label">Y5 EBIT margin</div><div class="kpi-sub">Up from 18.5% in 2026</div></div>
-      <div class="kpi-tile"><div class="kpi-val">15</div><div class="kpi-label">Markets by 2031</div><div class="kpi-sub">Charlotte + Indy anchor + 13 expansion</div></div>
+    <!-- ============ P2 · Two-column narrative strip ============ -->
+    <div class="narrative">
+      <div class="nar-card r1">
+        <span class="nc-round">Round 1 · F&amp;F</span>
+        <h3>Makes the existing plan cleaner and faster.</h3>
+        <p>The organic plan reaches Y5 without this round. R1 removes the debt-service tax, funds Denver + Indianapolis launches without cash-flow strain, and stabilizes the company so R2 happens from strength, not urgency. Every dollar accelerates a lane already committed to.</p>
+      </div>
+      <div class="nar-card r2">
+        <span class="nc-round">Round 2 · Acquisition Seed</span>
+        <h3>Changes the ceiling.</h3>
+        <p>R2 finances two operator acquisitions (Indianapolis + Denver) that convert v3 SOM from projected accounts into acquired portfolio — instant scale, existing relationships, existing revenue. This is the round that turns the base-case v3 story into the upside-case expansion story.</p>
+      </div>
+    </div>
+
+    <!-- ============ P1 · At-a-glance strip ============ -->
+    <div class="section-eyebrow" id="pnl">Organic 5-year plan · at a glance</div>
+    <div class="glance">
+      <div class="glance-item">
+        <div class="g-eyebrow">Revenue</div>
+        <div class="g-value">$1.38M<span class="g-arrow">→</span>$11.00M</div>
+        <div class="g-caption">7.97× over 5 years · 51.4% CAGR · Charlotte carry into Indy/Denver/Louisville expansion</div>
+      </div>
+      <div class="glance-item">
+        <div class="g-eyebrow">EBIT margin</div>
+        <div class="g-value">18.5%<span class="g-arrow">→</span>25.0%</div>
+        <div class="g-caption">Operating leverage on fixed G&amp;A base as new markets ramp — sustained, not peaked</div>
+      </div>
+      <div class="glance-item">
+        <div class="g-eyebrow">Cumulative net income</div>
+        <div class="g-value">$3.89M</div>
+        <div class="g-caption">2026A–2031 organic net income · funds Y2 close cash position ($5.19M) plus opex reinvestment</div>
+      </div>
     </div>
 
     <div class="pnl-wrap">
@@ -118,69 +211,85 @@
       </table>
     </div>
 
-    <div class="section-eyebrow" id="cash">24-month cash trajectory</div>
-    <div class="cash-mini">
-      <div class="cm-tile"><div class="cm-val">$550K</div><div class="cm-label">Starting cash · Jan 2027</div><div class="cm-sub">$500K R1 + $50K carry</div></div>
-      <div class="cm-tile"><div class="cm-val">$484K</div><div class="cm-label">Minimum cash</div><div class="cm-sub">Feb 2027 · month 2</div></div>
-      <div class="cm-tile"><div class="cm-val">$5.19M</div><div class="cm-label">Ending cash · Dec 2028</div><div class="cm-sub">Y2 close · Series A prep</div></div>
-      <div class="cm-tile"><div class="cm-val">Never</div><div class="cm-label">Months below 9-mo runway</div><div class="cm-sub">Cash floor policy holds</div></div>
-    </div>
-
+    <!-- ============ P3, P4 · Cash chart (bigger, better annotations, mini-strip removed) ============ -->
+    <div class="section-eyebrow" id="cash">24-month cash trajectory · default alive from month 3</div>
     <div class="cf-chart-wrap">
       <div class="cfw-head">
         <div class="cfw-title">Cash balance · end-of-month</div>
-        <div class="cfw-sub">$550K raise + operating cash flow · 24 months</div>
+        <div class="cfw-sub">$550K R1 raise + operating cash flow · Jan 2027 → Dec 2028</div>
       </div>
-      <svg viewBox="0 0 880 320" style="width:100%; height:auto; display:block;" aria-label="Monthly cash balance chart">
-        <!-- Axes -->
-        <line x1="60" y1="270" x2="850" y2="270" stroke="#E7E5E0" stroke-width="1"/>
-        <line x1="60" y1="20" x2="60" y2="270" stroke="#E7E5E0" stroke-width="1"/>
+      <svg viewBox="0 0 880 400" style="width:100%; height:auto; display:block;" aria-label="Monthly cash balance chart">
+        <!-- Coordinate system: x 60→850, y 20→350 (top→bottom), $0→$5.5M -->
+        <!-- Mapping: y = 350 - (v/5500000)*310 -->
+        <line x1="60" y1="350" x2="850" y2="350" stroke="#E7E5E0" stroke-width="1"/>
+        <line x1="60" y1="20" x2="60" y2="350" stroke="#E7E5E0" stroke-width="1"/>
         <!-- Y gridlines + labels -->
         <g font-family="JetBrains Mono, monospace" font-size="10" fill="#8A857F">
           <line x1="60" y1="20" x2="850" y2="20" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="24" text-anchor="end">$5.5M</text>
-          <line x1="60" y1="65" x2="850" y2="65" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="69" text-anchor="end">$4.5M</text>
-          <line x1="60" y1="110" x2="850" y2="110" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="114" text-anchor="end">$3.5M</text>
-          <line x1="60" y1="156" x2="850" y2="156" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="160" text-anchor="end">$2.5M</text>
-          <line x1="60" y1="201" x2="850" y2="201" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="205" text-anchor="end">$1.5M</text>
-          <line x1="60" y1="247" x2="850" y2="247" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="251" text-anchor="end">$0.5M</text>
-          <text x="52" y="274" text-anchor="end">$0</text>
+          <line x1="60" y1="76" x2="850" y2="76" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="80" text-anchor="end">$4.5M</text>
+          <line x1="60" y1="133" x2="850" y2="133" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="137" text-anchor="end">$3.5M</text>
+          <line x1="60" y1="190" x2="850" y2="190" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="194" text-anchor="end">$2.5M</text>
+          <line x1="60" y1="246" x2="850" y2="246" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="250" text-anchor="end">$1.5M</text>
+          <line x1="60" y1="303" x2="850" y2="303" stroke="#F4F4F2" stroke-width="1"/><text x="52" y="307" text-anchor="end">$0.5M</text>
+          <text x="52" y="354" text-anchor="end">$0</text>
         </g>
-        <!-- 9-month runway floor -->
-        <line x1="60" y1="258" x2="850" y2="258" stroke="#B25E2E" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>
-        <text x="850" y="257" font-family="Inter, sans-serif" font-size="9.5" fill="#B25E2E" text-anchor="end">9-month runway floor</text>
-        <!-- Year boundary -->
-        <line x1="455" y1="20" x2="455" y2="270" stroke="#D6D3CC" stroke-width="1" stroke-dasharray="4 4"/>
+        <!-- 9-month runway floor at ~$270K (y = 350 - 270000/5500000*310 = 334.8) -->
+        <line x1="60" y1="335" x2="850" y2="335" stroke="#B25E2E" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>
+        <text x="845" y="331" font-family="Inter, sans-serif" font-size="9.5" fill="#B25E2E" text-anchor="end">9-month runway floor</text>
+        <!-- Year boundary Dec 27 / Jan 28 at x = 60 + (11.5/23)*790 = 455 -->
+        <line x1="455" y1="20" x2="455" y2="350" stroke="#D6D3CC" stroke-width="1" stroke-dasharray="4 4"/>
         <text x="253" y="15" font-family="Inter, sans-serif" font-size="10" fill="#8A857F" text-anchor="middle">Y1 · 2027</text>
         <text x="655" y="15" font-family="Inter, sans-serif" font-size="10" fill="#8A857F" text-anchor="middle">Y2 · 2028</text>
-        <!-- Data polyline -->
-        <polyline points="60,247.8 94.3,248.0 128.7,246.7 163.0,245.3 197.4,242.1 231.7,238.1 266.1,234.5 300.4,229.7 334.8,224.1 369.1,219.1 403.5,212.7 437.8,206.4 472.2,199.9 506.5,192.0 540.9,180.6 575.2,167.5 609.6,151.7 643.9,133.7 678.3,117.4 712.6,99.4 747.0,82.6 781.3,65.9 815.7,50.0 850.0,34.1" fill="none" stroke="#0B5394" stroke-width="2.5" stroke-linejoin="round"/>
-        <!-- Fill under curve -->
-        <polygon points="60,247.8 94.3,248.0 128.7,246.7 163.0,245.3 197.4,242.1 231.7,238.1 266.1,234.5 300.4,229.7 334.8,224.1 369.1,219.1 403.5,212.7 437.8,206.4 472.2,199.9 506.5,192.0 540.9,180.6 575.2,167.5 609.6,151.7 643.9,133.7 678.3,117.4 712.6,99.4 747.0,82.6 781.3,65.9 815.7,50.0 850.0,34.1 850.0,270 60,270" fill="rgba(11,83,148,0.08)"/>
-        <!-- Min cash marker -->
-        <circle cx="94.3" cy="248.0" r="4" fill="#8A2C3E"/>
-        <text x="94.3" y="264" font-family="JetBrains Mono, monospace" font-size="10" fill="#8A2C3E" font-weight="700" text-anchor="middle">$484K min</text>
-        <!-- End points -->
-        <circle cx="437.8" cy="206.4" r="3.5" fill="#0B5394"/>
-        <text x="437.8" y="199" font-family="JetBrains Mono, monospace" font-size="10.5" fill="#0B5394" font-weight="600" text-anchor="middle">$1.40M</text>
-        <circle cx="850" cy="34.1" r="4" fill="#437A22"/>
-        <text x="810" y="30" font-family="JetBrains Mono, monospace" font-size="12" fill="#437A22" font-weight="700" text-anchor="end">$5.19M</text>
+
+        <!-- Cash values, y = 350 - (v/5500000)*310 -->
+        <!-- Jan 27 → Dec 28: 489200,483550,512868,542512,613197,701153,780907,886304,1009042,1119186,1259465,1399914,1543159,1715594,1965636,2254685,2602185,2998533,3356457,3753602,4121980,4490733,4840384,5190394 -->
+        <polyline points="60,322.4 94.3,322.7 128.7,321.1 163.0,319.4 197.4,315.4 231.7,310.5 266.1,306.0 300.4,300.0 334.8,293.1 369.1,286.9 403.5,279.0 437.8,271.1 472.2,263.0 506.5,253.3 540.9,239.2 575.2,223.0 609.6,203.4 643.9,181.1 678.3,160.9 712.6,138.5 747.0,117.6 781.3,96.8 815.7,77.1 850.0,57.4" fill="none" stroke="#0B5394" stroke-width="2.5" stroke-linejoin="round"/>
+        <polygon points="60,322.4 94.3,322.7 128.7,321.1 163.0,319.4 197.4,315.4 231.7,310.5 266.1,306.0 300.4,300.0 334.8,293.1 369.1,286.9 403.5,279.0 437.8,271.1 472.2,263.0 506.5,253.3 540.9,239.2 575.2,223.0 609.6,203.4 643.9,181.1 678.3,160.9 712.6,138.5 747.0,117.6 781.3,96.8 815.7,77.1 850.0,57.4 850.0,350 60,350" fill="rgba(11,83,148,0.08)"/>
+
+        <!-- Min cash marker (Feb 27, idx 1). Label ABOVE + LEFT of point to avoid overlap with runway line -->
+        <circle cx="94.3" cy="322.7" r="4.5" fill="#8A2C3E" stroke="white" stroke-width="1.5"/>
+        <line x1="94.3" y1="322.7" x2="94.3" y2="300" stroke="#8A2C3E" stroke-width="1" stroke-dasharray="2 2" opacity="0.5"/>
+        <rect x="30" y="285" width="128" height="34" rx="4" fill="white" stroke="#8A2C3E" stroke-width="1"/>
+        <text x="94.3" y="298" font-family="Inter, sans-serif" font-size="10" fill="#8A2C3E" font-weight="700" text-anchor="middle">MIN CASH · FEB 2027</text>
+        <text x="94.3" y="313" font-family="JetBrains Mono, monospace" font-size="12" fill="#8A2C3E" font-weight="700" text-anchor="middle">$484K</text>
+
+        <!-- Default-alive-by-month-3 marker (Mar 27, idx 2) -->
+        <circle cx="128.7" cy="321.1" r="4.5" fill="#437A22" stroke="white" stroke-width="1.5"/>
+        <line x1="128.7" y1="321.1" x2="215" y2="255" stroke="#437A22" stroke-width="1" opacity="0.4"/>
+        <rect x="205" y="235" width="180" height="30" rx="4" fill="#EAF3E0" stroke="#437A22" stroke-width="1"/>
+        <text x="295" y="253" font-family="Inter, sans-serif" font-size="11" fill="#437A22" font-weight="700" text-anchor="middle">Default alive · from Mar 2027</text>
+
+        <!-- Y1 close (Dec 27, idx 11) -->
+        <circle cx="437.8" cy="271.1" r="4" fill="#0B5394" stroke="white" stroke-width="1.5"/>
+        <text x="437.8" y="264" font-family="JetBrains Mono, monospace" font-size="11" fill="#0B5394" font-weight="600" text-anchor="middle">Y1 close · $1.40M</text>
+
+        <!-- Y2 close (Dec 28, idx 23) - the payoff annotation -->
+        <circle cx="850" cy="57.4" r="5.5" fill="#437A22" stroke="white" stroke-width="2"/>
+        <rect x="710" y="30" width="130" height="42" rx="4" fill="#EAF3E0" stroke="#437A22" stroke-width="1"/>
+        <text x="775" y="46" font-family="Inter, sans-serif" font-size="10" fill="#437A22" font-weight="700" text-anchor="middle">Y2 CLOSE · DEC 2028</text>
+        <text x="775" y="63" font-family="JetBrains Mono, monospace" font-size="14" fill="#437A22" font-weight="700" text-anchor="middle">$5.19M</text>
+
+        <!-- Starting-cash annotation (Jan 27, idx 0) -->
+        <text x="65" y="315" font-family="JetBrains Mono, monospace" font-size="10" fill="#0B5394" font-weight="600">Start · $550K</text>
+
         <!-- X labels -->
-        <g font-family="Inter, sans-serif" font-size="10" fill="#4A4744">
-          <text x="60" y="290" text-anchor="middle">Jan 27</text>
-          <text x="163" y="290" text-anchor="middle">Apr 27</text>
-          <text x="266" y="290" text-anchor="middle">Jul 27</text>
-          <text x="369" y="290" text-anchor="middle">Oct 27</text>
-          <text x="472" y="290" text-anchor="middle">Jan 28</text>
-          <text x="575" y="290" text-anchor="middle">Apr 28</text>
-          <text x="678" y="290" text-anchor="middle">Jul 28</text>
-          <text x="781" y="290" text-anchor="middle">Oct 28</text>
-          <text x="850" y="290" text-anchor="middle">Dec 28</text>
+        <g font-family="Inter, sans-serif" font-size="10.5" fill="#4A4744">
+          <text x="60" y="370" text-anchor="middle">Jan 27</text>
+          <text x="163" y="370" text-anchor="middle">Apr 27</text>
+          <text x="266" y="370" text-anchor="middle">Jul 27</text>
+          <text x="369" y="370" text-anchor="middle">Oct 27</text>
+          <text x="472" y="370" text-anchor="middle">Jan 28</text>
+          <text x="575" y="370" text-anchor="middle">Apr 28</text>
+          <text x="678" y="370" text-anchor="middle">Jul 28</text>
+          <text x="781" y="370" text-anchor="middle">Oct 28</text>
+          <text x="850" y="370" text-anchor="middle">Dec 28</text>
         </g>
       </svg>
       <div class="cf-legend">
         <span><span class="swatch" style="background:#0B5394"></span>Cash balance · end of month</span>
         <span><span class="swatch" style="background:#B25E2E; border-top:1px dashed #B25E2E; height:0;"></span>9-month runway floor (policy)</span>
         <span><span class="swatch-box" style="background:#8A2C3E"></span>Min cash · Feb 2027</span>
+        <span><span class="swatch-box" style="background:#437A22"></span>Default-alive threshold + Y2 close</span>
       </div>
     </div>
 
@@ -239,17 +348,12 @@
 
     <div class="callout" style="margin-top:24px;">
       <div class="cl-title">Path to Series A</div>
-      <p class="cl-body">At end of Y2 (Dec 2028), SOPHI is at $9M+ revenue run-rate, cash-generative, with $5.19M on the balance sheet and 12 accounts won across the six-market portfolio. That's the position from which the Series A conversation happens — sized to fund Phoenix, Cleveland, Louisville, and the hospital vertical. Expected raise: $8–15M at $20–35M pre. Seed dilution modeled at 15–20%. This round does not need to bridge to a Series A of desperation; the operating cash flow does that on its own.</p>
-    </div>
-
-    <div class="callout" style="margin-top:16px; background:#FAF5EA; border-color:#E7D8B6;">
-      <div class="cl-title" style="color:#8A6A1E;">Not in this P&amp;L</div>
-      <p class="cl-body">Blend Wealth is the organic plan. Acquisitions of adjacent operator portfolios (R2 target: Indianapolis + Denver), hospitals as a full vertical, airport concessions, SpotHero online-valet arbitrage, SOPHI ad-sales and SMS revenue, cross-property referral fees, and franchise royalties are all outside this model — carried instead against the <a href="./v3-valuation.html" style="color:var(--blue-ink); font-weight:600;">Valuation</a>, where they're priced as upside optionality.</p>
+      <p class="cl-body">At end of Y2 (Dec 2028), SOPHI is at $9M+ revenue run-rate, cash-generative, with $5.19M on the balance sheet and 12 accounts won across the six-market portfolio. That's the position from which the Series A conversation happens — sized to fund Phoenix, Cleveland, Louisville, and the hospital vertical. Expected raise: $8–15M at $20–35M pre. Dilution modeled at 15–20%. This round does not need to bridge to a Series A of desperation; the operating cash flow does that on its own.</p>
     </div>
 
   </main>
 </div>
-<script src="./assets/shell.js?v=20260831a"></script>
+<script src="./assets/shell.js?v=20260831b"></script>
 <script>window.SOPHI_SHELL.mount('financial-performance.html');</script>
 </body>
 </html>
