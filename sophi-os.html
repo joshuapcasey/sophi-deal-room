@@ -316,6 +316,8 @@
 
   /* Styles copied from the deep SMS content so it renders when expanded */
   .stress-table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+  .stress-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -6px; }
+  .stress-table-scroll .stress-table { min-width: 480px; }
   .stress-table th, .stress-table td { padding: 8px 12px; font-size: 12.5px; text-align: right; border-bottom: 1px solid var(--border); }
   .stress-table th:first-child, .stress-table td:first-child { text-align: left; }
   .stress-table thead th { font: 700 10.5px/1.4 var(--font-body); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); background: var(--bg); }
@@ -562,6 +564,7 @@
 
           <div class="section-eyebrow">5-year build · moderate case</div>
           <div class="card" style="margin-bottom: var(--space-5);">
+            <div class="stress-table-scroll">
             <table class="stress-table">
               <thead>
                 <tr><th>Year</th><th class="num-col">Parking SOM</th><th class="num-col">SMS ad revenue</th><th class="num-col">Total revenue</th><th class="num-col">Ad ÷ Total</th></tr>
@@ -575,6 +578,7 @@
                 <tr class="highlight"><td><strong>5-year cumulative</strong></td><td class="num-col"><strong>$75.52M</strong></td><td class="num-col"><strong>$21.27M</strong></td><td class="num-col"><strong>$96.79M</strong></td><td class="num-col"><strong>28.2% cumulative</strong></td></tr>
               </tbody>
             </table>
+            </div>
             <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">Parking SOM curve is the Acquisition Growth Model output (see <a href="./valuation.html" style="color:var(--blue-ink); font-weight:600;">Valuation</a>). Moderate-case ad revenue layers additively — 28.2% of parking cumulatively, 30.5% of Y5 run-rate.</p>
           </div>
 
