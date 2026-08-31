@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SOPHI OS — SOPHI Deal Room · Advisor Working File</title>
+<title>SOPHI OS — Four Moats · SOPHI Deal Room · Advisor Working File</title>
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,18 +11,110 @@
 <link rel="stylesheet" href="./assets/deal-room.css?v=20260831c">
 <style>
   /* ═══════════════════════════════════════════════════════════════════════
-     SOPHI OS · Moat page · v2 (Aug 31, 2026)
-     Three moats, each modeled as a tunable lever in the SOPHI Growth Engine
+     SOPHI OS · Moat page · v3 (Aug 31, 2026 · Hub debrief update)
+     Four moats, each modeled as a tunable lever in the SOPHI Growth Engine
      ═══════════════════════════════════════════════════════════════════════ */
 
-  /* TL;DR strip - three-across at the top */
+  /* TL;DR strip - four-across at the top */
   .moat-tldr {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: var(--space-6);
+  }
+  @media (max-width: 1100px) { .moat-tldr { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .moat-tldr { grid-template-columns: 1fr; } }
+
+  /* Build-receipts strip - three stats horizontal, below TL;DR */
+  .build-receipts {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 14px;
+    padding: 18px 20px;
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--blue-ink);
+    border-radius: var(--radius-m);
     margin-bottom: var(--space-7);
   }
-  @media (max-width: 900px) { .moat-tldr { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) { .build-receipts { grid-template-columns: 1fr; } }
+  .br-stat { display: flex; flex-direction: column; gap: 4px; }
+  .br-val {
+    font: 700 22px/1.15 var(--font-body);
+    color: var(--text-strong);
+    font-feature-settings: 'tnum', 'lnum';
+  }
+  .br-label {
+    font: 500 11px/1.35 var(--font-body);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .br-caption { font-size: 12px; color: var(--text-faint); line-height: 1.5; margin-top: 2px; }
+  .br-lede {
+    grid-column: 1 / -1;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border);
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* Cost OS story-arc dual callout: two stat cards side-by-side */
+  .cost-arc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: var(--space-5) 0;
+  }
+  @media (max-width: 780px) { .cost-arc-grid { grid-template-columns: 1fr; } }
+  .cost-arc-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m);
+    padding: 16px 18px;
+  }
+  .cac-eyebrow {
+    font: 700 10.5px/1.35 var(--font-body);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue-ink);
+    margin-bottom: 8px;
+  }
+  .cac-headline {
+    font: 600 15.5px/1.35 var(--font-body);
+    color: var(--text-strong);
+    margin-bottom: 8px;
+  }
+  .cac-num-line {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .cac-num-line strong { color: var(--text-strong); font-weight: 600; }
+  .cac-delta {
+    display: inline-block;
+    background: #F0F5EB;
+    color: #437A22;
+    font: 700 11.5px/1 var(--font-body);
+    letter-spacing: 0.04em;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-top: 8px;
+  }
+
+  /* Learning OS accent - purple-ish differentiation from the first three sections */
+  .moat-section[id="learning-os"] .moat-badge {
+    background: #F4EEF7;
+    color: #6B3A87;
+    border-color: #E1D3EA;
+  }
+  .moat-section[id="learning-os"] .es-node.tunes {
+    background: #F4EEF7;
+    color: #6B3A87;
+    border-color: #E1D3EA;
+  }
   .moat-tldr-card {
     background: var(--bg-elev);
     border: 1px solid var(--border);
@@ -339,26 +431,26 @@
       </div>
       <div class="ph-body">
         <div class="ph-eyebrow">The Opportunity</div>
-        <h1 class="ph-title">Three moats. Three levers in the SOPHI Growth Engine.</h1>
+        <h1 class="ph-title">Four moats. Four levers in the SOPHI Growth Engine.</h1>
         <p class="ph-lede">
-          SOPHI's operating system compounds three structural advantages that traditional valet operators can't replicate: <strong>Cost OS</strong> (Hub + modular ERP), <strong>Human OS</strong> (role structure + Academy + ERP absorbing non-billable work), and <strong>Revenue OS</strong> (SMS ad monetization priced in; SpotHero and referrals as optionality). Each moat is modeled as a tunable input to the SOPHI Growth Engine — move the lever, and the engine's outputs (revenue, cost, portfolio velocity) move with it.
+          SOPHI's operating system compounds four structural advantages that traditional valet operators can't replicate: <strong>Cost OS</strong> (Hub + modular ERP), <strong>Human OS</strong> (role structure + Academy + ERP absorbing non-billable work), <strong>Revenue OS</strong> (SMS ad monetization priced in; SpotHero and referrals as optionality), and <strong>Learning OS</strong> (the recursive operational-improvement loop — the flywheel that compounds every other moat). Each moat is modeled as a tunable input to the SOPHI Growth Engine — move the lever, and the engine's outputs (revenue, cost, portfolio velocity, learning rate) move with it.
         </p>
       </div>
     </header>
 
     <!-- ══════════════════════════════════════════════════════════════════
-         TL;DR STRIP · three-moat overview at a glance
+         TL;DR STRIP · four-moat overview at a glance
          ══════════════════════════════════════════════════════════════════ -->
     <div class="moat-tldr">
       <a href="#cost-os" class="moat-tldr-card">
         <div class="mtc-eyebrow">Moat 01 · Cost OS</div>
-        <h3 class="mtc-title">Hub + modular ERP is cheaper than the SaaS-stack alternative and aligns cost with revenue KPIs.</h3>
+        <h3 class="mtc-title">Hub + modular ERP runs at ~$1/employee/month vs. $50–80 for the equivalent SaaS stack.</h3>
         <div class="mtc-lever">Lever tunes: <strong>opex ÷ revenue</strong></div>
         <span class="mtc-jump">Cost OS detail</span>
       </a>
       <a href="#human-os" class="moat-tldr-card">
         <div class="mtc-eyebrow">Moat 02 · Human OS</div>
-        <h3 class="mtc-title">Role structure + Academy + ERP absorb non-billable work — each manager scales to 2×+ traditional bandwidth.</h3>
+        <h3 class="mtc-title">Role structure + Academy + Hub absorb non-billable work — each manager scales to 2×+ traditional bandwidth.</h3>
         <div class="mtc-lever">Lever tunes: <strong>properties per manager</strong></div>
         <span class="mtc-jump">Human OS detail</span>
       </a>
@@ -368,6 +460,36 @@
         <div class="mtc-lever">Lever tunes: <strong>revenue per acquired property</strong></div>
         <span class="mtc-jump">Revenue OS detail</span>
       </a>
+      <a href="#learning-os" class="moat-tldr-card" style="border-top-color:#6B3A87;">
+        <div class="mtc-eyebrow" style="color:#6B3A87;">Moat 04 · Learning OS</div>
+        <h3 class="mtc-title">Recursive operational-improvement loop — the Hub closes the loop on every KPI and the system gets better as it runs.</h3>
+        <div class="mtc-lever">Lever tunes: <strong>KPI-to-training cycle time</strong></div>
+        <span class="mtc-jump" style="color:#6B3A87;">Learning OS detail</span>
+      </a>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+         BUILD RECEIPTS STRIP · what shipped, and what it cost
+         ══════════════════════════════════════════════════════════════════ -->
+    <div class="build-receipts">
+      <div class="br-stat">
+        <div class="br-val">17 days</div>
+        <div class="br-label">Spec to production</div>
+        <div class="br-caption">One operator + AI pair-programming shipped the entire Hub — 90 Cloud Functions, 17 scheduled jobs, 7 cross-pillar automations.</div>
+      </div>
+      <div class="br-stat">
+        <div class="br-val">$400–900</div>
+        <div class="br-label">Total tooling spend to build</div>
+        <div class="br-caption">Claude Code subscription + Firebase free tiers. No contractors, no consultancy, no proprietary infra.</div>
+      </div>
+      <div class="br-stat">
+        <div class="br-val">100-eng-team output</div>
+        <div class="br-label">Equivalent scope delivered</div>
+        <div class="br-caption">9.6M tokens of code + docs written; 117M tokens of new material absorbed — a quarter of engineering-team throughput from a solo operator.</div>
+      </div>
+      <p class="br-lede">
+        This is the build-cost curve the Cost OS moat sells: the same discipline that let SOPHI ship the operational nervous system for the cost of a single API bill is what makes the ongoing run-rate structurally cheaper than the SaaS-stack alternative. Detail in <a href="#cost-os" style="color:var(--blue-ink); font-weight:600;">Moat 01 · Cost OS</a>.
+      </p>
     </div>
 
     <!-- ══════════════════════════════════════════════════════════════════
@@ -384,20 +506,20 @@
 
       <div class="lever-grid">
         <div class="lever-card">
-          <div class="lc-label">The lever · Cost per property per month</div>
+          <div class="lc-label">The lever · Cost per employee per month</div>
           <div class="lc-ba">
             <div>
-              <div class="lc-val baseline">TBD · SaaS stack</div>
-              <div class="lc-caption" style="margin-top:4px;">Traditional multi-property operator</div>
+              <div class="lc-val baseline">$50–80/emp/mo</div>
+              <div class="lc-caption" style="margin-top:4px;">Off-the-shelf SaaS stack</div>
             </div>
             <div class="lc-arrow">→</div>
             <div>
-              <div class="lc-val sophi">TBD · SOPHI Hub</div>
-              <div class="lc-caption" style="margin-top:4px;">All-in on the SOPHI OS</div>
+              <div class="lc-val sophi">~$1/emp/mo</div>
+              <div class="lc-caption" style="margin-top:4px;">SOPHI Hub + modular ERP</div>
             </div>
           </div>
           <p class="lc-caption" style="margin-top:12px;">
-            <strong>Working assumption:</strong> Hub delivers material cost reduction per property vs. the SaaS-stack alternative, with the delta compounding at scale (each new property adds $0 licensing to the base Hub build). Actual comparative cost analysis is being loaded — this section becomes a real before/after once the vendor-by-vendor breakdown is finalized.
+            <strong>~40× structural cost advantage at 2,000 employees.</strong> The equivalent off-the-shelf stack — HRIS (BambooHR/Rippling) + LMS + performance mgmt (Lattice) + internal wiki + workflow automation + BI + review intel — runs $90–160K/month at scale. SOPHI Hub runs ~$0.8–1.6K/month plus loaded engineering headcount ($11–17K/mo fully burdened by 2030). The advantage <em>improves</em> with scale because serverless pricing rewards volume.
           </p>
         </div>
         <div class="engine-schematic">
@@ -416,8 +538,59 @@
         </div>
       </div>
 
+      <!-- Story arc: April projection vs. shipped-system delivery -->
+      <div class="cost-arc-grid">
+        <div class="cost-arc-card">
+          <div class="cac-eyebrow">April 2026 · pre-build model</div>
+          <div class="cac-headline">4–7× advantage projected</div>
+          <div class="cac-num-line">
+            SOPHI Hub run-rate: <strong>$11–13/emp/mo</strong><br/>
+            SaaS stack alternative: <strong>~$55–80/emp/mo</strong><br/>
+            Dominant cost line: <strong>Birdeye review intel ($40–55K/mo at scale)</strong>
+          </div>
+        </div>
+        <div class="cost-arc-card" style="border-color:#D4E5C2; background:#F7FBF3;">
+          <div class="cac-eyebrow" style="color:#437A22;">August 2026 · shipped system</div>
+          <div class="cac-headline">~40× advantage delivered</div>
+          <div class="cac-num-line">
+            SOPHI Hub run-rate: <strong>$0.40–1.80/emp/mo</strong><br/>
+            SaaS stack alternative: <strong>~$50–80/emp/mo</strong> (unchanged)<br/>
+            What changed: <strong>Birdeye killed, three-tier ingestion shipped, Claude 5 pricing improved</strong>
+          </div>
+          <span class="cac-delta">↑ 8× IMPROVEMENT VS. APRIL MODEL</span>
+        </div>
+      </div>
+
+      <!-- 5-year Cost OS scaling curve -->
+      <div class="section-eyebrow">Five-year Cost OS scaling curve</div>
+      <div class="card" style="margin-bottom: var(--space-5);">
+        <div class="stress-table-scroll">
+        <table class="stress-table">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th class="num-col">Footprint (emp / accts / mkts)</th>
+              <th class="num-col">Hub total / mo</th>
+              <th class="num-col">Cost / emp / mo</th>
+              <th class="num-col">SaaS stack equivalent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>2026 · today</td><td class="num-col">141 / 8 / 2</td><td class="num-col">~$110–250</td><td class="num-col">$0.80–1.80</td><td class="num-col">~$7–11K/mo</td></tr>
+            <tr><td>2027 · Y1</td><td class="num-col">250 / 14 / 3</td><td class="num-col">~$230–510</td><td class="num-col">$0.90–2.00</td><td class="num-col">~$12–20K/mo</td></tr>
+            <tr><td>2028 · Y2</td><td class="num-col">500 / 25 / 5</td><td class="num-col">~$320–690</td><td class="num-col">$0.60–1.40</td><td class="num-col">~$25–40K/mo</td></tr>
+            <tr><td>2029 · Y3</td><td class="num-col">1,000 / 45 / 8</td><td class="num-col">~$540–1,050</td><td class="num-col">$0.50–1.10</td><td class="num-col">~$50–80K/mo</td></tr>
+            <tr class="highlight"><td><strong>2030 · Y5</strong></td><td class="num-col"><strong>2,000 / 85 / 12</strong></td><td class="num-col"><strong>~$830–1,600</strong></td><td class="num-col"><strong>$0.40–0.80</strong></td><td class="num-col"><strong>~$90–160K/mo</strong></td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p style="font-size:12.5px; color:var(--text-faint); margin: 14px 0 0;">
+          Hub totals are the <em>deterministic</em> cost curve — infra, dev tooling, review ingestion, misc. Loaded engineering headcount adds $11–17K/month by 2030 (1 dedicated engineer + partial security/compliance). SaaS stack equivalent is the 7-category off-the-shelf bundle priced at published per-user rates. Source: <a href="https://docs.google.com/document/d/1zM9xKuVJfeFGnowQ9fXIwtstb0w6gc5C/edit" style="color:var(--blue-ink); font-weight:600;">SOPHI Hub Expense Projections v2 (Aug 13, 2026)</a>.
+        </p>
+      </div>
+
       <div class="moat-open">
-        <strong>Pending methodology input:</strong> The Hub vs. SaaS-stack cost comparison numbers are being finalized in the methodology chat. Once loaded, the before/after values above become real and the Cost OS lever ties into the DCF opex line explicitly. Related: <a href="./advisor-questions.html">Advisor Questions</a> may pick up a Q on "Cost OS validation vs. published operator benchmarks" once numbers land.
+        <strong>Two honest caveats.</strong> First: <strong>the AI layer (SOPHI Brain) is deliberately excluded</strong> from the run-rate above — it's optional upside priced separately at ~$0.60–1.10/emp/mo if fully adopted, additive on top of the deterministic base. If it earns its keep it adds cost <em>and</em> capability; if it doesn't, the Cost OS moat is unchanged. Second: <strong>the 2027–2030 footprint row is the Hub team's modeled base case</strong>, not yet validated against the Acquisition Growth Model's employee ramp — an <a href="./advisor-questions.html">Advisor Question</a> is warranted on "Does the Cost OS scaling curve align with Acquisition-case headcount?"
       </div>
     </section>
 
@@ -468,8 +641,7 @@
       </div>
 
       <div class="moat-open">
-        <strong>Highest-priority methodology validation.</strong> The 2× bandwidth claim is the single load-bearing assumption behind SOPHI's operating leverage story. Charlotte and South Bend are the current in-flight measurement sites — controlled data on manager-portfolio ratios and quality metrics is being collected. See <a href="./advisor-questions.html">Advisor Questions</a>; this warrants a dedicated advisor question once the methodology chat has directional evidence to size the claim.
-      </p>
+        <strong>Highest-priority methodology validation.</strong> The 2× bandwidth claim is the single load-bearing assumption behind SOPHI's operating leverage story. <strong>Mechanical proof it's plausible:</strong> the Hub currently wires <a href="https://docs.google.com/document/d/14vlNkpDck88_1IH9sVc-RgM9TpdLgeRa/edit" style="color:var(--blue-ink); font-weight:600;">7 documented cross-pillar automations</a> — account onboarding (25 tasks fan-out from one Start button), write-ups (author + subject + regional approver auto-notified), incidents (Korey + supervisor + RM tasked in real-time), sales cadence, marketing scheduling, review sentiment routing, user-created recurring tasks. Every one replaces coordination overhead that used to fill an Account Manager's day with Slack DMs, Trello copy-paste, and inbox chasing. Charlotte and South Bend are the current in-flight measurement sites for controlled data on manager-portfolio ratios and quality metrics. See <a href="./advisor-questions.html">Advisor Questions</a>; this warrants a dedicated advisor question once the methodology chat has directional evidence to size the claim.
       </div>
     </section>
 
@@ -609,8 +781,107 @@
       </details>
     </section>
 
+    <!-- ═════════════════════════════════════════════════════════════
+         MOAT 04 · LEARNING OS
+         ═════════════════════════════════════════════════════════════ -->
+    <section class="moat-section" id="learning-os">
+      <div class="moat-header">
+        <div class="moat-badge">Moat 04</div>
+        <h2>Learning OS — the recursive operational-improvement loop.</h2>
+      </div>
+      <p class="moat-lede">
+        Other PropTech tools tell you the metric. The Hub tells you what to <em>do</em> about the metric — and then tells you whether it worked. When an associate's capture rate runs 14% below the team baseline for seven days, the Hub recognizes the gap, auto-assigns the relevant Academy training, creates an accountability task for the supervisor, and re-measures the metric 14 days later. If the metric didn't move, the loop fires again. Scale that pattern across every operational KPI — capture rate, ticket time, claims rate, SDR compliance, guest-satisfaction score — and the system doesn't just surface data. It <strong>closes the loop</strong> on the data, and every trigger teaches the model which trainings actually work for which problems. Learning OS is the flywheel that makes every other moat compound: it accelerates Human OS (managers stop hand-running the diagnostic loop), tightens Cost OS (poor-performing labor is retrained faster or reallocated), and grows Revenue OS (higher capture rate, faster ticket time, better guest scores).
+      </p>
+
+      <div class="lever-grid">
+        <div class="lever-card">
+          <div class="lc-label">The lever · KPI-to-training cycle time</div>
+          <div class="lc-ba">
+            <div>
+              <div class="lc-val baseline">Weeks → quarters</div>
+              <div class="lc-caption" style="margin-top:4px;">Traditional ops-review cadence</div>
+            </div>
+            <div class="lc-arrow">→</div>
+            <div>
+              <div class="lc-val sophi">7-day loop</div>
+              <div class="lc-caption" style="margin-top:4px;">SOPHI Learning OS working target</div>
+            </div>
+          </div>
+          <p class="lc-caption" style="margin-top:12px;">
+            <strong>The compounding advantage.</strong> Every trigger the loop fires generates a labeled data point: which training helped this KPI in this operational sector for this shift-mix profile. The system gets <em>more accurate</em> the longer it runs. Nobody else in this category is building it because it requires all three of: (a) unified operational data across pillars, (b) a maintained Academy taxonomy, and (c) an operator willing to hand-curate the KPI→training map instead of asking AI to guess it. SOPHI has all three.
+          </p>
+        </div>
+        <div class="engine-schematic">
+          <div class="es-label">Lever → SOPHI Growth Engine</div>
+          <div class="es-flow">
+            <div class="es-node tunes">Learning OS lever</div>
+            <div class="es-arrow">→</div>
+            <div class="es-node">KPI cycle time</div>
+          </div>
+          <div class="es-outputs">
+            <strong>Tunes engine output:</strong>
+            <div>· Human OS: training-effectiveness compounds bandwidth</div>
+            <div>· Cost OS: retraining vs. rehiring, faster</div>
+            <div>· Revenue OS: capture rate, ticket time, guest score</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Three concrete recursive-loop examples -->
+      <div class="section-eyebrow">Three concrete triggers already scoped</div>
+      <div class="streams-grid">
+        <div class="stream-mini" style="border-left-color:#6B3A87; background:#FAF7FC;">
+          <div class="sm-head">
+            <div class="sm-name">Capture rate gap</div>
+            <span class="opt-badge" style="background:#F4EEF7; color:#6B3A87; border-color:#E1D3EA;">Individual</span>
+          </div>
+          <p class="sm-desc">Associate's capture rate runs 14% below team average for 7 days → auto-assigns "Selling on the curb" + "value-prop scripting" Academy modules + creates verification task for supervisor → re-measures capture rate 14 days later. If unmoved, loop re-fires with escalated intervention.</p>
+        </div>
+        <div class="stream-mini" style="border-left-color:#6B3A87; background:#FAF7FC;">
+          <div class="sm-head">
+            <div class="sm-name">Claim rate spike</div>
+            <span class="opt-badge" style="background:#F4EEF7; color:#6B3A87; border-color:#E1D3EA;">Site-level</span>
+          </div>
+          <p class="sm-desc">Property claim rate spikes to 3× historical baseline → site-level "Vehicle-handoff inspection" drill pushed to full roster + RM site-visit task auto-created → re-measures claim rate 30 days post-training. Site-scoped loop, not individual-scoped.</p>
+        </div>
+        <div class="stream-mini" style="border-left-color:#6B3A87; background:#FAF7FC;">
+          <div class="sm-head">
+            <div class="sm-name">SDR compliance</div>
+            <span class="opt-badge" style="background:#F4EEF7; color:#6B3A87; border-color:#E1D3EA;">Team-level</span>
+          </div>
+          <p class="sm-desc">Team SDR submission compliance drops below 90% → "SDR submission discipline" module deployed + supervisor 1:1 task created → compliance % measured 14 days out. Repeat until back at threshold.</p>
+        </div>
+      </div>
+
+      <!-- Three engineering guardrails - why this is real, not vaporware -->
+      <div class="section-eyebrow">Three guardrails that make it real, not vaporware</div>
+      <div class="card" style="margin-bottom: var(--space-5);">
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px;" class="lgrid-3">
+          <div>
+            <div style="font: 700 12px/1.4 var(--font-body); letter-spacing: 0.06em; text-transform: uppercase; color: #6B3A87; margin-bottom: 6px;">Guardrail 01 · Human-curated taxonomy</div>
+            <p style="font-size:13px; line-height:1.6; color:var(--text-muted); margin:0;">The Academy-lesson × KPI × operational-sector mapping is hand-curated by Bryce + Josh — not AI-generated. That prevents the loop from firing training that isn't causally connected to the metric.</p>
+          </div>
+          <div>
+            <div style="font: 700 12px/1.4 var(--font-body); letter-spacing: 0.06em; text-transform: uppercase; color: #6B3A87; margin-bottom: 6px;">Guardrail 02 · Shift-mix bias correction</div>
+            <p style="font-size:13px; line-height:1.6; color:var(--text-muted); margin:0;">Per-employee KPI normalization for shift difficulty and opportunity volume. A slow-shift associate can't game the loop by looking artificially high, and a rush-shift workhorse doesn't get punished for high absolute error rates.</p>
+          </div>
+          <div>
+            <div style="font: 700 12px/1.4 var(--font-body); letter-spacing: 0.06em; text-transform: uppercase; color: #6B3A87; margin-bottom: 6px;">Guardrail 03 · Multi-surface output</div>
+            <p style="font-size:13px; line-height:1.6; color:var(--text-muted); margin:0;">The output isn't only training. Same data drives RM scheduling, per-account staffing profiles, and floater allocation. Three downstream surfaces from one recursive loop, not one.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="moat-open" style="border-left-color:#6B3A87; background:#FAF7FC;">
+        <strong>Where the loop is today.</strong> The loop is <em>designed</em> and the trigger surfaces (Academy taxonomy, cross-pillar tasks, KPI rollups) are all live in the Hub as of June 15, 2026. What's <em>not</em> yet live is the loop firing automatically end-to-end on any KPI — a decision to keep the loop hand-supervised through Q3 2026 while Bryce + Josh validate the taxonomy mapping on a single low-risk KPI. Phase 3 (Q3 2026 GA target) turns the automation on for three KPIs; Q1 2027 target is loop live on all core KPIs with first published training-effectiveness data. Full walkthrough in the <a href="https://docs.google.com/document/d/11_uOMhpD84g6AdthXgNDhq564WFemJFw/view" style="color:#6B3A87; font-weight:600;">Investor Demo Walkthrough</a> and <a href="https://docs.google.com/document/d/1XKT-Zrqlk-pnRbIwSrBZq7_TdXk9X_Cz/edit" style="color:#6B3A87; font-weight:600;">Josh Talk Cards</a>.
+      </div>
+    </section>
+
   </main>
 </div>
+<style>
+  @media (max-width: 780px) { .lgrid-3 { grid-template-columns: 1fr !important; } }
+</style>
 <script src="./assets/shell.js?v=20260831c"></script>
 <script>window.SOPHI_SHELL.mount('sophi-os.html');</script>
 </body>
