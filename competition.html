@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/deal-room.css?v=20260901b">
+<link rel="stylesheet" href="./assets/deal-room.css?v=20260901c">
 <style>
   .comp-matrix { width: 100%; border-collapse: collapse; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; margin-bottom: var(--space-6); }
   .comp-matrix th, .comp-matrix td { padding: 12px 14px; font-size: 12.5px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); }
@@ -90,7 +90,7 @@
         <div class="ph-eyebrow">The Opportunity</div>
         <h1 class="ph-title">Competition.<br>An unbundled category with no operator-plus-OS winner.</h1>
         <p class="ph-lede">
-          Valet is a $9B+ US category split between three player types — national labor operators, regional shops, and pure parking tech. None combines operating credibility with a software layer. That's SOPHI's opening.
+          US parking and mobility is a <strong>$30B+ category</strong> — spanning national labor operators, regional valet shops, parking-tech platforms, and consumer marketplaces. Valet operations are a $2.5–3B slice sitting inside that market, and hospitality-anchored valet is a smaller slice inside that. Every one of the competitors on the map below plays a different corner of the same TAM. What none of them combine is <strong>operating credibility with a software layer</strong>. That's SOPHI's opening.
         </p>
       </div>
     </header>
@@ -103,7 +103,7 @@
     <div class="quadrant-wrap">
       <div class="quadrant-head">
         <div class="qh-title">Hospitality-ops category — no incumbent occupies the Leader quadrant</div>
-        <div class="qh-sub">Bubble size = approximate current revenue scale</div>
+        <div class="qh-sub">SOPHI position sized larger for readability — other bubbles are indicative, not scaled</div>
       </div>
       <div class="quadrant-svg-wrap">
         <svg class="quadrant-svg" viewBox="0 0 860 560" role="img" aria-label="Competitive quadrant showing SOPHI as the leader in hospitality operations software">
@@ -111,9 +111,7 @@
             <marker id="qArrowX" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
               <path d="M0,0 L10,5 L0,10 z" fill="#28251D"/>
             </marker>
-            <marker id="qArrowY" viewBox="0 0 10 10" refX="5" refY="1" markerWidth="6" markerHeight="6" orient="auto">
-              <path d="M0,10 L5,0 L10,10 z" fill="#28251D"/>
-            </marker>
+            <!-- Y-axis arrowhead: shares qArrowX marker geometry so orient=auto rotates it correctly to point up -->
           </defs>
 
           <!-- Plot area: 130–770 x, 60–500 y (640×440 usable) -->
@@ -136,8 +134,8 @@
           <text x="140" y="496" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5" fill="#7A7974">NICHE PLAYERS</text>
           <text x="760" y="496" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5" fill="#7A7974" text-anchor="end">VISIONARIES</text>
 
-          <!-- Y-axis (Ability to Execute) -->
-          <line x1="105" y1="500" x2="105" y2="48" stroke="#28251D" stroke-width="1.5" marker-end="url(#qArrowY)"/>
+          <!-- Y-axis (Ability to Execute) - shares qArrowX marker; orient=auto rotates the right-pointing arrow to point up along the line direction -->
+          <line x1="105" y1="500" x2="105" y2="48" stroke="#28251D" stroke-width="1.5" marker-end="url(#qArrowX)"/>
           <text transform="translate(76, 280) rotate(-90)" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#28251D">ABILITY TO EXECUTE</text>
 
           <!-- X-axis (Completeness of Vision) -->
@@ -147,6 +145,7 @@
           <!-- ==================== Competitor dots ==================== -->
           <!-- Coordinate math: x = 130 + (visionScore/100)*640 ; y = 500 - (executeScore/100)*440 -->
 
+          <!-- ============== NATIONAL LABOR OPERATORS ============== -->
           <!-- Towne Park · Vision 35, Execute 78 → (354, 157) · Challenger -->
           <g>
             <circle class="qd-dot" cx="354" cy="157" r="11" fill="#A84B2F" opacity="0.85">
@@ -171,6 +170,32 @@
             <text x="501" y="108" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#28251D">SP+ / Metropolis</text>
           </g>
 
+          <!-- ============== NAMED REGIONAL OPERATORS (from Guard Grace reference deck) ============== -->
+          <!-- Propark Mobility · Vision 32, Execute 55 → (335, 258) · straddles Challenger/Niche border, upper half -->
+          <g>
+            <circle class="qd-dot" cx="335" cy="258" r="9" fill="#B25E2E" opacity="0.8">
+              <title>Propark Mobility · Regional national with mobility ambitions · Growing tech investment, still labor-anchored</title>
+            </circle>
+            <text x="335" y="241" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#28251D">Propark</text>
+          </g>
+
+          <!-- PMC · Vision 22, Execute 42 → (271, 315) · Lower half of Challengers, edging into Niche -->
+          <g>
+            <circle class="qd-dot" cx="271" cy="315" r="8" fill="#B25E2E" opacity="0.75">
+              <title>PMC (Parking Management Company) · Regional operator · Strong hospitality footprint, no product layer</title>
+            </circle>
+            <text x="271" y="334" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#28251D">PMC</text>
+          </g>
+
+          <!-- Park Inc · Vision 20, Execute 36 → (258, 342) · Lower left, still above Regional bucket -->
+          <g>
+            <circle class="qd-dot" cx="258" cy="342" r="8" fill="#B25E2E" opacity="0.75">
+              <title>Park Inc · Regional operator · Nashville/Southeast-focused · Labor-first, no ops platform</title>
+            </circle>
+            <text x="258" y="361" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#28251D">Park Inc</text>
+          </g>
+
+          <!-- ============== SOPHI - LEADER ============== -->
           <!-- SOPHI · Vision 76, Execute 62 → (616, 227) · LEADER (upper right of the leader quadrant) -->
           <g>
             <circle cx="616" cy="227" r="22" fill="#01696F" opacity="0.16"/>
@@ -180,6 +205,7 @@
             <text x="616" y="258" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#01696F">SOPHI</text>
           </g>
 
+          <!-- ============== TECH-SIDE ADJACENTS ============== -->
           <!-- SpotHero · Vision 62, Execute 28 → (527, 377) · Visionary -->
           <g>
             <circle class="qd-dot" cx="527" cy="377" r="10" fill="#7A39BB" opacity="0.85">
@@ -188,12 +214,13 @@
             <text x="527" y="396" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#28251D">SpotHero</text>
           </g>
 
-          <!-- Regional operators · Vision 18, Execute 24 → (245, 394) · Niche -->
+          <!-- ============== BOTTOM-LEFT DEFAULT ============== -->
+          <!-- Independent local operators · Vision 15, Execute 20 → (226, 412) · Niche -->
           <g>
-            <circle class="qd-dot" cx="245" cy="394" r="9" fill="#7A7974" opacity="0.75">
-              <title>Regional operators · Highly variable quality · No product, no scale—local relationships only</title>
+            <circle class="qd-dot" cx="226" cy="412" r="9" fill="#7A7974" opacity="0.7">
+              <title>Independent local operators · Highly variable quality · No product, no scale—single-market relationships only</title>
             </circle>
-            <text x="245" y="413" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#28251D">Regional operators</text>
+            <text x="226" y="431" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#28251D">Independent operators</text>
           </g>
 
           <!-- SOPHI "direction of travel" arrow — subtle vector showing execute-axis climb over time -->
@@ -202,11 +229,11 @@
         </svg>
       </div>
       <p class="quadrant-caption">
-        <strong>Read this quadrant strategically, not tactically.</strong> SP+/Metropolis and LAZ Parking outrank SOPHI on <em>current</em> execution scale — $1B+ revenue and hundreds of properties versus SOPHI's anchor markets. What SOPHI wins on today is <em>Completeness of Vision</em>: the only operator in the category with a shipped hospitality-operations platform (SOPHI Hub, live June 2026), a Learning OS loop designed and its trigger surfaces already firing, and the full four-moat cost structure documented on <a href="./sophi-os.html" style="color:var(--blue-ink); font-weight:600;">SOPHI OS</a>. The dashed vector shows the five-year execution ramp — by Y5, SOPHI's execution position moves up and right toward roughly 85 properties across 12 markets. Read the six-dimension matrix below for the detail behind each dot placement.
+        <strong>Read this quadrant strategically, not tactically.</strong> SP+/Metropolis and LAZ Parking outrank SOPHI on <em>current</em> execution scale — $1B+ revenue and hundreds of properties versus SOPHI's anchor markets. Named regional operators like Propark Mobility, PMC, and Park Inc round out the field with real hospitality footprints but no product layer. What SOPHI wins on today is <em>Completeness of Vision</em>: the only operator in the category with a shipped hospitality-operations platform (SOPHI Hub, live June 2026), a Learning OS loop designed and its trigger surfaces already firing, and the full four-moat cost structure documented on <a href="./sophi-os.html" style="color:var(--blue-ink); font-weight:600;">SOPHI OS</a>. The dashed vector shows SOPHI's five-year direction of travel — execution position moves up and right as SOPHI expansion scales. Read the six-dimension matrix below for the detail behind each dot placement.
       </p>
     </div>
 
-    <div class="section-eyebrow">The five competitors on the map</div>
+    <div class="section-eyebrow">The competitor set · who's actually in the field</div>
     <div class="comp-cards">
       <div class="comp-card">
         <div class="cc-head">
@@ -245,15 +272,15 @@
           <div><div class="cc-name">Regional / independent operators</div><div class="cc-meta">Hundreds of shops · 1–20 sites each · owner-operated</div></div>
           <span class="cc-tag regional">Regional</span>
         </div>
-        <p><strong>Where 60%+ of the market lives.</strong> Independent operators run most valet in every SOPHI market. Cheap to switch to, cheap to switch away from. Zero software. Founder-in-a-truck economics. In the SOPHI 6 SOM, these are catalogued as <strong>"Weak incumbent"</strong> — SOPHI's easiest displacement targets.</p>
-        <div class="cc-so"><strong>SOPHI's opening:</strong> The account book already scores which regional incumbents are vulnerable and which relationships to press. This is not theoretical competition — it's a targeted pipeline of 203 accounts.</div>
+        <p><strong>Where 60%+ of the market lives.</strong> Independent operators run most valet in every market SOPHI enters. Cheap to switch to, cheap to switch away from. Zero software. Founder-in-a-truck economics. In SOPHI's market analysis these are catalogued as <strong>"Weak incumbent"</strong> — the easiest displacement targets.</p>
+        <div class="cc-so"><strong>SOPHI's opening:</strong> The account book already scores which regional incumbents are vulnerable and which relationships to press. This is not theoretical competition — it's a targeted pipeline scored on the WAS methodology.</div>
       </div>
       <div class="comp-card">
         <div class="cc-head">
           <div><div class="cc-name">Hospitality ops software</div><div class="cc-meta">Alice, HotSOS, Cendyn · SaaS · $10K–$100K ARR/property</div></div>
           <span class="cc-tag tech">Adjacent SaaS</span>
         </div>
-        <p><strong>The category SOPHI OS reaches into.</strong> Hotel operations software (guest requests, task routing, work orders). None cover valet, arrival, or curb experience. If any moved into valet ops, they'd need to build the operator relationship SOPHI already has. This is the <strong>upsell surface</strong> as OS licensing matures.</p>
+        <p><strong>The category SOPHI OS reaches into.</strong> Hotel operations software (guest requests, task routing, work orders). None cover valet, arrival, or curb experience. If any moved into valet ops, they'd need to build the operator relationship SOPHI already has. This is the <strong>partnership and integration surface</strong> as SOPHI expands — not a competitive front.</p>
         <div class="cc-so"><strong>SOPHI's opening:</strong> Hospitality ops software solves back-of-house. SOPHI solves front-of-house at the moment of arrival — the highest-signal guest moment. Non-overlapping today; potential partnership tomorrow.</div>
       </div>
     </div>
@@ -319,7 +346,7 @@
           </tr>
           <tr>
             <td><div class="dim-label">Second product / expansion lever</div><div class="dim-note">Does buying them get more than a labor contract?</div></td>
-            <td class="sophi-col"><span class="dot strong"></span><strong>Strong</strong> — OS licensing, SMS ad layer, referrals, franchise</td>
+            <td class="sophi-col"><span class="dot strong"></span><strong>Strong</strong> — SMS ad layer priced in; SpotHero + cross-property referrals as optionality</td>
             <td><span class="dot weak"></span>Labor only</td>
             <td><span class="dot mid"></span>Adjacent parking services</td>
             <td><span class="dot mid"></span>Metropolis CV platform</td>
@@ -366,7 +393,7 @@
 
   </main>
 </div>
-<script src="./assets/shell.js?v=20260901b"></script>
+<script src="./assets/shell.js?v=20260901c"></script>
 <script>window.SOPHI_SHELL.mount('competition.html');</script>
 </body>
 </html>
