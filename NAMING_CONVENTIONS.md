@@ -135,19 +135,24 @@ Both use the same naming conventions above. The V1 → V2 transition swaps water
 
 ## Canonical numbers (SOPHI 6 methodology output)
 
-For any doc citing portfolio-level metrics, use these numbers verbatim:
+For any doc citing portfolio-level metrics, use these numbers verbatim. Values below are the **live Acquisition Growth Model output** and reconcile bit-for-bit with `data.js`, `valuation.html`, and `summary.html` in the deployed deal room.
 
 | Metric | Value | Source |
 |---|---|---|
-| Named accounts (in-SAM) | 203 | `sophi_6market_rollup.xlsx` |
-| Portfolio TAM | $150.35M | rollup |
-| Portfolio SAM | $57.27M | rollup |
-| Y1 Portfolio SOM *(acquisition case)* | $16.85M | rollup |
-| Y5 Portfolio SOM *(acquisition case)* | $52.60M | rollup |
-| Acquired accounts by Y5 | 34 of 93 in-SAM | site + rollup consistent |
-| SAM / TAM ratio | 38.1% | rollup |
-| Y5 / SAM ratio *(acquisition case)* | 91.8% | rollup |
-| Y1→Y5 SOM CAGR *(acquisition case)* | 32.9% | rollup |
+| Total scored accounts | 203 | `data.js` portfolio block |
+| In-SAM accounts | 93 | `data.js` portfolio block |
+| Portfolio TAM | $150.35M | `data.js` |
+| Portfolio SAM | $57.27M | `data.js` |
+| Y1 Portfolio SOM *(acquisition case)* | $4.02M | `data.js` som_by_year.y1 |
+| Y5 Portfolio SOM *(acquisition case)* | $28.29M | `data.js` som_by_year.y5 |
+| 5-yr cumulative SOM *(acquisition case)* | $75.52M | `data.js` som_5yr_cumulative |
+| Accounts acquired by Y5 | 34 of 93 in-SAM | `data.js` n_acquired |
+| SAM / TAM ratio | 38.1% | derived |
+| Y5 / TAM ratio *(acquisition case)* | 18.8% | derived |
+| Y5 / SAM ratio *(acquisition case)* | 49.4% | derived |
+| Y1→Y5 SOM CAGR *(acquisition case)* | 63.0% | derived |
+
+**Retired figures (do not use).** An earlier draft of this table cited Y1 = $16.85M, Y5 = $52.60M, and Y5/SAM = 91.8% for the acquisition case. Those numbers came from the 14-market build's `meta.sensitivity` block (`accounts_v3_14mkt.json` — "Base case: all 6 markets, Indy v7 w/ M&A" scenario) and do **not** match what the live 6-market engine produces or what the deal room displays. Corrected August 31, 2026 based on reconciliation against `data.js` and `valuation.html`. If a future engine variant produces the higher figures, document it as an explicit upside scenario alongside the base case rather than replacing these canonical values.
 
 **Note on the Organic Growth Model P&L:** The current site's Blend Wealth P&L trajectory ($1.38M → $11.00M at 51.4% CAGR) does not have a canonical source-of-truth workbook. The trajectory needs to be reconciled — see `RENAME_MAP.md` open item #3.
 
