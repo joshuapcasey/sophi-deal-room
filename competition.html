@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./assets/deal-room.css?v=20260831d">
+<link rel="stylesheet" href="./assets/deal-room.css?v=20260901a">
 <style>
   .comp-matrix { width: 100%; border-collapse: collapse; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); overflow: hidden; margin-bottom: var(--space-6); }
   .comp-matrix th, .comp-matrix td { padding: 12px 14px; font-size: 12.5px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); }
@@ -55,6 +55,25 @@
   .dot.strong { background: #437A22; }
   .dot.mid { background: #DA7101; }
   .dot.weak { background: #B25E2E; }
+
+  /* Competitive quadrant — Gartner Magic Quadrant-style hero visual */
+  .quadrant-wrap {
+    background: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m);
+    padding: 22px 26px 18px;
+    margin-bottom: var(--space-6);
+  }
+  .quadrant-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; gap: 14px; flex-wrap: wrap; }
+  .quadrant-head .qh-title { font: 700 15px/1.3 var(--font-body); color: var(--text-strong); margin: 0; }
+  .quadrant-head .qh-sub { font-size: 12px; color: var(--text-muted); }
+  .quadrant-svg-wrap { position: relative; width: 100%; overflow-x: auto; }
+  .quadrant-svg { width: 100%; max-width: 860px; height: auto; display: block; margin: 4px auto 8px; }
+  .quadrant-caption { font-size: 12.5px; line-height: 1.65; color: var(--text-muted); margin: 10px 0 0; padding-top: 12px; border-top: 1px dashed var(--border); }
+  .quadrant-caption strong { color: var(--text-strong); font-weight: 600; }
+  /* Interactive dot hover (progressive enhancement — works on pointer devices) */
+  .quadrant-svg .qd-dot { transition: r 140ms ease, filter 140ms ease; }
+  .quadrant-svg .qd-dot:hover { filter: drop-shadow(0 0 6px rgba(0,0,0,0.18)); }
 </style>
 </head>
 <body>
@@ -75,6 +94,117 @@
         </p>
       </div>
     </header>
+
+    <!-- ═════════════════════════════════════════════════════════════
+         COMPETITIVE QUADRANT · Gartner Magic Quadrant-style hero visual
+         Vision (x) vs Ability to Execute (y). SOPHI in the Leader quadrant.
+         ═════════════════════════════════════════════════════════════ -->
+    <div class="section-eyebrow">Positioning at a glance · vision vs. ability to execute</div>
+    <div class="quadrant-wrap">
+      <div class="quadrant-head">
+        <div class="qh-title">Hospitality-ops category — no incumbent occupies the Leader quadrant</div>
+        <div class="qh-sub">Bubble size = approximate current revenue scale</div>
+      </div>
+      <div class="quadrant-svg-wrap">
+        <svg class="quadrant-svg" viewBox="0 0 860 560" role="img" aria-label="Competitive quadrant showing SOPHI as the leader in hospitality operations software">
+          <defs>
+            <marker id="qArrowX" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="#28251D"/>
+            </marker>
+            <marker id="qArrowY" viewBox="0 0 10 10" refX="5" refY="1" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M0,10 L5,0 L10,10 z" fill="#28251D"/>
+            </marker>
+          </defs>
+
+          <!-- Plot area: 130–770 x, 60–500 y (640×440 usable) -->
+          <!-- Quadrant backgrounds (subtle tint on Leader) -->
+          <rect x="130" y="60" width="320" height="220" fill="#F9F8F5" stroke="none"/>
+          <rect x="450" y="60" width="320" height="220" fill="#F0F6F8" stroke="none"/>
+          <rect x="130" y="280" width="320" height="220" fill="#F9F8F5" stroke="none"/>
+          <rect x="450" y="280" width="320" height="220" fill="#F9F8F5" stroke="none"/>
+
+          <!-- Plot border -->
+          <rect x="130" y="60" width="640" height="440" fill="none" stroke="#D4D1CA" stroke-width="1.5"/>
+
+          <!-- Center divider lines -->
+          <line x1="450" y1="60" x2="450" y2="500" stroke="#D4D1CA" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="130" y1="280" x2="770" y2="280" stroke="#D4D1CA" stroke-width="1" stroke-dasharray="3,3"/>
+
+          <!-- Quadrant labels (small, top corners of each quadrant) -->
+          <text x="140" y="80" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5" fill="#7A7974">CHALLENGERS</text>
+          <text x="760" y="80" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5" fill="#01696F" text-anchor="end">LEADERS</text>
+          <text x="140" y="496" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5" fill="#7A7974">NICHE PLAYERS</text>
+          <text x="760" y="496" font-family="Inter, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.5" fill="#7A7974" text-anchor="end">VISIONARIES</text>
+
+          <!-- Y-axis (Ability to Execute) -->
+          <line x1="105" y1="500" x2="105" y2="48" stroke="#28251D" stroke-width="1.5" marker-end="url(#qArrowY)"/>
+          <text transform="translate(76, 280) rotate(-90)" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#28251D">ABILITY TO EXECUTE</text>
+
+          <!-- X-axis (Completeness of Vision) -->
+          <line x1="130" y1="525" x2="782" y2="525" stroke="#28251D" stroke-width="1.5" marker-end="url(#qArrowX)"/>
+          <text x="450" y="550" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#28251D">COMPLETENESS OF VISION</text>
+
+          <!-- ==================== Competitor dots ==================== -->
+          <!-- Coordinate math: x = 130 + (visionScore/100)*640 ; y = 500 - (executeScore/100)*440 -->
+
+          <!-- Towne Park · Vision 35, Execute 78 → (354, 157) · Challenger -->
+          <g>
+            <circle class="qd-dot" cx="354" cy="157" r="11" fill="#A84B2F" opacity="0.85">
+              <title>Towne Park · National labor operator · Strong execution, no product</title>
+            </circle>
+            <text x="354" y="140" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#28251D">Towne Park</text>
+          </g>
+
+          <!-- LAZ Parking · Vision 42, Execute 82 → (399, 139) · Challenger -->
+          <g>
+            <circle class="qd-dot" cx="399" cy="139" r="12" fill="#944454" opacity="0.85">
+              <title>LAZ Parking · $1B+ revenue · LAZgo/LPR is parking-transaction tech, not hospitality ops</title>
+            </circle>
+            <text x="399" y="122" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#28251D">LAZ Parking</text>
+          </g>
+
+          <!-- SP+ / Metropolis · Vision 58, Execute 85 → (501, 126) · Leader-edge -->
+          <g>
+            <circle class="qd-dot" cx="501" cy="126" r="13" fill="#6E522B" opacity="0.85">
+              <title>SP+ / Metropolis · $1.6B revenue · Metropolis CV vision, but parking-transaction layer, not hospitality-ops</title>
+            </circle>
+            <text x="501" y="108" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#28251D">SP+ / Metropolis</text>
+          </g>
+
+          <!-- SOPHI · Vision 76, Execute 62 → (616, 227) · LEADER (upper right of the leader quadrant) -->
+          <g>
+            <circle cx="616" cy="227" r="22" fill="#01696F" opacity="0.16"/>
+            <circle class="qd-dot" cx="616" cy="227" r="14" fill="#01696F" stroke="#0C4E54" stroke-width="2">
+              <title>SOPHI Mobility · The only operator-plus-OS player · Four operating moats delivered</title>
+            </circle>
+            <text x="616" y="258" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#01696F">SOPHI</text>
+          </g>
+
+          <!-- SpotHero · Vision 62, Execute 28 → (527, 377) · Visionary -->
+          <g>
+            <circle class="qd-dot" cx="527" cy="377" r="10" fill="#7A39BB" opacity="0.85">
+              <title>SpotHero · Consumer parking marketplace · Zero valet operations · Named as arbitrage revenue stream, not competitor</title>
+            </circle>
+            <text x="527" y="396" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#28251D">SpotHero</text>
+          </g>
+
+          <!-- Regional operators · Vision 18, Execute 24 → (245, 394) · Niche -->
+          <g>
+            <circle class="qd-dot" cx="245" cy="394" r="9" fill="#7A7974" opacity="0.75">
+              <title>Regional operators · Highly variable quality · No product, no scale—local relationships only</title>
+            </circle>
+            <text x="245" y="413" text-anchor="middle" font-family="Inter, sans-serif" font-size="11.5" font-weight="600" fill="#28251D">Regional operators</text>
+          </g>
+
+          <!-- SOPHI "direction of travel" arrow — subtle vector showing execute-axis climb over time -->
+          <path d="M 616 227 Q 660 190 700 145" fill="none" stroke="#01696F" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.55" marker-end="url(#qArrowX)"/>
+          <text x="715" y="137" font-family="Inter, sans-serif" font-size="10" font-style="italic" fill="#01696F" opacity="0.85">Y5 target</text>
+        </svg>
+      </div>
+      <p class="quadrant-caption">
+        <strong>Read this quadrant strategically, not tactically.</strong> SP+/Metropolis and LAZ Parking outrank SOPHI on <em>current</em> execution scale — $1B+ revenue and hundreds of properties versus SOPHI's anchor markets. What SOPHI wins on today is <em>Completeness of Vision</em>: the only operator in the category with a shipped hospitality-operations platform (SOPHI Hub, live June 2026), a Learning OS loop designed and its trigger surfaces already firing, and the full four-moat cost structure documented on <a href="./sophi-os.html" style="color:var(--blue-ink); font-weight:600;">SOPHI OS</a>. The dashed vector shows the five-year execution ramp — by Y5, SOPHI's execution position moves up and right toward roughly 85 properties across 12 markets. Read the six-dimension matrix below for the detail behind each dot placement.
+      </p>
+    </div>
 
     <div class="section-eyebrow">The five competitors on the map</div>
     <div class="comp-cards">
@@ -236,7 +366,7 @@
 
   </main>
 </div>
-<script src="./assets/shell.js?v=20260831d"></script>
+<script src="./assets/shell.js?v=20260901a"></script>
 <script>window.SOPHI_SHELL.mount('competition.html');</script>
 </body>
 </html>
