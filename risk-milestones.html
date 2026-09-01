@@ -24,7 +24,7 @@
         <div class="ph-eyebrow">The Deal</div>
         <h1 class="ph-title">Ten risks. Ten countable milestones.<br>Priced in, not papered over.</h1>
         <p class="ph-lede">
-          The ten risks that most threaten the SOPHI thesis, in operator-honest language, each paired with a countable milestone that retires it. If a milestone hasn't fired, the risk is still live.
+          The ten risks that most threaten the SOPHI thesis, priced against the <a href="./sophi-os.html" style="color:var(--blue-ink); font-weight:600;">four operating moats</a> and the <a href="./valuation.html" style="color:var(--blue-ink); font-weight:600;">Organic + Acquisition Growth Models</a>. Every risk pairs an investor-clean summary with an operator-honest read, then commits to a countable milestone. If a milestone hasn't fired, the risk is still live.
         </p>
       </div>
     </header>
@@ -39,155 +39,165 @@
 
 <script>
   window.SOPHI_RISKS = [
-    {rank:1,cat:"Operational fragility",title:"Single-site dependency breaks at scale",window:"Months 0–18",threat:"High",prob:72,color:"peach",
-      summary:"SOPHI's quality standard is founder-proximate. Joshua's presence, relationships, and judgment are load-bearing. At 3+ sites without hardened playbooks and a capable mid-layer, one bad night cascades into client churn, team attrition, and brand damage simultaneously.",
-      honest:"This is the most immediate existential risk. Not competition. Not tech. You. The business is a talented team organized around a founder's instincts — that's artisanal, not scalable. Hub is necessary but insufficient. The real question is whether the playbooks are written, tested, and lived by someone who isn't you.",
-      ifWrong:"Client contract non-renewals at 2–3 sites simultaneously. A key manager departure after a high-pressure event. One bad Yelp/Google cycle undercuts the premium brand positioning SOPHI's pricing depends on. Cascade risk: losing a flagship property triggers investor concern at exactly the wrong moment.",
-      milestone:"Site Independence Certification",
-      milestoneDetail:"Each active site runs 30 days — including a high-volume event and a staffing gap — without founder intervention, hitting all KPIs.",
+    {rank:1,cat:"Operational fragility",title:"Single-site dependency breaks at scale",window:"Months 0–18",threat:"High",prob:68,color:"peach",
+      investor:"SOPHI's premium unit economics depend on founder-informed operating standards translating cleanly into new markets. Until the SOPHI 6 acquisition markets each survive a full high-volume cycle without founder escalation, the operational moat is a hypothesis rather than a proof.",
+      summary:"SOPHI's quality standard is founder-proximate. Joshua's presence, relationships, and judgment are load-bearing on the Charlotte anchor and every early acquisition. At three or more markets operating in parallel without hardened playbooks and a capable mid-layer, one bad night cascades into client churn, team attrition, and brand damage simultaneously.",
+      honest:"This is the most immediate existential risk — not competition, not technology, not capital. The business is a talented team organized around a founder's instincts. Hub codifies the workflow but it doesn't codify the judgment. The real question is whether the playbooks are written, tested, and lived by someone who isn't Joshua, before the second and third markets go live.",
+      ifWrong:"Two acquisition markets underperform simultaneously in month 6–9. A key regional manager departs after a high-pressure event. One bad review cycle undercuts the premium positioning that SOPHI's per-property rate depends on. Cascade risk: losing a flagship property in Charlotte or Indianapolis triggers investor concern at exactly the wrong moment in the R2 diligence window.",
+      milestone:"Market independence certification across the SOPHI 6 anchors",
+      milestoneDetail:"Each active SOPHI 6 market runs a 60-day window — including a high-volume event and a staffing gap — without founder intervention, hitting Hub-tracked quality, retention, and margin KPIs.",
       metrics:[
-        {label:"NPS per site",target:"≥ 65 without founder escalation",honest:"NPS is lagging. A site can look clean 60 days before cracks surface under pressure."},
+        {label:"Property NPS",target:"≥ 65 without founder escalation",honest:"NPS is a lagging indicator. A property can look clean 60 days before cracks surface under pressure."},
         {label:"Incident escalation rate",target:"< 5% require founder-level resolution",honest:"Only meaningful if Hub logging is comprehensive. Partial logging is almost worse than none."},
         {label:"Hub daily active use",target:"≥ 85% of shifts logged",honest:"Usage ≠ quality. A manager can log everything and still make bad calls."},
-        {label:"Staff retention",target:"< 20% annualized turnover",honest:"Industry baseline is 70–80%. 20% is aggressive for Year 1."}
+        {label:"Staff retention",target:"< 20% annualized turnover",honest:"Industry baseline is 70–80%. Sub-20% is aggressive at year one in an acquired market."}
       ],
-      sophiOS:"Hub creates the operational paper trail. Dispatch intelligence reduces manager firefighting. The Axiom creates the retention environment. But none of it works without written, enforced playbooks.",
-      sophiOSCritique:"The OS is still being built. 'We have Hub' and 'sites run themselves' are separated by documented processes, trained managers, and survived edge cases — not a software deployment."},
+      moatsHelp:"<strong>Human OS</strong> gives Account Managers the bandwidth to carry more properties without quality decay — the 7 wired cross-pillar automations replace the coordination overhead that used to fill their day. <strong>Learning OS</strong> shortens the diagnostic loop when a property drifts: capture-rate gap or claim-rate spike triggers targeted retraining within seven days rather than a monthly ops review.",
+      moatsGap:"No moat installs judgment. Hub logs everything a manager sees; it cannot force them to see the right things, or to make the right call under pressure. Playbooks reduce variance around a mean but the mean itself is set by whoever is doing the training. Until the mid-layer is deep and Joshua is not the escalation path, this risk is live."},
 
-    {rank:2,cat:"Talent architecture",title:"The triumvirate breaks under pressure",window:"Months 6–24",threat:"High",prob:60,color:"peach",
-      summary:"The Orchestrator / Comptroller / Cultivator model is elegant in theory and untested across multiple markets simultaneously. One miscast seat collapses the triangle — and the whole market unit with it.",
-      honest:"You don't have three markets running triumvirates. That means the model is still a hypothesis. Recruiting, training, and retaining all three seats while pre-Series A is a genuine challenge that capital alone won't solve.",
-      ifWrong:"A market launches with two of three seats filled. Within 90 days, the unfilled seat's responsibilities have defaulted back to Joshua. The market's financials look fine while culture quietly deteriorates. By month 6, the Cultivator quits and the remaining two revert to task-managers instead of leaders.",
-      milestone:"First full triumvirate, 90-day performance verified",
-      milestoneDetail:"All three seats filled before market launch — no founder coverage — running 90 days hitting financial, people, and guest KPIs simultaneously.",
+    {rank:2,cat:"Human OS bandwidth",title:"The 2× properties-per-manager assumption doesn't materialize",window:"Months 3–24",threat:"High",prob:55,color:"peach",
+      investor:"The single load-bearing assumption of the Acquisition Growth Model is that each Account Manager can carry roughly twice the property count of a traditional operator's manager — the Human OS lever on <a href='./sophi-os.html#human-os' style='color:#0B5394; font-weight:600;'>Moat 02</a>. If Charlotte and South Bend measurement lands closer to 1.3–1.5× than 2×, the SOM ramp still works but requires more middle-management headcount, compressing EBIT margin and stretching the operational-improvement window.",
+      summary:"The 2× bandwidth claim is why the Acquisition Growth Model reaches Y5 SOM without linear management hiring. Every operating moat feeds into it: Cost OS reduces per-manager tooling overhead, Human OS gives them the Hub + Academy to absorb non-billable work, Learning OS shortens their diagnostic loop. But the ratio itself is measured, not modeled — and until the measurement lands, it is the largest single uncertainty in the entire growth thesis.",
+      honest:"This is the assumption an advisor will circle in red pen. It's honest — we've flagged it as the highest-priority methodology validation on <a href='./sophi-os.html#human-os' style='color:#0B5394; font-weight:600;'>SOPHI OS Moat 02</a> — but honesty doesn't retire the risk. The Hub already wires seven cross-pillar automations that mechanically explain why the ratio is plausible; what's missing is controlled data from enough SOPHI-managed properties to size the claim rather than assert it.",
+      ifWrong:"Charlotte and South Bend measurement lands at 1.3–1.5×, not 2×. The Acquisition Growth Model still reaches Y5 SOM but requires 30–40% more Account Managers than currently projected, compressing EBIT margin from the 25% target toward 18–20% — in line with a traditional operator, not the premium SOPHI thesis. Advisors ask why we didn't pressure-test the ratio harder before R2.",
+      milestone:"Charlotte + Indianapolis measurement window closes with published data",
+      milestoneDetail:"Twelve months of Hub-logged, shift-mix-normalized data on Account Manager portfolio ratios across at least two SOPHI 6 markets, with a documented delta vs. industry baseline that supports (or resizes) the 2× claim.",
       metrics:[
-        {label:"Seat fill rate",target:"All 3 before launch, not after",honest:"Temptation to launch short and backfill. That's how the model breaks."},
-        {label:"Cross-seat conflict rate",target:"< 2 escalations to founder/month",honest:"Role clarity must precede launch. Ambiguity at adjacent role edges is inevitable without documentation."},
-        {label:"Market P&L vs. plan",target:"Within 10% of projected EBITDA at 90 days",honest:"Underperformance is usually a symptom of a broken triumvirate, not the cause."},
-        {label:"Axiom culture score",target:"≥ 80% can articulate the Axiom unprompted",honest:"Culture either takes root in the first 90 days or it becomes a break room poster."}
+        {label:"Properties per AM · measured",target:"≥ 2× industry baseline, sustained 90 days",honest:"Industry baseline is 3–5 properties. 2× = 6–10 properties. Below 6 sustained, the model breaks."},
+        {label:"Non-billable-hours reduction",target:"≥ 40% vs. traditional operator baseline",honest:"The Hub's cross-pillar automations are the mechanism. If AMs aren't feeling that time back, the automations aren't landing."},
+        {label:"Quality parity at 2× portfolio",target:"NPS + retention hold within 5% of single-property manager baseline",honest:"Scaling by breaking quality isn't scaling. The lever only works if quality holds."},
+        {label:"Bandwidth confidence interval",target:"Ratio published with ±15% band, not point estimate",honest:"An honest published range is worth more to Series A diligence than a hopeful single number."}
       ],
-      sophiOS:"The Cultivator role is most OS-dependent — people analytics, shift performance, compensation modeling. Hub gives the Cultivator an instrument panel instead of gut feel.",
-      sophiOSCritique:"The OS doesn't solve for miscast seats. If the Orchestrator is a poor communicator or the Comptroller is compliance-obsessed at culture's expense, no software fixes that."},
+      moatsHelp:"<strong>Human OS</strong> is the moat this risk lives inside — the Hub + Academy + modular ERP together are what create the bandwidth in the first place. <strong>Learning OS</strong> compounds it: the recursive loop retrains rather than rehires when a manager's KPIs drift, keeping tenure and expertise per manager.",
+      moatsGap:"The moats create the <em>possibility</em> of 2× bandwidth; they don't guarantee it. If the measurement lands lower, the moats are still real — they just deliver less operating leverage than the model prices in. This is a valuation-sensitivity risk, not a moat-invalidation risk."},
 
-    {rank:3,cat:"Technology execution",title:"Hub MVP ships late or ships broken",window:"Months 0–6",threat:"Critical",prob:55,color:"rose",
-      summary:"May 1 is the deadline. Hub is the wedge for the entire OS licensing strategy. A delayed or buggy launch erodes investor confidence, delays GTM, and signals SOPHI promises > SOPHI delivers.",
-      honest:"Software deadlines slip. That's base rate, not pessimism. The question is whether MVP scope is locked or still expanding. Scope creep is the most common deadline killer in founder-led tech builds.",
-      ifWrong:"Investor follow-up arrives with no live product to show. Licensing pipeline stalls — prospects don't buy roadmaps. Bryce depressurizes post-miss. The May 1 date becomes a symbol of execution gap rather than momentum.",
-      milestone:"Hub live on 2 sites, 30-day stability, first prospect demo",
-      milestoneDetail:"Hub deployed on 2 operational SOPHI sites, zero P0/P1 bugs at day 30, ≥ 80% shift adoption, at least one licensing prospect has seen a live demo.",
+    {rank:3,cat:"Acquisition target quality",title:"WAS-scored acquisition targets underperform the model on close",window:"Months 0–18",threat:"High",prob:52,color:"peach",
+      investor:"The Acquisition Growth Model prices <a href='./valuation.html' style='color:#0B5394; font-weight:600;'>Y5 $28.29M parking SOM</a> against 203 accounts across the SOPHI 6 markets, scored using the WAS v2 methodology. Real-world diligence on individual acquisition targets in Indianapolis and Denver will reveal contract quality, client concentration, and margin durability we haven't yet touched. A meaningful gap between WAS-scored TAM and post-close reality resizes the entire model.",
+      summary:"WAS v2 scoring gives every account in the SOPHI 6 a 100-point priority score based on five dimensions of fit. It's a strong instrument for pipeline prioritization, but it scores accounts as if they were greenfield. Real acquisition targets come with legacy contracts, incumbent-operator dependencies, client concentrations we can't see from Google Places, and margin structures locked in by past pricing.",
+      honest:"The risk isn't that the WAS scores are wrong — they've been validated against real Charlotte and South Bend performance. The risk is that the model treats a WAS-scored TAM number the same as a post-diligence pipeline number. Between those two numbers is 90–120 days of legal, financial, and operational diligence per target, and every acquisition will find something. The question is whether what's found is priced in or priced out.",
+      ifWrong:"The first Indianapolis acquisition target closes at a 15% lower per-property revenue than WAS-derived TAM. Two Denver targets exit diligence when contract review reveals a client-side termination clause tied to operator change. The Y5 SOM projection quietly moves from $28.29M to $24–25M. Advisors ask whether the earlier markets are directional or predictive.",
+      milestone:"First two acquisitions close within 10% of WAS-modeled unit economics",
+      milestoneDetail:"Two SOPHI 6 acquisitions closed and integrated for 90 days, each delivering per-property revenue and gross margin within ±10% of what WAS v2 scoring predicted at diligence entry.",
       metrics:[
-        {label:"Bug severity at launch",target:"Zero P0/P1 bugs at day 30",honest:"Define P0/P1/P2 explicitly with Bryce before launch. Not after."},
-        {label:"Manager onboarding time",target:"< 2 hrs to full proficiency",honest:"If longer, adoption is forced not earned — and forced adoption generates bad data."},
-        {label:"Licensing demo pipeline",target:"≥ 3 qualified prospects demo'd within 60 days",honest:"This is a sales milestone, not a product milestone. Requires separate effort in parallel."},
-        {label:"Bryce v2 engagement",target:"CTO on v2 roadmap within 30 days of launch",honest:"Founder-CTOs sometimes depressurize after a major delivery. Have this conversation before v1 ships."}
+        {label:"WAS-to-actual revenue accuracy",target:"±10% at 90 days post-close",honest:"Wider than ±10% and either the scoring model needs a recalibration or the diligence process is missing something material."},
+        {label:"Diligence-stage attrition",target:"< 40% of top-quartile targets exit before close",honest:"Attrition above 40% means the WAS score is over-weighting easy signals and under-weighting deal-breakers."},
+        {label:"Post-close margin variance",target:"Gross margin within 5 pts of modeled at 90 days",honest:"Margin surprises usually come from unwind costs (severance, contract termination fees) not surfacing in early diligence."},
+        {label:"WAS methodology refresh cadence",target:"Recalibrated after every 2 closed acquisitions",honest:"A scoring model that isn't updated with real closed-deal data goes stale fast."}
       ],
-      sophiOS:"Hub IS the OS entry point. Every other pillar depends on it working. This is the single highest-leverage technical action in the next 90 days.",
-      sophiOSCritique:"The risk isn't technical failure — it's shipping a feature set instead of a system. Managers can use it without relying on it. That distinction determines whether SOPHI has a product or a tool."},
+      moatsHelp:"<strong>Cost OS</strong> is what makes marginal acquisitions still work: an acquired property runs on ~$1/employee/month of SOPHI Hub rather than the $50–80/employee/month SaaS stack the seller was probably paying, so even a target that underperforms on revenue can outperform on contribution margin. <strong>Human OS</strong> shortens integration — the standardized Academy onboarding + Hub cross-pillar automations mean a newly acquired property is on the SOPHI operating standard in weeks, not quarters.",
+      moatsGap:"No moat corrects a bad acquisition price. If diligence misses a client-concentration problem or a legacy tip-pooling exposure, the operating moats absorb the operational impact but cannot recover the purchase-price differential. Sourcing discipline sits upstream of every moat."},
 
-    {rank:4,cat:"Market & revenue",title:"Licensing GTM fails to convert",window:"Months 6–24",threat:"High",prob:65,color:"peach",
-      summary:"SaaS sales to hospitality operators is a different motion than running valet sites. Operators are skeptical of tech, slow to decide, and referral-driven. A great product that can't close is not a business.",
-      honest:"SOPHI has zero SaaS sales history. ICP is not fully defined. Sales cycle length, decision-maker, and objection pattern are all unknown. This is a market hypothesis, not a validated GTM.",
-      ifWrong:"Free pilots persist indefinitely because no one closes them. MRR sits at zero at month 12 post-launch. The capital bridge shortens faster than projected. Investor confidence erodes — not in the product, but in the go-to-market capability.",
-      milestone:"3 paying contracts at $1K+/site/month, ≥ 90-day retention",
-      milestoneDetail:"Three non-SOPHI-operated sites paying monthly fees for Hub access with 90 days of active usage and no churn.",
+    {rank:4,cat:"Market penetration",title:"Acquisition growth stalls between markets",window:"Months 12–36",threat:"High",prob:48,color:"peach",
+      investor:"The Acquisition Growth Model assumes SOPHI enters each of the SOPHI 6 markets on a compounding schedule, using the Charlotte + Indianapolis anchor cash flows to fund Denver, Phoenix, Louisville, and Cleveland. If one of the middle markets fails to warm up on the model — slow client acquisition, wrong seasonal timing, or an unforeseen local incumbent — the cascade schedule slips and the Y5 SOM curve flattens.",
+      summary:"Acquisition growth is compounding by design. Each closed market funds the diligence and integration cost of the next, which is what makes the SOPHI 6 schedule fit inside R2 capital rather than requiring R3. A single stalled market breaks the compounding: capital that should have funded market four is instead spent nursing market three, and the sequence loses a quarter or two of leverage.",
+      honest:"Any acquisition-led thesis has a version of this risk. The honest question is whether we've paced the schedule realistically — with slack for one stall and a documented contingency — or whether we've backed ourselves into needing every market to warm up on time. Right now the model prices in the base case; the resilience case (one stall, one recovery quarter) needs to be in the R2 conversation.",
+      ifWrong:"Denver is slower to warm than modeled — a local competitor holds two of the top targets in incumbent contracts that don't rotate until Y3. Phoenix diligence pushes into Q4 seasonality and closes at reduced Q1 volume. The Y5 SOM cascade compresses by two quarters. R2 investors ask whether the model paced pessimistically enough, and the answer requires updated scenario analysis mid-round.",
+      milestone:"SOPHI 6 sequence completes markets 1–4 on schedule with published lessons",
+      milestoneDetail:"Charlotte carry + Indianapolis + Denver + one of Phoenix/Louisville/Cleveland all operating within 6 months of modeled entry, with a documented lessons-learned repository shared with R2 board.",
       metrics:[
-        {label:"Pilot-to-paid conversion",target:"≥ 40% within 60 days of pilot start",honest:"Define the pilot end date before it starts. Open-ended pilots rarely convert."},
-        {label:"Sales cycle length",target:"Benchmark then improve quarterly",honest:"You won't know the number until 5+ deals are run."},
-        {label:"License MRR",target:"$10K MRR within 12 months of launch",honest:"Modest by design. Proving repeatability at $10K is worth more than projecting $100K."},
-        {label:"Net Revenue Retention",target:"≥ 110% at 12 months",honest:"NRR > 100% proves stickiness. Below 100% means you're on a treadmill."}
+        {label:"Market entry vs. schedule",target:"Within 60 days of modeled entry, all 6",honest:"A 60-day slip is normal; 90-day slips start compounding. Publish the schedule and defend it quarterly."},
+        {label:"Time-to-first-paying-account",target:"< 90 days per market",honest:"The Charlotte and South Bend baselines are ~60 days. Anything above 90 signals the WAS-derived pipeline isn't converting at expected rate."},
+        {label:"Y5 SOM confidence bands",target:"Published ±15% band, tightened annually",honest:"A published range with a defended methodology holds up in diligence better than a defended point estimate."},
+        {label:"Contingency capital reserve",target:"≥ 6 months of one-market operating cost held in R2 reserve",honest:"Cash that isn't earmarked for the base case becomes the difference between an operational stumble and a fundraising crisis."}
       ],
-      sophiOS:"The natural upsell path — Hub → Dispatch → Yield Logic → Full OS — creates expansion revenue mechanics that make NRR > 100% achievable if the product works.",
-      sophiOSCritique:"The OS assumes operators want more software over time. Many hospitality operators are tech-allergic beyond initial commitment. Expansion requires active customer success, not passive upsell triggers."},
+      moatsHelp:"<strong>Cost OS</strong> lets us enter a market at a fraction of the operating overhead of a traditional multi-market operator — the Hub runs on the same $1/emp/mo whether the market has 4 or 40 properties, so slow ramp is cheaper to sustain. <strong>Learning OS</strong> compresses the ramp curve: every closed acquisition feeds market-entry patterns into the recursive loop, so market 4 launches with intelligence markets 1–3 didn't have.",
+      moatsGap:"The moats reduce the cost of a slow market but don't create demand. If a local incumbent has hospitality relationships SOPHI can't dislodge in the first 12 months, no amount of operating leverage substitutes for warm-market access. The market-map pre-work is what mitigates this upstream of the moats."},
 
-    {rank:5,cat:"Legal & liability",title:"Vehicle damage or liability event at scale",window:"Ongoing",threat:"Medium-High",prob:45,color:"sand",
-      summary:"Valet operations carry real liability. One high-profile uninsured event can trigger litigation that consumes management bandwidth and cash simultaneously. Aggregate exposure grows with every site added.",
-      honest:"This risk doesn't shrink as you scale — it compounds. The OS can reduce incident frequency, but it cannot eliminate the underlying liability of operating in physical space.",
-      ifWrong:"A vehicle is significantly damaged at a flagship property. The incident isn't logged in Hub within the required window. The property uses it as grounds to exit the contract. Litigation takes 14 months and $80K in legal fees — with a favorable outcome.",
-      milestone:"Insurance & incident protocol fully operationalized across all sites",
-      milestoneDetail:"Every active site has current coverage appropriate for its volume, a documented incident protocol tested via drill, and 6+ months of Hub-logged incident data.",
+    {rank:5,cat:"Legal & liability",title:"Vehicle damage or liability event at scale",window:"Ongoing",threat:"Medium-High",prob:42,color:"sand",
+      investor:"Physical-operations liability doesn't shrink with scale — it compounds with property count. SOPHI's structural mitigation is Hub-based incident documentation: timestamped, geo-tagged, cross-witnessed records that reshape the liability conversation with insurers, plaintiffs' counsel, and property clients. The Hub is live and logging today; the milestone is proving the discipline holds across every SOPHI 6 market.",
+      summary:"Valet operations carry real liability. One high-profile uninsured event can trigger litigation that consumes management bandwidth and cash simultaneously. Aggregate exposure grows with every property added — and multi-market portfolios draw plaintiff attention that single-property operators avoid.",
+      honest:"This risk doesn't shrink as we scale — it compounds. The Hub reduces incident frequency and materially improves documentation quality, but it cannot eliminate the underlying liability of operating in physical space with unfamiliar vehicles and public-facing guest service. The mitigation is a documentation and drill discipline that has to survive contact with 24/7 operations.",
+      ifWrong:"A vehicle is significantly damaged at a flagship property in an acquisition market. The incident isn't logged in Hub within the required window because the local supervisor was newly onboarded and defaulted to paper. The property uses it as grounds to exit the contract early. Litigation takes 14 months and $80K in legal fees — with a favorable outcome. The R2 update includes an unplanned insurance-premium footnote.",
+      milestone:"Insurance & incident protocol fully operationalized across all SOPHI 6 markets",
+      milestoneDetail:"Every active market has current coverage appropriate for its volume, a documented incident protocol tested via drill in the first 30 days of market entry, and 6+ months of Hub-logged incident data before advancing to the next market's launch.",
       metrics:[
-        {label:"Incident documentation rate",target:"100% logged in Hub within 1 hour",honest:"Incomplete logging in litigation is sometimes worse than no logging."},
-        {label:"Insurance premium trend",target:"Flat or declining as volume grows",honest:"This proves OS-driven documentation is working. Insurers will price it if you show them the data."},
-        {label:"Days to incident resolution",target:"< 30 days for minor claims",honest:"Resolution speed depends as much on your insurer as your internal process."},
-        {label:"Repeat incident rate",target:"< 10% of staff in 2+ incidents annually",honest:"The Axiom says invest in people. That requires coaching infrastructure, not just tracking."}
+        {label:"Incident documentation rate",target:"100% logged in Hub within 1 hour",honest:"Incomplete logging in litigation is sometimes worse than no logging — gaps read as consciousness of fault."},
+        {label:"Insurance premium trend",target:"Flat or declining as property count grows",honest:"This proves Hub-driven documentation is landing with underwriters. Insurers will price it if you show them the data."},
+        {label:"Days to incident resolution",target:"< 30 days for minor claims",honest:"Resolution speed depends as much on the insurer's process as SOPHI's internal one."},
+        {label:"Repeat incident rate",target:"< 10% of staff in 2+ incidents annually",honest:"Repeat incidents are the earliest signal that training isn't landing — which is exactly the Learning OS trigger surface."}
       ],
-      sophiOS:"Digital incident logging is one of Hub's highest-value legal features. A timestamped, geotagged record changes the liability conversation completely — when the data is accurate.",
-      sophiOSCritique:"Hub only protects SOPHI if data is accurate and contemporaneous. A manager who backdates to protect a team member creates the opposite of legal protection. Culture determines data integrity."},
+      moatsHelp:"<strong>Learning OS</strong> is the direct mitigation — a claim-rate spike at any property triggers a site-level 'Vehicle-handoff inspection' drill within days, not months. <strong>Human OS</strong> makes the documentation discipline survivable at scale: the Hub's incident workflow is a cross-pillar automation, so a supervisor who logs the incident triggers the RM notification, the follow-up task, and the case-file paper trail from one action.",
+      moatsGap:"Hub only protects SOPHI if data is accurate and contemporaneous. A manager who backdates to protect a team member creates the opposite of legal protection. Culture determines data integrity, and no moat installs culture."},
 
-    {rank:6,cat:"Capital & runway",title:"Bridge between valet revenue and OS ARR runs dry",window:"Months 12–30",threat:"High",prob:50,color:"peach",
-      summary:"SOPHI is self-funding the OS build on valet operations revenue. The gap between 'valet cash flow supports the build' and 'OS ARR is meaningful' is a capital valley. If valet margins compress or Hub launch delays, the bridge shortens fast.",
-      honest:"This is the tightest risk in the portfolio. You're building a tech company on hospitality margins. That requires extreme capital efficiency or outside capital before the valley gets too deep. The investor conversation is directly relevant.",
-      ifWrong:"Valet has a slow Q3. Hub launched 6 weeks late. Licensing pipeline is 60 days from first close. Runway drops below 6 months. Joshua is now fundraising from urgency rather than momentum — and investors can smell the difference.",
-      milestone:"OS ARR covers ≥ 50% of monthly tech & product costs",
-      milestoneDetail:"Licensing revenue from non-SOPHI sites covers at least half of monthly burn attributable to product, engineering, and customer success.",
+    {rank:6,cat:"Capital timing",title:"R1 refinance doesn't close in time to fund the Organic model",window:"Months 0–9",threat:"High",prob:40,color:"peach",
+      investor:"The Organic Growth Model is <a href='./financial-performance.html' style='color:#0B5394; font-weight:600;'>default-alive by month 3</a> and closes 2028 with $5.19M on the balance sheet — but only if R1 F&F refinance closes on schedule and clears the founder-personal-guarantee overhang. Delays in R1 don't kill the model, but they force a difficult conversation between growth pace and cash reserves that the model currently doesn't have to have.",
+      summary:"R1 is a friends-and-family refinance priced against the Organic Growth Valuation, sold to Bryce, board participants, and early movers who move at F&F speed. It's designed as a structurally lower-risk raise than a traditional Seed — the money refinances existing operating debt and funds a growth plan already in motion, not a new bet. But a stalled R1 pushes the R2 Acquisition Seed conversation earlier and against thinner cash, which changes the R2 negotiating posture entirely.",
+      honest:"The tightest window in the deal. R1's positioning — refinancing a going concern with observable cash flow — is fundamentally different from raising against a hypothesis, and that's the story we lead with. Even so, F&F rounds have a knowable close time of 60–90 days and an unknown one of 6+ months when the story doesn't land. What kills this risk isn't a bigger check list — it's a shorter Q&A cycle with named backers.",
+      ifWrong:"R1 close pushes from month 3 to month 7. Existing operating debt is refinanced ad-hoc at unfavorable terms. Charlotte carry cash covers the gap but the Organic model's month-24 cash ($5.19M target) lands closer to $3M. R2 Acquisition Seed conversations open from a thinner position and price accordingly. The eventual close happens — just at 15–20% more dilution than the base case.",
+      milestone:"R1 F&F refinance fully committed within 120 days of memo distribution",
+      milestoneDetail:"R1 committed and closed with the full targeted round size, existing operating debt fully refinanced, and R2 diligence conversations opening on schedule from a position of committed R1 backing.",
       metrics:[
-        {label:"Monthly OS ARR coverage ratio",target:"50% of tech costs by month 18",honest:"If not trending toward 50% by month 12, the capital conversation must happen before month 18."},
-        {label:"Valet EBITDA margin",target:"≥ 18% maintained while building OS",honest:"Below 15% and the bridge gets uncomfortable fast."},
-        {label:"Months of runway",target:"≥ 9 months at all times",honest:"From 6 months it's desperate. Never let it go below 9."},
-        {label:"Investor follow-on signal",target:"Term sheet or diligence request within 90 days of follow-up meeting",honest:"Not fully controllable. But the indicators are clear: did they ask for materials unprompted?"}
+        {label:"R1 committed capital vs. target",target:"100% within 120 days",honest:"F&F rounds either commit fast or drift. Under-commitment past 90 days is the early signal to widen the invite list."},
+        {label:"Months of runway held",target:"≥ 12 months at all times through R1 close",honest:"Below 9 the R2 conversation opens from urgency; below 6 the price gets set by the buyer."},
+        {label:"Debt fully refinanced",target:"All operating debt cleared by R1 close",honest:"Overhanging personal guarantees and short-term paper distract from operating execution."},
+        {label:"R2 diligence signal",target:"3+ term sheets or diligence requests within 90 days of R1 close",honest:"R1 close should attract R2 attention automatically. If it doesn't, the story between the two rounds needs review."}
       ],
-      sophiOS:"Every site running SOPHI OS produces operational data that becomes the investment case. The OS is simultaneously the product being sold and the proof that justifies raising capital to build more.",
-      sophiOSCritique:"The OS doesn't generate ARR by existing — it generates ARR by being sold. A great product with no sales motion is a cost center. Licensing GTM must run in parallel with the build."},
+      moatsHelp:"<strong>Cost OS</strong> is the story that lets an F&F round underwrite a growth plan on hospitality margins — the Hub build was ~$400–900 total tooling spend, and the run-rate stays under $2K/month at scale, which is what makes the Organic model default-alive without SaaS revenue. <strong>Learning OS</strong> creates the operational-data flywheel that R2 investors will want to see as the proof of premium unit economics.",
+      moatsGap:"The moats don't accelerate a friends-and-family round timeline. R1 close depends on relationship velocity and check-writer availability, both of which are execution problems upstream of any operating advantage. The moats make R1 easier to underwrite; they don't shorten the calendar between decision and wire."},
 
-    {rank:7,cat:"Brand & reputation",title:"Premium brand diluted by inconsistent quality",window:"Months 12–36",threat:"Medium",prob:48,color:"sky",
-      summary:"SOPHI's pricing power depends on being visibly different from commodity operators. That differentiation lives in guest experience. Brand risk is highest at licensed sites where SOPHI controls the product but not the operator's culture.",
-      honest:"Brand damage compounds asymmetrically. 18 months to build premium positioning. 18 hours to damage it.",
-      ifWrong:"A licensed operator runs a high-profile event. A VP-level guest has a bad experience and posts about it, tagging SOPHI by name. The thread gains traction. SOPHI's sales pipeline freezes for 30 days while Joshua does damage control. Two close prospects go quiet.",
-      milestone:"Brand standard certification before third licensed site goes live",
-      milestoneDetail:"A formal Brand Certification program — with pass/fail criteria, mystery guest audit, and consequence ladder — operational before site three.",
+    {rank:7,cat:"Anchor market",title:"Charlotte carry becomes a brand liability instead of a proof point",window:"Months 0–24",threat:"Medium-High",prob:38,color:"sand",
+      investor:"The Charlotte operating group is the anchor — the market whose carry cash funds Organic growth, whose data grounds the Human OS 2× bandwidth argument, and whose brand reputation is the reference point every SOPHI 6 acquisition prospect calls to check. A quality slip in Charlotte doesn't only harm one market; it echoes into every downstream conversation. Charlotte discipline is the reputational moat behind the operating moats.",
+      summary:"SOPHI's pricing power depends on being visibly different from commodity operators, and that differentiation lives at the property level in guest experience. Because Charlotte is both the anchor and the reference market, a bad review cycle, a public incident, or a slow-drift decline in guest scores there has second-order effects: acquisition targets pause diligence, R2 investors ask second-round questions, and Learning OS loses its most-cited proof point.",
+      honest:"Brand damage compounds asymmetrically. Eighteen months to build premium positioning, eighteen hours to damage it — and the market where the damage matters most is the one where the founder is not physically present most days. The mitigation isn't a Brand Certification program; it's making sure Learning OS is measurably firing on Charlotte's KPIs before the acquisition markets ramp, so quality drift is a 7-day loop, not a 90-day meeting.",
+      ifWrong:"A Charlotte property runs a high-profile event badly. A VP-level guest posts about it, tagging SOPHI by name. The thread gains traction. Two Indianapolis acquisition targets pause diligence citing 'want to see how this plays out.' R2 investors ask for a Charlotte quality-trend chart at exactly the wrong week. Recovery takes a full quarter of Joshua's calendar.",
+      milestone:"Charlotte carry hits its published quality baseline through 4 consecutive quarters",
+      milestoneDetail:"Charlotte NPS, retention, and claim-rate benchmarks published and held through four consecutive quarters, with Learning OS loop firing on at least three KPIs and producing measurable improvement data.",
       metrics:[
-        {label:"Google/Yelp rating",target:"≥ 4.4 stars across all affiliated properties",honest:"Review platforms are gamed. Use NPS as primary signal, reviews as secondary."},
-        {label:"Brand audit pass rate",target:"≥ 90% of licensed sites pass quarterly audit",honest:"Too easy = doesn't protect the brand. Too hard = operators churn."},
-        {label:"Licensed vs. operated NPS gap",target:"< 10 points between site types",honest:"A large gap is the earliest warning that licensing is diluting the brand."},
-        {label:"Property renewal rate",target:"≥ 85% renew annual contracts",honest:"Renewal rate is the market's verdict on whether SOPHI delivered what it promised."}
+        {label:"Charlotte guest rating trend",target:"≥ 4.4 average across affiliated properties, quarter over quarter",honest:"Review platforms are gamed. Use NPS as the primary signal and public reviews as the secondary read on the same story."},
+        {label:"Charlotte vs. acquisition NPS gap",target:"< 10 points across all SOPHI 6 markets",honest:"A large gap is the earliest warning that quality standards aren't traveling with the operating model."},
+        {label:"Client retention · Charlotte",target:"≥ 95% annual renewal",honest:"Retention rate is the market's verdict on whether SOPHI delivered what it promised. Charlotte's number sets the floor other markets are measured against."},
+        {label:"Learning OS loop coverage",target:"≥ 3 KPIs firing recursive loops in Charlotte before market 2 launches",honest:"If the loop isn't demonstrably improving Charlotte KPIs, we're carrying the Learning OS narrative into R2 without proof."}
       ],
-      sophiOS:"The Guest Experience OS pillar standardizes the human touchpoints that create premium perception — arrival notifications, preference capture, recovery workflows.",
-      sophiOSCritique:"Guest Experience OS works where SOPHI controls training. At licensed sites, you're selling software to operators whose staff culture you don't own. The OS surfaces behavior data after the fact — it can't install values."},
+      moatsHelp:"<strong>Learning OS</strong> is the direct mitigation — a review-rating drift or claim-rate spike triggers targeted retraining and re-measurement within days. <strong>Human OS</strong> keeps the reputational stakes proportionate: because one Account Manager can carry 2× properties, quality signals surface faster and the RM can visit any property in the portfolio inside a week.",
+      moatsGap:"Reputation is created by front-line experience, not by dashboards or automation. If a guest has a bad night in Charlotte, Learning OS retrains the associate but doesn't recover the guest. The moats are anti-recurrence machinery; they aren't first-incident insurance."},
 
-    {rank:8,cat:"Competitive moat",title:"Larger player copies the model before moat solidifies",window:"Months 18–48",threat:"Medium",prob:35,color:"sky",
-      summary:"SOPHI's competitive thesis requires the playbook-and-data moat becomes real before a well-capitalized player enters hospitality ops tech. A PE-backed valet roll-up or existing parking tech company with existing distribution could move fast.",
-      honest:"This risk is real but often overstated by founders. Execution is harder to replicate than product. The danger isn't that someone copies the software — it's that SOPHI hasn't gone deep enough with enough clients to make switching cost painful before competition arrives.",
-      ifWrong:"SpotHero or a PE-backed competitor launches an 'ops layer' at a national hospitality conference. They have 200 existing client relationships. SOPHI has 8 licensed sites. The prospect conversation shifts from 'what is this' to 'why not the incumbent?' — and SOPHI doesn't have an answer yet.",
-      milestone:"10 sites on SOPHI OS with ≥ 12 months of operational data each",
-      milestoneDetail:"Ten operated or licensed sites on the full OS stack with 12 continuous months of data — a dataset a new entrant cannot replicate without years of runway.",
+    {rank:8,cat:"Competitive advantage",title:"Well-capitalized entrant reaches SOPHI's data density first",window:"Months 18–48",threat:"Medium",prob:32,color:"sky",
+      investor:"The three <a href='./competition.html' style='color:#0B5394; font-weight:600;'>competitive advantages</a> the operating moats produce — data density, operating record, culture as switching cost — all compound with time in the market. If a well-capitalized entrant (a Metropolis-scale player, a PE-backed valet roll-up, or a hospitality-ops incumbent) decides the category is worth entering before SOPHI hits its 10-property data-density threshold, the advantage window closes and the operating moats become table stakes rather than differentiators.",
+      summary:"The competitive thesis requires the playbook-and-data advantage becomes real before a well-capitalized player enters hospitality operations technology. A PE-backed valet roll-up, a Metropolis-scale player extending into ops, or a hospitality-ops incumbent moving down-market could all move faster than SOPHI can if they see the category early. The three competitive advantages compound over time — which means we're in a race for time-in-market, not a race for features.",
+      honest:"This risk is real but often overstated by founders. Execution is harder to replicate than product. The near-term danger isn't that someone copies the Hub — it's that SOPHI hasn't operated deeply enough with enough properties to make the switching cost real before the competitive question is asked. Ten properties on the Hub with 12 months of operational data each is the threshold below which we're a promising operator and above which we're a data moat.",
+      ifWrong:"A well-capitalized competitor announces a hospitality-ops product at a national industry event in month 24. They have 200 existing client relationships. SOPHI has 8 SOPHI 6 properties with less than 12 months of data. The prospect conversation shifts from 'what is this' to 'why not the incumbent' — and SOPHI's answer takes another year of ramp to be defensible.",
+      milestone:"10 properties on SOPHI OS with ≥ 12 months of operational data",
+      milestoneDetail:"Ten operated SOPHI 6 properties on the full operating-moat stack with 12 continuous months of data each — a dataset a new entrant cannot replicate without years of runway.",
       metrics:[
-        {label:"Data depth per site",target:"≥ 10,000 shift records per site at 12 months",honest:"Data moats require data density. 10K records is the floor for dispatch intelligence to outperform human intuition."},
+        {label:"Data depth per property",target:"≥ 10,000 shift records per property at 12 months",honest:"Data moats require data density. 10K records is the floor for the Learning OS loop to outperform human intuition."},
         {label:"Playbook completeness",target:"≥ 25 documented SOPs per role",honest:"If playbooks live in Joshua's head, there's no moat — there's institutional knowledge held by one person."},
-        {label:"Client integration depth",target:"≥ 70% of licensed clients have Hub integrated into existing workflow tools",honest:"API integrations are the strongest switching cost. Without them, Hub is always replaceable."},
-        {label:"Competitive win rate",target:"Track from first competitive deal forward",honest:"You don't have competitive data yet. The milestone is building the tracking mechanism."}
+        {label:"Cross-property Hub coverage",target:"100% of SOPHI 6 properties logging in the Hub daily",honest:"Uneven adoption creates uneven data. Uneven data doesn't compound into a moat."},
+        {label:"Competitive win rate",target:"Track from first competitive deal forward",honest:"We don't have competitive data yet. The milestone is building the tracking mechanism now, not the win rate itself."}
       ],
-      sophiOS:"The Axiom's Transparency of Obsolescence is itself a moat element. The philosophical coherence of the SOPHI system isn't copyable by deploying software — you'd have to copy the culture, which means the people.",
-      sophiOSCritique:"Philosophical moats are real but slow to become material. Near-term defensibility is execution-based — you have to move fast enough that competitors are always catching up."},
+      moatsHelp:"<strong>Cost OS</strong> is what makes the competitive-window race winnable on hospitality margins: we can afford to run at 10 properties on Hub economics while a competitor still has to justify the SaaS bill. <strong>Learning OS</strong> is the compounding advantage — every property-quarter of operational data teaches the recursive loop, and by month 24 that data is the moat, not the Hub itself.",
+      moatsGap:"None of the four operating moats prevents a well-capitalized entrant from raising — they only make the entry more expensive and slower. The near-term insurance is execution speed: hit the 10-property/12-month threshold before a competitor makes a public commitment, so the diligence conversation is 'why not SOPHI' instead of 'why SOPHI too.'"},
 
-    {rank:9,cat:"Regulatory & labor",title:"Labor classification or wage law exposure",window:"Ongoing — accelerates at Series A",threat:"Medium",prob:38,color:"sky",
-      summary:"Valet operations are frequently scrutinized on tip pooling, worker classification, predictive scheduling, and minimum wage by jurisdiction. As SOPHI enters new markets, legal surface area compounds. Series A diligence will surface this.",
-      honest:"Most hospitality operators don't think about this until they're served a demand letter. Labor class actions are common, often class-certified, and expensive even when you win.",
-      ifWrong:"SOPHI launches in a new state without jurisdiction-specific wage counsel. An employee files a tip pooling complaint. The state labor board opens an investigation. Series A diligence is 60 days away. Outside counsel says you can't give a clean legal representation yet.",
-      milestone:"Labor compliance framework verified by outside counsel in each market",
-      milestoneDetail:"Before any new market launch, a jurisdiction-specific labor review — classification, tip pooling, scheduling laws, minimum wage — is signed off by local employment counsel.",
+    {rank:9,cat:"Regulatory & labor",title:"Labor classification or wage law exposure in an acquisition market",window:"Ongoing · accelerates at R2",threat:"Medium",prob:35,color:"sky",
+      investor:"Valet operations draw plaintiff attention on tip pooling, worker classification, predictive scheduling, and minimum wage — all of which vary by jurisdiction. Every new SOPHI 6 market compounds the surface area of exposure, and R2 diligence will surface the compliance history of every market SOPHI has entered. The mitigation is jurisdiction-specific counsel review before market entry, not after a demand letter arrives.",
+      summary:"Valet operations are frequently scrutinized on tip pooling, worker classification, predictive scheduling, and minimum wage. Each of the SOPHI 6 markets has its own jurisdictional stack; some (Charlotte, Louisville) are relatively straightforward, others (Denver, Phoenix) have specific predictive-scheduling and paid-sick-leave regimes that add real compliance surface. Legal exposure compounds with property count, not just employee count.",
+      honest:"Most hospitality operators don't think about this until they're served a demand letter. Labor class actions are common, often class-certified, and expensive even when you win. The disciplined operator pattern is retained local counsel per active jurisdiction plus a Hub-based audit trail; the undisciplined pattern is discovering exposure during Series A diligence.",
+      ifWrong:"SOPHI enters Phoenix without jurisdiction-specific wage counsel. An employee files a predictive-scheduling complaint. The state labor board opens an investigation. R2 diligence is 60 days out. Outside counsel says a clean labor representation isn't producible in time, and R2 close pushes a quarter while the review completes.",
+      milestone:"Labor compliance framework verified by outside counsel in each SOPHI 6 market before entry",
+      milestoneDetail:"Before any new market launch, a jurisdiction-specific labor review — classification, tip pooling, scheduling laws, paid-sick-leave requirements, minimum wage — is signed off by local employment counsel and mirrored in a Hub-based compliance checklist.",
       metrics:[
         {label:"Compliance review completion",target:"100% of new markets reviewed before first shift",honest:"This is binary. There's no 80% compliant."},
-        {label:"Wage complaint rate",target:"Zero formal wage claims against SOPHI entities",honest:"Zero complaints ≠ zero risk. Proactive audits are more reliable than complaint tracking."},
-        {label:"Retainer coverage",target:"Standing labor counsel in each active state",honest:"One-time reviews go stale as laws change."},
-        {label:"Series A diligence readiness",target:"Clean labor rep producible in 24 hours",honest:"Investors will ask. Having it ready signals operational maturity."}
+        {label:"Wage complaint rate",target:"Zero formal wage claims against SOPHI entities",honest:"Zero complaints ≠ zero risk. Proactive audits are more reliable signals than complaint tracking."},
+        {label:"Retainer coverage",target:"Standing labor counsel in each active state",honest:"One-time reviews go stale as laws change. Quarterly counsel review is the honest floor."},
+        {label:"R2 diligence readiness",target:"Clean labor rep producible in 24 hours",honest:"Investors will ask. Having it ready signals operational maturity; not having it signals the opposite."}
       ],
-      sophiOS:"Hub's scheduling and dispatch intelligence creates an audit trail for scheduling practices — break law adherence, overtime tracking. Defensive legal value most operators don't realize they're generating.",
-      sophiOSCritique:"Hub creates records, not compliance. If scheduling decisions being logged are non-compliant, Hub is documenting the violation, not preventing it. Records are a liability if practices aren't already sound."},
+      moatsHelp:"<strong>Human OS</strong> creates the audit trail: Hub scheduling and shift logging give plaintiff's counsel and internal counsel the same timestamped record, which is a defensive posture most operators don't realize they're generating. <strong>Learning OS</strong> keeps compliance drift from becoming a pattern — an SDR submission compliance drop is a Learning OS trigger with a 14-day remediation window.",
+      moatsGap:"The Hub creates records, not compliance. If scheduling decisions being logged are non-compliant, the Hub is documenting the violation, not preventing it. Records are a liability if practices aren't already sound — counsel review before market entry is the discipline that makes the Hub audit trail an asset instead of an exhibit."},
 
-    {rank:10,cat:"Founder resilience",title:"Founder bandwidth collapses across three domains",window:"Months 0–24",threat:"High",prob:70,color:"peach",
-      summary:"Joshua is simultaneously a quota-carrying CoStar professional, the founder/CEO of a scaling company, and a present parent. This is not sustainable at current intensity beyond 18–24 months without a structural change to one domain. The one that always gives is SOPHI.",
-      honest:"This is the most personal risk and the hardest to measure. Founder burnout doesn't announce itself — it shows up as slower decisions, missed follow-ups, reduced creativity. SOPHI's vision requires a fully invested founder. Right now that's structurally impossible.",
-      ifWrong:"SOPHI misses two consecutive strategic windows because decisions waited on Joshua. A key hire who was excited goes cold during a 3-week response lag. Bryce makes an architectural decision he shouldn't have had to make alone. The company drifts from the Axiom because the person who carries it is spread too thin to reinforce it.",
-      milestone:"SOPHI has a full-time leader not dependent on divided founder attention",
-      milestoneDetail:"Either Joshua transitions out of CoStar with SOPHI revenue covering the gap, OR SOPHI has a COO/GM running day-to-day ops — before month 24.",
+    {rank:10,cat:"Founder resilience",title:"Founder bandwidth collapses across three domains",window:"Months 0–18",threat:"High",prob:65,color:"peach",
+      investor:"The most personal risk in the deal and the hardest to measure. Joshua is simultaneously a quota-carrying CoStar professional, the founder of a scaling company, and a present parent — a structure that is not sustainable at current intensity beyond 18 months. R1 refinance timing exists partly to resolve this: R1 committed capital enables the CoStar transition and lets Joshua be full-time on SOPHI before R2 diligence begins.",
+      summary:"Joshua is simultaneously a quota-carrying CoStar professional, the founder of a scaling company, and a present parent. This is not sustainable at current intensity beyond 18 months without a structural change to at least one of those three domains — and historically, the one that gives is SOPHI. R1 refinance is the mechanism that makes the CoStar transition financially defensible; the risk is what happens if R1 is delayed and the structure has to hold longer than modeled.",
+      honest:"This is the most personal risk and the hardest to measure. Founder burnout doesn't announce itself — it shows up as slower decisions, missed follow-ups, reduced creativity. SOPHI's growth ambition requires a fully invested founder. Right now that's structurally impossible, and every quarter the structure holds is a quarter of latent operating risk none of the other moats can absorb.",
+      ifWrong:"SOPHI misses two consecutive strategic windows because decisions waited on Joshua. A key hire who was excited goes cold during a 3-week response lag. Bryce makes a Hub architectural decision he shouldn't have had to make alone. The company drifts from its operating standard because the person who carries it is spread too thin to reinforce it. R2 diligence surfaces this as 'the founder isn't full-time yet.'",
+      milestone:"Joshua transitions to full-time SOPHI within 90 days of R1 close",
+      milestoneDetail:"R1 committed capital funds the CoStar transition; Joshua is full-time on SOPHI within 90 days of R1 close, and 100% of decision-blocking backlog clears within the same window.",
       metrics:[
-        {label:"SOPHI revenue coverage of personal income",target:"≥ 80% replacement before CoStar exit",honest:"Don't leave at 60% coverage hoping the rest materializes. Financial stress becomes a founder performance issue."},
-        {label:"Hours/week on SOPHI",target:"Track honestly now; target 30+ by month 18",honest:"The current number is probably 15–20 across evenings and weekends. That's not enough."},
-        {label:"Decision backlog",target:"< 5 open decisions awaiting founder input",honest:"Decision backlog is the earliest quantifiable signal of bandwidth collapse."},
-        {label:"Grace calendar protection rate",target:"100% — always",honest:"Not a business metric. A life metric. A present parent makes better long-term decisions."}
+        {label:"SOPHI compensation vs. personal income floor",target:"≥ 80% replacement before CoStar exit",honest:"Don't transition at 60% coverage hoping the rest materializes. Financial stress becomes a founder performance issue."},
+        {label:"Hours/week on SOPHI",target:"≥ 40 hours by month 6 post-R1",honest:"Current baseline is roughly 15–20 across evenings and weekends. Doubling that is table stakes for what R2 will need to see."},
+        {label:"Decision backlog",target:"< 5 open decisions awaiting founder input at any time",honest:"Decision backlog is the earliest quantifiable signal of bandwidth collapse. Track it weekly."},
+        {label:"Family calendar protection rate",target:"100% — always",honest:"Not a business metric. A life metric. A present parent makes better long-term decisions, and the discipline of protecting the family calendar is what proves the transition is real rather than notional."}
       ],
-      sophiOS:"Every process systematized, every manager empowered by Hub, every playbook written — reduces the surface area where Joshua is the only answer. The OS is also a founder leverage tool.",
-      sophiOSCritique:"The OS can't be built fast enough to solve the bandwidth problem it's supposed to solve. That's the paradox. Something has to give — and honestly it's probably CoStar, sooner than feels comfortable."}
+      moatsHelp:"<strong>Human OS</strong> is the founder-leverage moat: every cross-pillar automation on the Hub is a Joshua decision the system now handles unassisted, so his marginal hour on SOPHI compounds instead of firefighting. <strong>Learning OS</strong> extends that leverage — as the recursive loop starts firing on Charlotte KPIs, Joshua is not the escalation path for capture-rate drift or claim-rate spikes.",
+      moatsGap:"The moats can't be built fast enough to solve the bandwidth problem they're supposed to solve. Something has to give structurally, and the most honest answer is CoStar — sooner than feels comfortable and financed by R1 rather than deferred to R2."}
   ];
 
   const threatChip = {
@@ -246,11 +256,12 @@
         <button class="subtab active" data-detail="the-risk">The risk</button>
         <button class="subtab" data-detail="if-wrong">If we're wrong</button>
         <button class="subtab" data-detail="milestone">Milestone</button>
-        <button class="subtab" data-detail="os">OS assessment</button>
+        <button class="subtab" data-detail="moats">Moat impact</button>
       </div>
 
       <section class="subtab-panel active" data-dpanel="the-risk">
-        <div class="risk-block"><div class="rb-eyebrow">Summary</div><p>${r.summary}</p></div>
+        <div class="risk-block mint"><div class="rb-eyebrow" style="color:#437A22;">Investor summary</div><p>${r.investor}</p></div>
+        <div class="risk-block"><div class="rb-eyebrow">Operator read</div><p>${r.summary}</p></div>
         <div class="risk-block accent"><div class="rb-eyebrow" style="color:var(--blue-ink);">Honest take</div><p>${r.honest}</p></div>
       </section>
 
@@ -276,9 +287,9 @@
         `).join('')}
       </section>
 
-      <section class="subtab-panel" data-dpanel="os">
-        <div class="risk-block accent"><div class="rb-eyebrow" style="color:var(--blue-ink);">Where the OS helps</div><p>${r.sophiOS}</p></div>
-        <div class="risk-block rose"><div class="rb-eyebrow">Where it doesn't</div><p>${r.sophiOSCritique}</p></div>
+      <section class="subtab-panel" data-dpanel="moats">
+        <div class="risk-block accent"><div class="rb-eyebrow" style="color:var(--blue-ink);">Where the moats help</div><p>${r.moatsHelp}</p></div>
+        <div class="risk-block rose"><div class="rb-eyebrow">What the moats don't solve</div><p>${r.moatsGap}</p></div>
       </section>
     `;
     detail.querySelectorAll('.subtab').forEach(btn => {
