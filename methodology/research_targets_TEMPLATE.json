@@ -1,0 +1,63 @@
+{
+  "$schema_notes": {
+    "purpose": "One JSON object per account. Batch-load per market. TAM is left null at target-creation time and computed by the ingest pipeline in Step 4 of the playbook (see sophi_tam_rerun_playbook.md).",
+    "field_rules": {
+      "name": "string, REQUIRED. Must match the WAS_Scoring sheet spelling exactly. Do not abbreviate.",
+      "type": "enum, REQUIRED. One of: Hotel, Restaurant, Hospital, Venue, Casino, Airport, Commercial. Only Hotel and Restaurant contribute to TAM.",
+      "tam": "number or null. Leave null at target-creation time; the ingest computes it.",
+      "rooms": "integer or null. Hotels only. Total room count.",
+      "seats": "integer or null. Restaurants only. Total seat capacity.",
+      "area": "string, REQUIRED. Submarket name (e.g., 'Downtown', 'Cherry Creek', 'Scottsdale', 'Mass Ave'). Drives the downtown-vs-suburban tier split.",
+      "address": "string, REQUIRED. Full street address.",
+      "mgmt": "string. Brand-management company (White Lodging, Aimbridge, Pyramid Global, HEI, Highgate, StepStone, etc.). Empty if owner-operated or brand-managed by the flag itself.",
+      "known_valet_op": "string or null. If known, format as 'OperatorName [source](https://...)'. If unknown at target-creation, leave null and fill during operator research (Step 2)."
+    },
+    "delete_this_key_before_ingest": true
+  },
+  "targets": [
+    {
+      "name": "JW Marriott Nashville",
+      "type": "Hotel",
+      "tam": null,
+      "rooms": 533,
+      "seats": null,
+      "area": "Downtown",
+      "address": "201 8th Ave S, Nashville, TN 37203",
+      "mgmt": "White Lodging",
+      "known_valet_op": "Towne Park [source](https://linkedin.com/in/example-valet-jw-nashville)"
+    },
+    {
+      "name": "Hutton Hotel",
+      "type": "Hotel",
+      "tam": null,
+      "rooms": 250,
+      "seats": null,
+      "area": "Midtown",
+      "address": "1808 West End Ave, Nashville, TN 37203",
+      "mgmt": "Amerimar Enterprises",
+      "known_valet_op": null
+    },
+    {
+      "name": "The Palm Nashville",
+      "type": "Restaurant",
+      "tam": null,
+      "rooms": null,
+      "seats": 220,
+      "area": "Downtown",
+      "address": "140 5th Ave S, Nashville, TN 37203",
+      "mgmt": "Landry's Inc",
+      "known_valet_op": null
+    },
+    {
+      "name": "Ruth's Chris Steak House - Nashville",
+      "type": "Restaurant",
+      "tam": null,
+      "rooms": null,
+      "seats": 280,
+      "area": "Downtown",
+      "address": "2100 West End Ave, Nashville, TN 37203",
+      "mgmt": "Ruth's Hospitality Group",
+      "known_valet_op": null
+    }
+  ]
+}

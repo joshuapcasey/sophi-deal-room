@@ -1,0 +1,20 @@
+Account,Submarket,Mgmt Company,Valet Operator,Valet Op Type,Parking Bundled?,Structural Pool,Confidence,Sources
+# SCHEMA NOTES (delete this comment row before ingest):
+# Account: must match research_targets.json "name" exactly
+# Submarket: matches research_targets.json "area"
+# Mgmt Company: brand-mgmt company (White Lodging / Aimbridge / Pyramid / HEI / Highgate / StepStone / etc.)
+# Valet Operator canonical values: Towne Park | LAZ Parking | SP+ | Ace Parking | Impark | Propark | AAA Parking | Reimagined Parking | Republic Parking | Five Star Parking | ABM | REEF | Premier Parking | Elite Management Services | Peak Parking | Denison Parking | Parking Management Company | in-house | none | unknown
+# Valet Op Type: in-house | regional-3PV | enterprise-3PV | bundled-preferred | unknown
+# Parking Bundled?: yes | no | unknown  (yes -> partnership pool candidate)
+# Structural Pool (assign in Step 6 precedence order): micro | extended-stay | enterprise | partnership | cold-sam | unknown
+#   Precedence: micro (TAM<$150k) -> extended-stay (Home2/Homewood/Hyatt House/SpringHill/Element) -> enterprise (LAZ/SP+/Towne Park/Ace/Impark) -> partnership (bundled=yes) -> cold-sam (everything else)
+# Confidence: high | med | low
+#   high = operator confirmed via hotel parking page, operator career site, or LinkedIn "Valet Attendant at [Hotel]"
+#   med  = brand-mgmt pattern inference + one soft source
+#   low  = market-pattern guess, no direct evidence
+# Sources: comma-separated markdown links inside the CSV cell; wrap the whole cell in double quotes.
+JW Marriott Nashville,Downtown,White Lodging,Towne Park,enterprise-3PV,no,enterprise,high,"[LinkedIn](https://linkedin.com/in/example-valet-jw-nashville), [Towne Park careers](https://townepark.com/careers/nashville)"
+Hutton Hotel,Midtown,Amerimar Enterprises,in-house,in-house,no,cold-sam,med,"[Hotel parking page](https://huttonhotel.com/parking), [TripAdvisor Q&A 2026](https://tripadvisor.com/…)"
+The Palm Nashville,Downtown,Landry's Inc,none,none,no,cold-sam,med,"[Restaurant website](https://thepalm.com/nashville), [Google reviews Aug 2026](https://google.com/…)"
+Ruth's Chris Steak House - Nashville,Downtown,Ruth's Hospitality Group,Elite Management Services,regional-3PV,no,cold-sam,high,"[Elite website](https://elitemanagement.com/portfolio), [LinkedIn](https://linkedin.com/…)"
+Homewood Suites Nashville Downtown,Downtown,Hilton (brand-mgmt),unknown,unknown,unknown,extended-stay,low,"[Brand parking page](https://hilton.com/…)"

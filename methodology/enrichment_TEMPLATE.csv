@@ -1,0 +1,25 @@
+name,market,address,valet_operator_raw,valet_operator,valet_operator_evidence,valet_rate_daily,self_park_rate_daily,rate_evidence,garage_operator,brand_or_flag,management_company,ownership_group,rooms_or_seats,confidence,sources
+# SCHEMA NOTES (delete this comment row before ingest):
+# This is the rate + evidence file. Feeds the v3 ingest at enrichment/enriched_csvs/<market>_enrichment.csv
+# name: matches research_targets.json "name" and operator_research.csv "Account"
+# market: lowercase, hyphenated (nashville / raleigh-durham / fort-lauderdale / saint-louis / fort-wayne)
+# valet_operator_raw: what the source called it (e.g., "valet parking available", "in house")
+# valet_operator: canonical name (see operator_research_TEMPLATE.csv header for the enum)
+# valet_operator_evidence: direct quote or paraphrase + source URL. Use "not_verified" if unsourced.
+# valet_rate_daily: number only, no $ sign. Empty if unknown or no valet.
+# self_park_rate_daily: number only. Empty if unknown or no self-park option.
+# rate_evidence: source URL + quote (hotel website / TripAdvisor / ParkMe / SpotHero / recent guest review). "not_verified" if unsourced.
+# Rate sourcing ladder: (1) hotel parking/FAQ page (2) brand parking page (3) aggregators ParkWhiz/SpotHero/BestParking/ParkMe (4) guest reviews last 12mo (5) direct call
+# Rate fallback tiers (last resort, flag as low): downtown lux/convention $55 | downtown FS $45 | downtown SS $35 | suburban FS $30 | suburban SS $22 | steakhouse/fine-dining $18
+# garage_operator: if the self-park garage is run by a separate operator (often LAZ or SP+). Empty if same as valet operator.
+# brand_or_flag: hotel brand + sub-brand (Marriott Autograph Collection, Hyatt Regency, etc.) or "independent luxury hotel". Empty for restaurants.
+# management_company: third-party mgmt if any (Pyramid Global, Aimbridge, HEI, Interstate, Crescent, Highgate, White Lodging, StepStone). Empty if brand-managed or owner-operated.
+# ownership_group: REIT or asset owner (Pebblebrook, Sunstone, Park Hotels, Host, RLJ, Apple Hospitality, Starwood Capital, Blackstone). Empty if unknown.
+# rooms_or_seats: updated room count for hotels or seat count for restaurants IF better data found. Empty if no update from research_targets.json.
+# confidence: high | medium | low
+# sources: comma-separated markdown links; wrap the cell in double quotes.
+JW Marriott Nashville,nashville,"201 8th Ave S, Nashville, TN 37203",towne park,Towne Park,"White Lodging-managed downtown Marriott full-service; LinkedIn shows Towne Park valet supervisor employed at property ([LinkedIn](https://linkedin.com/in/example))",65,45,"JW Marriott Nashville official parking page: '$65 overnight valet, $45 self-park' ([Hotel parking](https://marriott.com/hotels/travel/bnajw-jw-marriott-nashville/parking))",,Marriott / JW Marriott,White Lodging,Turnberry Associates,533,high,"[Hotel parking](https://marriott.com/hotels/travel/bnajw-jw-marriott-nashville/parking), [LinkedIn](https://linkedin.com/in/example)"
+Hutton Hotel,nashville,"1808 West End Ave, Nashville, TN 37203",valet parking available,in_house,"Hutton Hotel FAQ describes valet as a hotel service with no third-party operator mentioned ([Hotel FAQ](https://huttonhotel.com/faq))",42,28,"Hotel FAQ: 'Valet parking is available at $42/night, self-park $28/night' ([Hotel FAQ](https://huttonhotel.com/faq))",,independent boutique,Amerimar Enterprises,,250,high,"[Hotel FAQ](https://huttonhotel.com/faq)"
+The Palm Nashville,nashville,"140 5th Ave S, Nashville, TN 37203",none,none,"Restaurant sits inside a mixed-use development with no dedicated valet stand; parking directions point guests to a nearby paid garage ([Restaurant website](https://thepalm.com/nashville))",,,not_verified,,,Landry's Inc,,220,high,"[Restaurant website](https://thepalm.com/nashville)"
+Ruth's Chris Steak House - Nashville,nashville,"2100 West End Ave, Nashville, TN 37203",valet available,Elite Management Services,"Elite Management Services portfolio page lists Ruth's Chris West End location among managed accounts ([Elite portfolio](https://elitemanagement.com/portfolio))",22,,"Google reviews Aug 2026 confirm $22 valet fee at dinner service ([Google reviews](https://google.com/maps/place/ruthschris-nashville))",,Ruth's Chris,Ruth's Hospitality Group,,280,high,"[Elite portfolio](https://elitemanagement.com/portfolio), [Google reviews](https://google.com/maps/place/ruthschris-nashville)"
+Homewood Suites Nashville Downtown,nashville,"706 Church St, Nashville, TN 37203",unknown,unknown,not_verified,,,not_verified,,Hilton / Homewood Suites,Hilton (brand-mgmt),,,low,not_verified
