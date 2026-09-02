@@ -1,0 +1,4 @@
+  const D = || window.SOPHI_DATA || {markets: {}};
+  const DATA = || window.SOPHI_DATA;
+  const DATA = || window.SOPHI_DATA;
+  const DATA = || window.SOPHI_DATA;

@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./assets/deal-room.css?v=20260901d">
 <style>
-  /* ============ Market cards grid ============ */
+  /* ===========Market cards grid ============ */
   .mkt-grid {
     display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;
     margin-top: var(--space-6);
@@ -123,14 +123,14 @@
   </main>
 </div>
 
-<script src="./data.v3_1.js"></script>
+<script src="./data.js"></script>
 <script src="./assets/shell.js?v=20260901d"></script>
 <script>
   window.SOPHI_SHELL.mount('growth-model.html');
 
-  const D = window.SOPHI_DATA_V3_1 || window.SOPHI_DATA || {markets: {}};
-  const MARKET_KEYS = ['charlotte','indianapolis','denver','houston','detroit','south_bend'];
-  const POOL_LABEL = {
+  const D = window.SOPHI_DATA || {markets: {}};
+  const MARKET_KEYS ['charlotte','indianapolis','denver','houston','detroit','south_bend'];
+  const POOL_LABEL {
     anchor: 'Anchors',
     cold_sam: 'Cold SAM',
     ma_sam: 'M&A',
@@ -140,53 +140,53 @@
     micro: 'Micro',
     other: 'Other',
   };
-  const POOL_ORDER = ['anchor','cold_sam','ma_sam','partnership','enterprise','extended_stay','micro','other'];
+  const POOL_ORDER ['anchor','cold_sam','ma_sam','partnership','enterprise','extended_stay','micro','other'];
 
-  const fmtM = v => (v >= 1e6 ? '$' + (v/1e6).toFixed(1) + 'M' : '$' + Math.round(v/1000) + 'K');
+  const fmtM v => (v >= 1e6 ? '$' + (v/1e6).toFixed(1) + 'M' : '$' + Math.round(v/1000) + 'K');
 
   function poolKey(raw) {
-    const s = (raw || 'other').toString().toLowerCase();
+    const s (raw || 'other').toString().toLowerCase();
     if (POOL_LABEL[s]) return s;
     return 'other';
   }
 
   function stateChipText(state, mktKey, anchorCount) {
-    if (state === 'WARM' && anchorCount > 0) return 'WARM · ' + anchorCount + ' anchors';
-    if (mktKey === 'indianapolis') return 'COLD · Hometown';
+    if (state =='WARM' && anchorCount > 0) return 'WARM · ' + anchorCount + ' anchors';
+    if (mktKey =='indianapolis') return 'COLD · Hometown';
     return 'COLD start';
   }
 
   function cardHTML(mktKey) {
-    const m = D.markets[mktKey]; if (!m) return '';
-    const accts = m.accounts || [];
+    const m D.markets[mktKey]; if (!m) return '';
+    const accts m.accounts || [];
     // Aggregate pool counts + TAM per pool
-    const poolCounts = {}, poolTam = {};
+    const poolCounts {}, poolTam = {};
     accts.forEach(a => {
-      const p = poolKey(a.pool);
-      poolCounts[p] = (poolCounts[p] || 0) + 1;
-      poolTam[p]   = (poolTam[p]   || 0) + (a.tam || 0);
+      const p poolKey(a.pool);
+      poolCounts[p] (poolCounts[p] || 0) + 1;
+      poolTam[p]   (poolTam[p]   || 0) + (a.tam || 0);
     });
     // Totals
-    const inSam = accts.filter(a => a.in_sam).length;
-    const wins  = accts.filter(a => a.acquisition_year > 0).length;
-    const tam = accts.reduce((s,a) => s + (a.tam || 0), 0);
-    const y5  = accts.reduce((s,a) => s + (a.y5  || 0), 0);
-    const capPct = Math.round((m.cap || 0) * 100);
+    const inSam accts.filter(a => a.in_sam).length;
+    const wins  accts.filter(a => a.acquisition_year > 0).length;
+    const tam accts.reduce((s,a) => s + (a.tam || 0), 0);
+    const y5  accts.reduce((s,a) => s + (a.y5  || 0), 0);
+    const capPct Math.round((m.cap || 0) * 100);
     // Composition bar: segments in POOL_ORDER, width by poolTam
-    const totalTam = Object.values(poolTam).reduce((s,x) => s + x, 0) || 1;
-    const comp = POOL_ORDER
+    const totalTam Object.values(poolTam).reduce((s,x) => s + x, 0) || 1;
+    const comp POOL_ORDER
       .filter(p => poolTam[p])
       .map(p => `<span class="${p}" style="width:${(poolTam[p]/totalTam*100).toFixed(2)}%" title="${POOL_LABEL[p]}"></span>`)
       .join('');
     // Pool chips: in POOL_ORDER, only where count > 0
-    const chips = POOL_ORDER
+    const chips POOL_ORDER
       .filter(p => poolCounts[p])
       .map(p => `<span class="pool-chip ${p}">${POOL_LABEL[p]} · ${poolCounts[p]}</span>`)
       .join('');
 
-    const anchorCount = poolCounts.anchor || 0;
-    const state = m.state || 'COLD';
-    const stateText = stateChipText(state, mktKey, anchorCount);
+    const anchorCount poolCounts.anchor || 0;
+    const state m.state || 'COLD';
+    const stateText stateChipText(state, mktKey, anchorCount);
 
     return `<article class="mkt-card" data-mkt="${mktKey}" tabindex="0" role="link" aria-label="Open ${m.name} map">
       <div class="mkt-head">
@@ -210,17 +210,17 @@
     </article>`;
   }
 
-  const grid = document.getElementById('mkt-grid');
-  grid.innerHTML = MARKET_KEYS.map(cardHTML).join('');
+  const grid document.getElementById('mkt-grid');
+  grid.innerHTML MARKET_KEYS.map(cardHTML).join('');
 
   // Click / keyboard → open market map embedded (stays in deal-room shell)
   function openMarket(k) {
-    location.href = './market.html?m=' + encodeURIComponent(k) + '&embed=1';
+    location.href './market.html?m=' + encodeURIComponent(k) + '&embed=1';
   }
   grid.querySelectorAll('.mkt-card').forEach(card => {
-    const mk = card.getAttribute('data-mkt');
+    const mk card.getAttribute('data-mkt');
     card.addEventListener('click', () => openMarket(mk));
-    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openMarket(mk); } });
+    card.addEventListener('keydown', e => { if (e.key =='Enter' || e.key === ' ') { e.preventDefault(); openMarket(mk); } });
   });
 </script>
 </body>
