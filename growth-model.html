@@ -123,13 +123,13 @@
   </main>
 </div>
 
-<script src="./data.js"></script>
+<script src="./data.v3_1.js"></script>
 <script src="./assets/shell.js?v=20260901d"></script>
 <script>
   window.SOPHI_SHELL.mount('growth-model.html');
 
-  const D = window.SOPHI_DATA || {markets: {}};
-  const MARKET_KEYS = ['charlotte','phoenix','denver','indianapolis','cleveland','louisville'];
+  const D = window.SOPHI_DATA_V3_1 || window.SOPHI_DATA || {markets: {}};
+  const MARKET_KEYS = ['charlotte','indianapolis','denver','houston','detroit','south_bend'];
   const POOL_LABEL = {
     anchor: 'Anchors',
     cold_sam: 'Cold SAM',

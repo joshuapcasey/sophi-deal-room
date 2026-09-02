@@ -1,9 +1,9 @@
 /* Sophi Mobility v3 — landing page logic */
 (function() {
-  const DATA = window.SOPHI_DATA;
+  const DATA = window.SOPHI_DATA_V3_1 || window.SOPHI_DATA;
   if (!DATA) { console.error('SOPHI_DATA missing'); return; }
 
-  const MARKET_ORDER = ['charlotte', 'phoenix', 'denver', 'indianapolis', 'cleveland', 'louisville'];
+  const MARKET_ORDER = ['charlotte', 'indianapolis', 'denver', 'houston', 'detroit', 'south_bend'];
 
   // ---- Hero totals (v3: read from portfolio block) -------------------------
   const P = DATA.portfolio || {};

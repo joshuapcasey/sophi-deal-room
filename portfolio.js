@@ -1,21 +1,21 @@
 /* Sophi Mobility v3 — Portfolio Financial Rollup */
 (function() {
-  const DATA = window.SOPHI_DATA;
+  const DATA = window.SOPHI_DATA_V3_1 || window.SOPHI_DATA;
   if (!DATA) { console.error('SOPHI_DATA missing'); return; }
 
-  const MARKET_ORDER = ['charlotte','phoenix','denver','indianapolis','cleveland','louisville'];
+  const MARKET_ORDER = ['charlotte','indianapolis','denver','houston','detroit','south_bend'];
   const MARKET_LABEL = {
-    charlotte:'Charlotte', phoenix:'Phoenix', denver:'Denver',
-    indianapolis:'Indianapolis', cleveland:'Cleveland', louisville:'Louisville'
+    charlotte:'Charlotte', indianapolis:'Indianapolis', denver:'Denver',
+    houston:'Houston', detroit:'Detroit', south_bend:'South Bend'
   };
   // Distinct color per market for the stacked chart (independent of pool colors)
   const MARKET_COLOR = {
     charlotte:    '#7C3AED', // violet (warm)
-    phoenix:      '#DB2777', // pink
+    indianapolis: '#D97706', // amber — hometown
     denver:       '#0891B2', // teal — denver is the giant
-    indianapolis: '#D97706', // amber — v7
-    cleveland:    '#059669', // emerald
-    louisville:   '#2563EB'  // blue
+    houston:      '#DB2777', // pink — new Q2 2027 (G&G anchor)
+    detroit:      '#059669', // emerald — new Q3 2027 (G&G anchor)
+    south_bend:   '#2563EB'  // blue — new (Courtyard SB anchor)
   };
   const POOL_LABEL = {
     anchor:'Anchor (SOPHI-already)', cold_sam:'Cold SAM', ma_sam:'M&A SAM (Indy v7)'

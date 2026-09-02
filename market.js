@@ -1,10 +1,15 @@
 /* Sophi Mobility — market view (v3 penetration engine) */
 (function() {
   'use strict';
-  const DATA = window.SOPHI_DATA;
+  const DATA = window.SOPHI_DATA_V3_1 || window.SOPHI_DATA;
   if (!DATA) { console.error('SOPHI_DATA missing'); return; }
 
-  const MARKET_ORDER = ['charlotte', 'phoenix', 'denver', 'indianapolis', 'cleveland', 'louisville'];
+  const MARKET_ORDER = ['charlotte', 'indianapolis', 'denver', 'houston', 'detroit', 'south_bend'];
+
+  // Defensive: hide any market tagged Expansion Growth Model from the map view.
+  function isAcquisitionMarket(mkt) {
+    return mkt && mkt.growth_model !== 'expansion';
+  }
 
   const POOL_LABEL = {
     anchor:        'Anchor',
@@ -26,7 +31,7 @@
   // ---- Resolve active market from ?m= query param -------------------------
   const params = new URLSearchParams(location.search);
   let mKey = (params.get('m') || 'charlotte').toLowerCase();
-  if (!DATA.markets[mKey]) mKey = 'charlotte';
+  if (!DATA.markets[mKey] || !isAcquisitionMarket(DATA.markets[mKey])) mKey = 'charlotte';
   const market = DATA.markets[mKey];
   const accounts = market.accounts;
   const summary = market.summary;
@@ -221,7 +226,15 @@
 
   // ---- Build map ---------------------------------------------------------
   const center = market.center || [-98, 39];
-  const zoom = mKey === 'phoenix' ? 9.7 : (mKey === 'denver' ? 10.3 : 11);
+  const ZOOM_BY_MARKET = {
+    charlotte: 11,
+    indianapolis: 11,
+    denver: 10.3,
+    houston: 10.5,
+    detroit: 10.5,
+    south_bend: 11.5,
+  };
+  const zoom = ZOOM_BY_MARKET[mKey] || 11;
 
   const map = new maplibregl.Map({
     container: 'map',
