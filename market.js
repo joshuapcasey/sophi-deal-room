@@ -242,17 +242,20 @@
       version: 8,
       glyphs: 'https://fonts.openmaptiles.org/{fontstack}/{range}.pbf',
       sources: {
-        'osm-raster': {
+        'carto-positron': {
           type: 'raster',
           tiles: [
-            'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
+            'https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
+            'https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
+            'https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
+            'https://d.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png'
           ],
           tileSize: 256,
           maxzoom: 19,
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
         }
       },
-      layers: [{ id: 'osm', type: 'raster', source: 'osm-raster' }]
+      layers: [{ id: 'basemap', type: 'raster', source: 'carto-positron' }]
     },
     center: center,
     zoom: zoom,
