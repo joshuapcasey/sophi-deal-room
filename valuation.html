@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght,ital@9..144,400;9..144,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./assets/deal-room.css?v=20260901d">
 <style>
-  .band-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: var(--space-6); }
+  .band-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: var(--space-6); }
   @media (max-width: 900px) { .band-grid { grid-template-columns: 1fr; } }
   .band-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-m); padding: 18px 20px; border-top: 3px solid var(--border); display: flex; flex-direction: column; gap: 10px; }
   .band-card.downside { border-top-color: #B25E2E; }
@@ -55,9 +55,9 @@
       </div>
       <div class="ph-body">
         <div class="ph-eyebrow">The Deal</div>
-        <h1 class="ph-title">Valuation.<br>Downside floor · Base case · Upside ceiling.</h1>
+        <h1 class="ph-title">Valuation.<br>Downside floor · Base case.</h1>
         <p class="ph-lede">
-          Three valuation anchors. Organic (Organic Growth Model — 5-yr P&amp;L) is the <strong>downside floor</strong> — what SOPHI is worth without the acquisition engine. Acquisition Growth Model SOM is the <strong>base case</strong> — what the current model produces. Expansion beyond six markets is the <strong>upside ceiling</strong>. All three feed the same deal.
+          Two valuation anchors. The <strong>Organic Growth Model</strong> is the downside floor — what SOPHI is worth without the acquisition engine firing. The <strong>Acquisition Growth Model</strong> is the base case — what the SOPHI Growth Engine produces across the SOPHI 6 with committed operator relationships. Both feed the same deal.
         </p>
       </div>
     </header>
@@ -66,11 +66,11 @@
       <strong>Advisor working file.</strong> This valuation feeds the two-tranche capital strategy on the <a href="./capital-strategy.html" style="color:#3D2A0A; font-weight:600; text-decoration:underline;">Capital Strategy</a> page. Round 1 (F&amp;F) is priced against the Organic Growth Valuation. Round 2 (Acquisition Seed) is priced against the Acquisition Growth Valuation. Open questions for the CFO/advisor conversation live on <a href="./advisor-questions.html" style="color:#3D2A0A; font-weight:600; text-decoration:underline;">Advisor Questions</a>.
     </div>
 
-    <div class="section-eyebrow">Three valuation anchors</div>
+    <div class="section-eyebrow">Two valuation anchors</div>
     <div class="band-grid">
       <div class="band-card downside">
         <div class="bc-eyebrow">Downside floor</div>
-        <h3>Organic — Organic Growth Model — 5-yr P&amp;L</h3>
+        <h3>Organic Growth Model</h3>
         <div class="bc-val">$12.43M</div>
         <div class="bc-sub">DCF equity value · end of 2031. Current playbook, current geographies, no acquisitions, no new streams.</div>
         <ul class="bc-list">
@@ -80,30 +80,19 @@
         </ul>
       </div>
       <div class="band-card base">
-        <div class="bc-eyebrow">Base case · Acquisition Growth Valuation</div>
-        <h3>Acquisition Growth Model — SOPHI 6 with operator acquisitions</h3>
+        <div class="bc-eyebrow">Base case</div>
+        <h3>Acquisition Growth Model · SOPHI 6</h3>
         <div class="bc-val">$38.88M</div>
         <div class="bc-sub">DCF equity value · end of 2031. 134 named accounts, 77 in SAM, 34 won by Y5 through operator gates and market caps.</div>
         <ul class="bc-list">
           <li>2031 revenue: $31.04M · $75.5M cumulative Y1–Y5</li>
           <li>+ SMS ad layer: $50.47M equity, $9.46M Y5 ad revenue</li>
-          <li>2.9× step-up from organic floor</li>
-        </ul>
-      </div>
-      <div class="band-card upside">
-        <div class="bc-eyebrow">Upside ceiling · placeholder</div>
-        <h3>Expansion beyond six markets</h3>
-        <div class="bc-val">~$75M</div>
-        <div class="bc-sub">Illustrative — awaiting advisor input on which additional markets, timeline, and gate discipline apply. See <a href="./advisor-questions.html" style="color:#437A22; font-weight:600;">Advisor Questions #3</a>.</div>
-        <ul class="bc-list">
-          <li>Draft: SOPHI Growth Engine extended to 8–10 markets</li>
-          <li>Same gate/cap discipline, additional operator relationships</li>
-          <li>Not the underwriting target — the ceiling for Round 2 narrative</li>
+          <li>3.1× step-up from organic floor</li>
         </ul>
       </div>
     </div>
 
-    <div class="section-eyebrow">Acquisition Growth Model · SOPHI 6 revenue ramp · base case</div>
+    <div class="section-eyebrow">SOPHI 6 revenue ramp · base case</div>
     <div class="rev-ramp">
       <div class="rr-item"><div class="rr-year">2027 · Y1</div><div class="rr-val">$3.72M</div><div class="rr-ad">+$0 <span style="color:var(--text-faint); font-weight:500;">pre-gate</span></div><div class="rr-total">$3.72M total</div></div>
       <div class="rr-item"><div class="rr-year">2028 · Y2</div><div class="rr-val">$5.34M</div><div class="rr-ad">+$2.46M</div><div class="rr-total">$7.80M total</div></div>
@@ -144,11 +133,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>Downside — Organic Growth Valuation only</td><td class="num-col">$12.43M</td><td class="num-col">$9.73</td><td class="num-col">2.16×</td><td class="num-col" style="color:#B25E2E;">16.7%</td><td class="num-col" style="color:#B25E2E;">0.90×</td><td class="num-col" style="color:#B25E2E;">−2.6%</td></tr>
-            <tr class="highlight"><td><strong>Base case — Acquisition Growth Valuation (6 markets)</strong></td><td class="num-col">$38.88M</td><td class="num-col">$30.43</td><td class="num-col"><strong>6.76×</strong></td><td class="num-col"><strong>46.6%</strong></td><td class="num-col"><strong>2.82×</strong></td><td class="num-col"><strong>29.6%</strong></td></tr>
-            <tr><td>Acquisition Growth + SMS ad layer</td><td class="num-col">$50.47M</td><td class="num-col">$39.50</td><td class="num-col">8.78×</td><td class="num-col">54.4%</td><td class="num-col">3.66×</td><td class="num-col">38.3%</td></tr>
-            <tr><td>Acquisition Growth + acquisitions integrated (Indy + Denver)</td><td class="num-col">$55.00M</td><td class="num-col">$43.04</td><td class="num-col">9.56×</td><td class="num-col">56.9%</td><td class="num-col">3.99×</td><td class="num-col">41.3%</td></tr>
-            <tr class="highlight"><td><strong>Upside — expansion beyond 6 markets</strong></td><td class="num-col">$75.00M</td><td class="num-col">$58.70</td><td class="num-col"><strong>13.04×</strong></td><td class="num-col"><strong>67.0%</strong></td><td class="num-col"><strong>5.44×</strong></td><td class="num-col"><strong>52.6%</strong></td></tr>
+            <tr><td>Downside — Organic Growth Valuation</td><td class="num-col">$12.43M</td><td class="num-col">$9.73</td><td class="num-col">2.16×</td><td class="num-col" style="color:#B25E2E;">16.7%</td><td class="num-col" style="color:#B25E2E;">0.90×</td><td class="num-col" style="color:#B25E2E;">−2.6%</td></tr>
+            <tr class="highlight"><td><strong>Base case — Acquisition Growth Valuation</strong></td><td class="num-col">$38.88M</td><td class="num-col">$30.43</td><td class="num-col"><strong>6.76×</strong></td><td class="num-col"><strong>46.6%</strong></td><td class="num-col"><strong>2.82×</strong></td><td class="num-col"><strong>29.6%</strong></td></tr>
+            <tr><td>Base case + SMS ad layer</td><td class="num-col">$50.47M</td><td class="num-col">$39.50</td><td class="num-col">8.78×</td><td class="num-col">54.4%</td><td class="num-col">3.66×</td><td class="num-col">38.3%</td></tr>
           </tbody>
         </table>
         </div>
@@ -285,7 +272,7 @@
         <table class="data-table">
           <thead><tr><th>Metric</th><th class="num-col">Value</th><th>Rationale</th></tr></thead>
           <tbody>
-            <tr><td>2031 revenue</td><td class="num-col">$11.00M</td><td>the Organic Growth Model organic plan · 51.4% CAGR from $1.38M 2026 base</td></tr>
+            <tr><td>2031 revenue</td><td class="num-col">$11.00M</td><td>Organic Growth Model 5-year P&amp;L · 51.4% CAGR from $1.38M 2026 base</td></tr>
             <tr><td>Y5 EBIT margin</td><td class="num-col">25.0%</td><td>Middle of SOPHI observed operating band</td></tr>
             <tr><td>Y5 EBIT</td><td class="num-col">$2.75M</td><td>Y5 revenue × Y5 EBIT margin</td></tr>
             <tr class="highlight"><td>DCF equity value · 2031</td><td class="num-col">$12.43M</td><td>Same WACC/terminal/multiple as Acquisition base case</td></tr>
